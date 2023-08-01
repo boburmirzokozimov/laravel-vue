@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function path(): string
     {
-        return '/api/users/' . $this->id;
+        return '/users/' . $this->id;
     }
 }

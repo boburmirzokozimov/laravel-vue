@@ -7,6 +7,7 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
+
     /**
      * A basic feature test example.
      */
@@ -14,7 +15,7 @@ class UserTest extends TestCase
     {
         $this->actingAsAdmin();
 
-        $this->get('/api/users')
+        $this->get('/users')
             ->assertOk();
     }
 
@@ -26,7 +27,7 @@ class UserTest extends TestCase
 
         $new_user = User::factory(['remember_token' => null])->raw();
 
-        $this->post('/api/users', $new_user)
+        $this->post('/users', $new_user)
             ->assertStatus(204);
 
         $this->assertDatabaseHas('users', $new_user);
@@ -40,7 +41,7 @@ class UserTest extends TestCase
         $user = User::factory()->create();
 
         $this->delete($user->path())
-            ->assertOk();
+            ->assertRedirect();
 
         $this->assertDatabaseMissing('users', [
             'id' => $user->id

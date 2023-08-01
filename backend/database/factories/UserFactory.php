@@ -21,7 +21,7 @@ class UserFactory extends Factory
         return [
             'full_name' => fake()->name(),
             'country' => fake()->country(),
-            'phone' => 1234567890,
+            'phone' => fake()->randomNumber(9, true),
             'remember_token' => Str::random(10),
         ];
     }

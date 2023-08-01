@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-danger {
+    @apply px-3 py-1 bg-blue-700 rounded text-white
+}
+
+.btn-edit {
+    @apply px-3 py-1 bg-red-700 rounded text-white
+}
+
+.btn-success {
+    @apply px-4 py-2 bg-green-600 rounded text-white
+}

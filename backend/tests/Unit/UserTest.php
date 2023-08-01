@@ -17,6 +17,6 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $this->assertEquals('/api/users/' . $user->id, $user->path());
+        $this->assertEquals('/users/' . $user->id, $user->path());
     }
 }
