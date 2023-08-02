@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Countries;
+use App\Models\Country;
+use App\Models\Role;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -29,16 +31,28 @@ class UserController extends Controller
                     'phone' => $user->phone,
                     'is_active' => $user->is_active,
                     'is_banned' => $user->is_banned,
-                    'last_visited' => Carbon::create($user->last_visited)->diffForHumans()
+                    'last_visited' => Carbon::create($user->last_visited)->diffForHumans(),
+                    'role' => $user->role()
                 ]),
-            'countries' => Countries::all()
+            'countries' => Country::all(),
+            'roles' => Role::all(),
+            'can' => [
+                'create_user' => Auth::user()->role->hasPermissionTo('create'),
+                'edit_user' => Auth::user()->role->hasPermissionTo('edit')
+            ]
         ]);
     }
 
     public function create()
     {
+        $this->authorize('create', \request()->user());
+        
         return Inertia::render('Users/Create')->with([
-            'countries' => Countries::all('id', 'name')
+            'countries' => Country::all('id', 'name'),
+            'roles' => Role::all(),
+            'can' => [
+                'create_user' => Auth::user()->role->hasPermissionTo('create'),
+            ]
         ]);
     }
 
@@ -50,7 +64,8 @@ class UserController extends Controller
         $request->validate([
             'full_name' => 'string|required',
             'phone' => 'required|numeric|min:10',
-            'country' => 'required|string'
+            'country' => 'required|string',
+            'role_id' => 'int|exists:roles,id'
         ]);
 
         User::query()->create($request->toArray());

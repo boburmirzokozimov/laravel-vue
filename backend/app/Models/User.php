@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,7 +24,8 @@ class User extends Authenticatable
         'country',
         'login_code',
         'is_active',
-        'is_banned'
+        'is_banned',
+        'role_id'
     ];
 
     /**
@@ -51,5 +53,15 @@ class User extends Authenticatable
     public function path(): string
     {
         return '/users/' . $this->id;
+    }
+
+    public function assignRole(int $role): void
+    {
+        $this->role_id = $role;
+    }
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
     }
 }

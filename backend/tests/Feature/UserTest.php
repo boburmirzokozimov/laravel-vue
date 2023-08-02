@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Role;
 use App\Models\User;
 use Tests\TestCase;
 
@@ -13,6 +14,7 @@ class UserTest extends TestCase
      */
     public function test_admin_can_see_all_users(): void
     {
+        $this->withoutExceptionHandling();
         $this->actingAsAdmin();
 
         $this->get('/users')
@@ -25,12 +27,19 @@ class UserTest extends TestCase
 
         $this->actingAsAdmin();
 
-        $new_user = User::factory(['remember_token' => null])->raw();
+        $role = Role::create(['name' => 'admin']);
 
-        $this->post('/users', $new_user)
-            ->assertStatus(204);
+        $data = [
+            'full_name' => 'string|required',
+            'phone' => 123456789,
+            'country' => 'required|string',
+            'role_id' => $role->id
+        ];
 
-        $this->assertDatabaseHas('users', $new_user);
+        $this->post('/users', $data)
+            ->assertRedirect();
+
+        $this->assertDatabaseHas('users', $data);
     }
 
     public function test_admin_can_delete_the_user(): void

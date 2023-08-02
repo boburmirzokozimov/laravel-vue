@@ -8,13 +8,13 @@
             </div>
 
             <div>
-                <NavLink class="btn-success" href="/users/create">
+                <NavLink v-if="can.create_user" class="btn-success" href="/users/create">
                     Create
                 </NavLink>
             </div>
         </div>
 
-        <Table :countries="props.countries" :users="props.users.data"/>
+        <Table :countries="props.countries" :roles="roles" :users="props.users.data"/>
     </div>
 
 </template>
@@ -26,5 +26,7 @@ import NavLink from "@/Components/NavLink.vue";
 const props = defineProps({
     users: Object,
     countries: Object,
+    roles: Object,
+    can: Array
 })
 </script>

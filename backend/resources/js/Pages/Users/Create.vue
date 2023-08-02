@@ -8,11 +8,13 @@ const toaster = createToaster({ /* options */});
 const props = defineProps({
     user: Object,
     countries: Object,
+    roles: Object,
 })
 let form = useForm({
     full_name: '',
     phone: '',
     country: '',
+    role: '',
 })
 
 const handleSubmit = () => {
@@ -86,6 +88,15 @@ const handleSubmit = () => {
                     <option v-for="country in props.countries" :value="country.name" v-text="country.name"></option>
                 </select>
                 <div v-if="form.errors.country" class="text-red-500 text-sm">{{ form.errors.country }}</div>
+            </div>
+
+            <div class="mb-6">
+                <select id="role" v-model="form.role" class="border border-gray-200 p-2 w-full rounded-2xl"
+                        name="role"
+                        required>
+                    <option v-for="role in props.roles" :value="role.id" v-text="role.name.toUpperCase()"></option>
+                </select>
+                <div v-if="form.errors.role" class="text-red-500 text-sm">{{ form.errors.role }}</div>
             </div>
 
 

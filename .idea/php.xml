@@ -121,10 +121,10 @@
       <path value="$PROJECT_DIR$/backend/vendor/nette/schema" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/cli-parser" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/backend/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/backend/vendor/inertiajs/inertia-laravel" />
       <path value="$PROJECT_DIR$/backend/vendor/laravel/breeze" />
       <path value="$PROJECT_DIR$/backend/vendor/tightenco/ziggy" />
+      <path value="$PROJECT_DIR$/backend/vendor/_laravel_idea" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

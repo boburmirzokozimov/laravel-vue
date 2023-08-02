@@ -9,6 +9,7 @@ const toaster = createToaster({ /* options */});
 const props = defineProps({
     users: Array,
     countries: Array,
+    roles: Array
 })
 
 const active = ref(false)
@@ -33,7 +34,7 @@ const closeModal = () => {
 <template>
     <div class="flex flex-col">
         <div class="sm:mx-0.5 lg:mx-0.5">
-            <div class="py-2 inline-block w-[1200px] sm:px-6 lg:px-8">
+            <div class="py-2 inline-block mx-auto sm:px-6 lg:px-8">
                 <div class="overflow-hidden">
                     <table class="min-w-full">
                         <thead class="bg-gray-200 border-b">
@@ -43,6 +44,9 @@ const closeModal = () => {
                             </th>
                             <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
                                 Full Name
+                            </th>
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                                Role
                             </th>
                             <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
                                 Last Seen
@@ -77,6 +81,10 @@ const closeModal = () => {
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                                v-text="user?.role[0]?.toUpperCase()"
+                            ></td>
+                            <td
+                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                                 v-text="user.last_visited"
                             ></td>
                             <td
@@ -85,7 +93,7 @@ const closeModal = () => {
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="`${user.country.slice(0,20)}...`"
+                                v-text="`${user?.country?.slice(0,20)}...`"
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light py-4 whitespace-nowrap "

@@ -17,10 +17,15 @@ return new class extends Migration {
             $table->string('country')->nullable();
             $table->boolean('is_active')->default(false);
             $table->boolean('is_banned')->default(false);
+            $table->unsignedInteger('role_id')->nullable();
             $table->string('login_code')->nullable();
             $table->rememberToken();
             $table->timestamp('last_visited')->nullable();
             $table->timestamps();
+
+            $table->foreign('role_id')
+                ->on('roles')
+                ->references('id');
         });
     }
 

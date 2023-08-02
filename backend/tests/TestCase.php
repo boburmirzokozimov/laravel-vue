@@ -11,7 +11,7 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
     use RefreshDatabase;
 
-    public function actingAsAdmin()
+    public function actingAsAdmin(): void
     {
         $this->actingAs(User::factory()->create());
     }
