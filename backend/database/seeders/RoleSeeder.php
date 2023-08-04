@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Permission;
-use App\Models\Role;
-use App\Models\User;
+use App\Models\User\Permission;
+use App\Models\User\Role;
+use App\Models\User\User;
 use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder
@@ -14,23 +14,36 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $role = Role::create(['name' => 'admin']);
+        $admin = Role::create(['name' => 'admin']);
+        $moderator = Role::create(['name' => 'moderator']);
+        $operator = Role::create(['name' => 'operator']);
+
         $edit = Permission::create(['ability' => 'edit']);
         $see = Permission::create(['ability' => 'see']);
         $delete = Permission::create(['ability' => 'delete']);
         $create = Permission::create(['ability' => 'create']);
 
-        $role->givePermissionTo($edit);
-        $role->givePermissionTo($see);
-        $role->givePermissionTo($delete);
-        $role->givePermissionTo($create);
+        $admin->givePermissionTo($create);
+        $admin->givePermissionTo($edit);
+        $admin->givePermissionTo($see);
+        $admin->givePermissionTo($delete);
+
+        $moderator->givePermissionTo($create);
+        $moderator->givePermissionTo($edit);
+        $moderator->givePermissionTo($see);
+        $moderator->givePermissionTo($delete);
+
+        $operator->givePermissionTo($create);
+        $operator->givePermissionTo($edit);
+        $operator->givePermissionTo($see);
+        $operator->givePermissionTo($delete);
 
         $user = User::factory([
             'full_name' => 'Boburmirzo Kozimov',
             'phone' => 998000000000
         ])->create();
 
-        $user->assignRole($role->id);
+        $user->assignRole($admin->id);
 
         $user->save();
     }

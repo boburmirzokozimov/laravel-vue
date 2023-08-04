@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Models\Permission;
-use App\Models\Role;
+use App\Models\User\Permission;
+use App\Models\User\Role;
 use Tests\TestCase;
 
 class RolePermissionTest extends TestCase

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -44,11 +45,14 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
         'is_active' => 'boolean',
         'is_banned' => 'boolean',
     ];
+
+    protected static function newFactory(): UserFactory
+    {
+        return new UserFactory();
+    }
 
     public function path(): string
     {
@@ -64,4 +68,6 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+
 }

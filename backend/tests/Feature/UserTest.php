@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Models\Role;
-use App\Models\User;
+use App\Models\User\Role;
+use App\Models\User\User;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -19,6 +19,15 @@ class UserTest extends TestCase
 
         $this->get('/users')
             ->assertOk();
+    }
+
+    public function test_guest_cannot_create_a_new_user(): void
+    {
+        $user = User::factory()->raw();
+
+        $this->post('/users', $user);
+
+        $this->assertDatabaseMissing('users', $user);
     }
 
     public function test_admin_can_create_a_new_user(): void

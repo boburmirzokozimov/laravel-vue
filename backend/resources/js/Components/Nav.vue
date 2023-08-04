@@ -6,10 +6,13 @@ import NavLink from "@/Components/NavLink.vue";
     <nav>
         <ul class="flex space-x-6 ">
             <li>
-                <NavLink :active="$page.component==='Home'" href="/">Home</NavLink>
+                <NavLink :active="$page.component.startsWith('Home')" href="/">Home</NavLink>
             </li>
             <li>
-                <NavLink :active="$page.component==='Users/Index'" href="/users">Users</NavLink>
+                <NavLink :active="$page.component.startsWith('Users')" href="/users">Users</NavLink>
+            </li>
+            <li>
+                <NavLink :active="$page.component.startsWith('Clients')" href="/clients">Clients</NavLink>
             </li>
             <li>
                 <NavLink as="button" href="/logout" method="post">Log Out</NavLink>

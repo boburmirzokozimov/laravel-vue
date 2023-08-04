@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
-use App\Models\Role;
-use App\Models\User;
+use App\Models\Country\Country;
+use App\Models\User\Role;
+use App\Models\User\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +22,7 @@ class UserController extends Controller
                 ->when(\Illuminate\Support\Facades\Request::input('full_name'), function ($query, string $search) {
                     $query->where('full_name', 'LIKE', '%' . $search . '%');
                 })
-                ->latest()
+                ->orderBy('id')
                 ->paginate(10)
                 ->through(fn($user) => [
                     'full_name' => $user->full_name,
@@ -45,8 +45,8 @@ class UserController extends Controller
 
     public function create()
     {
-        $this->authorize('create', \request()->user());
-        
+        $this->authorize('create', User::class);
+
         return Inertia::render('Users/Create')->with([
             'countries' => Country::all('id', 'name'),
             'roles' => Role::all(),
@@ -61,6 +61,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', User::class);
+
         $request->validate([
             'full_name' => 'string|required',
             'phone' => 'required|numeric|min:10',
