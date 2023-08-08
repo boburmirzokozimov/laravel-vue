@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Client;
+namespace App\Http\Controllers\Client\Balance;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ManageBalanceRequest;

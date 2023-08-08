@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client\Client;
+use App\Models\Enum\CreditCardStatusEnumType;
 use App\Models\Enum\StatusEnumType;
 use App\Models\User\User;
 use Carbon\Carbon;
@@ -102,7 +103,54 @@ class ClientController extends Controller
                         'withdraw' => $balance->withdraw,
                         'created_at' => Carbon::create($balance->created_at)->toDateTimeString(),
                     ];
-                })
+                }),
+            'credit_card_requests' => $client->creditCardRequest()
+                ->where('status', CreditCardStatusEnumType::PENDING->name)
+                ->where('anonymous', false)
+                ->get()
+                ->map(function ($cardRequest) {
+                    return [
+                        'id' => $cardRequest->id,
+                        'client_id' => $cardRequest->client_id,
+                        'name' => $cardRequest->name,
+                        'surname' => $cardRequest->surname,
+                        'middle_name' => $cardRequest->middle_name,
+                        'phone' => $cardRequest->phone,
+                        'birth_date' => Carbon::create($cardRequest->birth_date)->format('Y-m-d'),
+                        'scan_passport' => $cardRequest->scan_passport,
+                        'selfie_passport' => $cardRequest->selfie_passport,
+                        'created_at' => Carbon::create($cardRequest->created_at)->format('Y-m-d'),
+                        'anonymous' => $cardRequest->anonymous,
+                        'anonymous_name' => $cardRequest->anonymous_name,
+                        'anonymous_surname' => $cardRequest->anonymous_surname,
+                    ];
+                }),
+            'credit_card_requests_anonymous' => $client->creditCardRequest()
+                ->where('status', CreditCardStatusEnumType::PENDING->name)
+                ->where('anonymous', true)
+                ->get()
+                ->map(function ($cardRequest) {
+                    return [
+                        'id' => $cardRequest->id,
+                        'client_id' => $cardRequest->client_id,
+                        'anonymous' => $cardRequest->anonymous,
+                        'anonymous_name' => $cardRequest->anonymous_name,
+                        'anonymous_surname' => $cardRequest->anonymous_surname,
+                        'created_at' => Carbon::create($cardRequest->created_at)->format('Y-m-d'),
+                    ];
+                }),
+            'credit_cards' => $client->creditCard()
+                ->get()
+                ->map(function ($credit_card) {
+                    return [
+                        'id' => $credit_card->id,
+                        'client_id' => $credit_card->client_id,
+                        'credit_card_request_id' => $credit_card->credit_card_request_id,
+                        'owner_name' => $credit_card->owner_name(),
+                        'card_number' => $credit_card->card_number,
+                        'expire_date' => $credit_card->expire_date,
+                    ];
+                }),
         ]);
     }
 

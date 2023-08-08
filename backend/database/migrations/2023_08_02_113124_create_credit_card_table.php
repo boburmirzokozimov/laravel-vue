@@ -10,21 +10,22 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('credit_card_request', function (Blueprint $table) {
+        Schema::create('credit_cards', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('surname');
-            $table->string('middle_name');
             $table->unsignedInteger('client_id');
-            $table->boolean('status')->default(false);
-            $table->string('phone');
-            $table->string('scan_passport');
-            $table->string('selfie_passport');
-            $table->timestamp('birth_date');
+            $table->string('card_number');
+            $table->string('expire_date');
+            $table->decimal('balance', 10, 2)->default(0);
+            $table->unsignedInteger('credit_card_request_id');
             $table->timestamps();
 
             $table->foreign('client_id')
                 ->on('clients')
+                ->references('id')
+                ->cascadeOnDelete();
+
+            $table->foreign('credit_card_request_id')
+                ->on('credit_card_requests')
                 ->references('id')
                 ->cascadeOnDelete();
         });
@@ -35,6 +36,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('credit_card_request');
+        Schema::dropIfExists('credit_cards');
     }
 };

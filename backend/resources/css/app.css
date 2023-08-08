@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .btn-edit {
-    @apply px-3 py-1 bg-blue-700 rounded text-white
+    @apply px-4 py-2 bg-blue-700 rounded text-white
 }
 
 .btn-danger {
-    @apply px-3 py-1 bg-red-700 rounded text-white
+    @apply px-4 py-2  bg-red-700 rounded text-white
 }
 
 .btn-success {

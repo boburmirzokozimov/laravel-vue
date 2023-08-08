@@ -24,7 +24,7 @@ import {Head} from "@inertiajs/vue3";
         </header>
     </section>
 
-    <section class="w-[1200px] mx-auto p-6">
+    <section class="w-[1500px] mx-auto p-6 text-center">
         <div class="">
             <slot/>
         </div>

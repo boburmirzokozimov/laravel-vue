@@ -2,6 +2,8 @@
 
 namespace App\Models\Client;
 
+use App\Models\Client\CreditCard\CreditCard;
+use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Models\CustomModel;
 use App\Models\Enum\StatusEnumType;
 use Database\Factories\ClientFactory;
@@ -64,4 +66,20 @@ class Client extends CustomModel
             throw new Exception('Не достаточно средств');
         }
     }
+
+    public function saveCardRequest(array $credentials): void
+    {
+        $this->creditCardRequest()->create($credentials);
+    }
+
+    public function creditCardRequest(): HasMany
+    {
+        return $this->hasMany(CreditCardRequest::class);
+    }
+
+    public function creditCard(): HasMany
+    {
+        return $this->hasMany(CreditCard::class);
+    }
+
 }

@@ -30,19 +30,19 @@ const closeModal = () => {
                     <table class="min-w-full">
                         <thead class="bg-gray-200 border-b">
                         <tr>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
                                 #
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
                                 Date
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
                                 Sum
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
                                 Type
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
                                 Action
                             </th>
                         </tr>
