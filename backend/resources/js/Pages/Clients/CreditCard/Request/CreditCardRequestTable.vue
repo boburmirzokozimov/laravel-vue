@@ -123,6 +123,7 @@ const closeModal = () => {
                                         Редактировать
                                     </button>
                                     <button
+                                        v-if="$page.props.is_manager"
                                         class="mt-1 btn-success"
                                         @click="()=>handleActivateButton(credit_card_request.id)">Активоровать
                                     </button>

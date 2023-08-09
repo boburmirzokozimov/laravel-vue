@@ -5,6 +5,7 @@ namespace App\Models\Client\CreditCard;
 use App\Models\Client\Client;
 use App\Models\CustomModel;
 use Database\Factories\CreditCardFactory;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -45,5 +46,21 @@ class CreditCard extends CustomModel
     public function cardTransactions(): HasMany
     {
         return $this->hasMany(CardTransaction::class);
+    }
+
+    public function depositBalance(int $sum): void
+    {
+        $this->balance += $sum;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function withdrawBalance(int $sum): void
+    {
+        $this->balance -= $sum;
+        if ($this->balance < 0) {
+            throw new Exception('Недостаточно средств');
+        }
     }
 }

@@ -15,28 +15,29 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $admin = Role::create(['name' => 'admin']);
-        $moderator = Role::create(['name' => 'moderator']);
+        $manager = Role::create(['name' => 'manager']);
         $operator = Role::create(['name' => 'operator']);
 
         $edit = Permission::create(['ability' => 'edit']);
         $see = Permission::create(['ability' => 'see']);
         $delete = Permission::create(['ability' => 'delete']);
         $create = Permission::create(['ability' => 'create']);
+        $accept = Permission::create(['ability' => 'accept']);
 
         $admin->givePermissionTo($create);
         $admin->givePermissionTo($edit);
         $admin->givePermissionTo($see);
         $admin->givePermissionTo($delete);
+        $admin->givePermissionTo($accept);
 
-        $moderator->givePermissionTo($create);
-        $moderator->givePermissionTo($edit);
-        $moderator->givePermissionTo($see);
-        $moderator->givePermissionTo($delete);
+        $manager->givePermissionTo($create);
+        $manager->givePermissionTo($edit);
+        $manager->givePermissionTo($see);
+        $manager->givePermissionTo($accept);
 
         $operator->givePermissionTo($create);
         $operator->givePermissionTo($edit);
         $operator->givePermissionTo($see);
-        $operator->givePermissionTo($delete);
 
         $user = User::factory([
             'full_name' => 'Boburmirzo Kozimov',

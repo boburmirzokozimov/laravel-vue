@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('card_transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('credit_card_id');
+            $table->unsignedInteger('client_id');
             $table->decimal('sum', 10, 2)->default(0);
             $table->enum('type', ['SEPA', 'SWIFT'])->default('SEPA');
             $table->enum('status', ['OPEN', 'CLOSED'])->default('OPEN');
@@ -23,6 +24,10 @@ return new class extends Migration {
 
             $table->foreign('credit_card_id')
                 ->on('credit_cards')
+                ->references('id')
+                ->cascadeOnDelete();
+            $table->foreign('client_id')
+                ->on('clients')
                 ->references('id')
                 ->cascadeOnDelete();
         });

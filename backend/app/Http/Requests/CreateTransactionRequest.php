@@ -23,6 +23,7 @@ class CreateTransactionRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
+            'client_id' => 'exists:clients,id',
             'sum' => 'numeric',
             'type' => 'in:SEPA,SWIFT',
             'withdraw' => 'boolean|required',
@@ -31,6 +32,7 @@ class CreateTransactionRequest extends FormRequest
 
         if ($this->request->get('withdraw')) {
             $rules = [
+                'client_id' => 'exists:clients,id',
                 'sum' => 'numeric|required',
                 'type' => 'required|in:SEPA,SWIFT',
                 'invoice_file' => 'file|required',

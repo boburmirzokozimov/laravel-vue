@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Client\CreditCard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTransactionRequest;
 use App\Http\Requests\CreditCardRequest;
+use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Services\CreditCardService;
+use Exception;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class CreditCardController extends Controller
@@ -38,8 +41,23 @@ class CreditCardController extends Controller
     public function manage(CreateTransactionRequest $request, CreditCard $card)
     {
         $this->service->createTransaction($request->validated(), $card);
-        $card->createTransaction($request->validated());
 
         return to_route('clients.show', ['client' => $card->client->id]);
+    }
+
+    public function accept(CreditCard $card, CardTransaction $cardTransaction)
+    {
+        try {
+            DB::beginTransaction();
+            $this->service->acceptTransaction($card, $cardTransaction);
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->withErrors([
+                'message' => $e->getMessage(),
+            ]);
+        }
+
+        return back();
     }
 }

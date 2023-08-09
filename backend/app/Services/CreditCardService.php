@@ -3,8 +3,11 @@
 namespace App\Services;
 
 use App\Models\Client\Client;
+use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
+use App\Models\Enum\StatusEnumType;
+use Exception;
 use Illuminate\Http\UploadedFile;
 
 class CreditCardService
@@ -66,4 +69,18 @@ class CreditCardService
         $card->createTransaction($validated);
     }
 
+    /**
+     * @throws Exception
+     */
+    public function acceptTransaction(CreditCard $card, CardTransaction $cardTransaction): void
+    {
+        if ($cardTransaction->withdraw) {
+            $card->withdrawBalance($cardTransaction->sum);
+        } else {
+            $card->depositBalance($cardTransaction->sum);
+        }
+        $cardTransaction->status = StatusEnumType::CLOSED->name;
+        $cardTransaction->save();
+        $card->save();
+    }
 }

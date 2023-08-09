@@ -38,6 +38,9 @@ const closeModal = () => {
                                 Владелец
                             </th>
                             <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                                Баланс
+                            </th>
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
                                 Номер Карты
                             </th>
                             <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
@@ -60,6 +63,10 @@ const closeModal = () => {
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                                 v-text="credit_card.owner_name"
+                            ></td>
+                            <td
+                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                                v-text="credit_card.balance"
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"

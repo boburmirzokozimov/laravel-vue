@@ -146,9 +146,26 @@ class ClientController extends Controller
                         'id' => $credit_card->id,
                         'client_id' => $credit_card->client_id,
                         'credit_card_request_id' => $credit_card->credit_card_request_id,
+                        'balance' => $credit_card->balance,
                         'owner_name' => $credit_card->owner_name(),
                         'card_number' => $credit_card->card_number,
                         'expire_date' => $credit_card->expire_date,
+                    ];
+                }),
+            'credit_card_transactions' => $client->cardTransactions()
+                ->get()
+                ->map(function ($credit_card_transactions) {
+                    return [
+                        'id' => $credit_card_transactions->id,
+                        'client_id' => $credit_card_transactions->client_id,
+                        'status' => $credit_card_transactions->status,
+                        'credit_card_id' => $credit_card_transactions->credit_card_id,
+                        'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
+                        'type' => $credit_card_transactions->type,
+                        'invoice_file' => $credit_card_transactions->invoice_file,
+                        'card_number' => $credit_card_transactions->card_number,
+                        'withdraw' => $credit_card_transactions->withdraw,
+                        'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
                     ];
                 }),
         ]);

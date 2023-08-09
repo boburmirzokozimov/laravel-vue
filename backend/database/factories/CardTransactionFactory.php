@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Client\Client;
 use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Model;
@@ -22,6 +23,7 @@ class CardTransactionFactory extends Factory
     public function definition(): array
     {
         return [
+            'client_id' => Client::factory(),
             'credit_card_id' => CreditCard::factory(),
             'sum' => fake()->numberBetween(0, 10000000),
             'type' => fake()->randomElement(['SEPA', 'SWIFT']),

@@ -80,6 +80,7 @@ const closeModal = () => {
                                         Редактировать
                                     </button>
                                     <button
+                                        v-if="$page.props.is_manager"
                                         class=" btn-success w-1/2"
                                         @click="()=>handleActivateButton(credit_card_request.id)"
                                     >Активоровать

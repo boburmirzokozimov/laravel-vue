@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Client\Balance\DownloadFileController;
 use App\Http\Controllers\Client\Balance\ManageBalanceController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\CreditCard\CreditCardController;
@@ -56,6 +57,11 @@ Route::middleware('auth')->group(function () {
         ->name('credit-cards.create');
     Route::post('credit-cards/{creditCard}/manage', [CreditCardController::class, 'manage'])
         ->name('credit-cards.update');
+    Route::patch('credit-cards/{creditCard}/manage/{cardTransaction}', [CreditCardController::class, 'accept'])
+        ->name('credit-cards.accept');
+
+    Route::post('download', [DownloadFileController::class, 'download'])
+        ->name('download-file');
 });
 
 Route::get('/login', [LoginController::class, 'create'])->name('login');

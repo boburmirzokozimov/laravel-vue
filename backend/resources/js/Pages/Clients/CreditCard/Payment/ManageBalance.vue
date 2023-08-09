@@ -10,6 +10,7 @@ const props = defineProps({
 })
 
 const form = useForm({
+    client_id: props.card.client_id,
     sum: 0,
     type: "SEPA",
     invoice_file: null,

@@ -2,6 +2,7 @@
 
 namespace App\Models\Client;
 
+use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Models\CustomModel;
@@ -82,4 +83,8 @@ class Client extends CustomModel
         return $this->hasMany(CreditCard::class);
     }
 
+    public function cardTransactions(): HasMany
+    {
+        return $this->hasMany(CardTransaction::class);
+    }
 }
