@@ -15,6 +15,12 @@ import NavLink from "@/Components/NavLink.vue";
                 <NavLink :active="$page.component.startsWith('Clients')" href="/clients">Clients</NavLink>
             </li>
             <li>
+                <NavLink :active="$page.component.startsWith('Couriers')" href="/couriers">Couriers</NavLink>
+            </li>
+            <li>
+                <NavLink :active="$page.component.startsWith('Chat')" href="/chat">Chat</NavLink>
+            </li>
+            <li>
                 <NavLink as="button" href="/logout" method="post">Log Out</NavLink>
             </li>
         </ul>

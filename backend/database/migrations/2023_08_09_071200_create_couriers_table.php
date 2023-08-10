@@ -15,8 +15,9 @@ return new class extends Migration {
             $table->string('country');
             $table->string('fullName');
             $table->string('phone');
+            $table->string('login_code')->nullable();
             $table->enum('status', ['active', 'inactive', 'blocked'])->default('active');
-            $table->timestamp('lastSeen')->nullable();
+            $table->timestamp('last_visited')->nullable();
             $table->timestamps();
         });
     }

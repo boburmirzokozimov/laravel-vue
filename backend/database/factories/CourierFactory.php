@@ -18,7 +18,7 @@ class CourierFactory extends Factory
             'country' => fake()->country(),
             'fullName' => fake()->name(),
             'phone' => fake()->randomNumber(9, true),
-            'lastSeen' => fake()->date(),
+            'last_visited' => fake()->date(),
             'status' => fake()->randomElement(['active', 'inactive', 'blocked']),
         ];
     }

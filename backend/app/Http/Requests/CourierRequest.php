@@ -26,7 +26,7 @@ class CourierRequest extends FormRequest
             'country' => 'required|string',
             'fullName' => 'string|required',
             'phone' => 'numeric|required',
-            'status' => 'in:ACTIVE,INACTIVE,BLOCKED|required',
+            'status' => 'in:active,inactive,blocked|required',
         ];
     }
 }

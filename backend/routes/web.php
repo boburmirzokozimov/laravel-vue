@@ -6,6 +6,7 @@ use App\Http\Controllers\Client\Balance\ManageBalanceController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\CreditCard\CreditCardController;
 use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
+use App\Http\Controllers\Courier\CourierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -62,6 +63,17 @@ Route::middleware('auth')->group(function () {
 
     Route::post('download', [DownloadFileController::class, 'download'])
         ->name('download-file');
+
+    Route::get('/couriers', [CourierController::class, 'index'])
+        ->name('couriers');
+    Route::post('/couriers', [CourierController::class, 'store'])
+        ->name('couriers.store');
+    Route::patch('/couriers/{courier}', [CourierController::class, 'update'])
+        ->name('couriers.update');
+    Route::delete('/couriers/{courier}', [CourierController::class, 'destroy'])
+        ->name('couriers.destroy');
+    Route::post('/couriers/{courier}/status', [CourierController::class, 'status'])
+        ->name('couriers.status');
 });
 
 Route::get('/login', [LoginController::class, 'create'])->name('login');

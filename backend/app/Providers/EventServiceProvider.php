@@ -20,8 +20,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         Login::class => [
-            AddLastLoggedInDate::class
-        ]
+            AddLastLoggedInDate::class,
+        ],
     ];
 
     /**
