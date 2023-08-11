@@ -17,5 +17,4 @@ export default {
         links: Array
     }
 }
-
 </script>

@@ -12,8 +12,8 @@ export default defineComponent({
 
 <template>
     <Link
-        :class="{'font-bold underline' : active}"
-        class="text-black hover:underline"
+        :class="{'font-bold text-white' : active}"
+        class=" hover:underline"
     >
         <slot/>
     </Link>

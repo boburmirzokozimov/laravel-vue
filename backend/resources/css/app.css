@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    color: #3e444a;
+    background-color: #f2f2f2
+}
+
+.base_color {
+    color: #f2f2f2
+}
+
+i {
+    @apply text-gray-400
+}
+
 .btn-edit {
     @apply px-4 py-2 bg-blue-700 rounded text-white
 }

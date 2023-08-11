@@ -1,6 +1,7 @@
 <script setup>
-import Nav from "@/Components/Nav.vue";
 import {Head} from "@inertiajs/vue3";
+import Header from "@/Components/Header/Header.vue";
+import SideBar from "@/Components/SideBar/SideBar.vue";
 </script>
 
 <template>
@@ -12,18 +13,12 @@ import {Head} from "@inertiajs/vue3";
         >
     </Head>
 
-    <section class="p-6 bg-gray-200 ">
-        <header class="flex items-center justify-between max-w-7xl mx-auto">
-            <div class="flex items-center">
-                <h1 class="font-bold text-lg mr-4">My app</h1>
-                <p>
-                    Welcome Back, {{ $page.props.auth.user.full_name ?? $page.props.auth.user.phone }}
-                </p>
-            </div>
-            <Nav/>
-        </header>
+    <section class="p-4 bg-white">
+        <Header/>
     </section>
-
+    <aside>
+        <SideBar/>
+    </aside>
     <section class="w-[1500px] mx-auto p-6 text-center">
         <div class="">
             <slot/>
@@ -31,3 +26,17 @@ import {Head} from "@inertiajs/vue3";
     </section>
 
 </template>
+
+<style lang="scss">
+.header-left {
+    @apply flex items-center relative;
+    transition: 1s ease all;
+}
+
+.popup {
+    transform: translateY(60%);
+    @apply absolute py-4 px-2 bg-white shadow rounded-xl;
+    transition: 6s ease all;
+    width: 200px;
+}
+</style>

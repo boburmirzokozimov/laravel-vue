@@ -1,4 +1,6 @@
 import '../css/app.css';
+import './bootstrap.js'
+import 'font-awesome/scss/font-awesome.scss'
 
 import {createApp, h} from 'vue';
 import {createInertiaApp, Head, Link} from '@inertiajs/vue3';

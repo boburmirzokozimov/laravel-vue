@@ -2,6 +2,7 @@
 
 namespace App\Models\Client;
 
+use App\Models\Chat\Message;
 use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
@@ -11,6 +12,7 @@ use Database\Factories\ClientFactory;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Client extends CustomModel
 {
@@ -86,5 +88,10 @@ class Client extends CustomModel
     public function cardTransactions(): HasMany
     {
         return $this->hasMany(CardTransaction::class);
+    }
+
+    public function messages(): MorphOne
+    {
+        return $this->morphOne(Message::class, 'messageble');
     }
 }

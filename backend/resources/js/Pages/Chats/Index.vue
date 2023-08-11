@@ -1,0 +1,32 @@
+<script setup>
+import ChatRooms from "@/Pages/Chats/ChatRooms.vue";
+
+const props = defineProps({
+    chat_rooms: Object
+})
+
+Echo.private(`chatRooms`)
+    .listen('ChatRoomCreated', (e) => {
+        console.log(e)
+        // props.chat_room.messages.push(JSON.parse(e.message))
+    });
+
+
+</script>
+
+<template>
+    <div class="bg-gray-200 rounded-xl p-6">
+        <div class="mt-6 mb-6">
+            <h2 class="mt-6 text-2xl font-semibold italic">
+                Chats
+            </h2>
+        </div>
+
+        <ChatRooms :chat_rooms="props.chat_rooms"/>
+
+    </div>
+</template>
+
+<style scoped>
+
+</style>
