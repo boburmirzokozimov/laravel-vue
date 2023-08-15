@@ -48,7 +48,7 @@ class AuthController extends Controller
     }
 
     //TODO handle Auth Controller
-    
+
 
     /**
      * Refresh a token.
@@ -60,5 +60,10 @@ class AuthController extends Controller
         return response()->json([
             'data' => $this->tokenService->refreshToken($request)
         ]);
+    }
+
+    public function me(Request $request)
+    {
+        
     }
 }
