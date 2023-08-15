@@ -23,6 +23,7 @@ class ClientFactory extends Factory
             'full_name' => fake()->name(),
             'phone' => fake()->randomNumber(9, true),
             'auth_key' => fake()->sentence(),
+            'uuid' => fake()->sentence(),
             'is_active' => fake()->boolean
         ];
     }

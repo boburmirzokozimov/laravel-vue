@@ -6,17 +6,20 @@ use App\Models\Chat\Message;
 use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
-use App\Models\CustomModel;
 use App\Models\Enum\StatusEnumType;
+use App\Models\RefreshToken\RefreshToken;
 use Database\Factories\ClientFactory;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Client extends CustomModel
+class Client extends Authenticatable
 {
     use HasFactory;
+
+    protected $guarded = false;
 
     protected $casts = [
         'is_active' => 'boolean',
@@ -93,5 +96,17 @@ class Client extends CustomModel
     public function messages(): MorphOne
     {
         return $this->morphOne(Message::class, 'messageble');
+    }
+
+    public function storeRefreshToken(string $refresh_token)
+    {
+        return $this->refreshToken()->create([
+            'refresh_token' => $refresh_token
+        ]);
+    }
+
+    public function refreshToken(): MorphOne
+    {
+        return $this->morphOne(RefreshToken::class, 'tokenable');
     }
 }

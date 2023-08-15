@@ -144,6 +144,7 @@
       <path value="$PROJECT_DIR$/backend/vendor/evenement/evenement" />
       <path value="$PROJECT_DIR$/backend/vendor/laravel/prompts" />
       <path value="$PROJECT_DIR$/backend/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/backend/vendor/rbdwllr/reallysimplejwt" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

@@ -13,9 +13,11 @@ return new class extends Migration {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('full_name');
+            $table->string('uuid')->unique();
             $table->string('phone');
+            $table->string('access_token')->nullable();
             $table->boolean('is_active')->default(false);
-            $table->string('auth_key');
+            $table->string('auth_key')->nullable();
             $table->string('comments')->nullable();
             $table->decimal('balance', 10, 2)->default(0);
             $table->timestamp('last_visited')->nullable();

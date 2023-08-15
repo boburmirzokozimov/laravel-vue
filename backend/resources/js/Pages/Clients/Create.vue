@@ -2,6 +2,7 @@
 import {Head, useForm} from "@inertiajs/vue3";
 import {vMaska} from "maska"
 import {createToaster} from "@meforma/vue-toaster";
+import {onMounted} from "vue";
 
 const toaster = createToaster({ /* options */});
 
@@ -10,6 +11,16 @@ let form = useForm({
     phone: '',
     comments: '',
     auth_key: '',
+})
+
+onMounted(() => {
+    function randomString(length, chars) {
+        let result = '';
+        for (let i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+        return result;
+    }
+
+    form.auth_key = randomString(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 })
 
 const handleSubmit = () => {
