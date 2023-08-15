@@ -1,1 +1,0 @@
-import{_ as s,q as n,o,c as a,a as c,w as l,F as _,b as e}from"./app-1e5e4c30.js";const r={},d=e("title",null,"Settings",-1),i=e("div",null,[e("h1",{class:"text-3xl"}," Settings ")],-1);function u(f,m){const t=n("Head");return o(),a(_,null,[c(t,null,{default:l(()=>[d]),_:1}),i],64)}const x=s(r,[["render",u]]);export{x as default};
