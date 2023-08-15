@@ -81,7 +81,7 @@ const closeModal = () => {
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="user?.role[0]?.toUpperCase()"
+                                v-text="user?.role.name.toUpperCase()"
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"

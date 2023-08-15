@@ -5,6 +5,7 @@ namespace App\Models\User;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Chat\Message;
 use Database\Factories\UserFactory;
+use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -50,6 +51,16 @@ class User extends Authenticatable
         'is_active' => 'boolean',
         'is_banned' => 'boolean',
     ];
+
+    public static function scopePhone(Builder $query, string $phone)
+    {
+        return $query->where('phone', $phone);
+    }
+
+    public static function scopePhoneAndCode(Builder $query, string $phone, string $code)
+    {
+        return $query->where('phone', $phone)->where('login_code', $code);
+    }
 
     protected static function newFactory(): UserFactory
     {

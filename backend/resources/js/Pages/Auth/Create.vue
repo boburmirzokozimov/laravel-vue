@@ -1,7 +1,11 @@
 <script>
+import {createToaster} from "@meforma/vue-toaster";
+
 export default {
     layout: null
 }
+const toaster = createToaster({ /* options */});
+
 </script>
 
 <script setup>
@@ -29,10 +33,12 @@ const handleSubmit = () => {
                     .replace(')', '')
             }))
             .post('/submit', {
-                onSuccess: () => is_submitted.value = true,
+                onSuccess: (e) => {
+                    console.log(e)
+                    is_submitted.value = true
+                },
             })
     } else {
-        console.log("verify")
         form
             .transform((data) => ({
                 ...data,
@@ -54,14 +60,15 @@ const handleSubmit = () => {
     </Head>
 
     <main class="flex justify-center items-center min-h-screen">
-        <section class="max-w-full mx-auto px-4">
-            <form class="border px-6 py-4 rounded-2xl" method="post"
+        <section class="max-w-full mx-auto px-4 base_color">
+            <form class="border px-6 py-4 rounded-2xl " method="post"
+                  style="background-color: #3e444a;"
                   @submit.prevent="handleSubmit">
                 <h1 class="mb-6">Enter your phone number</h1>
 
                 <div class="mb-6">
                     <label
-                        class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                        class="block mb-2 uppercase font-bold text-sm base_color"
                         for="phone"
                     >
                         Phone
@@ -70,7 +77,7 @@ const handleSubmit = () => {
                         id="phone"
                         v-model="form.phone"
                         v-maska
-                        class="border border-gray-200 p-2 w-full rounded-2xl"
+                        class="border border-gray-200 p-2 w-full rounded-2xl text-black"
                         data-maska="+998 (##) ###-##-##"
                         name="phone"
                         required
@@ -81,7 +88,7 @@ const handleSubmit = () => {
 
                 <div class="mb-6">
                     <label
-                        class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                        class="block mb-2 uppercase font-bold text-sm base_color"
                         for="login_code"
                     >
                         Code
@@ -92,7 +99,7 @@ const handleSubmit = () => {
                         v-model="form.login_code"
                         v-maska
                         :disabled="!is_submitted"
-                        class="border border-gray-200 p-2 w-full rounded-2xl"
+                        class="border border-gray-200 p-2 w-full rounded-2xl text-black"
                         data-maska="####"
                         name="login_code"
                         required

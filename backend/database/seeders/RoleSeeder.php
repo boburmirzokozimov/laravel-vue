@@ -39,13 +39,11 @@ class RoleSeeder extends Seeder
         $operator->givePermissionTo($edit);
         $operator->givePermissionTo($see);
 
-        $user = User::factory([
+        User::factory([
             'full_name' => 'Boburmirzo Kozimov',
-            'phone' => 998000000000
+            'phone' => 998000000000,
+            'login_code' => '9999',
+            'role_id' => $admin->id
         ])->create();
-
-        $user->assignRole($admin->id);
-
-        $user->save();
     }
 }

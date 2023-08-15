@@ -33,7 +33,7 @@ class UserController extends Controller
                     'is_active' => $user->is_active,
                     'is_banned' => $user->is_banned,
                     'last_visited' => Carbon::create($user->last_visited)->diffForHumans(),
-                    'role' => $user->role()
+                    'role' => $user->role
                 ]),
             'countries' => Country::all(),
             'roles' => Role::all(),
@@ -71,7 +71,12 @@ class UserController extends Controller
             'role_id' => 'int|exists:roles,id'
         ]);
 
-        User::query()->create($request->toArray());
+        User::query()->create([
+            'full_name' => $request->full_name,
+            'phone' => $request->phone,
+            'country' => $request->country,
+            'role_id' => $request->role
+        ]);
 
         return to_route('users');
     }

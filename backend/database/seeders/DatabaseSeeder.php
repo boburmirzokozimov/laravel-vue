@@ -11,10 +11,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CountrySeeder::class);
         $this->call(RoleSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(ClientSeeder::class);
-        $this->call(BalanceRequestSeeder::class);
-        $this->call(CreditCardSeeder::class);
-        $this->call(CourierSeeder::class);
+//        $this->call(UserSeeder::class);
+//        $this->call(ClientSeeder::class);
+//        $this->call(BalanceRequestSeeder::class);
+//        $this->call(CreditCardSeeder::class);
+//        $this->call(CourierSeeder::class);
     }
 }
