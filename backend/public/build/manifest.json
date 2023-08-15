@@ -1,0 +1,497 @@
+{
+  "Modal.css": {
+    "file": "assets/Modal-d196a2df.css",
+    "src": "Modal.css"
+  },
+  "_Modal-35b84230.js": {
+    "css": [
+      "assets/Modal-d196a2df.css"
+    ],
+    "file": "assets/Modal-35b84230.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_maska-6f10db43.js": {
+    "file": "assets/maska-6f10db43.js"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.eot": {
+    "file": "assets/fontawesome-webfont-7bfcab6d.eot",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.eot"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.svg": {
+    "file": "assets/fontawesome-webfont-ad615792.svg",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.svg"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.ttf": {
+    "file": "assets/fontawesome-webfont-aa58f33f.ttf",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.ttf"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.woff": {
+    "file": "assets/fontawesome-webfont-ba0c59de.woff",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.woff"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.woff2": {
+    "file": "assets/fontawesome-webfont-2adefcbc.woff2",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.woff2"
+  },
+  "resources/js/Pages/Auth/Create.vue": {
+    "file": "assets/Create-8363ef76.js",
+    "imports": [
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Auth/Create.vue"
+  },
+  "resources/js/Pages/Chats/ChatRooms.vue": {
+    "file": "assets/ChatRooms-ca796c76.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Chats/ChatRooms.vue"
+  },
+  "resources/js/Pages/Chats/Create.vue": {
+    "file": "assets/Create-58190b9d.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Chats/Create.vue"
+  },
+  "resources/js/Pages/Chats/Index.vue": {
+    "file": "assets/Index-3455af90.js",
+    "imports": [
+      "resources/js/Pages/Chats/ChatRooms.vue",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Chats/Index.vue"
+  },
+  "resources/js/Pages/Chats/Messages.vue": {
+    "file": "assets/Messages-8f70a2e7.js",
+    "imports": [
+      "resources/js/Pages/Chats/Create.vue",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Chats/Messages.vue"
+  },
+  "resources/js/Pages/Clients/BalanceRequest/BalanceRequestTable.vue": {
+    "file": "assets/BalanceRequestTable-28221826.js",
+    "imports": [
+      "_Modal-35b84230.js",
+      "resources/js/Pages/Clients/BalanceRequest/InfoPopUp.vue",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/BalanceRequest/BalanceRequestTable.vue"
+  },
+  "resources/js/Pages/Clients/BalanceRequest/CreateBalanceRequest.vue": {
+    "file": "assets/CreateBalanceRequest-74e7cca8.js",
+    "imports": [
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/BalanceRequest/CreateBalanceRequest.vue"
+  },
+  "resources/js/Pages/Clients/BalanceRequest/InfoPopUp.css": {
+    "file": "assets/InfoPopUp-d6c68265.css",
+    "src": "resources/js/Pages/Clients/BalanceRequest/InfoPopUp.css"
+  },
+  "resources/js/Pages/Clients/BalanceRequest/InfoPopUp.vue": {
+    "css": [
+      "assets/InfoPopUp-d6c68265.css"
+    ],
+    "file": "assets/InfoPopUp-07625997.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/BalanceRequest/InfoPopUp.vue"
+  },
+  "resources/js/Pages/Clients/Create.css": {
+    "file": "assets/Create-3a48584b.css",
+    "src": "resources/js/Pages/Clients/Create.css"
+  },
+  "resources/js/Pages/Clients/Create.vue": {
+    "css": [
+      "assets/Create-3a48584b.css"
+    ],
+    "file": "assets/Create-a6b7b7c4.js",
+    "imports": [
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/Create.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.css": {
+    "file": "assets/ActivateCreditCard-c3b94c94.css",
+    "src": "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.css"
+  },
+  "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue": {
+    "css": [
+      "assets/ActivateCreditCard-c3b94c94.css"
+    ],
+    "file": "assets/ActivateCreditCard-1786d4fe.js",
+    "imports": [
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/CreditCardTable.vue": {
+    "file": "assets/CreditCardTable-bd33b05c.js",
+    "imports": [
+      "_Modal-35b84230.js",
+      "resources/js/Pages/Clients/CreditCard/EditCreditCard.vue",
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/CreditCardTable.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/EditCreditCard.css": {
+    "file": "assets/EditCreditCard-2d48f8f3.css",
+    "src": "resources/js/Pages/Clients/CreditCard/EditCreditCard.css"
+  },
+  "resources/js/Pages/Clients/CreditCard/EditCreditCard.vue": {
+    "css": [
+      "assets/EditCreditCard-2d48f8f3.css"
+    ],
+    "file": "assets/EditCreditCard-09c1cac0.js",
+    "imports": [
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/EditCreditCard.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue": {
+    "file": "assets/CreditCardDepositTable-f9968c94.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue": {
+    "file": "assets/CreditCardTransactionsHistoryTable-5b34e2de.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Payment/CreditCardWithdrawTable.vue": {
+    "file": "assets/CreditCardWithdrawTable-16161576.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Payment/CreditCardWithdrawTable.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Payment/ManageBalance.vue": {
+    "file": "assets/ManageBalance-b244f14d.js",
+    "imports": [
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Payment/ManageBalance.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Request/CreateCreditCardRequest.vue": {
+    "file": "assets/CreateCreditCardRequest-08006a71.js",
+    "imports": [
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Request/CreateCreditCardRequest.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Request/CreditCardRequestTable.vue": {
+    "file": "assets/CreditCardRequestTable-6bba65d9.js",
+    "imports": [
+      "_Modal-35b84230.js",
+      "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/EditCreditCardRequest.vue",
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Request/CreditCardRequestTable.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Request/CreditCardRequestTableAnonymous.vue": {
+    "file": "assets/CreditCardRequestTableAnonymous-f5fecb40.js",
+    "imports": [
+      "_Modal-35b84230.js",
+      "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue",
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Request/CreditCardRequestTableAnonymous.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Request/EditAnonymousCreditCardRequest.css": {
+    "file": "assets/EditAnonymousCreditCardRequest-8f965508.css",
+    "src": "resources/js/Pages/Clients/CreditCard/Request/EditAnonymousCreditCardRequest.css"
+  },
+  "resources/js/Pages/Clients/CreditCard/Request/EditAnonymousCreditCardRequest.vue": {
+    "css": [
+      "assets/EditAnonymousCreditCardRequest-8f965508.css"
+    ],
+    "file": "assets/EditAnonymousCreditCardRequest-2fd1cd2c.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Request/EditAnonymousCreditCardRequest.vue"
+  },
+  "resources/js/Pages/Clients/CreditCard/Request/EditCreditCardRequest.css": {
+    "file": "assets/EditCreditCardRequest-6dc39ca0.css",
+    "src": "resources/js/Pages/Clients/CreditCard/Request/EditCreditCardRequest.css"
+  },
+  "resources/js/Pages/Clients/CreditCard/Request/EditCreditCardRequest.vue": {
+    "css": [
+      "assets/EditCreditCardRequest-6dc39ca0.css"
+    ],
+    "file": "assets/EditCreditCardRequest-d2c6d429.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/CreditCard/Request/EditCreditCardRequest.vue"
+  },
+  "resources/js/Pages/Clients/Edit.css": {
+    "file": "assets/Edit-c9704d5b.css",
+    "src": "resources/js/Pages/Clients/Edit.css"
+  },
+  "resources/js/Pages/Clients/Edit.vue": {
+    "css": [
+      "assets/Edit-c9704d5b.css"
+    ],
+    "file": "assets/Edit-7389b1e7.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/Edit.vue"
+  },
+  "resources/js/Pages/Clients/Index.vue": {
+    "file": "assets/Index-9be5213b.js",
+    "imports": [
+      "resources/js/app.js",
+      "resources/js/Pages/Clients/Edit.vue",
+      "_Modal-35b84230.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/Index.vue"
+  },
+  "resources/js/Pages/Clients/Show.vue": {
+    "file": "assets/Show-af8ec644.js",
+    "imports": [
+      "resources/js/app.js",
+      "resources/js/Pages/Clients/ShowTable.vue",
+      "resources/js/Pages/Clients/CreditCard/CreditCardTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/CreditCardRequestTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/CreditCardRequestTableAnonymous.vue",
+      "resources/js/Pages/Clients/BalanceRequest/BalanceRequestTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Payment/CreditCardWithdrawTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue",
+      "_Modal-35b84230.js",
+      "resources/js/Pages/Clients/CreditCard/EditCreditCard.vue",
+      "_maska-6f10db43.js",
+      "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/EditCreditCardRequest.vue",
+      "resources/js/Pages/Clients/BalanceRequest/InfoPopUp.vue"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/Show.vue"
+  },
+  "resources/js/Pages/Clients/ShowTable.vue": {
+    "file": "assets/ShowTable-493d7431.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Clients/ShowTable.vue"
+  },
+  "resources/js/Pages/Couriers/Create.css": {
+    "file": "assets/Create-cae7ee00.css",
+    "src": "resources/js/Pages/Couriers/Create.css"
+  },
+  "resources/js/Pages/Couriers/Create.vue": {
+    "css": [
+      "assets/Create-cae7ee00.css"
+    ],
+    "file": "assets/Create-81b72822.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Couriers/Create.vue"
+  },
+  "resources/js/Pages/Couriers/Edit.css": {
+    "file": "assets/Edit-633f10c6.css",
+    "src": "resources/js/Pages/Couriers/Edit.css"
+  },
+  "resources/js/Pages/Couriers/Edit.vue": {
+    "css": [
+      "assets/Edit-633f10c6.css"
+    ],
+    "file": "assets/Edit-9e6147be.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Couriers/Edit.vue"
+  },
+  "resources/js/Pages/Couriers/Index.vue": {
+    "file": "assets/Index-ab85410a.js",
+    "imports": [
+      "resources/js/Pages/Couriers/Table.vue",
+      "_Modal-35b84230.js",
+      "resources/js/Pages/Couriers/Create.vue",
+      "resources/js/app.js",
+      "resources/js/Pages/Couriers/Edit.vue"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Couriers/Index.vue"
+  },
+  "resources/js/Pages/Couriers/Table.vue": {
+    "file": "assets/Table-8c8f7b1a.js",
+    "imports": [
+      "resources/js/app.js",
+      "_Modal-35b84230.js",
+      "resources/js/Pages/Couriers/Edit.vue"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Couriers/Table.vue"
+  },
+  "resources/js/Pages/Home.vue": {
+    "file": "assets/Home-a69410b7.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Home.vue"
+  },
+  "resources/js/Pages/Settings.vue": {
+    "file": "assets/Settings-848ac81a.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Settings.vue"
+  },
+  "resources/js/Pages/SomePage/New.vue": {
+    "file": "assets/New-6f66df81.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/SomePage/New.vue"
+  },
+  "resources/js/Pages/Users/Create.css": {
+    "file": "assets/Create-7817471c.css",
+    "src": "resources/js/Pages/Users/Create.css"
+  },
+  "resources/js/Pages/Users/Create.vue": {
+    "css": [
+      "assets/Create-7817471c.css"
+    ],
+    "file": "assets/Create-a7ada9f2.js",
+    "imports": [
+      "resources/js/app.js",
+      "_maska-6f10db43.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Users/Create.vue"
+  },
+  "resources/js/Pages/Users/Edit.css": {
+    "file": "assets/Edit-518cdf3c.css",
+    "src": "resources/js/Pages/Users/Edit.css"
+  },
+  "resources/js/Pages/Users/Edit.vue": {
+    "css": [
+      "assets/Edit-518cdf3c.css"
+    ],
+    "file": "assets/Edit-5661305e.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Users/Edit.vue"
+  },
+  "resources/js/Pages/Users/Index.vue": {
+    "file": "assets/Index-fce2d4ee.js",
+    "imports": [
+      "resources/js/app.js",
+      "resources/js/Pages/Users/Edit.vue",
+      "_Modal-35b84230.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Users/Index.vue"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-ada3bbd5.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "assets": [
+      "assets/fontawesome-webfont-7bfcab6d.eot",
+      "assets/fontawesome-webfont-2adefcbc.woff2",
+      "assets/fontawesome-webfont-ba0c59de.woff",
+      "assets/fontawesome-webfont-aa58f33f.ttf",
+      "assets/fontawesome-webfont-ad615792.svg"
+    ],
+    "css": [
+      "assets/app-ada3bbd5.css"
+    ],
+    "dynamicImports": [
+      "resources/js/Pages/Auth/Create.vue",
+      "resources/js/Pages/Chats/ChatRooms.vue",
+      "resources/js/Pages/Chats/Create.vue",
+      "resources/js/Pages/Chats/Index.vue",
+      "resources/js/Pages/Chats/Messages.vue",
+      "resources/js/Pages/Clients/BalanceRequest/BalanceRequestTable.vue",
+      "resources/js/Pages/Clients/BalanceRequest/CreateBalanceRequest.vue",
+      "resources/js/Pages/Clients/BalanceRequest/InfoPopUp.vue",
+      "resources/js/Pages/Clients/Create.vue",
+      "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue",
+      "resources/js/Pages/Clients/CreditCard/CreditCardTable.vue",
+      "resources/js/Pages/Clients/CreditCard/EditCreditCard.vue",
+      "resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Payment/CreditCardWithdrawTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Payment/ManageBalance.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/CreateCreditCardRequest.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/CreditCardRequestTable.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/CreditCardRequestTableAnonymous.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/EditAnonymousCreditCardRequest.vue",
+      "resources/js/Pages/Clients/CreditCard/Request/EditCreditCardRequest.vue",
+      "resources/js/Pages/Clients/Edit.vue",
+      "resources/js/Pages/Clients/Index.vue",
+      "resources/js/Pages/Clients/Show.vue",
+      "resources/js/Pages/Clients/ShowTable.vue",
+      "resources/js/Pages/Couriers/Create.vue",
+      "resources/js/Pages/Couriers/Edit.vue",
+      "resources/js/Pages/Couriers/Index.vue",
+      "resources/js/Pages/Couriers/Table.vue",
+      "resources/js/Pages/Home.vue",
+      "resources/js/Pages/Settings.vue",
+      "resources/js/Pages/SomePage/New.vue",
+      "resources/js/Pages/Users/Create.vue",
+      "resources/js/Pages/Users/Edit.vue",
+      "resources/js/Pages/Users/Index.vue"
+    ],
+    "file": "assets/app-1e5e4c30.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
