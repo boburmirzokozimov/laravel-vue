@@ -88,11 +88,6 @@ class Client extends Authenticatable
         return $this->hasMany(CreditCard::class);
     }
 
-    public function cardTransactions(): HasMany
-    {
-        return $this->hasMany(CardTransaction::class);
-    }
-
     public function messages(): MorphOne
     {
         return $this->morphOne(Message::class, 'messageble');
@@ -108,5 +103,20 @@ class Client extends Authenticatable
     public function refreshToken(): MorphOne
     {
         return $this->morphOne(RefreshToken::class, 'tokenable');
+    }
+
+    public function isActive(): bool
+    {
+        return $this->is_active;
+    }
+
+    public function transactionHistory()
+    {
+        return $this->cardTransactions()->get();
+    }
+
+    public function cardTransactions(): HasMany
+    {
+        return $this->hasMany(CardTransaction::class);
     }
 }

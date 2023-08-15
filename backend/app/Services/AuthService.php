@@ -6,7 +6,7 @@ use App\Models\Client\Client;
 
 class AuthService
 {
-    public function handleLogin(Client $client): string
+    public function handleLogin(Client $client): array
     {
         $client->update([
             'auth_key' => ''
@@ -21,11 +21,14 @@ class AuthService
 
         $client->storeRefreshToken($refresh_token);
 
-        return $access_token;
+        return [
+            'access_token' => $access_token,
+            'refresh_token' => $refresh_token
+        ];
     }
 
     public function findByToken(?string $bearerToken)
     {
-        
+
     }
 }

@@ -13,6 +13,7 @@ class EnsureTokenIsValid
     {
     }
 
+    
     /**
      * Handle an incoming request.
      *
