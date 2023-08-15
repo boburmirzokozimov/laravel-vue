@@ -19,9 +19,15 @@ class UserController extends Controller
     public function index()
     {
         return Inertia::render('Users/Index')->with([
-            'users' => User::query()
+            'users' => User::with('role')
                 ->when(\Illuminate\Support\Facades\Request::input('full_name'), function ($query, string $search) {
                     $query->where('full_name', 'LIKE', '%' . $search . '%');
+                })
+                ->when(\Illuminate\Support\Facades\Request::input('phone'), function ($query, string $search) {
+                    $query->where('phone', 'LIKE', '%' . $search . '%');
+                })
+                ->when(\Illuminate\Support\Facades\Request::input('role'), function ($query, string $search) {
+                    $query->where('role_id', $search);
                 })
                 ->orderBy('id')
                 ->paginate(10)
@@ -40,7 +46,8 @@ class UserController extends Controller
             'can' => [
                 'create_user' => Auth::user()->role->hasPermissionTo('create'),
                 'edit_user' => Auth::user()->role->hasPermissionTo('edit')
-            ]
+            ],
+            'filters' => \Illuminate\Support\Facades\Request::all(),
         ]);
     }
 

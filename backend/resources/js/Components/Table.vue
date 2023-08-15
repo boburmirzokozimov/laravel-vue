@@ -34,7 +34,7 @@ const closeModal = () => {
 <template>
     <div class="flex flex-col">
         <div class="sm:mx-0.5 lg:mx-0.5">
-            <div class="py-2 inline-block mx-auto sm:px-6 lg:px-8">
+            <div class="py-2 inline-block mx-auto sm:px-6 lg:px-8 w-full">
                 <div class="overflow-hidden">
                     <table class="min-w-full">
                         <thead class="bg-gray-200 border-b">

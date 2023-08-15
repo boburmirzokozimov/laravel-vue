@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Users/Filter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/User/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Components/Paginator.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Components/Paginator.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Components/Table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Components/Table.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Users/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Vue Composition API Component" />
         <option value="HTTP Request" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -321,7 +326,7 @@
       <workItem from="1691726739688" duration="18454000" />
       <workItem from="1691756593826" duration="943000" />
       <workItem from="1691985346621" duration="39526000" />
-      <workItem from="1692083839950" duration="11586000" />
+      <workItem from="1692083839950" duration="15735000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -459,7 +464,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692098078934</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692099391009</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1692099391009</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
