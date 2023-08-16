@@ -13,7 +13,7 @@
                 </NavLink>
             </div>
         </div>
-        <Filter :filters="props.filters" :roles="props.roles"/>
+        <Filter :countries="props.countries" :filters="props.filters" :roles="props.roles"/>
 
         <Table :countries="props.countries" :roles="roles" :users="props.users.data"/>
 

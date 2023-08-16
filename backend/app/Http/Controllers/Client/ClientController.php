@@ -23,6 +23,9 @@ class ClientController extends Controller
                 ->when(\Illuminate\Support\Facades\Request::input('full_name'), function ($query, string $search) {
                     $query->where('full_name', 'LIKE', '%' . $search . '%');
                 })
+                ->when(\Illuminate\Support\Facades\Request::input('phone'), function ($query, string $search) {
+                    $query->where('phone', 'LIKE', '%' . $search . '%');
+                })
                 ->orderBy('id')
                 ->paginate(10)
                 ->through(fn($user) => [
@@ -35,6 +38,8 @@ class ClientController extends Controller
                     'is_active' => $user->is_active,
                     'last_visited' => Carbon::create($user->last_visited)->diffForHumans(),
                 ]),
+            'filters' => \Illuminate\Support\Facades\Request::all(),
+            
         ]);
     }
 

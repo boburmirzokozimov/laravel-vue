@@ -5,8 +5,128 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Chat/ChatController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-ba75c375.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/BalanceRequestTable-fdd8126c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/ChatRooms-65e3dadc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-14c466ce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-3befcb57.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-54aee807.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-8e8dd196.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-f33e5e0e.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/CreateBalanceRequest-b15adff0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/CreateCreditCardRequest-6f3b9551.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardDepositTable-a7a8b457.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTable-f1dffa9b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTableAnonymous-ec627ad0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTable-36d33ed0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTransactionsHistoryTable-88230660.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardWithdrawTable-3708bf06.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-195ea3ea.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-b2530fd0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-ff818195.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-d024ec78.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-13feba5f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-c3bec02f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Filter-5090e788.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Filter-616b9a7b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Home-91bee592.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-0df0f20d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-e087b8a5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-e549a4ee.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-ecd14f8f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-caff0a3d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/ManageBalance-1e115f4d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Messages-0f9f9267.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Modal-ed4f37c2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Settings-808f04d0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Show-6e79d10f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/ShowTable-6f01d959.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/Table-1d276ebb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/app-11b08219.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/app-297ab684.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/app-ee3b6373.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/build/assets/lodash-cab4ce18.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/Filter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/l5-swagger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/l5-swagger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Events/ChatRoomCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Events/ChatRoomCreated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/HelpRequest/HelpRequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/HelpRequest/HelpRequestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Chat/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Chat/ChatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Chat/ChatRoomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Chat/ChatRoomController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/User/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Chat/ChatRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Chat/ChatRoom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Client/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Client/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_08_10_135021_create_chat_rooms_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_08_10_135021_create_chat_rooms_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-0ac0d982.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-c3b94c94.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-c3b94c94.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/BalanceRequestTable-553e3bf7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ChatRooms-f721fa74.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-3a48584b.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-3a48584b.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-77025e47.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-7817471c.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-7817471c.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-b06bf0fe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-cabf2ca9.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-cae7ee00.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-cae7ee00.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-edb4aba8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-f7bfe73e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreateBalanceRequest-b68de7bd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreateCreditCardRequest-f6a77065.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardDepositTable-263de6ee.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTable-2eaccb90.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTableAnonymous-77fc2a1e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTable-d49296a4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTransactionsHistoryTable-dc0143cb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardWithdrawTable-d4614946.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-47308f5b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-518cdf3c.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-518cdf3c.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-633f10c6.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-633f10c6.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-73ce65bd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-8dca11ee.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-c9704d5b.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-c9704d5b.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-6fa95d02.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-8f965508.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-8f965508.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-2d48f8f3.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-2d48f8f3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-b94b0dde.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-6dc39ca0.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-6dc39ca0.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-c7c7fed0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Filter-9289974c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Home-a1998414.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-040a76c7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-1e29873e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-9aff186d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-ad447c89.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-8b6b7cb0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-d6c68265.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-d6c68265.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ManageBalance-874fcf49.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Messages-e600dbb2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Modal-61ae625e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Modal-d196a2df.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Modal-d196a2df.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Settings-8f4e5cf9.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Show-1d494e55.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ShowTable-e5420c83.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Table-d0b39ef0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-adcd881d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-aedda223.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-e897bb8e.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-2adefcbc.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-2adefcbc.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-7bfcab6d.eot" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-7bfcab6d.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-aa58f33f.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-aa58f33f.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ad615792.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ad615792.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ba0c59de.woff" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ba0c59de.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/maska-6f10db43.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/maska-6f10db43.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Chats/ChatRooms.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Chats/ChatRooms.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Chats/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Chats/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Users/Filter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Users/Filter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Users/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Shared/Layout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Shared/Layout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/channels.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,43 +329,43 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/css&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ssh.settings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/snap/phpstorm/348/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/js/Pages/Clients",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "com.laravel_idea.plugin.extension.ui.i",
+    "ts.external.directory.path": "/snap/phpstorm/348/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Clients" />
       <recent name="$PROJECT_DIR$/backend/resources/css" />
       <recent name="$PROJECT_DIR$/backend/resources" />
       <recent name="$PROJECT_DIR$/backend/resources/js" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Couriers" />
-      <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/app/Http/Controllers" />
@@ -323,7 +443,7 @@
       <workItem from="1691756593826" duration="943000" />
       <workItem from="1691985346621" duration="39526000" />
       <workItem from="1692083839950" duration="15735000" />
-      <workItem from="1692158257088" duration="2840000" />
+      <workItem from="1692158257088" duration="15155000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -477,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692159181411</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692161209296</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1692161209296</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

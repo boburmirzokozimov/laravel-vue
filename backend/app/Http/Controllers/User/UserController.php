@@ -26,6 +26,9 @@ class UserController extends Controller
                 ->when(\Illuminate\Support\Facades\Request::input('phone'), function ($query, string $search) {
                     $query->where('phone', 'LIKE', '%' . $search . '%');
                 })
+                ->when(\Illuminate\Support\Facades\Request::input('country'), function ($query, string $search) {
+                    $query->where('country', 'LIKE', '%' . $search . '%');
+                })
                 ->when(\Illuminate\Support\Facades\Request::input('role'), function ($query, string $search) {
                     $query->where('role_id', $search);
                 })

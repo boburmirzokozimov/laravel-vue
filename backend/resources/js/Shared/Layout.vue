@@ -2,6 +2,14 @@
 import {Head} from "@inertiajs/vue3";
 import Header from "@/Components/Header/Header.vue";
 import SideBar from "@/Components/SideBar/SideBar.vue";
+import {createToaster} from "@meforma/vue-toaster";
+
+const toaster = createToaster({ /* options */});
+
+Echo.private(`room`)
+    .listen('ChatRoomCreated', (e) => {
+        toaster.success('You have got a new message')
+    });
 </script>
 
 <template>

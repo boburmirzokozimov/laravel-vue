@@ -6,12 +6,14 @@ import {router, useForm} from "@inertiajs/vue3";
 const props = defineProps({
     filters: Object,
     roles: Object,
+    countries: Object
 })
 
 const filter = useForm({
     full_name: props.filters.full_name,
     phone: props.filters.phone,
-    role: props.filters.role
+    role: props.filters.role,
+    country: props.filters.country
 })
 
 watch(filter, debounce(function (filter) {
@@ -20,6 +22,7 @@ watch(filter, debounce(function (filter) {
             full_name: filter.full_name,
             phone: filter.phone,
             role: filter.role,
+            country: filter.country,
         }, {
             preserveState: true,
             replace: true,
@@ -27,21 +30,11 @@ watch(filter, debounce(function (filter) {
     )
 }, 500))
 
-// watch(phone, debounce(function (value) {
-//     router.get(
-//         '/users', {
-//             phone: value
-//         }, {
-//             preserveState: true,
-//             replace: false,
-//         }
-//     )
-// }, 500))
 </script>
 
 <template>
     <div class="flex">
-        <div class="w-1/5 mr-2">
+        <div class="w-1/4 mr-2">
             <input
                 id="search"
                 v-model="filter.full_name"
@@ -50,7 +43,7 @@ watch(filter, debounce(function (filter) {
                 placeholder="Name..."
                 type="search">
         </div>
-        <div class="w-1/5 mr-2">
+        <div class="w-1/4 mr-2">
             <input
                 id="search"
                 v-model="filter.phone"
@@ -59,12 +52,22 @@ watch(filter, debounce(function (filter) {
                 placeholder="Phone..."
                 type="search">
         </div>
-        <div class="w-1/5">
+        <div class="w-1/4 mr-2">
             <select id="category" v-model="filter.role" class="h-full border border-gray-200 p-2 w-full rounded-2xl"
                     name="category"
                     required>
                 <option value=""></option>
                 <option v-for="role in props.roles" :value="role.id" v-text="role.name.toUpperCase()"></option>
+            </select>
+        </div>
+        <div class="w-1/4 ">
+            <select id="country" v-model="filter.country" class="h-full border border-gray-200 p-2 w-full rounded-2xl"
+                    name="country"
+                    required>
+                <option value=""></option>
+                <option v-for="country in props.countries"
+                        :value="country.name"
+                        v-text="country.name"></option>
             </select>
         </div>
     </div>

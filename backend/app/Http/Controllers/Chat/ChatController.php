@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MessageFormRequest;
 use App\Models\Chat\ChatRoom;
 use App\Models\Client\Client;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 
 class ChatController extends Controller
@@ -16,6 +18,9 @@ class ChatController extends Controller
     {
         return Inertia::render('Chats/Index')->with([
             'chat_rooms' => ChatRoom::with(['messages', 'client'])
+                ->when(Request::input('completed'), function ($query, string $search) {
+                    $query->where('completed', $search);
+                })
                 ->get()
         ]);
     }
@@ -27,7 +32,7 @@ class ChatController extends Controller
         ]);
     }
 
-    public function send(MessageFormRequest $request)
+    public function send(MessageFormRequest $request): RedirectResponse
     {
         $message = $request->user()
             ->messages()
@@ -38,13 +43,20 @@ class ChatController extends Controller
         return back();
     }
 
-    public function sendByClient(MessageFormRequest $request, Client $client)
+    public function sendByClient(MessageFormRequest $request, Client $client): RedirectResponse
     {
         $message = $client
             ->messages()
             ->create($request->validated());
 
         event(new MessageSentByClient($client, $request->validated('chat_room_id'), $message));
+
+        return back();
+    }
+
+    public function update(ChatRoom $chatRoom): RedirectResponse
+    {
+        $chatRoom->toggleCompletion();
 
         return back();
     }

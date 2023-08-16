@@ -10,6 +10,7 @@ use App\Models\Enum\StatusEnumType;
 use App\Models\RefreshToken\RefreshToken;
 use Database\Factories\ClientFactory;
 use Exception;
+use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -24,6 +25,11 @@ class Client extends Authenticatable
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public static function scopeFindByToken(Builder $query, ?string $access_token)
+    {
+        return $query->where(['access_token' => $access_token]);
+    }
 
     protected static function newFactory()
     {

@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\Chat\ChatRoomController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Chat\ChatController;
-use App\Http\Controllers\Chat\ChatRoomController;
 use App\Http\Controllers\Client\Balance\DownloadFileController;
 use App\Http\Controllers\Client\Balance\ManageBalanceController;
 use App\Http\Controllers\Client\ClientController;
@@ -77,17 +77,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/couriers/{courier}/status', [CourierController::class, 'status'])
         ->name('couriers.status');
 
-});
-//TODO Add chat and chatroom controller to inside of the web middleware
-Route::controller(ChatController::class)->group(function () {
-    Route::get('/chat', 'index');
-    Route::post('/send', 'send');
-    Route::post('/chat/{client}', 'sendByClient');
-    Route::get('/chat/{chatRoom}', 'show');
-});
-
-Route::controller(ChatRoomController::class)->group(function () {
-    Route::get('/chat-room/{client}', 'store');
+    Route::controller(ChatController::class)->group(function () {
+        Route::get('/chat', 'index');
+        Route::post('/send', 'send');
+        Route::post('/chat/{client}', 'sendByClient');
+        Route::get('/chat/{chatRoom}', 'show');
+        Route::post('/chat-room/{chatRoom}', 'update');
+    });
 });
 
 
@@ -95,3 +91,5 @@ Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/submit', [LoginController::class, 'submit'])->name('login.submit');
 Route::post('/verify', [LoginController::class, 'verify'])->name('login.verify');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+

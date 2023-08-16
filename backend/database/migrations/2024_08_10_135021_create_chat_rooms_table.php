@@ -10,7 +10,7 @@ return new class extends Migration {
     {
         Schema::create('chat_rooms', function (Blueprint $table) {
             $table->id();
-
+            $table->boolean('completed')->default(false);
             $table->foreignIdFor(Client::class)
                 ->constrained()
                 ->cascadeOnUpdate()

@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Broadcast;
 */
 
 Broadcast::channel('chat.{chatRoom}.{client}', ChatChannel::class);
-Broadcast::channel('chatRooms', ChatRoomChannel::class);
+Broadcast::channel('room', ChatRoomChannel::class);

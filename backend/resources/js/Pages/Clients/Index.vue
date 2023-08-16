@@ -13,6 +13,7 @@
                 </NavLink>
             </div>
         </div>
+        <Filter :filters="props.filters"/>
 
         <ClientTable :clients="props.clients.data"/>
     </div>
@@ -22,8 +23,10 @@
 <script setup>
 import NavLink from "@/Components/NavLink.vue";
 import ClientTable from "@/Components/ClientTable.vue";
+import Filter from "@/Pages/Clients/Filter.vue";
 
 const props = defineProps({
     clients: Object,
+    filters: Object
 })
 </script>
