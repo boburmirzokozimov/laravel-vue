@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/15f9be7f-967a-4f34-a44d-5413f6c2a188.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/15f9be7f-967a-4f34-a44d-5413f6c2a188/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/15f9be7f-967a-4f34-a44d-5413f6c2a188/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/15f9be7f-967a-4f34-a44d-5413f6c2a188/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/15f9be7f-967a-4f34-a44d-5413f6c2a188/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d0414a32-e27a-4c15-acd4-5c846aa0388c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d0414a32-e27a-4c15-acd4-5c846aa0388c/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d0414a32-e27a-4c15-acd4-5c846aa0388c/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d0414a32-e27a-4c15-acd4-5c846aa0388c/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/config/l5-swagger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/l5-swagger.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -334,7 +323,7 @@
       <workItem from="1691756593826" duration="943000" />
       <workItem from="1691985346621" duration="39526000" />
       <workItem from="1692083839950" duration="15735000" />
-      <workItem from="1692158257088" duration="893000" />
+      <workItem from="1692158257088" duration="2840000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -480,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692099391009</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692159181411</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1692159181411</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
