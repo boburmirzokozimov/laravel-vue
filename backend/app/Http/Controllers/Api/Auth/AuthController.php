@@ -109,7 +109,7 @@ class AuthController extends Controller
     public function refresh(Request $request)
     {
         return response()->json([
-            'data' => $this->tokenService->refreshToken($request)
+            'data' => $this->tokenService->refreshTokens($request)
         ]);
     }
 
@@ -152,7 +152,6 @@ class AuthController extends Controller
     {
         $client = $this->clientRepository->findByToken($request->bearerToken());
 
-        $credentials = [];
         if ($client->isActive()) {
             $credentials = [
                 'client_id' => $client->id,

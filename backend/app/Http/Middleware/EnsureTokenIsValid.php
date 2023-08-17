@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Services\TokenService;
 use Closure;
 use Illuminate\Http\Request;
+use ReallySimpleJWT\Token;
 use Symfony\Component\HttpFoundation\Response;
 
 class EnsureTokenIsValid
@@ -13,7 +14,7 @@ class EnsureTokenIsValid
     {
     }
 
-    
+
     /**
      * Handle an incoming request.
      *

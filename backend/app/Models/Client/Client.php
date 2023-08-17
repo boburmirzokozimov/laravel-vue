@@ -125,4 +125,11 @@ class Client extends Authenticatable
     {
         return $this->hasMany(CardTransaction::class);
     }
+
+    public function invalidateAuthKey(): void
+    {
+        $this->update([
+            'auth_key' => ''
+        ]);
+    }
 }

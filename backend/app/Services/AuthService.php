@@ -8,12 +8,9 @@ class AuthService
 {
     public function handleLogin(Client $client): array
     {
-        $client->update([
-            'auth_key' => ''
-        ]);
+        $client->invalidateAuthKey();
 
-        $access_token = TokenService::createAccessToken($client);
-        $refresh_token = TokenService::createRefreshToken($client);
+        [$access_token, $refresh_token] = TokenService::createTokens($client);
 
         $client->update([
             'access_token' => $access_token
@@ -25,10 +22,5 @@ class AuthService
             'access_token' => $access_token,
             'refresh_token' => $refresh_token
         ];
-    }
-
-    public function findByToken(?string $bearerToken)
-    {
-
     }
 }
