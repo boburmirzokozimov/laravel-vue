@@ -5,67 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/Balance/CreateBalanceRequestForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-ba75c375.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-ba75c375.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-c3b94c94.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-c3b94c94.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/BalanceRequestTable-fdd8126c.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/BalanceRequestTable-fdd8126c.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ChatRooms-65e3dadc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ChatRooms-65e3dadc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-14c466ce.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-14c466ce.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-3a48584b.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-3a48584b.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-3befcb57.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-3befcb57.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-54aee807.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-54aee807.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-7817471c.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-7817471c.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-8e8dd196.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-8e8dd196.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-cae7ee00.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-cae7ee00.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-f33e5e0e.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-f33e5e0e.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreateBalanceRequest-b15adff0.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreateBalanceRequest-b15adff0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreateCreditCardRequest-6f3b9551.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreateCreditCardRequest-6f3b9551.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardDepositTable-a7a8b457.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardDepositTable-a7a8b457.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTable-f1dffa9b.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTable-f1dffa9b.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTableAnonymous-ec627ad0.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTableAnonymous-ec627ad0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTable-36d33ed0.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTable-36d33ed0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTransactionsHistoryTable-88230660.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTransactionsHistoryTable-88230660.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardWithdrawTable-3708bf06.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardWithdrawTable-3708bf06.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-195ea3ea.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-195ea3ea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-518cdf3c.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-518cdf3c.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-633f10c6.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-633f10c6.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-b2530fd0.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-b2530fd0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-c9704d5b.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-c9704d5b.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-ff818195.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-ff818195.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-8f965508.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-8f965508.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-d024ec78.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-d024ec78.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-13feba5f.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-13feba5f.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-2d48f8f3.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-2d48f8f3.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-6dc39ca0.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-6dc39ca0.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-c3bec02f.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-c3bec02f.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Filter-5090e788.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Filter-5090e788.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Filter-616b9a7b.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Filter-616b9a7b.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Home-91bee592.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Home-91bee592.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-0df0f20d.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-0df0f20d.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-e087b8a5.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-e087b8a5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-e549a4ee.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-e549a4ee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-ecd14f8f.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-ecd14f8f.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-caff0a3d.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-caff0a3d.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-d6c68265.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-d6c68265.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ManageBalance-1e115f4d.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ManageBalance-1e115f4d.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Messages-0f9f9267.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Messages-0f9f9267.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Modal-d196a2df.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Modal-d196a2df.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Modal-ed4f37c2.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Modal-ed4f37c2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Settings-808f04d0.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Settings-808f04d0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Show-6e79d10f.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Show-6e79d10f.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ShowTable-6f01d959.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ShowTable-6f01d959.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Table-1d276ebb.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Table-1d276ebb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-11b08219.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/app-11b08219.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-297ab684.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/app-297ab684.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-ee3b6373.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/app-ee3b6373.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-2adefcbc.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-2adefcbc.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-7bfcab6d.eot" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-7bfcab6d.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-aa58f33f.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-aa58f33f.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ad615792.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ad615792.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ba0c59de.woff" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ba0c59de.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/lodash-cab4ce18.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/lodash-cab4ce18.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/maska-6f10db43.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/maska-6f10db43.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_02_083543_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_02_083543_create_clients_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -383,7 +327,7 @@
       <workItem from="1691985346621" duration="39526000" />
       <workItem from="1692083839950" duration="15735000" />
       <workItem from="1692158257088" duration="17043000" />
-      <workItem from="1692245841881" duration="6823000" />
+      <workItem from="1692245841881" duration="9136000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -577,7 +521,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692251595194</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692254056354</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1692254056354</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
