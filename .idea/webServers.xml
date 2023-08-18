@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7be2346f-b4b6-4c42-9dd3-4ce888663f5b" name="finhelp">
+        <fileTransfer accessType="SFTP" host="10.11.12.19" port="22" sshConfigId="047f8df1-1bf6-488e-9d17-66f9dde46dc4" sshConfig="root@10.11.12.19:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
