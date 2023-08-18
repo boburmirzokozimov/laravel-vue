@@ -150,8 +150,6 @@
       <path value="$PROJECT_DIR$/backend/vendor/zircote/swagger-php" />
       <path value="$PROJECT_DIR$/backend/vendor/swagger-api/swagger-ui" />
       <path value="$PROJECT_DIR$/backend/vendor/darkaonline/l5-swagger" />
-      <path value="$PROJECT_DIR$/backend/vendor/maximebf/debugbar" />
-      <path value="$PROJECT_DIR$/backend/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

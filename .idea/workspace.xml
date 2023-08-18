@@ -5,62 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Balance/BalanceReplenishController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/CountryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Key/KeyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Branch/BranchController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Key/KeyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/Balance/CreateBalanceReplenishForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Branch/CreateBranchRequestForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Branch/UpdateBranchRequestForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Resources/Api/Country/CountryCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Resources/Api/Country/CountryResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Resources/Key/KeyResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Branch/Branch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Enum/Api/Balance/BalancePaymentFormEnumType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Keys/Key.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/factories/BranchFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/factories/KeyFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_17_091237_add_delivery_form_to_balance_requests_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_17_093151_create_branches_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_17_104903_add_branch_id_to_requests_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_18_053635_create_keys_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/BranchSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/KeySeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Table.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/storage/debugbar/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Auth/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Chat/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Chat/ChatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Chat/ChatRoomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Chat/ChatRoomController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/User/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Api/Balance/CreateBalanceRequestForm.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/ManageBalanceRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/ManageBalanceRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Client/BalanceRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Client/BalanceRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Client/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Client/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Country/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Country/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Enum/HelpRequest/MessengerEnumType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Enum/Api/HelpRequest/MessengerEnumType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Enum/HelpRequest/PreferredLanguageEnumType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Enum/Api/HelpRequest/PreferredLanguageEnumType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/HelpRequest/HelpRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/HelpRequest/HelpRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/TokenService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/TokenService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/l5-swagger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/l5-swagger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_01_120452_create_countries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_01_120452_create_countries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_02_115253_create_balance_requests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_02_115253_create_balance_requests_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/CountrySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/CountrySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Components/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Components/Nav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,8 +190,6 @@
       <path value="$PROJECT_DIR$/backend/vendor/zircote/swagger-php" />
       <path value="$PROJECT_DIR$/backend/vendor/swagger-api/swagger-ui" />
       <path value="$PROJECT_DIR$/backend/vendor/darkaonline/l5-swagger" />
-      <path value="$PROJECT_DIR$/backend/vendor/maximebf/debugbar" />
-      <path value="$PROJECT_DIR$/backend/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -272,7 +215,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
-    "WebServerToolWindowFactoryState": "false",
+    "WebServerToolWindowFactoryState": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
     "code.cleanup.on.save": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/js/Pages/Branches",
@@ -383,7 +331,7 @@
       <workItem from="1692245841881" duration="32842000" />
       <workItem from="1692339803755" duration="90000" />
       <workItem from="1692339929777" duration="178000" />
-      <workItem from="1692340128290" duration="227000" />
+      <workItem from="1692340128290" duration="1190000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -593,7 +541,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692256386532</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692340641458</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1692340641458</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692340650584</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1692340650584</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
