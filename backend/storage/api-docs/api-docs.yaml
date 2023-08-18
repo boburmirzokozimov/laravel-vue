@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: Documentation for FinApp
   description: REST API documentation
@@ -252,8 +252,8 @@ paths:
    get:
       tags:
         - Keys
-      summary:  Этот api для того чтобы получить Расчетный счет и Номер Кошелка 
-      description: Первый Расчетный счет ,второй Номер Кошелка 
+      summary:  Этот api для того чтобы получить Расчетный счет и Номер Кошелка
+      description: Первый Расчетный счет ,второй Номер Кошелка
       operationId: countries
       responses:
         '200':
@@ -272,12 +272,205 @@ paths:
                 type: object
       security:
         - api_key_security_example: [ ]
+  /balance:
+    post:
+      tags:
+        - Balance
+      summary:  Этот api для того чтобы управлять балансном клиента,для пополнение и снятие со счёта
+      description: Когда withdraw false - пополнение баланса,withdraw - true снятие со счёта
+      operationId: balance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/ReplenishByCASHinOffice'
+                - $ref: '#/components/schemas/ReplenishByCASHcourier'
+                - $ref: '#/components/schemas/ReplenishByUSDT'
+                - $ref: '#/components/schemas/ReplenishByCASHLESS'
+                - $ref: '#/components/schemas/WithdrawByCASHinOffice'
+                - $ref: '#/components/schemas/WithdrawByCASHcourier'
+                - $ref: '#/components/schemas/WithdrawByUSDT'
+                - $ref: '#/components/schemas/WithdrawByCASHLESS'
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
 components:
+  schemas:
+    ReplenishByCASHcourier:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: ['CASH']
+        country:
+          type: integer
+        currency:
+          type: string
+        contact:
+          type: string
+        sum:
+          type: string
+        phone:
+          type: string
+        delivery:
+          type: string
+          enum: ['office']
+        withdraw:
+          type: boolean
+          enum:
+            - false
+    ReplenishByCASHinOffice:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'CASH' ]
+        country:
+          type: integer
+        branch_id:
+          type: integer
+        delivery:
+          type: string
+          enum: [ 'office' ]
+        withdraw:
+          type: boolean
+          enum:
+            - false
+    ReplenishByUSDT:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'USDT' ]
+        currency:
+          type: string
+          enum: [ 'usd','eur' ]
+        key_id:
+          type: integer
+        sum:
+          type: string
+        withdraw:
+          type: boolean
+          enum:
+            - false
+        usdt_type:
+          type: string
+          enum: ['ERC','TRC']
+        info:
+          type: string
+    ReplenishByCASHLESS:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'USDT' ]
+        currency:
+          type: string
+          enum: [ 'usd','eur' ]
+        key_id:
+          type: integer
+        sum:
+          type: string
+        withdraw:
+          type: boolean
+          enum:
+            - false
+        info:
+          type: string
+
+
+    WithdrawByCASHcourier:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'CASH' ]
+        country:
+          type: integer
+        currency:
+          type: string
+        contact:
+          type: string
+        sum:
+          type: string
+        phone:
+          type: string
+        delivery:
+          type: string
+          enum: [ 'courier' ]
+        withdraw:
+          type: boolean
+          enum:
+            - true
+    WithdrawByCASHinOffice:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'CASH' ]
+        country:
+          type: integer
+        branch_id:
+          type: integer
+        delivery:
+          type: string
+          enum: [ 'office' ]
+        withdraw:
+          type: boolean
+          enum:
+            - true
+    WithdrawByUSDT:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'USDT' ]
+        currency:
+          type: string
+          enum: [ 'usd','eur' ]
+        withdraw_account_number:
+          type: string
+        sum:
+          type: string
+        withdraw:
+          type: boolean
+          enum:
+            - true
+        usdt_type:
+          type: string
+          enum: [ 'ERC','TRC' ]
+        info:
+          type: string
+    WithdrawByCASHLESS:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'USDT' ]
+        currency:
+          type: string
+          enum: [ 'usd','eur' ]
+        withdraw_account_number:
+          type: string
+        sum:
+          type: string
+        withdraw:
+          type: boolean
+          enum:
+            - true
+        info:
+          type: string
+
   securitySchemes:
     api_key_security_example:
       type: http
       description: A short description for security scheme
-      scheme: bearer
+      name: Authorization
+      scheme: Bearer
+      in: header
       bearerFormat: JWT
 security:
   - oauth2_security_example:

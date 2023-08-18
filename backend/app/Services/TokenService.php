@@ -78,4 +78,9 @@ class TokenService
     {
         return Token::validateExpiration($bearerToken);
     }
+
+    public function exists(?string $bearerToken): bool
+    {
+        return Client::findByToken($bearerToken)->first() === null;
+    }
 }

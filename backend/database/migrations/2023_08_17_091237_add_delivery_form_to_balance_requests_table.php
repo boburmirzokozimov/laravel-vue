@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('balance_requests', function (Blueprint $table) {
-            $table->enum('delivery', ['office', 'courier'])->default('courier');
+            $table->enum('delivery', ['office', 'courier'])->nullable();
         });
     }
 

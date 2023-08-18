@@ -26,7 +26,7 @@ class CreateBalanceReplenishForm extends FormRequest
     {
         $rules = [
             'type' => 'in:CASH,CASHLESS,USDT',
-            'country' => 'string|required',
+            'country' => 'exists:countries,id|required',
             'currency' => 'string|required|in:usd,eur',
             'contact' => 'string|required',
             'sum' => 'required|regex:/^\d*(\.\d{3})?$/',
@@ -38,7 +38,7 @@ class CreateBalanceReplenishForm extends FormRequest
         if (request()->request->get('delivery') === BalancePaymentFormEnumType::OFFICE->value) {
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
-                'country' => 'string|required',
+                'country' => 'exists:countries,id|required',
                 'branch_id' => 'exists:branches,id|required',
                 'withdraw' => 'nullable|boolean',
                 'delivery' => 'required|in:courier,office'
@@ -49,10 +49,20 @@ class CreateBalanceReplenishForm extends FormRequest
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
                 'currency' => 'string|required|in:usd,eur',
-                'account_number' => 'required',
+                'key_id' => 'required',
                 'withdraw' => 'nullable|boolean',
+                'sum' => 'required',
                 'info' => 'string|nullable',
-                'delivery' => 'required|in:courier,office'
+            ];
+        }
+        if (request()->request->get('type') === TypeEnum::CASHLESS->value && request()->request->get('withdraw')) {
+            $rules = [
+                'type' => 'in:CASH,CASHLESS,USDT',
+                'currency' => 'string|required|in:usd,eur',
+                'withdraw_account_number' => 'required',
+                'withdraw' => 'nullable|boolean',
+                'sum' => 'required',
+                'info' => 'string|nullable',
             ];
         }
 
@@ -60,9 +70,22 @@ class CreateBalanceReplenishForm extends FormRequest
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
                 'currency' => 'string|required|in:usd,eur',
-                'account_number' => 'required',
+                'key_id' => 'required',
                 'withdraw' => 'nullable|boolean',
-                'delivery' => 'required|in:courier,office'
+                'sum' => 'required',
+                'usdt_type' => 'nullable|in:ERC,TRC',
+                'info' => 'string|nullable',
+            ];
+        }
+        if (request()->request->get('type') === TypeEnum::USDT->value && request()->request->get('withdraw')) {
+            $rules = [
+                'type' => 'in:CASH,CASHLESS,USDT',
+                'currency' => 'string|required|in:usd,eur',
+                'withdraw_account_number' => 'required',
+                'withdraw' => 'nullable|boolean',
+                'sum' => 'required',
+                'usdt_type' => 'nullable|in:ERC,TRC',
+                'info' => 'string|nullable',
             ];
         }
 
