@@ -21,8 +21,7 @@ return new class extends Migration {
             $table->string('contact')->nullable();
             $table->string('phone')->nullable();
             $table->text('info')->nullable();
-            $table->string('withdraw_account_number')->nullable();
-            $table->string('withdraw_wallet_number')->nullable();
+            $table->string('account_number')->nullable();
             $table->boolean('withdraw')->default(false);
             $table->decimal('sum', 10, 2)->default(0);
             $table->timestamps();

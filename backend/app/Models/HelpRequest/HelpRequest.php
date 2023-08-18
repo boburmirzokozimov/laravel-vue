@@ -3,8 +3,8 @@
 namespace App\Models\HelpRequest;
 
 use App\Models\CustomModel;
-use App\Models\Enum\HelpRequest\MessengerEnumType;
-use App\Models\Enum\HelpRequest\PreferredLanguageEnumType;
+use App\Models\Enum\Api\HelpRequest\MessengerEnumType;
+use App\Models\Enum\Api\HelpRequest\PreferredLanguageEnumType;
 
 class HelpRequest extends CustomModel
 {

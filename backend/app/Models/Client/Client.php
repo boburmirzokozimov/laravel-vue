@@ -132,4 +132,9 @@ class Client extends Authenticatable
             'auth_key' => ''
         ]);
     }
+
+    public function validateByToken(string $uuid): bool
+    {
+        return $this->uuid == $uuid;
+    }
 }

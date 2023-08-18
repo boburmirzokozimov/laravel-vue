@@ -44,7 +44,7 @@ class UserController extends Controller
                     'last_visited' => Carbon::create($user->last_visited)->diffForHumans(),
                     'role' => $user->role
                 ]),
-            'countries' => Country::all(),
+            'countries' => Country::all('id', 'name'),
             'roles' => Role::all(),
             'can' => [
                 'create_user' => Auth::user()->role->hasPermissionTo('create'),

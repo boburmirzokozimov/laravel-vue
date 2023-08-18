@@ -17,8 +17,8 @@ class ChatController extends Controller
      * operationId="Chat",
      * tags={"Chat"},
      * security={{"api_key_security_example":{}}},
-     * summary="Chat room",
-     * description="Chat room",
+     * summary="To send a message,first of you need to create a chat room",
+     * description="To send a message in a chat room",
      *     @OA\RequestBody(
      *           @OA\MediaType(
      *               mediaType="application/json",
@@ -43,13 +43,6 @@ class ChatController extends Controller
      *  ),
      * @OA\Response(
      * response=200, description="Success",
-     * @OA\JsonContent(
-     * @OA\Property(property="data", type="array",
-     *     @OA\Items(
-     *         @OA\Property(property="message", type="string"),
-     *         @OA\Property(property="chat_room_id", type="string"),
-     *     ))
-     * )
      * )
      * )
      */

@@ -17,8 +17,8 @@ class ChatRoomController extends Controller
      * operationId="ChatRoom",
      * tags={"Chat"},
      * security={{"api_key_security_example":{}}},
-     * summary="Chat room",
-     * description="Chat room",
+     * summary="Createing Chat Room",
+     * description="To create a chat room",
      * @OA\Response(
      * response=200, description="Success",
      * @OA\JsonContent(

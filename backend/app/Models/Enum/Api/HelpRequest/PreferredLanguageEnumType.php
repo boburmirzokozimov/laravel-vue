@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Enum\HelpRequest;
+namespace App\Models\Enum\Api\HelpRequest;
 
 enum PreferredLanguageEnumType: string
 {

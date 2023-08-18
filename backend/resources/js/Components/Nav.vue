@@ -94,6 +94,21 @@ const active = ref(false)
                     </span>
                 </NavLink>
             </li>
+            <li class="nav_link_item">
+                <NavLink
+                    :active="$page.component.startsWith('Branch')"
+                    class="nav_link_class"
+                    href="/branches">
+                    <i class="fa fa-institution fa-2x"></i>
+
+                    <span
+                        :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
+                        class="transition  text-gray-400 hover:text-white"
+                    >
+                        Branches
+                    </span>
+                </NavLink>
+            </li>
         </ul>
         <h3
             :class="active ? 'translate-x-1':'-translate-x-1 opacity-0'"

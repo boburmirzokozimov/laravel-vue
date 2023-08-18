@@ -23,9 +23,15 @@ class TokenService
         return Token::validate($token, $this->secret);
     }
 
-    public function refreshTokens(Request $request): array
+    public function refreshTokens(Request $request)
     {
-        $token = $this->tokenRepository->findByToken($request->bearerToken());
+        $token = $this->tokenRepository->findByToken($request->refresh_token);
+
+        if (!$token->tokenable->validateByToken($request->uuid)) {
+            return response()->json([
+                'message' => 'Invalid uuid provided'
+            ], 403);
+        }
 
         [$newAccessToken, $newRefreshToken] = self::createTokens($token->tokenable);
 
@@ -37,10 +43,10 @@ class TokenService
             'refresh_token' => $newRefreshToken
         ]);
 
-        return [
+        return response()->json([
             'access_token' => $newAccessToken,
             'refresh_token' => $newRefreshToken
-        ];
+        ]);
     }
 
     public static function createTokens($client): array

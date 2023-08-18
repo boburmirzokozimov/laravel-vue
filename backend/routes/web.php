@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Chat\ChatRoomController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Branch\BranchController;
 use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Client\Balance\DownloadFileController;
 use App\Http\Controllers\Client\Balance\ManageBalanceController;
@@ -83,6 +84,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/chat/{client}', 'sendByClient');
         Route::get('/chat/{chatRoom}', 'show');
         Route::post('/chat-room/{chatRoom}', 'update');
+    });
+
+    Route::controller(BranchController::class)->group(function () {
+        Route::get('/branches', 'index')->name('branches');
+        Route::get('/branches/create', 'create')->name('branches.create');
+        Route::post('/branches', 'store')->name('branches.store');
+        Route::get('/branches/{branch}', 'edit')->name('branches.edit');
+        Route::patch('/branches/{branch}', 'update')->name('branches.update');
+        Route::delete('/branches/{branch}', 'destroy')->name('branches.destroy');
     });
 });
 

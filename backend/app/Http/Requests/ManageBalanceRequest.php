@@ -54,7 +54,7 @@ class ManageBalanceRequest extends FormRequest
                 'info' => 'nullable|string',
                 'client_id' => 'exists:clients,id',
                 'withdraw' => 'nullable|boolean',
-                'withdraw_account_number' => 'required|numeric'
+                'account_number' => 'required|numeric'
             ];
         }
 
@@ -67,7 +67,7 @@ class ManageBalanceRequest extends FormRequest
                 'info' => 'nullable|string',
                 'client_id' => 'exists:clients,id',
                 'withdraw' => 'nullable|boolean',
-                'withdraw_wallet_number' => 'required|numeric'
+                'account_number' => 'required|numeric'
             ];
         }
 
