@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api" />
+    <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Key/CreateKeyRequestForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Create.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Table.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Key/KeyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Key/KeyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Components/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Components/Nav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +231,7 @@
     "WebServerToolWindowPanel.toolwindow.show.size": "false",
     "code.cleanup.on.save": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/js/Pages/Branches",
+    "last_opened_file_path": "/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/js/Pages",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -243,11 +253,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/resources/js/Pages" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Branches" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Clients" />
       <recent name="$PROJECT_DIR$/backend/resources/css" />
       <recent name="$PROJECT_DIR$/backend/resources" />
-      <recent name="$PROJECT_DIR$/backend/resources/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country" />
@@ -330,7 +340,7 @@
       <workItem from="1692339803755" duration="90000" />
       <workItem from="1692339929777" duration="178000" />
       <workItem from="1692340128290" duration="2261000" />
-      <workItem from="1692342434350" duration="10044000" />
+      <workItem from="1692342434350" duration="11884000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -572,7 +582,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692360007451</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692360178149</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1692360178149</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

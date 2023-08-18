@@ -10,6 +10,7 @@ use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\CreditCard\CreditCardController;
 use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
 use App\Http\Controllers\Courier\CourierController;
+use App\Http\Controllers\Key\KeyController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -94,6 +95,16 @@ Route::middleware('auth')->group(function () {
         Route::patch('/branches/{branch}', 'update')->name('branches.update');
         Route::delete('/branches/{branch}', 'destroy')->name('branches.destroy');
     });
+
+    Route::controller(KeyController::class)->group(function () {
+        Route::get('/keys', 'index')->name('keys');
+        Route::get('/keys/create', 'create')->name('keys.create');
+        Route::post('/keys', 'store')->name('keys.store');
+        Route::get('/keys/{key}', 'edit')->name('keys.edit');
+        Route::patch('/keys/{key}', 'update')->name('keys.update');
+        Route::delete('/keys/{key}', 'destroy')->name('keys.destroy');
+    });
+
 });
 
 
