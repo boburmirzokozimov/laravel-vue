@@ -17,18 +17,18 @@ const form = useForm({
 })
 
 const handleMessage = () => {
-    if (isFile.value) {
+    if (isFile) {
         console.log(file.value['type'])
-        // form.type = file.value['type'] === 'image/png' ? 'image' : ''
-        // router.post('/uploadFile', {
-        //     message: file.value,
-        //     chat_room_id: props.chat_room_id,
-        //     type: form.type
-        // }, {
-        //     preserveScroll: true
-        // })
-        // file.value = ''
-        // isFile.value = false
+        form.type = file.value['type'] === 'image/png' ? 'image' : ''
+        router.post('/uploadFile', {
+            message: file.value,
+            chat_room_id: props.chat_room_id,
+            type: form.type
+        }, {
+            preserveScroll: true
+        })
+        file.value = ''
+        isFile = false
     } else {
         router.post('/send', {
             message: form.message,
@@ -41,10 +41,6 @@ const handleMessage = () => {
     console.log(isFile.value)
 }
 
-const handleFile = (target) => {
-    file = target
-    isFile.value = true
-}
 </script>
 
 <template>
@@ -57,7 +53,7 @@ const handleFile = (target) => {
                         class=" absolute opacity-0 w-full h-full cursor-pointer"
                         name="file"
                         type="file"
-                        @input="handleFile($event.target.files[0])"
+                        @input="file = $event.target.files[0];isFile = true"
                     >
                     <button
                         class="btn-edit !bg-blue-400 "
