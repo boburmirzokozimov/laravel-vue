@@ -11,6 +11,7 @@ use App\Http\Controllers\Client\CreditCard\CreditCardController;
 use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
 use App\Http\Controllers\Courier\CourierController;
 use App\Http\Controllers\Key\KeyController;
+use App\Http\Controllers\UploadFile\UploadFileController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -105,6 +106,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/keys/{key}', 'destroy')->name('keys.destroy');
     });
 
+    Route::post('/uploadFile', UploadFileController::class);
 });
 
 

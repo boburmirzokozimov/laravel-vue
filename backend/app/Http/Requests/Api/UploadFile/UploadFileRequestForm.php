@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api\UploadFile;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class MessageFormRequest extends FormRequest
+class UploadFileRequestForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,9 @@ class MessageFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'message' => 'string|required',
-            'chat_room_id' => 'exists:chat_rooms,id|required',
+            'message' => 'file',
+            'chat_room_id' => 'integer|required|exists:chat_rooms,id',
+            'type' => 'string|required|in:image,audio,video,doc'
         ];
     }
 }

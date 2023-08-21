@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Country\CountryController;
 use App\Http\Controllers\Api\HelpRequest\HelpRequestController;
 use App\Http\Controllers\Api\Chat\ChatController;
 use App\Http\Controllers\Api\Key\KeyController;
+use App\Http\Controllers\Api\UploadFile\UploadFileController;
 use App\Http\Controllers\Api\VisaCard\VisaCardController;
 
 
@@ -25,6 +26,8 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::get('/countries', CountryController::class);
     Route::post('/cards', [VisaCardController::class, 'store']);
     Route::post('/cards/{card}/manage', [VisaCardController::class, 'manage']);
+
+    Route::post('/uploadFile', UploadFileController::class);
 });
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/refresh', [AuthController::class, 'refresh']);

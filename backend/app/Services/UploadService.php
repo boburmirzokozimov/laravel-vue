@@ -18,6 +18,11 @@ class UploadService implements UploadServiceInterface
         return Storage::disk('public')->put('invoices', $file);
     }
 
+    public function uploadMessage(?UploadedFile $file): string
+    {
+        return Storage::disk('public')->put('messages', $file);
+    }
+
     public function removeOld(CreditCardRequest $cardRequest, array $credentials): void
     {
         if ($credentials['scan_passport'] instanceof UploadedFile) {

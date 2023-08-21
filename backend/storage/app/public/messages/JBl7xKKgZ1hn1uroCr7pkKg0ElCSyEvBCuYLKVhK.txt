@@ -1,0 +1,554 @@
+openapi: 3.1.0
+info:
+  title: Documentation for FinApp
+  description: REST API documentation
+  contact:
+    name: Boburmirzo Kozimov
+    email: bobur.kozimov@gmail.com
+  version: 1.0.0
+servers:
+  - url: /api
+paths:
+  /login:
+    post:
+      tags:
+        - Auth
+      summary: Login to your account
+      description: Use this route to login your page once the client has been registered
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                '':
+                  properties:
+                    uuid:
+                      type: string
+                    auth_key:
+                      type: string
+                  type: object
+              example:
+                uuid: '998901234567'
+                auth_key: auth_key_example
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+                type: object
+  /refresh:
+    post:
+      tags:
+        - Auth
+      summary: refresh token
+      description: refresh token
+      operationId: refresh
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                '':
+                  properties:
+                    uuid:
+                      type: string
+                    refresh_token:
+                      type: string
+                  type: object
+              type: object
+              example:
+                uuid: something
+                refresh_token: your_refresh_token
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      properties:
+                        access_token:
+                          type: string
+                        refresh_token:
+                          type: string
+                      type: object
+                type: object
+  /me:
+    get:
+      tags:
+        - Auth
+      summary: Personal info
+      operationId: me
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  client_id:
+                    type: string
+                  status:
+                    type: boolean
+                  balance:
+                    type: string
+                  phone:
+                    type: string
+                  cards:
+                    type: array
+                    items:
+                      properties:
+                        id:
+                          type: string
+                        balance:
+                          type: string
+                      type: object
+                  card_transactions:
+                    type: array
+                    items:
+                      properties:
+                        id:
+                          type: string
+                        sum:
+                          type: string
+                      type: object
+                type: object
+        '401':
+          description: Unauthenticated
+      security:
+        - api_key_security_example: [ ]
+  /chat:
+    post:
+      tags:
+        - Chat
+      summary: To send a message,first of you need to create a chat room
+      description: To send a message in a chat room
+      operationId: Chat
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                '':
+                  properties:
+                    message:
+                      type: string
+                    chat_room_id:
+                      type: string
+                  type: object
+              type: object
+              example:
+                message: Hello
+                chat_room_id: '1'
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+  /chat-room:
+    post:
+      tags:
+        - Chat
+      summary: Createing Chat Room
+      description: To create a chat room
+      operationId: ChatRoom
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      properties:
+                        message:
+                          type: string
+                        chat_room_id:
+                          type: string
+                      type: object
+                type: object
+      security:
+        - api_key_security_example: [ ]
+  /help-request:
+    post:
+      tags:
+        - Help
+      summary: Get help from operator
+      description: Get help from operator
+      operationId: help
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                '':
+                  properties:
+                    phone:
+                      type: string
+                    name:
+                      type: string
+                    preferred_language:
+                      type: string
+                    messenger_type:
+                      type: string
+                  type: object
+              type: object
+              example:
+                phone: '998901234567'
+                name: Boburmirzo Kozimov
+                preferred_language: ENGLISH
+                messenger_type: TELEGRAM
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: string
+                type: object
+  /countries:
+    get:
+      tags:
+        - Countries
+      summary: Get List of all countries
+      description: Get List of all countries
+      operationId: countries
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      flag:
+                        type: string
+                      name_common:
+                        type: string
+                      name_official:
+                        type: string
+                type: object
+      security:
+        - api_key_security_example: [ ]
+  /keys:
+   get:
+      tags:
+        - Keys
+      summary:  Этот api для того чтобы получить Расчетный счет и Номер Кошелка
+      description: Первый Расчетный счет ,второй Номер Кошелка
+      operationId: countries
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      account_number:
+                        type: string
+                      wallet_number:
+                        type: string
+                type: object
+      security:
+        - api_key_security_example: [ ]
+  /balance:
+    post:
+      tags:
+        - Balance
+      summary:  Этот api для того чтобы управлять балансном клиента,для пополнение и снятие со счёта
+      description: Когда withdraw false - пополнение баланса,withdraw - true снятие со счёта
+      operationId: balance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/ReplenishByCASHinOffice'
+                - $ref: '#/components/schemas/ReplenishByCASHcourier'
+                - $ref: '#/components/schemas/ReplenishByUSDT'
+                - $ref: '#/components/schemas/ReplenishByCASHLESS'
+                - $ref: '#/components/schemas/WithdrawByCASHinOffice'
+                - $ref: '#/components/schemas/WithdrawByCASHcourier'
+                - $ref: '#/components/schemas/WithdrawByUSDT'
+                - $ref: '#/components/schemas/WithdrawByCASHLESS'
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+  /cards:
+    post:
+      tags:
+        - VisaCard
+      summary:  Этот api для того чтобы запросить на выпуск VisaCard
+      description: Если хотите создать карту на никнейм то тогда добаляем полю anonymous=true
+      operationId: visaCard
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                surname:
+                  type: string
+                middle_name:
+                  type: string
+                phone:
+                  type: string
+                birth_date:
+                  type: date
+                scan_passport:
+                  type: string
+                  format: binary
+                selfie_passport:
+                  type: string
+                  format: binary
+                anonymous:
+                  type: boolean
+                anonymous_name:
+                  type: string
+                anonymous_surname:
+                  type: string
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+  /cards/{card}/manage:
+    post:
+      tags:
+        - VisaCard
+      summary:  Этот api для того чтобы заполнить счёт VisaCard
+      description: Оплата по реквизитам можно выполнить когда withdaw = true
+      operationId: visaCardManagement
+      parameters:
+        - name: card
+          in: path
+          description: ID of card to replenish
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                sum:
+                  type: string
+                withdraw:
+                  type: boolean
+                invoice_file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+
+
+components:
+  schemas:
+    ReplenishByCASHcourier:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: ['CASH']
+        country:
+          type: integer
+        currency:
+          type: string
+        contact:
+          type: string
+        sum:
+          type: string
+        phone:
+          type: string
+        delivery:
+          type: string
+          enum: ['office']
+        withdraw:
+          type: boolean
+          enum:
+            - false
+    ReplenishByCASHinOffice:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'CASH' ]
+        country:
+          type: integer
+        branch_id:
+          type: integer
+        delivery:
+          type: string
+          enum: [ 'office' ]
+        withdraw:
+          type: boolean
+          enum:
+            - false
+    ReplenishByUSDT:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'USDT' ]
+        currency:
+          type: string
+          enum: [ 'usd','eur' ]
+        key_id:
+          type: integer
+        sum:
+          type: string
+        withdraw:
+          type: boolean
+          enum:
+            - false
+        usdt_type:
+          type: string
+          enum: ['ERC','TRC']
+        info:
+          type: string
+    ReplenishByCASHLESS:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'USDT' ]
+        currency:
+          type: string
+          enum: [ 'usd','eur' ]
+        key_id:
+          type: integer
+        sum:
+          type: string
+        withdraw:
+          type: boolean
+          enum:
+            - false
+        info:
+          type: string
+
+
+    WithdrawByCASHcourier:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'CASH' ]
+        country:
+          type: integer
+        currency:
+          type: string
+        contact:
+          type: string
+        sum:
+          type: string
+        phone:
+          type: string
+        delivery:
+          type: string
+          enum: [ 'courier' ]
+        withdraw:
+          type: boolean
+          enum:
+            - true
+    WithdrawByCASHinOffice:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'CASH' ]
+        country:
+          type: integer
+        branch_id:
+          type: integer
+        delivery:
+          type: string
+          enum: [ 'office' ]
+        withdraw:
+          type: boolean
+          enum:
+            - true
+    WithdrawByUSDT:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'USDT' ]
+        currency:
+          type: string
+          enum: [ 'usd','eur' ]
+        withdraw_account_number:
+          type: string
+        sum:
+          type: string
+        withdraw:
+          type: boolean
+          enum:
+            - true
+        usdt_type:
+          type: string
+          enum: [ 'ERC','TRC' ]
+        info:
+          type: string
+    WithdrawByCASHLESS:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'USDT' ]
+        currency:
+          type: string
+          enum: [ 'usd','eur' ]
+        withdraw_account_number:
+          type: string
+        sum:
+          type: string
+        withdraw:
+          type: boolean
+          enum:
+            - true
+        info:
+          type: string
+
+
+  securitySchemes:
+    api_key_security_example:
+      type: http
+      description: A short description for security scheme
+      name: Authorization
+      scheme: Bearer
+      in: header
+      bearerFormat: JWT
+security:
+  - oauth2_security_example:
+      - read
+      - write
+
