@@ -15,10 +15,9 @@ return new class extends Migration {
             $table->unsignedInteger('credit_card_id');
             $table->unsignedInteger('client_id');
             $table->decimal('sum', 10, 2)->default(0);
-            $table->enum('type', ['SEPA', 'SWIFT'])->default('SEPA');
+            $table->enum('type', ['SEPA', 'SWIFT'])->nullable();
             $table->enum('status', ['OPEN', 'CLOSED'])->default('OPEN');
             $table->string('invoice_file')->nullable();
-            $table->string('card_number')->nullable();
             $table->boolean('withdraw')->default(false);
             $table->timestamps();
 

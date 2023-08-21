@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api\VisaCard;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateTransactionRequest extends FormRequest
+class VisaCardTransactionRequestForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,19 +23,16 @@ class CreateTransactionRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'client_id' => 'exists:clients,id',
             'sum' => 'numeric',
-//            'type' => 'in:SEPA,SWIFT',
-            'withdraw' => 'boolean|required',
+            'withdraw' => 'nullable',
         ];
 
-        if ($this->request->get('withdraw')) {
+        if (request()->input('withdraw') === 'true') {
             $rules = [
-                'client_id' => 'exists:clients,id',
-                'sum' => 'numeric|required',
-//                'type' => 'required|in:SEPA,SWIFT',
+                'sum' => 'numeric',
+                'type' => 'nullable|in:SEPA,SWIFT',
                 'invoice_file' => 'file|required',
-                'withdraw' => 'boolean|required',
+                'withdraw' => 'required',
             ];
         }
 

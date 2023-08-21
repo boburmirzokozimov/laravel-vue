@@ -63,7 +63,7 @@ class CreditCardService
 
     public function createTransaction(array $validated, CreditCard $card): void
     {
-        if ($validated['withdraw']) {
+        if ($validated['withdraw'] === 'true') {
             $validated['invoice_file'] = $this->uploadService->uploadInvoice($validated['invoice_file']);
         }
         $card->createTransaction($validated);

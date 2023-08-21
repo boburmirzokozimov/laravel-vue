@@ -37,9 +37,6 @@ const props = defineProps({
                             <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
                                 Номер карты
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                Тип
-                            </th>
                         </tr>
                         </thead>
                         <tbody v-for="credit_card_transaction in credit_card_transactions">
@@ -79,10 +76,6 @@ const props = defineProps({
                                     {{ credit_card_transaction.card_number }}
                                 </span>
                             </td>
-                            <td
-                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
-                                v-text="credit_card_transaction.type"
-                            ></td>
                         </tr>
                         </tbody>
                     </table>

@@ -39,7 +39,7 @@ class ClientController extends Controller
                     'last_visited' => Carbon::create($user->last_visited)->diffForHumans(),
                 ]),
             'filters' => \Illuminate\Support\Facades\Request::all(),
-            
+
         ]);
     }
 
@@ -166,9 +166,8 @@ class ClientController extends Controller
                         'status' => $credit_card_transactions->status,
                         'credit_card_id' => $credit_card_transactions->credit_card_id,
                         'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
-                        'type' => $credit_card_transactions->type,
                         'invoice_file' => $credit_card_transactions->invoice_file,
-                        'card_number' => $credit_card_transactions->card_number,
+                        'card_number' => $credit_card_transactions->creditCard->card_number,
                         'withdraw' => $credit_card_transactions->withdraw,
                         'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
                     ];

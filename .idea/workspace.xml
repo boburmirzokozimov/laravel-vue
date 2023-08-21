@@ -5,15 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Key/CreateKeyRequestForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Table.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/VisaCard/VisaCardRequestForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/VisaCard/VisaCardTransactionRequestForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Key/KeyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Key/KeyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Components/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Components/Nav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/CreateTransactionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/CreateTransactionRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Client/CreditCard/CardTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Client/CreditCard/CardTransaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/CreditCardService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/CreditCardService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_07_102845_create_card_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_07_102845_create_card_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardWithdrawTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardWithdrawTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/ManageBalance.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/ManageBalance.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/cards/3nRfS0TQPs1OCmjkKdm570YdeR7kMFyKbRW3KHB0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/cards/4OfyTpUgoQreXlMolRXzWFlIJbpJ6K6XXDvrqiRP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/cards/BS3PNZBi7Ua4E8z2wmaOgzL2dTwrAZBDljZjAj0o.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/cards/KNyVhWBi46bKCKFhhzs8XDQZZc7MRQMHSuSKq1Rf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/cards/TDAtEjV0xMzyzgo5hUM21u68di00Cz4SGbGiPByk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/cards/TVB7zKthftSWytOeeeTd79aluu5ON2ISpaB0uD0i.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/invoices/JWw3XrjOpX8UatbhlhlPXBG8eWm7CCfDH8UyufoT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/invoices/SYfCXJjvo9r3m5IMMXhDfyuZiaThW8Iw0M5p1HeW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/invoices/TyRFpRY5x1SOyYu6JuEjZbZm6qsXgxDlMcWhay0w.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/invoices/lMV6a8vhncbAkaJl9TGIYk08S8HYXxm43BnjK1Eb.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/invoices/qDx5LxK5zPYXhZSwL7PA0OQNQJJ0nLGVXVO9kyMj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/invoices/s0Kdapc47r2xgjiSvSkm2HkUrs95Dpe9UqOogZxx.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/app/public/invoices/w3ArEVyQRiCcr4QaiMwkgDacPUCvBoZLE5hlB9LW.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +47,9 @@
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="EditorConfigPreviewManager">
+    <editorConfig file="$PROJECT_DIR$/backend/.editorconfig" previewFile="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -216,41 +238,41 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.search-composer-json": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/js/Pages",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "web.server",
-    "ts.external.directory.path": "/snap/phpstorm/348/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/js/Pages&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/snap/phpstorm/348/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages" />
@@ -340,7 +362,8 @@
       <workItem from="1692339803755" duration="90000" />
       <workItem from="1692339929777" duration="178000" />
       <workItem from="1692340128290" duration="2261000" />
-      <workItem from="1692342434350" duration="11884000" />
+      <workItem from="1692342434350" duration="12027000" />
+      <workItem from="1692590046221" duration="9038000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -590,7 +613,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692360178149</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692361959880</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1692361959880</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

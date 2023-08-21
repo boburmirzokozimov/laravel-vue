@@ -297,6 +297,80 @@ paths:
           description: Success
       security:
         - api_key_security_example: [ ]
+  /cards:
+    post:
+      tags:
+        - VisaCard
+      summary:  Этот api для того чтобы запросить на выпуск VisaCard
+      description: Если хотите создать карту на никнейм то тогда добаляем полю anonymous=true
+      operationId: visaCard
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                surname:
+                  type: string
+                middle_name:
+                  type: string
+                phone:
+                  type: string
+                birth_date:
+                  type: date
+                scan_passport:
+                  type: string
+                  format: binary
+                selfie_passport:
+                  type: string
+                  format: binary
+                anonymous:
+                  type: boolean
+                anonymous_name:
+                  type: string
+                anonymous_surname:
+                  type: string
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+  /cards/{card}/manage:
+    post:
+      tags:
+        - VisaCard
+      summary:  Этот api для того чтобы заполнить счёт VisaCard
+      description: Оплата по реквизитам можно выполнить когда withdaw = true
+      operationId: visaCardManagement
+      parameters:
+        - name: card
+          in: path
+          description: ID of card to replenish
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                sum:
+                  type: string
+                withdraw:
+                  type: boolean
+                invoice_file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+
+
 components:
   schemas:
     ReplenishByCASHcourier:
@@ -463,6 +537,7 @@ components:
             - true
         info:
           type: string
+
 
   securitySchemes:
     api_key_security_example:

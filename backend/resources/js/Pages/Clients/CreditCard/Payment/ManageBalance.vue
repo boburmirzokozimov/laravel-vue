@@ -56,50 +56,50 @@ const handleSubmit = () => {
                 </button>
             </div>
 
-            <div v-if="!form.withdraw" class="mb-6">
-                <label
-                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
-                    for="type"
-                >
-                    Тип
-                </label>
+            <!--            <div v-if="!form.withdraw" class="mb-6">-->
+            <!--                <label-->
+            <!--                    class="block mb-2 uppercase font-bold text-sm text-gray-700"-->
+            <!--                    for="type"-->
+            <!--                >-->
+            <!--                    Тип-->
+            <!--                </label>-->
 
-                <select
-                    id="type"
-                    v-model="form.type"
-                    class="border border-gray-200 p-2 w-full rounded-2xl"
-                    name="type"
-                >
-                    <option value="SEPA">SEPA
-                    </option>
-                    <option value="SWIFT">SWIFT</option>
-                </select>
-                <div v-if="form.errors.type" class="text-red-500 text-sm">{{ form.errors.type }}</div>
-            </div>
-            <div v-if="!form.withdraw" class="mb-6">
-                <label
-                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
-                    for="card_number"
-                >
-                    Номер карты
-                </label>
+            <!--                <select-->
+            <!--                    id="type"-->
+            <!--                    v-model="form.type"-->
+            <!--                    class="border border-gray-200 p-2 w-full rounded-2xl"-->
+            <!--                    name="type"-->
+            <!--                >-->
+            <!--                    <option value="SEPA">SEPA-->
+            <!--                    </option>-->
+            <!--                    <option value="SWIFT">SWIFT</option>-->
+            <!--                </select>-->
+            <!--                <div v-if="form.errors.type" class="text-red-500 text-sm">{{ form.errors.type }}</div>-->
+            <!--            </div>-->
+            <!--            <div v-if="!form.withdraw" class="mb-6">-->
+            <!--                <label-->
+            <!--                    class="block mb-2 uppercase font-bold text-sm text-gray-700"-->
+            <!--                    for="card_number"-->
+            <!--                >-->
+            <!--                    Номер карты-->
+            <!--                </label>-->
 
-                <input
-                    id="card_number"
-                    v-model="form.card_number"
-                    v-maska
-                    class="border border-gray-200 p-2 w-full rounded-2xl"
-                    data-maska="#### #### #### ####"
-                    name="card_number"
-                    placeholder="1234 5678 9123 4567"
-                    type="text"
-                />
-                <div v-if="form.errors.card_number" class="text-red-500 text-sm">{{
-                        form.errors.card_number
-                    }}
-                </div>
-            </div>
-            <div v-else class="mb-6">
+            <!--                <input-->
+            <!--                    id="card_number"-->
+            <!--                    v-model="form.card_number"-->
+            <!--                    v-maska-->
+            <!--                    class="border border-gray-200 p-2 w-full rounded-2xl"-->
+            <!--                    data-maska="#### #### #### ####"-->
+            <!--                    name="card_number"-->
+            <!--                    placeholder="1234 5678 9123 4567"-->
+            <!--                    type="text"-->
+            <!--                />-->
+            <!--                <div v-if="form.errors.card_number" class="text-red-500 text-sm">{{-->
+            <!--                        form.errors.card_number-->
+            <!--                    }}-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <div v-if="form.withdraw" class="mb-6">
                 <label
                     class="block mb-2 uppercase font-bold text-sm text-gray-700"
                     for="invoice_file"
