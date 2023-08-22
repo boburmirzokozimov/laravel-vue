@@ -58,30 +58,14 @@ class AuthController extends Controller
 
         if ($client?->isActive()) {
             $credentials = [
-                'client_id' => $client->id,
+                'name' => $client->full_name,
                 'status' => $client->isActive(),
                 'balance' => $client->balance,
-                'phone' => $client->phone,
-                'cards' => $client->creditCard()
-                    ->get()
-                    ->map(function ($card) {
-                        return [
-                            'id' => $card->id,
-                            'balance' => $card->balance
-                        ];
-                    }),
-                'card_transactions' => $client->cardTransactions()
-                    ->get()
-                    ->map(function ($cardTransactions) {
-                        return [
-                            'id' => $cardTransactions->id,
-                            'sum' => $cardTransactions->sum
-                        ];
-                    }),
+                'phone' => $client->phone
             ];
         } else {
             $credentials = [
-                'client_id' => $client?->id,
+                'name' => $client->full_name,
                 'status' => $client?->isActive()
             ];
         }

@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Chat\ChatController;
 use App\Http\Controllers\Api\Key\KeyController;
 use App\Http\Controllers\Api\UploadFile\UploadFileController;
 use App\Http\Controllers\Api\VisaCard\VisaCardController;
+use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['api', 'auth.token'])->group(function () {
@@ -21,10 +22,13 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::post('/help-request', [HelpRequestController::class, 'store']);
 
     Route::post('/balance', [BalanceReplenishController::class, 'manage']);
+    Route::post('/balance-requisite', [BalanceReplenishController::class, 'requisite']);
+    Route::get('/balance-transactions-history', [BalanceReplenishController::class, 'history']);
 
     Route::get('/keys', [KeyController::class, 'index']);
     Route::get('/countries', CountryController::class);
     Route::post('/cards', [VisaCardController::class, 'store']);
+    Route::get('/cards', [VisaCardController::class, 'cards']);
     Route::post('/cards/{card}/manage', [VisaCardController::class, 'manage']);
 
     Route::post('/uploadFile', UploadFileController::class);

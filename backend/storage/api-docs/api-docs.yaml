@@ -96,7 +96,7 @@ paths:
             application/json:
               schema:
                 properties:
-                  client_id:
+                  name:
                     type: string
                   status:
                     type: boolean
@@ -104,25 +104,6 @@ paths:
                     type: string
                   phone:
                     type: string
-                  cards:
-                    type: array
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        balance:
-                          type: string
-                      type: object
-                  card_transactions:
-                    type: array
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        sum:
-                          type: string
-                      type: object
-                type: object
         '401':
           description: Unauthenticated
       security:
@@ -249,10 +230,10 @@ paths:
       security:
         - api_key_security_example: [ ]
   /keys:
-   get:
+    get:
       tags:
         - Keys
-      summary:  Этот api для того чтобы получить Расчетный счет и Номер Кошелка
+      summary: Этот api для того чтобы получить Расчетный счет и Номер Кошелка
       description: Первый Расчетный счет ,второй Номер Кошелка
       operationId: countries
       responses:
@@ -266,9 +247,19 @@ paths:
                     type: object
                     properties:
                       account_number:
-                        type: string
+                        type: object
+                        properties:
+                          sepa:
+                            type: string
+                          swift:
+                            type: string
                       wallet_number:
-                        type: string
+                        type: object
+                        properties:
+                          erc:
+                            type: string
+                          trc:
+                            type: string
                 type: object
       security:
         - api_key_security_example: [ ]
@@ -276,7 +267,7 @@ paths:
     post:
       tags:
         - Balance
-      summary:  Этот api для того чтобы управлять балансном клиента,для пополнение и снятие со счёта
+      summary: Этот api для того чтобы управлять балансном клиента,для пополнение и снятие со счёта
       description: Когда withdraw false - пополнение баланса,withdraw - true снятие со счёта
       operationId: balance
       requestBody:
@@ -297,11 +288,34 @@ paths:
           description: Success
       security:
         - api_key_security_example: [ ]
+  /balance-requisite:
+    post:
+      tags:
+        - BalanceRequisite
+      summary: Этот api для того чтобы управлять балансном клиента,для requisite replenish
+      operationId: balanceRequisite
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type:
+                type: string
+                enum: [ 'SWIFT','SEPA' ]
+              sum:
+                type: string
+              invoice_file:
+                type: string
+                format: binary
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
   /cards:
     post:
       tags:
         - VisaCard
-      summary:  Этот api для того чтобы запросить на выпуск VisaCard
+      summary: Этот api для того чтобы запросить на выпуск VisaCard
       description: Если хотите создать карту на никнейм то тогда добаляем полю anonymous=true,date yyyy/mm/dd
       operationId: visaCard
       requestBody:
@@ -337,11 +351,62 @@ paths:
           description: Success
       security:
         - api_key_security_example: [ ]
+    get:
+      tags:
+        - VisaCard
+      summary: Этот api для того чтобы запросить all VisaCard
+      operationId: visaCardAll
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                      data:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          balance:
+                            type: string
+                          card_number:
+                            type: string
+                          expire_date:
+                            type: string
+                          status:
+                            type: string
+                          card_holder:
+                            type: string
+                      first_page_url:
+                        type: string
+                      from:
+                        type: integer
+                      next_page_url:
+                        type: string
+                      path:
+                        type: string
+                      per_page:
+                        type: integer
+                      prev_page_url:
+                        type: string
+                      prev_page:
+                        type: integer
+                      to:
+                        type: string
+
+      security:
+        - api_key_security_example: [ ]
   /cards/{card}/manage:
     post:
       tags:
         - VisaCard
-      summary:  Этот api для того чтобы заполнить счёт VisaCard
+      summary: Этот api для того чтобы заполнить счёт VisaCard
       description: Оплата по реквизитам можно выполнить когда withdaw = true,invoice_file не обезательное поле,это для того чтобы сделать оплату по реквизитам
       operationId: visaCardManagement
       parameters:
@@ -353,20 +418,15 @@ paths:
             type: integer
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
               properties:
                 sum:
                   type: string
-                withdraw:
-                  type: boolean
-                invoice_file:
-                  type: string
-                  format: binary
                 type:
                   type: string
-                  enum: ['SEPA','SWIFT']
+                  enum: [ 'SEPA','SWIFT' ]
       responses:
         '200':
           description: Success
@@ -389,7 +449,7 @@ paths:
                   type: integer
                 type:
                   type: string
-                  enum: ['audio', 'video','image','doc']
+                  enum: [ 'audio', 'video','image','doc' ]
                 message:
                   type: string
                   format: binary
@@ -412,8 +472,64 @@ paths:
                 type: object
       security:
         - api_key_security_example: [ ]
+  /balance-transactions-history:
+    get:
+      tags:
+        - Balance
+      summary: Balance transaction history
+      operationId: balanceHistory
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                      data:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          sum:
+                            type: string
+                          status:
+                            type: string
+                          usdt_type:
+                            type: string
+                          type:
+                            type: string
+                          withdraw:
+                            type: string
+                          withdraw_account_number:
+                            type: string
+                          created_at:
+                            type: date
+                      first_page_url:
+                        type: string
+                      from:
+                        type: integer
+                      next_page_url:
+                        type: string
+                      path:
+                        type: string
+                      per_page:
+                        type: integer
+                      prev_page_url:
+                        type: string
+                      prev_page:
+                        type: integer
+                      to:
+                        type: string
 
-
+        '401':
+          description: Unauthenticated
+      security:
+        - api_key_security_example: [ ]
 components:
   schemas:
     ReplenishByCASHcourier:
@@ -421,7 +537,7 @@ components:
       properties:
         type:
           type: string
-          enum: ['CASH']
+          enum: [ 'CASH' ]
         country:
           type: integer
         currency:
@@ -434,7 +550,7 @@ components:
           type: string
         delivery:
           type: string
-          enum: ['office']
+          enum: [ 'office' ]
         withdraw:
           type: boolean
           enum:
@@ -475,7 +591,7 @@ components:
             - false
         usdt_type:
           type: string
-          enum: ['ERC','TRC']
+          enum: [ 'ERC','TRC' ]
         info:
           type: string
     ReplenishByCASHLESS:
@@ -483,7 +599,7 @@ components:
       properties:
         type:
           type: string
-          enum: [ 'USDT' ]
+          enum: [ 'CASHLESS' ]
         currency:
           type: string
           enum: [ 'usd','eur' ]
@@ -566,7 +682,7 @@ components:
       properties:
         type:
           type: string
-          enum: [ 'USDT' ]
+          enum: [ 'CASHLESS' ]
         currency:
           type: string
           enum: [ 'usd','eur' ]
