@@ -5,8 +5,10 @@ import {createToaster} from "@meforma/vue-toaster";
 const toaster = createToaster({ /* options */});
 
 let form = useForm({
-    account_number: '',
-    wallet_number: '',
+    account_number_sepa: '',
+    account_number_swift: '',
+    wallet_number_erc: '',
+    wallet_number_trc: '',
 })
 
 const handleSubmit = () => {
@@ -31,18 +33,38 @@ const handleSubmit = () => {
                     class="block mb-2 uppercase font-bold text-sm text-gray-700"
                     for="account_number"
                 >
-                    Расчетный счет
+                    Расчетный счет - SEPA
                 </label>
 
                 <input
                     id="account_number"
-                    v-model="form.account_number"
+                    v-model="form.account_number_sepa"
                     class="border border-gray-200 p-2 w-full rounded-2xl"
                     name="account_number"
                     type="text"
                 />
-                <div v-if="form.errors.account_number" class="text-red-500 text-sm">{{
-                        form.errors.account_number
+                <div v-if="form.errors.account_number_sepa" class="text-red-500 text-sm">{{
+                        form.errors.account_number_sepa
+                    }}
+                </div>
+            </div>
+            <div class="mb-6">
+                <label
+                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                    for="account_number"
+                >
+                    Расчетный счет - SWIFT
+                </label>
+
+                <input
+                    id="account_number"
+                    v-model="form.account_number_swift"
+                    class="border border-gray-200 p-2 w-full rounded-2xl"
+                    name="account_number"
+                    type="text"
+                />
+                <div v-if="form.errors.account_number_swift" class="text-red-500 text-sm">{{
+                        form.errors.account_number_swift
                     }}
                 </div>
             </div>
@@ -52,17 +74,40 @@ const handleSubmit = () => {
                     class="block mb-2 uppercase font-bold text-sm text-gray-700"
                     for="wallet_number"
                 >
-                    Кошелёк
+                    Кошелёк - ERC
                 </label>
 
                 <input
                     id="wallet_number"
-                    v-model="form.wallet_number"
+                    v-model="form.wallet_number_erc"
                     class="border border-gray-200 p-2 w-full rounded-2xl"
                     name="wallet_number"
                     type="text"
                 />
-                <div v-if="form.errors.wallet_number" class="text-red-500 text-sm">{{ form.errors.wallet_number }}</div>
+                <div v-if="form.errors.wallet_number_erc" class="text-red-500 text-sm">{{
+                        form.errors.wallet_number_erc
+                    }}
+                </div>
+            </div>
+            <div class="mb-6">
+                <label
+                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                    for="wallet_number"
+                >
+                    Кошелёк - TRC
+                </label>
+
+                <input
+                    id="wallet_number"
+                    v-model="form.wallet_number_trc"
+                    class="border border-gray-200 p-2 w-full rounded-2xl"
+                    name="wallet_number"
+                    type="text"
+                />
+                <div v-if="form.errors.wallet_number_trc" class="text-red-500 text-sm">{{
+                        form.errors.wallet_number_trc
+                    }}
+                </div>
             </div>
 
             <div class="flex justify-end w-full">

@@ -22,20 +22,10 @@ class VisaCardTransactionRequestForm extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
+        return [
             'sum' => 'numeric',
             'withdraw' => 'nullable',
+            'type' => 'string|in:swift,sepa'
         ];
-
-        if (request()->input('withdraw') === 'true') {
-            $rules = [
-                'sum' => 'numeric',
-                'type' => 'nullable|in:SEPA,SWIFT',
-                'invoice_file' => 'file|required',
-                'withdraw' => 'required',
-            ];
-        }
-
-        return $rules;
     }
 }

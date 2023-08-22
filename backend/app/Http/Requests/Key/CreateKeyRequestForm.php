@@ -23,8 +23,10 @@ class CreateKeyRequestForm extends FormRequest
     public function rules(): array
     {
         return [
-            'wallet_number' => 'string|required',
-            'account_number' => 'string|required',
+            'wallet_number_erc' => 'string|required',
+            'wallet_number_trc' => 'string|required',
+            'account_number_sepa' => 'string|required',
+            'account_number_swift' => 'string|required',
         ];
     }
 }

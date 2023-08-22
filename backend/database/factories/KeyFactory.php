@@ -20,8 +20,10 @@ class KeyFactory extends Factory
     public function definition(): array
     {
         return [
-            'account_number' => fake()->randomNumber(9),
-            'wallet_number' => fake()->randomNumber(9),
+            'account_number_sepa' => fake()->randomNumber(9),
+            'account_number_swift' => fake()->randomNumber(9),
+            'wallet_number_erc' => fake()->randomNumber(9),
+            'wallet_number_trc' => fake()->randomNumber(9),
         ];
     }
 }

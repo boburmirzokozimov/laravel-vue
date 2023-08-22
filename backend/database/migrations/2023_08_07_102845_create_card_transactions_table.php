@@ -17,8 +17,6 @@ return new class extends Migration {
             $table->decimal('sum', 10, 2)->default(0);
             $table->enum('type', ['SEPA', 'SWIFT'])->nullable();
             $table->enum('status', ['WAITING', 'HOLD', 'SUCCESS', 'CANCELED', 'VERIFICATION'])->default('WAITING');
-            $table->string('invoice_file')->nullable();
-            $table->boolean('withdraw')->default(false);
             $table->timestamps();
 
             $table->foreign('credit_card_id')

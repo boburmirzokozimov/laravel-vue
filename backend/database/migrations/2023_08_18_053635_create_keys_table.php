@@ -12,8 +12,10 @@ return new class extends Migration {
     {
         Schema::create('keys', function (Blueprint $table) {
             $table->id();
-            $table->string('account_number')->nullable();
-            $table->string('wallet_number')->nullable();
+            $table->string('account_number_swift')->nullable();
+            $table->string('account_number_sepa')->nullable();
+            $table->string('wallet_number_erc')->nullable();
+            $table->string('wallet_number_trc')->nullable();
             $table->timestamps();
         });
     }
