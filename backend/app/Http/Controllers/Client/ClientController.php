@@ -89,7 +89,6 @@ class ClientController extends Controller
                     'last_visited',
                 ]),
             'balance_request' => $client->balanceRequest()
-                ->where('status', StatusEnumType::OPEN->name)
                 ->get()
                 ->map(function ($balance) {
                     return [
@@ -109,6 +108,13 @@ class ClientController extends Controller
                         'created_at' => Carbon::create($balance->created_at)->toDateTimeString(),
                     ];
                 }),
+            'transaction_statuses' => [
+                StatusEnumType::SUCCESS->name => StatusEnumType::SUCCESS->name,
+                StatusEnumType::HOLD->name => StatusEnumType::HOLD->name,
+                StatusEnumType::CANCELED->name => StatusEnumType::CANCELED->name,
+                StatusEnumType::WAITING->name => StatusEnumType::WAITING->name,
+                StatusEnumType::VERIFICATION->name => StatusEnumType::VERIFICATION->name,
+            ],
             'credit_card_requests' => $client->creditCardRequest()
                 ->where('status', CreditCardStatusEnumType::PENDING->name)
                 ->where('anonymous', false)

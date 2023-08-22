@@ -106,6 +106,7 @@ const handleSubmit = () => {
                         type="text"
                     />
                     <div v-if="form.errors.login_code" class="text-red-500 text-sm">{{ form.errors.login_code }}</div>
+                    <div v-show="is_submitted" class="text-green-500 text-sm">Ведите код подтверждение</div>
                 </div>
 
                 <div class="flex justify-end w-full">

@@ -6,7 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Chats/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Chats/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/UploadFile/UploadFileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/UploadFile/UploadFileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/CreditCard/CreditCardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/CreditCard/CreditCardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Api/Balance/CreateBalanceReplenishForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/Balance/CreateBalanceReplenishForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Enum/StatusEnumType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Enum/StatusEnumType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/CreditCardService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/CreditCardService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_07_102845_create_card_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_07_102845_create_card_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_21_073024_add_type_column_to_messages_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2025_08_10_042211_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2025_08_10_042211_create_messages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Auth/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Auth/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/Show.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +351,7 @@
       <workItem from="1692339929777" duration="178000" />
       <workItem from="1692340128290" duration="2261000" />
       <workItem from="1692342434350" duration="12027000" />
-      <workItem from="1692590046221" duration="17438000" />
+      <workItem from="1692590046221" duration="23089000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -611,7 +625,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692609315290</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692609499113</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1692609499113</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

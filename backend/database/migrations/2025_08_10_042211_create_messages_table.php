@@ -21,7 +21,7 @@ return new class extends Migration {
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-
+            $table->string('type')->nullable();
             $table->text('message');
             $table->timestamps();
         });

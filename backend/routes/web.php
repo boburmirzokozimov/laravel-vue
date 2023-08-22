@@ -65,6 +65,8 @@ Route::middleware('auth')->group(function () {
         ->name('credit-cards.update');
     Route::patch('credit-cards/{creditCard}/manage/{cardTransaction}', [CreditCardController::class, 'accept'])
         ->name('credit-cards.accept');
+    Route::patch('transactions/{cardTransaction}/status', [CreditCardController::class, 'changeStatus'])
+        ->name('credit-cards.changeStatus');
 
     Route::post('download', [DownloadFileController::class, 'download'])
         ->name('download-file');

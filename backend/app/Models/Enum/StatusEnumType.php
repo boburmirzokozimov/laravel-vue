@@ -4,6 +4,9 @@ namespace App\Models\Enum;
 
 enum StatusEnumType: string
 {
-    case OPEN = 'OPEN';
-    case CLOSED = 'CLOSED';
+    case WAITING = 'WAITING';
+    case HOLD = 'HOLD';
+    case SUCCESS = 'SUCCESS';
+    case CANCELED = 'CANCELED';
+    case VERIFICATION = 'VERIFICATION';
 }

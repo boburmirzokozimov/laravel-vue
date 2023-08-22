@@ -9,6 +9,7 @@ use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Services\CreditCardService;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
@@ -16,18 +17,6 @@ class CreditCardController extends Controller
 {
     public function __construct(private CreditCardService $service)
     {
-    }
-
-    public function update(CreditCardRequest $cardRequest, CreditCard $card)
-    {
-        $card->update([
-            'card_number' => $cardRequest->validated('card_number'),
-            'expire_date' => $cardRequest->validated('expire_date'),
-        ]);
-
-        $card->save();
-
-        return back();
     }
 
     public function create(CreditCard $card)
@@ -57,6 +46,26 @@ class CreditCardController extends Controller
                 'message' => $e->getMessage(),
             ]);
         }
+        return back();
+    }
+
+    public function changeStatus(Request $request, CardTransaction $cardTransaction)
+    {
+        $status = $request->validate([
+            'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION,SUCCESS'
+        ]);
+        $cardTransaction->update($status);
+        return back();
+    }
+
+    public function update(CreditCardRequest $cardRequest, CreditCard $card)
+    {
+        $card->update([
+            'card_number' => $cardRequest->validated('card_number'),
+            'expire_date' => $cardRequest->validated('expire_date'),
+        ]);
+
+        $card->save();
 
         return back();
     }

@@ -79,7 +79,7 @@ class CreditCardService
         } else {
             $card->depositBalance($cardTransaction->sum);
         }
-        $cardTransaction->status = StatusEnumType::CLOSED->name;
+        $cardTransaction->status = StatusEnumType::SUCCESS->name;
         $cardTransaction->save();
         $card->save();
     }

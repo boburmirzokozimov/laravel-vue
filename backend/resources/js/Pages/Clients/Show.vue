@@ -19,6 +19,7 @@ const props = defineProps({
     credit_card_requests_anonymous: Object,
     credit_cards: Object,
     credit_card_transactions: Object,
+    transaction_statuses: Object,
 })
 
 const show = ref('CARDS')
@@ -74,7 +75,8 @@ const show = ref('CARDS')
                 <div class="flex justify-start">
                     <h1 class="mb-6">Таблица заявок на Пополнения карт VISA</h1>
                 </div>
-                <CreditCardDepositTable :credit_card_transactions="props.credit_card_transactions"/>
+                <CreditCardDepositTable :credit_card_transactions="props.credit_card_transactions"
+                                        :transaction_statuses="props.transaction_statuses"/>
             </div>
 
             <div v-if="props.credit_card_transactions.length && show === 'HISTORY'" class="mb-6">
@@ -92,7 +94,7 @@ const show = ref('CARDS')
                 <CreditCardTransactionsHistoryTable :credit_card_transactions="props.credit_card_transactions"/>
             </div>
 
-            <div v-if="props.credit_cards.length && show === 'CARDS'" class="mb-6">
+            <div v-if="props.credit_card_requests.length && show === 'CARDS'" class="mb-6">
                 <div class="flex justify-between">
                     <h1 class="mb-6">Таблица заявок на выпуск карты VISA</h1>
                     <div class="flex items-center">

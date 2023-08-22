@@ -26,7 +26,7 @@ class CreateBalanceReplenishForm extends FormRequest
     {
         $rules = [
             'type' => 'in:CASH,CASHLESS,USDT',
-            'country' => 'exists:countries,id|required',
+            'country_id' => 'exists:countries,id|required',
             'currency' => 'string|required|in:usd,eur',
             'contact' => 'string|required',
             'sum' => 'required|regex:/^\d*(\.\d{3})?$/',
@@ -38,7 +38,7 @@ class CreateBalanceReplenishForm extends FormRequest
         if (request()->request->get('delivery') === BalancePaymentFormEnumType::OFFICE->value) {
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
-                'country' => 'exists:countries,id|required',
+                'country_id' => 'exists:countries,id|required',
                 'branch_id' => 'exists:branches,id|required',
                 'withdraw' => 'nullable|boolean',
                 'delivery' => 'required|in:courier,office'

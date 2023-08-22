@@ -1,7 +1,7 @@
 <script setup>
 
 import {ref} from "vue";
-import {router} from "@inertiajs/vue3";
+import {router, useForm} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
 
 const toaster = createToaster({ /* options */});
@@ -10,6 +10,7 @@ const show = ref(null)
 
 const props = defineProps({
     credit_card_transactions: Object,
+    transaction_statuses: Object,
 })
 
 const handleButton = (card_id, transaction_id) => {
@@ -25,7 +26,20 @@ const handleButton = (card_id, transaction_id) => {
         preserveScroll: true
     })
 }
-
+const handleStatus = (event, id) => {
+    router.post(`/transactions/${id}/status`, {
+        _method: "patch",
+        status: event.target.value
+    }, {
+        onSuccess: () => {
+            toaster.success('Статус изменён')
+        },
+        onError: (error) => {
+            toaster.error(error.message)
+        },
+        preserveScroll: true
+    })
+}
 </script>
 
 <template>
@@ -48,6 +62,9 @@ const handleButton = (card_id, transaction_id) => {
                             <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
                                 Номер карты
                             </th>
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                                Статус
+                            </th>
                             <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
                                 Действие
                             </th>
@@ -55,7 +72,7 @@ const handleButton = (card_id, transaction_id) => {
                         </thead>
                         <tbody v-for="credit_card_transaction in credit_card_transactions">
                         <tr
-                            v-if="!credit_card_transaction.withdraw && credit_card_transaction.status === 'OPEN'"
+                            v-if="!credit_card_transaction.withdraw && credit_card_transaction.status !== 'SUCCESS'"
                             class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 "
                         >
                             <td
@@ -72,11 +89,29 @@ const handleButton = (card_id, transaction_id) => {
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
-
                             >
                                 <span v-if="!credit_card_transaction.invoice_file">
                                     {{ credit_card_transaction.card_number }}
                                 </span>
+                            </td>
+                            <td
+                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
+                            >
+                                <form>
+                                    <select
+                                        id="category"
+                                        class="border border-gray-200 p-2 w-full rounded-2xl"
+                                        name="category"
+                                        @change.prevent="handleStatus($event,credit_card_transaction.id)"
+                                    >
+                                        <option
+                                            v-for="status in props.transaction_statuses"
+                                            :selected="status === credit_card_transaction.status"
+                                            :value="status"
+                                            v-text="status"
+                                        ></option>
+                                    </select>
+                                </form>
                             </td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"

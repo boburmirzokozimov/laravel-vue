@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UploadFile\UploadFileRequestForm;
 use App\Models\Client\Client;
 use App\Services\UploadService;
-use Illuminate\Http\Request;
 
 class UploadFileController extends Controller
 {
@@ -31,7 +30,7 @@ class UploadFileController extends Controller
             'message' => 'Success',
             'data' => [
                 'path' => $credentials['message'],
-                'type' => $credentials['type'],
+//                'type' => $credentials['type'],
             ]
         ]);
     }

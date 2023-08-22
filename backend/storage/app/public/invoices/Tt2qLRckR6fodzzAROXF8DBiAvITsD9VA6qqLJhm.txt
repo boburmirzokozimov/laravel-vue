@@ -302,7 +302,7 @@ paths:
       tags:
         - VisaCard
       summary:  Этот api для того чтобы запросить на выпуск VisaCard
-      description: Если хотите создать карту на никнейм то тогда добаляем полю anonymous=true,date yyyy/mm/dd
+      description: Если хотите создать карту на никнейм то тогда добаляем полю anonymous=true
       operationId: visaCard
       requestBody:
         content:
