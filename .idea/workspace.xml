@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Country/CountryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Country/CreateCountryRequestForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_065143_drop_name_native_column_to_countries_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Countries/Create.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Countries/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Countries/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Countries/Table.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Branch/BranchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Branch/BranchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Branch/CreateBranchRequestForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Branch/CreateBranchRequestForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Branch/UpdateBranchRequestForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Branch/UpdateBranchRequestForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Branches/Table.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Table.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/UploadService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/UploadService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Components/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Components/Nav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -678,7 +680,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692770577445</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692772024397</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1692772024397</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692772036577</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1692772036577</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

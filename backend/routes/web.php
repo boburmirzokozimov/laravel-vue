@@ -9,6 +9,7 @@ use App\Http\Controllers\Client\Balance\ManageBalanceController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\CreditCard\CreditCardController;
 use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
+use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Courier\CourierController;
 use App\Http\Controllers\Key\KeyController;
 use App\Http\Controllers\UploadFile\UploadFileController;
@@ -106,6 +107,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/keys/{key}', 'edit')->name('keys.edit');
         Route::patch('/keys/{key}', 'update')->name('keys.update');
         Route::delete('/keys/{key}', 'destroy')->name('keys.destroy');
+    });
+
+    Route::controller(CountryController::class)->group(function () {
+        Route::get('/countries', 'index')->name('countries');
+        Route::get('/countries/create', 'create')->name('countries.create');
+        Route::post('/countries', 'store')->name('countries.store');
+        Route::get('/countries/{country}', 'edit')->name('countries.edit');
+        Route::patch('/countries/{country}', 'update')->name('countries.update');
+        Route::delete('/countries/{country}', 'destroy')->name('countries.destroy');
     });
 
     Route::post('/uploadFile', UploadFileController::class);

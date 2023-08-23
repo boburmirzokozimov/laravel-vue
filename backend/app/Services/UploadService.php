@@ -23,6 +23,16 @@ class UploadService implements UploadServiceInterface
         return Storage::disk('public')->put('messages', $file);
     }
 
+    public function uploadFlag(?UploadedFile $file): string
+    {
+        return Storage::disk('public')->put('flag', $file);
+    }
+
+    public function removeFlag(?string $file): void
+    {
+        Storage::delete($file);
+    }
+
     public function removeOld(CreditCardRequest $cardRequest, array $credentials): void
     {
         if ($credentials['scan_passport'] instanceof UploadedFile) {
