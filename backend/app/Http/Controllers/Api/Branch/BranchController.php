@@ -16,7 +16,7 @@ class BranchController extends Controller
                     return [
                         'id' => $branch->id,
                         'lat' => $branch->lat,
-                        'len' => $branch->len,
+                        'lon' => $branch->lon,
                         'address' => $branch->address,
                         'working_hours' => $branch->working_hours,
                         'contact_number' => $branch->contact_number,
