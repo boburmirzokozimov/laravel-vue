@@ -285,6 +285,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 type:
                   type: string
