@@ -8,6 +8,7 @@ use App\Http\Requests\Api\VisaCard\VisaCardTransactionRequestForm;
 use App\Http\Requests\CreateTransactionRequest;
 use App\Models\Client\Client;
 use App\Models\Client\CreditCard\CreditCard;
+use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Services\CreditCardService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -51,6 +52,11 @@ class VisaCardController extends Controller
     {
         $client = Client::findByToken($request->bearerToken())->first();
         //TODO:Im here
+
+        $cards = CreditCardRequest::where('client_id', $client->id)->paginate(10);
+        
+        return response()->json($cards);
+        dd($client->creditCardRequest->where('id', 1)->first()->status, $client->creditCardRequest->where('id', 1)->first()->creditCard);
         return response()->json(
             $client->creditCard()
                 ->simplePaginate(10)
