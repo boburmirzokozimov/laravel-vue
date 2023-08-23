@@ -541,7 +541,7 @@ paths:
                         type: string
                       lat:
                         type: string
-                      len:
+                      lon:
                         type: string
                       address:
                         type: string
