@@ -41,7 +41,7 @@ class AuthController extends Controller
 
         return response()->json([
             'error' => 'Invalid credentials'
-        ], 401);
+        ], 400);
     }
 
     //TODO handle Auth Controller

@@ -64,6 +64,14 @@ paths:
                 properties:
                   error:
                     type: string
+        400:
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
   /refresh:
     post:
       tags:
