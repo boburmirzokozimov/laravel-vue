@@ -264,11 +264,11 @@ paths:
             application/json:
               schema:
                 properties:
-                  id:
-                    type: integer
                   data:
                     type: object
                     properties:
+                      id:
+                        type: integer
                       account_number:
                         type: object
                         properties:
