@@ -127,7 +127,7 @@ const handleSubmit = () => {
 
 <style lang="scss" scoped>
 .modal {
-  @apply absolute top-0 w-2/6 bg-white px-4 py-6 rounded-xl z-20;
+  @apply fixed top-0 w-2/6 bg-white px-4 py-6 rounded-xl z-20;
   transform: translate(-105%, 50%);
 }
 </style>

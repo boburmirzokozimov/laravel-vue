@@ -15,6 +15,7 @@ class CountryController extends Controller
     {
 
         $data = Country::all()->where('id', '>', 250)
+            ->sort()
             ->map(function ($country) {
                 return [
                     'id' => $country->id,
