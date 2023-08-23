@@ -51,7 +51,6 @@ class VisaCardController extends Controller
     {
         $client = Client::findByToken($request->bearerToken())->first();
         //TODO:Im here
-        dd($client->creditCardRequest->where('id', 1)->first()->status, $client->creditCardRequest->where('id', 1)->first()->creditCard);
         return response()->json(
             $client->creditCard()
                 ->simplePaginate(10)
