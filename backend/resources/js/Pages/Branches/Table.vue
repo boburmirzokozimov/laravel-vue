@@ -7,104 +7,125 @@ import {router} from "@inertiajs/vue3";
 
 const toaster = createToaster({ /* options */});
 const props = defineProps({
-    branches: Array,
+  branches: Array,
 })
 
 const active = ref(false)
 const show = ref(null)
 const handleDelete = (id) => {
-    router.delete('/branches/' + id)
-    toaster.success('Successfully deleted')
+  router.delete('/branches/' + id)
+  toaster.success('Successfully deleted')
 }
 
 const handleEdit = (id) => {
-    show.value = id
-    active.value = true
+  show.value = id
+  active.value = true
 }
 
 const closeModal = () => {
-    active.value = false
-    show.value = null
+  active.value = false
+  show.value = null
 }
 </script>
 
 <template>
-    <div class="flex flex-col">
-        <div class="sm:mx-0.5 lg:mx-0.5">
-            <div class="py-2 inline-block mx-auto sm:px-6 lg:px-8 w-full">
-                <div class="overflow-hidden">
-                    <table class="min-w-full">
-                        <thead class="bg-gray-200 border-b">
-                        <tr>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                #
-                            </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                Address
-                            </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                Latitude
-                            </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                Longitude
-                            </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                Contact Number
-                            </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                Action
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr
-                            v-for="branch in branches"
-                            class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 hover:cursor-pointer"
-                        >
-                            <td
-                                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                v-text="branch.id"
-                            ></td>
-                            <td
-                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="branch.address"
-                            ></td>
-                            <td
-                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="branch.lat"
-                            ></td>
-                            <td
-                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="branch.lon"
-                            ></td>
-                            <td
-                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="branch.contact_number"
-                            ></td>
-                            <td
-                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                            >
-                                <button class="btn-edit mr-2"
-                                        @click.prevent="()=>handleEdit(branch.id)"
-                                >
-                                    Edit
-                                </button>
-                                <button
-                                    class="btn-danger"
-                                    @click.prevent="()=>handleDelete(branch.id)">
-                                    Delete
-                                </button>
-                                <Modal v-if="active && branch.id === show" @close="closeModal"/>
-                                <Edit v-if="active && branch.id === show" :branch="branch"
-                                      @close="closeModal"/>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  <div class="flex flex-col">
+    <div class="sm:mx-0.5 lg:mx-0.5">
+      <div class="py-2 inline-block mx-auto sm:px-6 lg:px-8 w-full">
+        <div class="overflow-hidden">
+          <table class="min-w-full">
+            <thead class="bg-gray-200 border-b">
+            <tr>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                #
+              </th>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                Address
+              </th>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                Full Address
+              </th>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                Latitude
+              </th>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                Longitude
+              </th>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                Contact Number
+              </th>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                Contact Email
+              </th>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                Working hours
+              </th>
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                Action
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr
+                v-for="branch in branches"
+                class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 hover:cursor-pointer"
+            >
+              <td
+                  class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                  v-text="branch.id"
+              ></td>
+              <td
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                  v-text="branch.address"
+              ></td>
+              <td
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                  v-text="branch.full_address"
+              ></td>
+              <td
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                  v-text="branch.lat"
+              ></td>
+              <td
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                  v-text="branch.lon"
+              ></td>
+              <td
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                  v-text="branch.contact_number"
+              ></td>
+              <td
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                  v-text="branch.contact_email"
+              ></td>
+              <td
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                  v-text="branch.working_hours"
+              ></td>
+              <td
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+              >
+                <button class="btn-edit mr-2"
+                        @click.prevent="()=>handleEdit(branch.id)"
+                >
+                  Edit
+                </button>
+                <button
+                    class="btn-danger"
+                    @click.prevent="()=>handleDelete(branch.id)">
+                  Delete
+                </button>
+                <Modal v-if="active && branch.id === show" @close="closeModal"/>
+                <Edit v-if="active && branch.id === show" :branch="branch"
+                      @close="closeModal"/>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <style scoped>

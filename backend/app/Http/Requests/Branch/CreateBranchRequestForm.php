@@ -26,8 +26,11 @@ class CreateBranchRequestForm extends FormRequest
             'lat' => 'string|required',
             'lon' => 'string|required',
             'address' => 'string|required',
+            'full_address' => 'string|nullable',
             'contact_number' => 'string|nullable',
-            'country_id' => 'required|exists:countries,id'
+            'contact_email' => 'string|nullable',
+            'country_id' => 'required|exists:countries,id',
+            'working_hours' => 'string|nullable',
         ];
     }
 }

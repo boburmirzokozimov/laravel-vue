@@ -23,9 +23,9 @@ class BranchController extends Controller
                         'contact_email' => $branch->contact_email,
                         'full_address' => $branch->full_address,
                         'country_name' => [
-                            'name_ru' => $branch->country->name_ru,
-                            'name_en' => $branch->country->name_en,
-                            'name_heb' => $branch->country->name_heb
+                            'name_ru' => $branch->country->name,
+                            'name_en' => $branch->country->name_official,
+//                            'name_heb' => ''
                         ],
                     ];
                 })

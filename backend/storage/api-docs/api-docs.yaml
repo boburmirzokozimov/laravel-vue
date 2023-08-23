@@ -560,8 +560,8 @@ paths:
                             type: string
                           name_en:
                             type: string
-                          name_heb:
-                            type: string
+#                          name_heb:
+#                            type: string
       security:
         - api_key_security_example: [ ]
 components:

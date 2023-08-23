@@ -26,7 +26,10 @@ class UpdateBranchRequestForm extends FormRequest
             'lat' => 'string|required',
             'lon' => 'string|required',
             'address' => 'string|required',
+            'full_address' => 'string|nullable',
             'contact_number' => 'string|nullable',
+            'contact_email' => 'string|nullable',
+            'working_hours' => 'string|nullable',
         ];
     }
 }
