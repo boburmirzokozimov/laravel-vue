@@ -61,7 +61,7 @@ class Client extends Authenticatable
         } else {
             $this->subtractionFromBalance($balanceRequest->sum);
         }
-        $balanceRequest->status = StatusEnumType::CLOSED->name;
+        $balanceRequest->status = StatusEnumType::SUCCESS->name;
         $balanceRequest->save();
         $this->save();
     }

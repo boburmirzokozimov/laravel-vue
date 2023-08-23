@@ -463,12 +463,26 @@ paths:
                 type: object
       security:
         - api_key_security_example: [ ]
-  /balance-transactions-history:
+  /balance-transactions-history?status=&withdraw:
     get:
       tags:
         - Balance
       summary: Balance transaction history
       operationId: balanceHistory
+      parameters:
+        - name: status
+          in: query
+          description: Status of transactions
+          required: false
+          schema:
+            type: string
+            enum: ['waiting', 'hold','success','canceled','verification']
+        - name: withdraw
+          in: query
+          description: operation_type of transactions
+          required: false
+          schema:
+            type: boolean
       responses:
         '200':
           description: Success

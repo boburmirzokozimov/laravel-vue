@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
         ->name('clients.balance.create');
     Route::post('/clients/{client}/manage-balance/{balanceRequest}', [ManageBalanceController::class, 'activate'])
         ->name('clients.balance.activate');
+    Route::post('/balanceRequests/{balanceRequest}', [ManageBalanceController::class, 'changeStatus']);
+
 
     Route::post('/clients/{client}/manage-credit-card', [ManageCreditCardRequestController::class, 'store'])
         ->name('clients.credit-card.store');
@@ -117,6 +119,7 @@ Route::middleware('auth')->group(function () {
         Route::patch('/countries/{country}', 'update')->name('countries.update');
         Route::delete('/countries/{country}', 'destroy')->name('countries.destroy');
     });
+
 
     Route::post('/uploadFile', UploadFileController::class);
 });

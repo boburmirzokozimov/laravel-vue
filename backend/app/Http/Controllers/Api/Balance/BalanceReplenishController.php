@@ -43,6 +43,12 @@ class BalanceReplenishController extends Controller
 
         return response()->json([
             'data' => $client->balanceRequest()
+                ->when(\Illuminate\Support\Facades\Request::input('status'), function ($query, string $search) {
+                    $query->where('status', strtoupper($search));
+                })
+                ->when(\Illuminate\Support\Facades\Request::input('withdraw'), function ($query, string $search) {
+                    $query->where('withdraw', $search);
+                })
                 ->simplePaginate(10)
                 ->through(function ($cardTransactions) {
                     return [

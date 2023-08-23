@@ -91,6 +91,8 @@ class ClientController extends Controller
                     'last_visited',
                 ]),
             'balance_request' => $client->balanceRequest()
+                ->where('status', '!=', StatusEnumType::SUCCESS->name)
+                ->orderBy('id')
                 ->get()
                 ->map(function ($balance) {
                     return [
@@ -99,6 +101,7 @@ class ClientController extends Controller
                         'contact' => $balance->contact,
                         'country' => $balance->country,
                         'currency' => $balance->currency,
+                        'status' => $balance->status,
                         'withdraw_account_number' => $balance->withdraw_account_number,
                         'withdraw_wallet_number' => $balance->withdraw_wallet_number,
                         'info' => $balance->info,

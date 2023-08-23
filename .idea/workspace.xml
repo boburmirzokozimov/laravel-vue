@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_073154_make_flag_column_nullable_in_countries_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_073358_add_flag_column_to_countries_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_080046_drop_status_column_in_balance_requests_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_080103_add_status_column_to_balance_requests_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Country/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Country/CountryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Balance/BalanceReplenishController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Balance/BalanceReplenishController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/Balance/ManageBalanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/Balance/ManageBalanceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Client/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Client/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/BalanceRequest/BalanceRequestTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/BalanceRequest/BalanceRequestTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Clients/Show.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -704,7 +711,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692775606492</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692776201758</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1692776201758</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692776212494</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1692776212494</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

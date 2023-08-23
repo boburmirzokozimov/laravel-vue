@@ -8,6 +8,7 @@ use App\Models\Client\BalanceRequest;
 use App\Models\Client\Client;
 use App\Models\Country\Country;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
@@ -26,6 +27,17 @@ class ManageBalanceController extends Controller
             'client' => $client,
             'countries' => Country::all()
         ]);
+    }
+
+    public function changeStatus(Request $request, BalanceRequest $balanceRequest)
+    {
+        $status = $request->validate([
+            'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION'
+        ]);
+
+        $balanceRequest->update($status);
+
+        return back();
     }
 
     public function activate(Client $client, BalanceRequest $balanceRequest)
