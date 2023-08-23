@@ -25,7 +25,7 @@ class ManageBalanceRequest extends FormRequest
     {
         $rules = [
             'type' => 'in:CASH,CASHLESS,USDT',
-            'country' => 'string|required',
+            'country_id' => 'exists:countries,id',
             'currency' => 'string|required',
             'contact' => 'string|required',
             'sum' => 'required|regex:/^\d*(\.\d{3})?$/',
