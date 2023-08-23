@@ -68,7 +68,7 @@ class BalanceReplenishController extends Controller
     public function requisite(Request $request): JsonResponse
     {
         $credentials = $request->validate([
-            'type' => 'string|in:SWIFT,SEPA',
+            'type' => 'string',
             'sum' => 'string|required',
             'invoice_file' => 'file'
         ]);
