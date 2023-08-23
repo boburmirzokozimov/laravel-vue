@@ -264,6 +264,8 @@ paths:
             application/json:
               schema:
                 properties:
+                  id:
+                    type: integer
                   data:
                     type: object
                     properties:
