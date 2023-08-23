@@ -34,9 +34,9 @@ class AuthController extends Controller
             $client->update([
                 'uuid' => $credentials['uuid'],
             ]);
-            return response()->json([
-                'data' => $this->authService->handleLogin($client)
-            ]);
+            return response()->json(
+                $this->authService->handleLogin($client)
+            );
         }
 
         return response()->json([

@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_22_124220_add_invoice_file_column_to_balance_request_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/finApp.FvYItA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/finApp.FvYItA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/finApp.FvYItA/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/finApp.FvYItA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/finApp.FvYItA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/finApp.FvYItA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/finApp.FvYItA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/finApp.FvYItA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54f8b5f8-72a8-4274-8888-d9738e034195/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Auth/AuthController.php" afterDir="false" />
@@ -21,13 +26,84 @@
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Api/VisaCard/VisaCardTransactionRequestForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/VisaCard/VisaCardTransactionRequestForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Key/CreateKeyRequestForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Key/CreateKeyRequestForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/Key/KeyResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/TokenService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/TokenService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/factories/KeyFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/KeyFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_07_102845_create_card_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_07_102845_create_card_transactions_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_18_053635_create_keys_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_18_053635_create_keys_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_22_124220_add_invoice_file_column_to_balance_request_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_22_124220_add_invoice_file_column_to_balance_request_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-01ef4c36.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-01ef4c36.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-c3b94c94.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ActivateCreditCard-c3b94c94.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/BalanceRequestTable-2d699046.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/BalanceRequestTable-2d699046.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ChatRooms-7b0799ea.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ChatRooms-7b0799ea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-3a48584b.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-3a48584b.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-4a1d4653.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-4a1d4653.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-4f0f6c06.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-4f0f6c06.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-511e7ddc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-511e7ddc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-703851c9.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-703851c9.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-72d1c14d.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-72d1c14d.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-7817471c.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-7817471c.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-cae7ee00.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-cae7ee00.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-f2d8364e.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-f2d8364e.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Create-ff035c41.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Create-ff035c41.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreateBalanceRequest-1ab1eb61.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreateBalanceRequest-1ab1eb61.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreateCreditCardRequest-3e5e8ce7.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreateCreditCardRequest-3e5e8ce7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardDepositTable-dbb69b63.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardDepositTable-dbb69b63.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTable-242f8e42.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTable-242f8e42.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTableAnonymous-9d86eb59.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardRequestTableAnonymous-9d86eb59.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTable-08c54506.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTable-08c54506.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTransactionsHistoryTable-5504f735.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardTransactionsHistoryTable-5504f735.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/CreditCardWithdrawTable-24c28f17.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/CreditCardWithdrawTable-24c28f17.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-0c092ada.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-0c092ada.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-2a213695.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-2a213695.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-4ea04964.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-4ea04964.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-518cdf3c.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-518cdf3c.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-633f10c6.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-633f10c6.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-999dd5a9.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-999dd5a9.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-c04533dc.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-c04533dc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-c0fb2dbb.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-c0fb2dbb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-c8aff0db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-c8aff0db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Edit-c9704d5b.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Edit-c9704d5b.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-8f965508.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-8f965508.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-bdb5decf.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditAnonymousCreditCardRequest-bdb5decf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-2ab9e434.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-2ab9e434.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-2d48f8f3.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCard-2d48f8f3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-0ef6701d.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-0ef6701d.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-6dc39ca0.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/EditCreditCardRequest-6dc39ca0.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Filter-1aab2b3d.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Filter-1aab2b3d.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Filter-49fc114b.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Filter-49fc114b.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Home-45d0db35.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Home-45d0db35.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-051b7c57.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-051b7c57.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-5319bc82.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-5319bc82.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-9c935aea.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-9c935aea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-ad06be24.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-ad06be24.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-bf7793df.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-bf7793df.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Index-eeb1d005.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Index-eeb1d005.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-21f8c990.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-21f8c990.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-d6c68265.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/InfoPopUp-d6c68265.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ManageBalance-12d4a95a.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ManageBalance-12d4a95a.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Messages-ca210c36.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Messages-ca210c36.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Modal-6a5fe8ec.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Modal-6a5fe8ec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Modal-d196a2df.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Modal-d196a2df.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Settings-33f93358.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Settings-33f93358.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Show-430f7ffd.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Show-430f7ffd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/ShowTable-1db2e2e1.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/ShowTable-1db2e2e1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Table-053bc106.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Table-053bc106.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Table-613b1779.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Table-613b1779.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/Table-772f3fef.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/Table-772f3fef.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-40053ca1.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/app-40053ca1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-9bf3a95e.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/app-9bf3a95e.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/app-d5cbf76a.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/app-d5cbf76a.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-2adefcbc.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-2adefcbc.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-7bfcab6d.eot" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-7bfcab6d.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-aa58f33f.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-aa58f33f.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ad615792.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ad615792.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ba0c59de.woff" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/fontawesome-webfont-ba0c59de.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/lodash-3a1f5a60.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/lodash-3a1f5a60.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/assets/maska-6f10db43.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/assets/maska-6f10db43.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/build/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
@@ -43,7 +119,7 @@
       <option value="$PROJECT_DIR$/backend/resources/01 - Codebase Source (HTML)/src/assets/js/plugins/ckeditor/composer.json" />
     </option>
   </component>
-  <component name="ComposerSettings" notifyAboutMissingVendor="false" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -66,14 +142,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///folder-pre-request-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Api/Auth/AuthController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/resources/js/Pages/Keys/Create.vue" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -252,7 +323,7 @@
     &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
     &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/boburmirzo/Projects/finApp/backend/backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/js/Pages&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -274,11 +345,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Branches" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Clients" />
       <recent name="$PROJECT_DIR$/backend/resources/css" />
+      <recent name="$PROJECT_DIR$/backend/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country" />
@@ -288,9 +359,13 @@
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Request" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.backend.db: Compose Deployment">
+  <component name="RunManager" selected="PHPUnit.BalanceRequestTest.test_admin_can_create_balance_request_advance">
     <configuration name="BalanceRequestTest.test_admin_can_create_balance_request_advance" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\ClientTest\BalanceRequestTest" configuration_file="$PROJECT_DIR$/backend/phpunit.xml" file="$PROJECT_DIR$/backend/tests/Feature/ClientTest/BalanceRequestTest.php" method="test_admin_can_create_balance_request_advance" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientTest.test_client_can_have_card" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ClientTest" configuration_file="$PROJECT_DIR$/backend/phpunit.xml" file="$PROJECT_DIR$/backend/tests/Unit/ClientTest.php" method="test_client_can_have_card" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="CreditCardTest.test_credit_card_can_have_transactions" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -299,6 +374,10 @@
     </configuration>
     <configuration name="CreditCardTest.test_example (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Unit\CreditCardTest" configuration_file="$PROJECT_DIR$/backend/phpunit.xml" file="$PROJECT_DIR$/backend/tests/Unit/CreditCardTest.php" method="test_example" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CreditCardTest.test_example" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ClientTest\CreditCardTest" configuration_file="$PROJECT_DIR$/backend/phpunit.xml" file="$PROJECT_DIR$/backend/tests/Feature/ClientTest/CreditCardTest.php" method="test_example" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -311,34 +390,13 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="backend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="backend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="backend.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="db" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="backend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.backend.db: Compose Deployment" />
-        <item itemvalue="Docker.backend: Compose Deployment" />
         <item itemvalue="PHPUnit.BalanceRequestTest.test_admin_can_create_balance_request_advance" />
         <item itemvalue="PHPUnit.CreditCardTest.test_credit_card_can_have_transactions" />
         <item itemvalue="PHPUnit.CreditCardTest.test_example (1)" />
+        <item itemvalue="PHPUnit.CreditCardTest.test_example" />
+        <item itemvalue="PHPUnit.ClientTest.test_client_can_have_card" />
       </list>
     </recent_temporary>
   </component>
@@ -376,8 +434,6 @@
       <workItem from="1692340128290" duration="2261000" />
       <workItem from="1692342434350" duration="12027000" />
       <workItem from="1692590046221" duration="23089000" />
-      <workItem from="1692690333035" duration="11929000" />
-      <workItem from="1692705416631" duration="4948000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -659,11 +715,30 @@
       <option name="project" value="LOCAL" />
       <updated>1692609499113</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692766007131</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1692766007131</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

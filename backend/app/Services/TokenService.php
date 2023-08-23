@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Client\Client;
 use App\Repositories\TokenRepository;
 use Config;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use ReallySimpleJWT\Token;
 use function Laravel\Prompts\search;
@@ -23,7 +24,7 @@ class TokenService
         return Token::validate($token, $this->secret);
     }
 
-    public function refreshTokens(Request $request)
+    public function refreshTokens(Request $request): JsonResponse
     {
         $token = $this->tokenRepository->findByToken($request->refresh_token);
 
