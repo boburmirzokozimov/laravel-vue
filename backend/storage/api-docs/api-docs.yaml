@@ -518,9 +518,6 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  data:
-                    type: object
                     properties:
                       current_page:
                         type: integer
