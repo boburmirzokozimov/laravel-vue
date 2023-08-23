@@ -32,13 +32,13 @@ class VisaCardRequestForm extends FormRequest
             ];
         } else {
             $rules = [
-                'name' => 'string|required',
-                'surname' => 'string|required',
-                'middle_name' => 'string|required',
-                'phone' => 'numeric|required',
-                'birth_date' => 'required',
-                'scan_passport' => 'required',
-                'selfie_passport' => 'required'
+                'name' => 'string|nullable',
+                'surname' => 'string|nullable',
+                'middle_name' => 'string|nullable',
+                'phone' => 'numeric|nullable',
+                'birth_date' => 'nullable',
+                'scan_passport' => 'nullable',
+                'selfie_passport' => 'nullable'
             ];
         }
 
