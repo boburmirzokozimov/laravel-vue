@@ -15,6 +15,6 @@ class CountryController extends Controller
     public function __invoke(Request $request)
     {
 
-        return new CountryCollection(Country::all());
+        return new CountryCollection(Country::all()->where('id', '>', 250));
     }
 }

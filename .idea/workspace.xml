@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_103348_drop_official_name_in_countries_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_103408_add_name_official_column_to_countries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Api/Balance/CreateBalanceReplenishForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/Balance/CreateBalanceReplenishForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country/CountryController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,14 +332,6 @@
       <workItem from="1692340128290" duration="2261000" />
       <workItem from="1692342434350" duration="12027000" />
       <workItem from="1692590046221" duration="23089000" />
-    </task>
-    <task id="LOCAL-00004" summary="Working on user changes">
-      <option name="closed" value="true" />
-      <created>1691127469527</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1691127469527</updated>
     </task>
     <task id="LOCAL-00005" summary="Working on user changes">
       <option name="closed" value="true" />
@@ -729,7 +717,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692782464017</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692787003667</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1692787003667</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
