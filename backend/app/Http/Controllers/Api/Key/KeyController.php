@@ -12,6 +12,7 @@ class KeyController extends Controller
         $keys = Key::all()->last();
         return response()->json([
             'data' => [
+                'id' => $keys->id,
                 'account_number' => [
                     'sepa' => $keys->account_number_sepa,
                     'swift' => $keys->account_number_swift,
