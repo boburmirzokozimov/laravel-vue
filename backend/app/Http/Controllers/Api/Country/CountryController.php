@@ -13,17 +13,20 @@ class CountryController extends Controller
      */
     public function __invoke(Request $request)
     {
+
+        $data = Country::all()->where('id', '>', 250)
+            ->map(function ($country) {
+                return [
+                    'id' => $country->id,
+                    'name_ru' => $country->name,
+                    'name_en' => $country->name_common,
+                    'name_he' => $country->name_official,
+                    'flag' => $country->flag ? ('/storage/' . $country->flag) : null,
+                ];
+            });
+
         return response()->json([
-            'data' => Country::all()->where('id', '>', 250)
-                ->map(function ($country) {
-                    return [
-                        'id' => $country->id,
-                        'name_ru' => $country->name,
-                        'name_en' => $country->name_common,
-                        'name_he' => $country->name_official,
-                        'flag' => '/storage/' . $country->flag,
-                    ];
-                })
+            'data' => array_values($data)
         ]);
     }
 }
