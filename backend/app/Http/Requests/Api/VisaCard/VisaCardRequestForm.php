@@ -22,21 +22,23 @@ class VisaCardRequestForm extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
-            'name' => 'string|required',
-            'surname' => 'string|required',
-            'middle_name' => 'string|required',
-            'phone' => 'numeric|required',
-            'birth_date' => 'required',
-            'scan_passport' => 'required',
-            'selfie_passport' => 'required'
-        ];
+
 
         if (request()->anonymous === 'true') {
             $rules = [
                 'anonymous' => 'required',
                 'anonymous_name' => 'string|required',
                 'anonymous_surname' => 'string|required',
+            ];
+        } else {
+            $rules = [
+                'name' => 'string|required',
+                'surname' => 'string|required',
+                'middle_name' => 'string|required',
+                'phone' => 'numeric|required',
+                'birth_date' => 'required',
+                'scan_passport' => 'required',
+                'selfie_passport' => 'required'
             ];
         }
 
