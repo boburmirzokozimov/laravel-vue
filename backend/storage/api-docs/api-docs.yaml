@@ -654,9 +654,6 @@ components:
         type:
           type: string
           enum: [ 'USDT' ]
-        currency:
-          type: string
-          enum: [ 'usd','eur' ]
         key_id:
           type: integer
         sum:
@@ -737,9 +734,6 @@ components:
         type:
           type: string
           enum: [ 'USDT' ]
-        currency:
-          type: string
-          enum: [ 'usd','eur' ]
         withdraw_account_number:
           type: string
         sum:
@@ -759,9 +753,9 @@ components:
         type:
           type: string
           enum: [ 'CASHLESS' ]
-        currency:
-          type: string
-          enum: [ 'usd','eur' ]
+#        currency:
+#          type: string
+#          enum: [ 'usd','eur' ]
         withdraw_account_number:
           type: string
         sum:

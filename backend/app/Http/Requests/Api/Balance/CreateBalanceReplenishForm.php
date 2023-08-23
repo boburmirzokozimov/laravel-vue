@@ -48,7 +48,7 @@ class CreateBalanceReplenishForm extends FormRequest
         if (request()->request->get('type') === TypeEnum::CASHLESS->value) {
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
-                'currency' => 'string|required|in:usd,eur',
+//                'currency' => 'string|required|in:usd,eur',
                 'key_id' => 'required',
                 'withdraw' => 'nullable|boolean',
                 'sum' => 'required',
@@ -58,7 +58,7 @@ class CreateBalanceReplenishForm extends FormRequest
         if (request()->request->get('type') === TypeEnum::CASHLESS->value && request()->request->get('withdraw')) {
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
-                'currency' => 'string|required|in:usd,eur',
+//                'currency' => 'string|required|in:usd,eur',
                 'withdraw_account_number' => 'required',
                 'withdraw' => 'nullable|boolean',
                 'sum' => 'required',
@@ -69,7 +69,7 @@ class CreateBalanceReplenishForm extends FormRequest
         if (request()->request->get('type') === TypeEnum::USDT->value) {
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
-                'currency' => 'string|required|in:usd,eur',
+//                'currency' => 'string|required|in:usd,eur',
                 'key_id' => 'required',
                 'withdraw' => 'nullable|boolean',
                 'sum' => 'required',
@@ -80,7 +80,7 @@ class CreateBalanceReplenishForm extends FormRequest
         if (request()->request->get('type') === TypeEnum::USDT->value && request()->request->get('withdraw')) {
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
-                'currency' => 'string|required|in:usd,eur',
+//                'currency' => 'string|required|in:usd,eur',
                 'withdraw_account_number' => 'required',
                 'withdraw' => 'nullable|boolean',
                 'sum' => 'required',
