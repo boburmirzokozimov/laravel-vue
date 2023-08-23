@@ -673,9 +673,6 @@ components:
         type:
           type: string
           enum: [ 'CASHLESS' ]
-        currency:
-          type: string
-          enum: [ 'usd','eur' ]
         key_id:
           type: integer
         sum:
