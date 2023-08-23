@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_22_124220_add_invoice_file_column_to_balance_request_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4db60bb9-7a0f-4520-a6e6-2bd370fbc8b7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Auth/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Balance/BalanceReplenishController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Balance/BalanceReplenishController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Key/KeyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Key/KeyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Api/VisaCard/VisaCardTransactionRequestForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/VisaCard/VisaCardTransactionRequestForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Key/CreateKeyRequestForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Key/CreateKeyRequestForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/Key/KeyResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/factories/KeyFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/KeyFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_07_102845_create_card_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_07_102845_create_card_transactions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_18_053635_create_keys_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_18_053635_create_keys_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/api-docs/api-docs.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +18,7 @@
       <option value="$PROJECT_DIR$/backend/resources/01 - Codebase Source (HTML)/src/assets/js/plugins/ckeditor/composer.json" />
     </option>
   </component>
-  <component name="ComposerSettings" notifyAboutMissingVendor="false" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -66,14 +41,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///folder-pre-request-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///folder-test-script-drafts.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///pre-request-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///test-script-c47c0ef1.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Api/Auth/AuthController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/resources/js/Pages/Keys/Create.vue" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/resources/js/Pages/Keys/Edit.vue" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -252,7 +222,7 @@
     &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
     &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/boburmirzo/Projects/finApp/backend/backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/boburmirzo/Projects/Projects/Local/Laravel/finApp/backend/resources/js/Pages&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -274,11 +244,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Branches" />
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Clients" />
       <recent name="$PROJECT_DIR$/backend/resources/css" />
+      <recent name="$PROJECT_DIR$/backend/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country" />
@@ -288,9 +258,13 @@
       <recent name="$PROJECT_DIR$/backend/resources/js/Pages/Clients/CreditCard/Request" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.backend.db: Compose Deployment">
+  <component name="RunManager" selected="PHPUnit.BalanceRequestTest.test_admin_can_create_balance_request_advance">
     <configuration name="BalanceRequestTest.test_admin_can_create_balance_request_advance" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\ClientTest\BalanceRequestTest" configuration_file="$PROJECT_DIR$/backend/phpunit.xml" file="$PROJECT_DIR$/backend/tests/Feature/ClientTest/BalanceRequestTest.php" method="test_admin_can_create_balance_request_advance" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientTest.test_client_can_have_card" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ClientTest" configuration_file="$PROJECT_DIR$/backend/phpunit.xml" file="$PROJECT_DIR$/backend/tests/Unit/ClientTest.php" method="test_client_can_have_card" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="CreditCardTest.test_credit_card_can_have_transactions" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -299,6 +273,10 @@
     </configuration>
     <configuration name="CreditCardTest.test_example (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Unit\CreditCardTest" configuration_file="$PROJECT_DIR$/backend/phpunit.xml" file="$PROJECT_DIR$/backend/tests/Unit/CreditCardTest.php" method="test_example" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CreditCardTest.test_example" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ClientTest\CreditCardTest" configuration_file="$PROJECT_DIR$/backend/phpunit.xml" file="$PROJECT_DIR$/backend/tests/Feature/ClientTest/CreditCardTest.php" method="test_example" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -311,34 +289,13 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="backend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="backend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="backend.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="db" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="backend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.backend.db: Compose Deployment" />
-        <item itemvalue="Docker.backend: Compose Deployment" />
         <item itemvalue="PHPUnit.BalanceRequestTest.test_admin_can_create_balance_request_advance" />
         <item itemvalue="PHPUnit.CreditCardTest.test_credit_card_can_have_transactions" />
         <item itemvalue="PHPUnit.CreditCardTest.test_example (1)" />
+        <item itemvalue="PHPUnit.CreditCardTest.test_example" />
+        <item itemvalue="PHPUnit.ClientTest.test_client_can_have_card" />
       </list>
     </recent_temporary>
   </component>
@@ -376,8 +333,6 @@
       <workItem from="1692340128290" duration="2261000" />
       <workItem from="1692342434350" duration="12027000" />
       <workItem from="1692590046221" duration="23089000" />
-      <workItem from="1692690333035" duration="11929000" />
-      <workItem from="1692705416631" duration="4948000" />
     </task>
     <task id="LOCAL-00001" summary="First Commits">
       <option name="closed" value="true" />
@@ -659,11 +614,46 @@
       <option name="project" value="LOCAL" />
       <updated>1692609499113</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692766007131</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1692766007131</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692767224353</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1692767224353</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692767378745</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1692767378745</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
