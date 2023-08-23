@@ -16,7 +16,7 @@ return new class extends Migration {
 
             $table->foreignIdFor(Client::class);
             $table->string('card_type');
-//            $table->
+            $table->bigInteger('balance');
             $table->timestamps();
         });
     }
