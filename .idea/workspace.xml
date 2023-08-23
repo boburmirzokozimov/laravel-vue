@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country/CountryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_104217_create_metals_and_crypto_currency_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_104217_create_metals_and_crypto_currency_table.php" afterDir="false" />
-    </list>
+    <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -334,14 +330,6 @@
       <workItem from="1692340128290" duration="2261000" />
       <workItem from="1692342434350" duration="12027000" />
       <workItem from="1692590046221" duration="23089000" />
-    </task>
-    <task id="LOCAL-00010" summary="Working on api">
-      <option name="closed" value="true" />
-      <created>1692077584219</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1692077584219</updated>
     </task>
     <task id="LOCAL-00011" summary="Working on api">
       <option name="closed" value="true" />
@@ -727,7 +715,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692788993709</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692789460905</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1692789460906</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
