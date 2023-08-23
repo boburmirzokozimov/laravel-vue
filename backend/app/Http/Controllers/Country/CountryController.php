@@ -26,6 +26,7 @@ class CountryController extends Controller
 
     public function store(CreateCountryRequestForm $request)
     {
+
         $credentials = $request->validated();
         if ($credentials['flag']) {
             $credentials['flag'] = $this->uploadService->uploadFlag($credentials['flag']);
