@@ -61,7 +61,7 @@ class VisaCardController extends Controller
                 'balance' => $card->balance,
                 'card_number' => $card->card_number,
                 'expire_date' => $card->expire_date,
-                'status' => $card->credit_card_request->status,
+                'status' => $card->status,
                 'card_holder' => $card->owner_name()
             ];
         }
