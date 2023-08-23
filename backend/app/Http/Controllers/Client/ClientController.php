@@ -58,14 +58,16 @@ class ClientController extends Controller
     {
         $this->authorize('create', User::class);
 
-        $request->validate([
+        $credentials = $request->validate([
             'full_name' => 'required|string',
             'phone' => 'required|numeric|min:10',
             'auth_key' => 'required|string',
             'comments' => 'nullable|string',
         ]);
 
-        Client::query()->create($request->toArray());
+        $credentials['show_id'] = fake()->randomNumber(8);
+
+        Client::query()->create($credentials);
 
         return to_route('clients');
     }
@@ -179,14 +181,6 @@ class ClientController extends Controller
                     ];
                 }),
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Client $client)
-    {
-        //
     }
 
     /**

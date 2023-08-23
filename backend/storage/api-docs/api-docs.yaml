@@ -85,6 +85,8 @@ paths:
                 properties:
                   name:
                     type: string
+                  show_id:
+                    type: integer
                   status:
                     type: boolean
                   balance:
@@ -517,6 +519,49 @@ paths:
 
         '401':
           description: Unauthenticated
+      security:
+        - api_key_security_example: [ ]
+  /branches:
+    get:
+      tags:
+        - Branches
+      summary: Этот api для того чтобы получить Branches
+      operationId: branchId
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      lat:
+                        type: string
+                      len:
+                        type: string
+                      address:
+                        type: string
+                      working_hours:
+                        type: string
+                      contact_number:
+                        type: string
+                      contact_email:
+                        type: string
+                      full_address:
+                        type: string
+                      country_name:
+                        type: object
+                        properties:
+                          name_ru:
+                            type: string
+                          name_en:
+                            type: string
+                          name_heb:
+                            type: string
       security:
         - api_key_security_example: [ ]
 components:
