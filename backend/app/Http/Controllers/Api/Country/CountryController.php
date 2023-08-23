@@ -26,7 +26,7 @@ class CountryController extends Controller
             });
 
         return response()->json([
-            'data' => array_values($data)
+            'data' => $data->toArray()
         ]);
     }
 }
