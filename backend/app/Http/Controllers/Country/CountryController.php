@@ -19,8 +19,9 @@ class CountryController extends Controller
     public function index()
     {
         return Inertia::render('Countries/Index', [
-            'countries' => Country::all()
+            'countries' => Country::orderBy('name', 'ASC')
                 ->where('id', '>', 250)
+                ->get()
         ]);
     }
 

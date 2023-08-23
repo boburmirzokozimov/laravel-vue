@@ -7,7 +7,7 @@
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/Country/CountryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/js/Pages/Countries/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/Pages/Countries/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Country/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Country/CountryController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -334,22 +334,6 @@
       <workItem from="1692340128290" duration="2261000" />
       <workItem from="1692342434350" duration="12027000" />
       <workItem from="1692590046221" duration="23089000" />
-    </task>
-    <task id="LOCAL-00015" summary="Working on api">
-      <option name="closed" value="true" />
-      <created>1692092678843</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1692092678843</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Working on api">
-      <option name="closed" value="true" />
-      <created>1692098067402</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1692098067402</updated>
     </task>
     <task id="LOCAL-00017" summary="Working on api">
       <option name="closed" value="true" />
@@ -727,7 +711,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692790018000</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692791003696</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1692791003696</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692791084126</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1692791084126</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
