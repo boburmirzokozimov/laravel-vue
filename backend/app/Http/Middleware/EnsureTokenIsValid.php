@@ -25,13 +25,13 @@ class EnsureTokenIsValid
     public function handle(Request $request, Closure $next): Response
     {
         if (!$this->service->isValid($request->bearerToken())) {
-            return \response(['message' => 'Token is not valid'], 401);
+            return \response(['error' => 'Token is not valid'], 405);
         }
         if (!$this->service->isExpired($request->bearerToken())) {
-            return \response(['message' => 'Token expired'], 401);
+            return \response(['error' => 'Token expired'], 401);
         }
         if ($this->service->exists($request->bearerToken())) {
-            return \response(['message' => 'Client with this token does not exist'], 401);
+            return \response(['error' => 'Client with this token does not exist'], 402);
         }
         return $next($request);
     }

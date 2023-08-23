@@ -40,6 +40,30 @@ paths:
                   refresh_token:
                     type: string
                 type: object
+        401:
+          description: Token expired
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+        405:
+          description: Token is not valid
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
+        404:
+          description: User with this token does not exist
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: string
   /refresh:
     post:
       tags:
