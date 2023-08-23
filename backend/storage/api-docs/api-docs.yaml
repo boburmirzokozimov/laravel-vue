@@ -256,7 +256,7 @@ paths:
         - Keys
       summary: Этот api для того чтобы получить Расчетный счет и Номер Кошелка
       description: Первый Расчетный счет ,второй Номер Кошелка
-      operationId: countries
+      operationId: keys
       responses:
         '200':
           description: Success
