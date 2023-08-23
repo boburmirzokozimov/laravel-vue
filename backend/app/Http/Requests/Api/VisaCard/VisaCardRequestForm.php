@@ -27,7 +27,7 @@ class VisaCardRequestForm extends FormRequest
             'surname' => 'string|required',
             'middle_name' => 'string|required',
             'phone' => 'numeric|required',
-            'birth_date' => 'date|required',
+            'birth_date' => 'required',
             'scan_passport' => 'required',
             'selfie_passport' => 'required'
         ];
