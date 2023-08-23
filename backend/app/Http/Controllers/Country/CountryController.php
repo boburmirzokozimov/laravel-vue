@@ -20,6 +20,7 @@ class CountryController extends Controller
     {
         return Inertia::render('Countries/Index', [
             'countries' => Country::all()
+                ->where('id', '>', 250)
         ]);
     }
 
@@ -51,7 +52,7 @@ class CountryController extends Controller
 
         if ($credentials['flag'] instanceof UploadedFile) {
             $credentials['flag'] = $this->uploadService->uploadFlag($credentials['flag']);
-            $this->uploadService->removeFlag($country->flag);
+            $country->flag && $this->uploadService->removeFlag($country->flag);
         } else {
             $credentials['flag'] = $country->flag;
         }
