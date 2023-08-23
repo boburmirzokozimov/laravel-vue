@@ -67,7 +67,39 @@ class ClientController extends Controller
 
         $credentials['show_id'] = fake()->randomNumber(8);
 
-        Client::query()->create($credentials);
+        $client = Client::query()->create($credentials);
+
+        $metal = [
+            [
+                'card_type' => 'XAU',
+            ],
+            [
+                'card_type' => 'XAG',
+            ],
+            [
+                'card_type' => 'XPT',
+            ]
+        ];
+        $crypto = [
+            [
+                'card_type' => 'BTC',
+            ],
+            [
+                'card_type' => 'ETH',
+            ],
+            [
+                'card_type' => 'BNB',
+            ],
+            [
+                'card_type' => 'ADA',
+            ],
+            [
+                'card_type' => 'DOT',
+            ]
+        ];
+
+        $client->metals()->createMany($metal);
+        $client->cryptoCurrencies()->createMany($crypto);
 
         return to_route('clients');
     }

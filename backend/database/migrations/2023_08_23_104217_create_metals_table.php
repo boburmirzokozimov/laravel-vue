@@ -11,12 +11,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('metals_and_crypto_currency', function (Blueprint $table) {
+        Schema::create('metals', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignIdFor(Client::class);
-            $table->string('card_type');
-            $table->bigInteger('balance');
+            $table->foreignIdFor(Client::class)->nullable();
+            $table->string('card_type')->nullable();
+            $table->bigInteger('balance')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('metals_and_crypto_currency');
+        Schema::dropIfExists('metals_and_crypto_currencies');
     }
 };
