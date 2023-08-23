@@ -3,17 +3,17 @@
     "file": "assets/Modal-d196a2df.css",
     "src": "Modal.css"
   },
-  "_Modal-c213a93f.js": {
+  "_Modal-2890c726.js": {
     "css": [
       "assets/Modal-d196a2df.css"
     ],
-    "file": "assets/Modal-c213a93f.js",
+    "file": "assets/Modal-2890c726.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_lodash-4aa55d33.js": {
-    "file": "assets/lodash-4aa55d33.js",
+  "_lodash-8db44a1a.js": {
+    "file": "assets/lodash-8db44a1a.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -50,7 +50,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Create-cb61e076.js",
+    "file": "assets/Create-e8ae8c63.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -62,7 +62,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Create-a03e74ce.js",
+    "file": "assets/Create-5a3a8c63.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -79,7 +79,7 @@
       "assets/Edit-f94de74d.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Edit-5b8c78fe.js",
+    "file": "assets/Edit-c9d58772.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -91,13 +91,13 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Index-46438eb9.js",
+    "file": "assets/Index-953cc807.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Branches/Table.vue",
       "resources/js/Pages/Branches/Edit.vue",
       "_maska-6f10db43.js",
-      "_Modal-c213a93f.js"
+      "_Modal-2890c726.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Branches/Index.vue"
@@ -106,11 +106,11 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Table-4a67d9ff.js",
+    "file": "assets/Table-f93a3586.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Branches/Edit.vue",
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "_maska-6f10db43.js"
     ],
     "isDynamicEntry": true,
@@ -120,10 +120,10 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/ChatRooms-e6f8686d.js",
+    "file": "assets/ChatRooms-e6053862.js",
     "imports": [
       "resources/js/app.js",
-      "_lodash-4aa55d33.js"
+      "_lodash-8db44a1a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Chats/ChatRooms.vue"
@@ -132,7 +132,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Create-519d841d.js",
+    "file": "assets/Create-abec52ac.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -143,11 +143,11 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Index-1085fca8.js",
+    "file": "assets/Index-cb870c20.js",
     "imports": [
       "resources/js/Pages/Chats/ChatRooms.vue",
       "resources/js/app.js",
-      "_lodash-4aa55d33.js"
+      "_lodash-8db44a1a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Chats/Index.vue"
@@ -156,7 +156,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Messages-ef172b2a.js",
+    "file": "assets/Messages-501a991b.js",
     "imports": [
       "resources/js/Pages/Chats/Create.vue",
       "resources/js/app.js"
@@ -168,10 +168,10 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/BalanceRequestTable-43121467.js",
+    "file": "assets/BalanceRequestTable-f8232087.js",
     "imports": [
       "resources/js/app.js",
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "resources/js/Pages/Clients/BalanceRequest/InfoPopUp.vue"
     ],
     "isDynamicEntry": true,
@@ -181,7 +181,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/CreateBalanceRequest-31746918.js",
+    "file": "assets/CreateBalanceRequest-ff2d415d.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -198,7 +198,7 @@
       "assets/InfoPopUp-d6c68265.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/InfoPopUp-ef9c5d1e.js",
+    "file": "assets/InfoPopUp-6adb9b7a.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -214,7 +214,7 @@
       "assets/Create-3a48584b.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Create-dad50ce9.js",
+    "file": "assets/Create-59c04b3d.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -231,7 +231,7 @@
       "assets/ActivateCreditCard-c3b94c94.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/ActivateCreditCard-42216b9d.js",
+    "file": "assets/ActivateCreditCard-78bdaa60.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -243,9 +243,9 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/CreditCardTable-00340748.js",
+    "file": "assets/CreditCardTable-b88e8698.js",
     "imports": [
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "resources/js/Pages/Clients/CreditCard/EditCreditCard.vue",
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -262,7 +262,7 @@
       "assets/EditCreditCard-2d48f8f3.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/EditCreditCard-9eb8fc77.js",
+    "file": "assets/EditCreditCard-4cb3b94f.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -274,7 +274,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/CreditCardDepositTable-65c13be1.js",
+    "file": "assets/CreditCardDepositTable-6240b9eb.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -285,7 +285,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/CreditCardTransactionsHistoryTable-9030021d.js",
+    "file": "assets/CreditCardTransactionsHistoryTable-4da8a5cb.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -296,7 +296,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/CreditCardWithdrawTable-548032a7.js",
+    "file": "assets/CreditCardWithdrawTable-45cab731.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -307,7 +307,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/ManageBalance-ffb8fab9.js",
+    "file": "assets/ManageBalance-fe4b48d7.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -318,7 +318,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/CreateCreditCardRequest-e2b46852.js",
+    "file": "assets/CreateCreditCardRequest-fe60ec1a.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -330,9 +330,9 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/CreditCardRequestTable-439935c6.js",
+    "file": "assets/CreditCardRequestTable-e03685e1.js",
     "imports": [
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue",
       "resources/js/Pages/Clients/CreditCard/Request/EditCreditCardRequest.vue",
       "resources/js/app.js",
@@ -345,9 +345,9 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/CreditCardRequestTableAnonymous-749ea460.js",
+    "file": "assets/CreditCardRequestTableAnonymous-1ab8c444.js",
     "imports": [
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue",
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -364,7 +364,7 @@
       "assets/EditAnonymousCreditCardRequest-8f965508.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/EditAnonymousCreditCardRequest-22319007.js",
+    "file": "assets/EditAnonymousCreditCardRequest-a709202b.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -380,7 +380,7 @@
       "assets/EditCreditCardRequest-6dc39ca0.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/EditCreditCardRequest-83d46643.js",
+    "file": "assets/EditCreditCardRequest-6fa5c7e2.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -396,7 +396,7 @@
       "assets/Edit-c9704d5b.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Edit-3fa99a76.js",
+    "file": "assets/Edit-3a598e13.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -407,10 +407,10 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Filter-74dee367.js",
+    "file": "assets/Filter-46e398fa.js",
     "imports": [
       "resources/js/app.js",
-      "_lodash-4aa55d33.js",
+      "_lodash-8db44a1a.js",
       "_maska-6f10db43.js"
     ],
     "isDynamicEntry": true,
@@ -420,13 +420,13 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Index-0213fbc2.js",
+    "file": "assets/Index-296dc58c.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Clients/Edit.vue",
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "resources/js/Pages/Clients/Filter.vue",
-      "_lodash-4aa55d33.js",
+      "_lodash-8db44a1a.js",
       "_maska-6f10db43.js"
     ],
     "isDynamicEntry": true,
@@ -436,7 +436,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Show-3483f258.js",
+    "file": "assets/Show-19f04779.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Clients/ShowTable.vue",
@@ -447,7 +447,7 @@
       "resources/js/Pages/Clients/CreditCard/Payment/CreditCardDepositTable.vue",
       "resources/js/Pages/Clients/CreditCard/Payment/CreditCardWithdrawTable.vue",
       "resources/js/Pages/Clients/CreditCard/Payment/CreditCardTransactionsHistoryTable.vue",
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "resources/js/Pages/Clients/CreditCard/EditCreditCard.vue",
       "_maska-6f10db43.js",
       "resources/js/Pages/Clients/CreditCard/ActivateCreditCard.vue",
@@ -461,7 +461,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/ShowTable-59211738.js",
+    "file": "assets/ShowTable-8cbd65b7.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -472,7 +472,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Create-401db931.js",
+    "file": "assets/Create-e8eeeffc.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -480,15 +480,15 @@
     "src": "resources/js/Pages/Countries/Create.vue"
   },
   "resources/js/Pages/Countries/Edit.css": {
-    "file": "assets/Edit-e3c5f945.css",
+    "file": "assets/Edit-97868592.css",
     "src": "resources/js/Pages/Countries/Edit.css"
   },
   "resources/js/Pages/Countries/Edit.vue": {
     "css": [
-      "assets/Edit-e3c5f945.css",
+      "assets/Edit-97868592.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Edit-68821b55.js",
+    "file": "assets/Edit-55b0807a.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -499,12 +499,12 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Index-9f37e328.js",
+    "file": "assets/Index-e4024ccb.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Countries/Table.vue",
       "resources/js/Pages/Countries/Edit.vue",
-      "_Modal-c213a93f.js"
+      "_Modal-2890c726.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Countries/Index.vue"
@@ -513,11 +513,11 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Table-01006031.js",
+    "file": "assets/Table-d201ce25.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Countries/Edit.vue",
-      "_Modal-c213a93f.js"
+      "_Modal-2890c726.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Countries/Table.vue"
@@ -531,7 +531,7 @@
       "assets/Create-cae7ee00.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Create-7431f413.js",
+    "file": "assets/Create-2501406a.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -547,7 +547,7 @@
       "assets/Edit-633f10c6.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Edit-39dfa6a3.js",
+    "file": "assets/Edit-c9ca0d1f.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -558,10 +558,10 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Index-4e35e68f.js",
+    "file": "assets/Index-e6c412dc.js",
     "imports": [
       "resources/js/Pages/Couriers/Table.vue",
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "resources/js/Pages/Couriers/Create.vue",
       "resources/js/app.js",
       "resources/js/Pages/Couriers/Edit.vue"
@@ -573,10 +573,10 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Table-8c8f9f16.js",
+    "file": "assets/Table-87cd3744.js",
     "imports": [
       "resources/js/app.js",
-      "_Modal-c213a93f.js",
+      "_Modal-2890c726.js",
       "resources/js/Pages/Couriers/Edit.vue"
     ],
     "isDynamicEntry": true,
@@ -586,7 +586,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Home-b1c6ec23.js",
+    "file": "assets/Home-4ea97d2b.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -597,7 +597,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Create-9e2959ea.js",
+    "file": "assets/Create-cb8845b0.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -613,7 +613,7 @@
       "assets/Edit-58a3f6a2.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Edit-c302fe69.js",
+    "file": "assets/Edit-830f5357.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -624,12 +624,12 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Index-0f9e0c45.js",
+    "file": "assets/Index-cb17e876.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Keys/Table.vue",
       "resources/js/Pages/Keys/Edit.vue",
-      "_Modal-c213a93f.js"
+      "_Modal-2890c726.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Keys/Index.vue"
@@ -638,11 +638,11 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Table-8e1d9c22.js",
+    "file": "assets/Table-9854c7fb.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Keys/Edit.vue",
-      "_Modal-c213a93f.js"
+      "_Modal-2890c726.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Keys/Table.vue"
@@ -651,7 +651,7 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Settings-68e81436.js",
+    "file": "assets/Settings-2950c6da.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -667,7 +667,7 @@
       "assets/Create-7817471c.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Create-60ecfaec.js",
+    "file": "assets/Create-99d73549.js",
     "imports": [
       "resources/js/app.js",
       "_maska-6f10db43.js"
@@ -684,7 +684,7 @@
       "assets/Edit-518cdf3c.css",
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Edit-fe36b67e.js",
+    "file": "assets/Edit-106c3c23.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -695,10 +695,10 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Filter-79d1ae8c.js",
+    "file": "assets/Filter-4de3b401.js",
     "imports": [
       "resources/js/app.js",
-      "_lodash-4aa55d33.js"
+      "_lodash-8db44a1a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Users/Filter.vue"
@@ -707,12 +707,12 @@
     "css": [
       "assets/app-3691f375.css"
     ],
-    "file": "assets/Index-e13a2225.js",
+    "file": "assets/Index-5fbfa002.js",
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Users/Edit.vue",
-      "_Modal-c213a93f.js",
-      "_lodash-4aa55d33.js",
+      "_Modal-2890c726.js",
+      "_lodash-8db44a1a.js",
       "resources/js/Pages/Users/Filter.vue"
     ],
     "isDynamicEntry": true,
@@ -784,7 +784,7 @@
       "resources/js/Pages/Users/Filter.vue",
       "resources/js/Pages/Users/Index.vue"
     ],
-    "file": "assets/app-9e3040f9.js",
+    "file": "assets/app-272d18d0.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
