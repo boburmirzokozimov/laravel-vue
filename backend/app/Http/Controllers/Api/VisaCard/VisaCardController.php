@@ -54,8 +54,18 @@ class VisaCardController extends Controller
         //TODO:Im here
 
         $cards = CreditCardRequest::where('client_id', $client->id)->paginate(10);
-        
-        return response()->json($cards);
+        $result = [];
+        foreach ($cards as $card) {
+            $result[] = [
+                'id' => $card->id,
+                'balance' => $card->balance,
+                'card_number' => $card->card_number,
+                'expire_date' => $card->expire_date,
+                'status' => $card->credit_card_request->status,
+                'card_holder' => $card->owner_name()
+            ];
+        }
+        return response()->json($result);
         dd($client->creditCardRequest->where('id', 1)->first()->status, $client->creditCardRequest->where('id', 1)->first()->creditCard);
         return response()->json(
             $client->creditCard()
