@@ -22,6 +22,7 @@ class CountryController extends Controller
                         'name_ru' => $country->name,
                         'name_en' => $country->name_common,
                         'name_he' => $country->name_official,
+                        'flag' => '/storage/' . $country->flag,
                     ];
                 })
         ]);

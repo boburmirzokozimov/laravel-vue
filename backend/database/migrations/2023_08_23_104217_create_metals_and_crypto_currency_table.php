@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->id();
 
             $table->foreignIdFor(Client::class);
-//            $table->enum('card_type');
-
+            $table->string('card_type');
+//            $table->
             $table->timestamps();
         });
     }
