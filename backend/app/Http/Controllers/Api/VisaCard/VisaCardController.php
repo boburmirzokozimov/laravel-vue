@@ -50,10 +50,10 @@ class VisaCardController extends Controller
     public function cards(Request $request): JsonResponse
     {
         $client = Client::findByToken($request->bearerToken())->first();
-
+        
         return response()->json([
             'data' => $client->creditCard()
-                ->simplePaginate(10)
+                ->paginate(10)
                 ->through(function ($card) {
                     return [
                         'id' => $card->id,

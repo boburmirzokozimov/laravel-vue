@@ -29,7 +29,7 @@ class CreateBalanceReplenishForm extends FormRequest
             'country_id' => 'exists:countries,id|required',
             'currency' => 'string|required|in:usd,eur',
             'contact' => 'string|required',
-            'sum' => 'required|regex:/^\d*(\.\d{3})?$/',
+            'sum' => 'required',
             'phone' => 'numeric|min:10',
             'withdraw' => 'nullable|boolean',
             'delivery' => 'required|in:courier,office'
