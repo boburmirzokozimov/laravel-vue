@@ -137,4 +137,11 @@ class Client extends Authenticatable
     {
         return $this->uuid == $uuid;
     }
+
+    public function cardHolder(): string
+    {
+        return $this->credit_card_request->anonymous
+            ? $this->credit_card_request->anonymous_name . ' ' . $this->credit_card_request->anonymous_surname
+            : $this->credit_card_request->name . ' ' . $this->credit_card_request->surname . ' ' . $this->credit_card_request->middle_name;
+    }
 }
