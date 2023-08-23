@@ -32,7 +32,7 @@ class VisaCardRequestForm extends FormRequest
             'selfie_passport' => 'required'
         ];
 
-        if (request()->input('anonymous')) {
+        if (request()->anonymous === 'true') {
             $rules = [
                 'anonymous' => 'required',
                 'anonymous_name' => 'string|required',

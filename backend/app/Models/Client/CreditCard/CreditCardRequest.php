@@ -6,6 +6,7 @@ use App\Models\CustomModel;
 use App\Models\Enum\CreditCardStatusEnumType;
 use Database\Factories\CreditCardRequestFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class CreditCardRequest extends CustomModel
 {
@@ -23,5 +24,10 @@ class CreditCardRequest extends CustomModel
     public function updateCardRequest(array $credentials): void
     {
         $this->update($credentials);
+    }
+
+    public function creditCard(): HasOne
+    {
+        return $this->hasOne(CreditCard::class);
     }
 }

@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c07afaef-0cf9-42ca-8ca3-90fb1c1b925d" name="Changes" comment="Working on api">
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Client/CryptoCurrency.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Client/Metal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_120601_create_crypto_currencies_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Client/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/VisaCard/VisaCardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/Api/VisaCard/VisaCardRequestForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/Api/VisaCard/VisaCardRequestForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Models/Client/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Client/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_104217_create_metals_and_crypto_currency_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_08_23_104217_create_metals_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Client/CreditCard/CreditCardRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Client/CreditCard/CreditCardRequest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,14 +336,6 @@
       <workItem from="1692340128290" duration="2261000" />
       <workItem from="1692342434350" duration="12027000" />
       <workItem from="1692590046221" duration="23089000" />
-    </task>
-    <task id="LOCAL-00018" summary="Working on api">
-      <option name="closed" value="true" />
-      <created>1692099391009</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1692099391009</updated>
     </task>
     <task id="LOCAL-00019" summary="Working on api">
       <option name="closed" value="true" />
@@ -731,7 +721,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692791492315</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Working on api">
+      <option name="closed" value="true" />
+      <created>1692792937604</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1692792937604</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

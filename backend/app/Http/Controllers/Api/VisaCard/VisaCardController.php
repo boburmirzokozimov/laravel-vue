@@ -50,7 +50,8 @@ class VisaCardController extends Controller
     public function cards(Request $request): JsonResponse
     {
         $client = Client::findByToken($request->bearerToken())->first();
-
+        //TODO:Im here
+        dd($client->creditCardRequest->last());
         return response()->json(
             $client->creditCard()
                 ->simplePaginate(10)
@@ -61,7 +62,7 @@ class VisaCardController extends Controller
                         'card_number' => $card->card_number,
                         'expire_date' => $card->expire_date,
                         'status' => $card->credit_card_request->status,
-                        'card_holder' => $card->card_holder()
+                        'card_holder' => $card->owner_name()
                     ];
                 }),
         );
