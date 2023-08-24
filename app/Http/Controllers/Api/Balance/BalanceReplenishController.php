@@ -46,7 +46,7 @@ class BalanceReplenishController extends Controller
         return response()->json([
             'data' => $client->balanceRequest()
                 ->when(\Illuminate\Support\Facades\Request::input('status'), function ($query, string $search) {
-                    $statuses = explode(',', $search);
+                    $statuses = explode(',', strtoupper($search));
                     $query->whereIn('status', $statuses);
                 })
                 ->when(\Illuminate\Support\Facades\Request::input('withdraw'), function ($query, string $search) {

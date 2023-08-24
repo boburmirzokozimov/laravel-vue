@@ -70,4 +70,12 @@ class CreditCardRequest extends CustomModel
     {
         return $this->hasOne(CreditCard::class);
     }
+
+    public function ownerName():string
+    {
+        if ($this->anonymous) {
+            return $this->anonymous_name . ' ' . $this->anonymous_surname;
+        }
+        return $this->name . ' ' . $this->surname;
+    }
 }
