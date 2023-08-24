@@ -45,6 +45,7 @@ class BalanceReplenishController extends Controller
 
         return response()->json([
             'data' => $client->balanceRequest()
+                ->orderBy('id', 'desc')
                 ->when(\Illuminate\Support\Facades\Request::input('status'), function ($query, string $search) {
                     $statuses = explode(',', strtoupper($search));
                     $query->whereIn('status', $statuses);
