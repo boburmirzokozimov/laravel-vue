@@ -87,7 +87,7 @@ const handleStatus = (event, id) => {
                   v-text="balance_request.type"
               ></td>
               <td
-                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                   v-text="balance_request.status"
               >
 <!--                <form>-->
@@ -115,6 +115,7 @@ const handleStatus = (event, id) => {
                     @click="()=>handleButton(balance_request.id)"
                 >Просмотр деталей
                 </button>
+                  <button class="btn-danger">Отменить</button>
                 <Modal v-if="active && balance_request.id === show" @close="closeModal"/>
                 <InfoPopUp
                     v-if="active && balance_request.id === show"
