@@ -16,6 +16,56 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * App\Models\Client\Client
+ *
+ * @property int $id
+ * @property string $full_name
+ * @property string|null $uuid
+ * @property string $phone
+ * @property string|null $access_token
+ * @property bool $is_active
+ * @property string|null $auth_key
+ * @property string|null $comments
+ * @property string $balance
+ * @property string|null $last_visited
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $show_id
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Client\BalanceRequest> $balanceRequest
+ * @property-read int|null $balance_request_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, CardTransaction> $cardTransactions
+ * @property-read int|null $card_transactions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, CreditCard> $creditCard
+ * @property-read int|null $credit_card_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, CreditCardRequest> $creditCardRequest
+ * @property-read int|null $credit_card_request_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Client\CryptoCurrency> $cryptoCurrencies
+ * @property-read int|null $crypto_currencies_count
+ * @property-read Message|null $messages
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Client\Metal> $metals
+ * @property-read int|null $metals_count
+ * @property-read RefreshToken|null $refreshToken
+ * @method static \Database\Factories\ClientFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Client findByToken(?string $access_token)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Client newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Client query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereAccessToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereAuthKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereBalance($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereComments($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereFullName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereLastVisited($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereShowId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereUuid($value)
+ * @mixin \Eloquent
+ */
 class Client extends Authenticatable
 {
     use HasFactory;
