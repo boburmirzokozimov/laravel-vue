@@ -8,4 +8,5 @@ enum TypeEnum: string
     case CASHLESS = 'CASHLESS';
     case USDT = 'USDT';
     case SWIFT = 'SWIFT';
+    case SEPA = 'SEPA';
 }
