@@ -16,6 +16,8 @@
         <Filter :filters="props.filters"/>
 
         <ClientTable :clients="props.clients.data"/>
+        <Paginator :links="props.clients.links"/>
+
     </div>
 
 </template>
@@ -24,6 +26,7 @@
 import NavLink from "@/Components/NavLink.vue";
 import ClientTable from "@/Components/ClientTable.vue";
 import Filter from "@/Pages/Clients/Filter.vue";
+import Paginator from "@/Components/Paginator.vue";
 
 const props = defineProps({
     clients: Object,
