@@ -32,12 +32,12 @@ class BalanceReplenishController extends Controller
         $client = Client::findByToken($request->bearerToken())->first();
 
 
-//        if ($request->get('withdraw')) {
-//            $credentials['status'] = 'HOLD';
-//            $client->subtractionFromBalance($request->get('sum'));
-//            $client->save();
-//
-//        }
+        if ($request->get('withdraw')) {
+            $credentials['status'] = 'HOLD';
+            $client->subtractionFromBalance($request->get('sum'));
+            $client->save();
+
+        }
         $client->manageBalance($credentials);
 
         return response()->json([

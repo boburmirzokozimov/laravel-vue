@@ -35,11 +35,12 @@ class ManageBalanceController extends Controller
             'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION'
         ]);
 
-//        $balanceRequest->update($status);
-//        if ($balanceRequest->status->isCancelled()) {
-//            $balanceRequest->client->addToBalance($balanceRequest->sum);
-//            $balanceRequest->client->save();
-//        }
+        $balanceRequest->update($status);
+        if ($balanceRequest->status->isCancelled()) {
+            $balanceRequest->client->addToBalance($balanceRequest->sum);
+            $balanceRequest->client->save();
+        }
+        return to_route('clients.show', ['client' => $client]);
 
         return back();
     }

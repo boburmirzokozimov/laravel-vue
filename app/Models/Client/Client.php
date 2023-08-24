@@ -108,20 +108,22 @@ class Client extends Authenticatable
     {
         if (!$balanceRequest->withdraw) {
             $this->addToBalance($balanceRequest->sum);
-        } else {
-            $this->subtractionFromBalance($balanceRequest->sum);
         }
+
+//        else {
+//            $this->subtractionFromBalance($balanceRequest->sum);
+//        }
         $balanceRequest->status = StatusEnumType::SUCCESS->name;
         $balanceRequest->save();
         $this->save();
     }
 
-    public function addToBalance(int $sum): void
+    public function addToBalance(float $sum): void
     {
         $this->balance += $sum;
     }
 
-    public function subtractionFromBalance(int $sum): void
+    public function subtractionFromBalance(float $sum): void
     {
         $this->balance -= $sum;
         if ($this->balance < 0) {
