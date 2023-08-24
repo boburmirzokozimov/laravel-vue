@@ -60,8 +60,8 @@ class VisaCardController extends Controller
             $result[] = [
                 'id' => $card->id,
                 'balance' => $card->balance,
-                'card_number' => $card->card,
-                'expire_date' => $card->expire_date,
+                'card_number' => $card->creditCard?->card_number,
+                'expire_date' => $card->creditCard?->expire_date,
                 'status' => $card->status,
                 'card_holder' => $card->name.' '.$card->surname
             ];
