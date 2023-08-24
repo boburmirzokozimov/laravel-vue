@@ -9,4 +9,10 @@ enum StatusEnumType: string
     case SUCCESS = 'SUCCESS';
     case CANCELED = 'CANCELED';
     case VERIFICATION = 'VERIFICATION';
+
+
+    public function isCancelled()
+    {
+        return $this->value === 'CANCELED';
+    }
 }

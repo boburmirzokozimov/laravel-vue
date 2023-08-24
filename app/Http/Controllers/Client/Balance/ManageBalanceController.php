@@ -24,7 +24,7 @@ class ManageBalanceController extends Controller
     public function create(Client $client)
     {
         return Inertia::render('Clients/BalanceRequest/CreateBalanceRequest')->with([
-            'client' => $client,
+            'client'    => $client,
             'countries' => Country::all()
         ]);
     }
@@ -35,7 +35,11 @@ class ManageBalanceController extends Controller
             'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION'
         ]);
 
-        $balanceRequest->update($status);
+//        $balanceRequest->update($status);
+//        if ($balanceRequest->status->isCancelled()) {
+//            $balanceRequest->client->addToBalance($balanceRequest->sum);
+//            $balanceRequest->client->save();
+//        }
 
         return back();
     }

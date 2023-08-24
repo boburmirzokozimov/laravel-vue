@@ -31,6 +31,13 @@ class BalanceReplenishController extends Controller
 
         $client = Client::findByToken($request->bearerToken())->first();
 
+
+//        if ($request->get('withdraw')) {
+//            $credentials['status'] = 'HOLD';
+//            $client->subtractionFromBalance($request->get('sum'));
+//            $client->save();
+//
+//        }
         $client->manageBalance($credentials);
 
         return response()->json([
@@ -56,14 +63,14 @@ class BalanceReplenishController extends Controller
                 ->simplePaginate($request->query->get('per-page', 10), page: $request->query->get('page', 1))
                 ->through(function ($cardTransactions) {
                     return [
-                        'id' => $cardTransactions->id,
-                        'sum' => $cardTransactions->sum,
-                        'status' => $cardTransactions->status,
-                        'usdt_type' => $cardTransactions->usdt_type,
-                        'type' => $cardTransactions->type,
-                        'withdraw' => $cardTransactions->withdraw,
+                        'id'                      => $cardTransactions->id,
+                        'sum'                     => $cardTransactions->sum,
+                        'status'                  => $cardTransactions->status,
+                        'usdt_type'               => $cardTransactions->usdt_type,
+                        'type'                    => $cardTransactions->type,
+                        'withdraw'                => $cardTransactions->withdraw,
                         'withdraw_account_number' => $cardTransactions->withdraw_account_number,
-                        'created_at' => $cardTransactions->created_at,
+                        'created_at'              => $cardTransactions->created_at,
                     ];
                 }),
         ]);
@@ -72,8 +79,8 @@ class BalanceReplenishController extends Controller
     public function requisite(Request $request): JsonResponse
     {
         $credentials = $request->validate([
-            'type' => 'string',
-            'sum' => 'string|required',
+            'type'         => 'string',
+            'sum'          => 'string|required',
             'invoice_file' => 'file'
         ]);
 

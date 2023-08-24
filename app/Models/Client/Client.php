@@ -116,12 +116,12 @@ class Client extends Authenticatable
         $this->save();
     }
 
-    public function addToBalance(float $sum): void
+    public function addToBalance(int $sum): void
     {
         $this->balance += $sum;
     }
 
-    public function subtractionFromBalance(float $sum): void
+    public function subtractionFromBalance(int $sum): void
     {
         $this->balance -= $sum;
         if ($this->balance < 0) {
