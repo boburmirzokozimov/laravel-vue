@@ -110,11 +110,11 @@ const handleStatus = (status, id) => {
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                             >
-                                <button v-if="balance_request.status === 'HOLD'" class="btn-edit"
+                                <button v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'" class="btn-edit"
                                         @click="()=>handleButton(balance_request.id)">Просмотр деталей
                                 </button>
 
-                                <button v-if="balance_request.status === 'HOLD'" class="btn-danger"
+                                <button v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'" class="btn-danger"
                                         @click="handleStatus('CANCELED', balance_request.id)">Отменить
                                 </button>
                                 <Modal v-if="active && balance_request.id === show" @close="closeModal"/>
