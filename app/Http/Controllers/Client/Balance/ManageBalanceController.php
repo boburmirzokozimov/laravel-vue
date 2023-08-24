@@ -40,7 +40,7 @@ class ManageBalanceController extends Controller
             $balanceRequest->client->addToBalance($balanceRequest->sum);
             $balanceRequest->client->save();
         }
-        return to_route('clients.show', ['client' => $client]);
+        return to_route('clients.show', ['client' => $balanceRequest->client]);
 
         return back();
     }
