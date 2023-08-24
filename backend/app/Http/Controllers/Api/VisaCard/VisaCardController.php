@@ -62,10 +62,10 @@ class VisaCardController extends Controller
                 'card_number' => $card->card_number,
                 'expire_date' => $card->expire_date,
                 'status' => $card->status,
-                'card_holder' => $card->owner_name()
+                'card_holder' => $card->name.' '.$card->surname
             ];
         }
-        return response()->json($result);
+        return response()->json(['data' => $result]);
         dd($client->creditCardRequest->where('id', 1)->first()->status, $client->creditCardRequest->where('id', 1)->first()->creditCard);
         return response()->json(
             $client->creditCard()
