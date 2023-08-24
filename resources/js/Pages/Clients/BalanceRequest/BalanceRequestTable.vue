@@ -110,12 +110,12 @@ const handleStatus = (status, id) => {
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
               >
-                <button
+                <button v-if="balance_request.status === 'HOLD'"
                     class="btn-edit"
                     @click="()=>handleButton(balance_request.id)"
                 >Просмотр деталей
                 </button>
-                  <button class="btn-danger" @click="handleStatus('CANCELED', balance_request.id)">Отменить</button>
+                  <button v-if="balance_request.status === 'HOLD'" class="btn-danger" @click="handleStatus('CANCELED', balance_request.id)">Отменить</button>
                 <Modal v-if="active && balance_request.id === show" @close="closeModal"/>
                 <InfoPopUp
                     v-if="active && balance_request.id === show"
