@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->unsignedInteger('client_id');
             $table->foreignIdFor(Country::class)->nullable();
             $table->string('currency')->nullable();
-            $table->enum('type', ['CASH', 'CASHLESS', 'USDT']);
+            $table->enum('type', ['CASH', 'CASHLESS', 'USDT', 'SWIFT', 'SEPA']);
             $table->enum('status', ['OPEN', 'CLOSED'])->default('OPEN');
             $table->enum('usdt_type', ['ERC', 'TRC'])->nullable();
             $table->string('contact')->nullable();

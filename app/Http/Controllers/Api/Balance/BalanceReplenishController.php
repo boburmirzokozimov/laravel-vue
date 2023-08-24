@@ -49,7 +49,7 @@ class BalanceReplenishController extends Controller
                 ->when(\Illuminate\Support\Facades\Request::input('withdraw'), function ($query, string $search) {
                     $query->where('withdraw', $search);
                 })
-                ->simplePaginate(10)
+                ->simplePaginate($request->query->get('per-page', 10))
                 ->through(function ($cardTransactions) {
                     return [
                         'id' => $cardTransactions->id,
