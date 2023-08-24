@@ -58,7 +58,7 @@ class VisaCardController extends Controller
         $result = [];
         foreach ($cards as $card) {
             $result[] = [
-                'id' => $card->id,
+                'id' => $card->creditCard?->id ?? $card->id,
                 'balance' => $card->balance,
                 'card_number' => $card->creditCard?->card_number,
                 'expire_date' => $card->creditCard?->expire_date,
