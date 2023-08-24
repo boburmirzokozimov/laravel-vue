@@ -93,6 +93,13 @@ class Client extends Authenticatable
 
     public function manageBalance(array $credentials): void
     {
+
+        if ($credentials['withdraw']) {
+            $credentials['status'] = 'HOLD';
+            $this->subtractionFromBalance($credentials['sum']);
+            $this->save();
+
+        }
         $this->balanceRequest()->create($credentials);
     }
 
