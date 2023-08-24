@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedInteger('credit_card_id');
             $table->unsignedInteger('client_id');
-            $table->decimal('sum', 10, 2)->default(0);
+            $table->integer('sum')->default(0);
             $table->enum('type', ['SEPA', 'SWIFT'])->nullable();
             $table->enum('status', ['WAITING', 'HOLD', 'SUCCESS', 'CANCELED', 'VERIFICATION'])->default('WAITING');
             $table->timestamps();

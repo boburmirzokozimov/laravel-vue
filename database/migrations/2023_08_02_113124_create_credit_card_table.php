@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->unsignedInteger('client_id');
             $table->string('card_number');
             $table->string('expire_date');
-            $table->decimal('balance', 10, 2)->default(0);
+            $table->integer('balance')->default(0);
             $table->unsignedInteger('credit_card_request_id');
             $table->timestamps();
 

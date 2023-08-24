@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->boolean('is_active')->default(false);
             $table->string('auth_key')->nullable();
             $table->string('comments')->nullable();
-            $table->decimal('balance', 10, 2)->default(0);
+            $table->integer('balance')->default(0);
             $table->timestamp('last_visited')->nullable();
             $table->timestamps();
         });

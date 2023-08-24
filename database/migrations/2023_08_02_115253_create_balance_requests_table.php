@@ -26,7 +26,7 @@ return new class extends Migration {
             $table->foreignIdFor(Key::class)->nullable();
             $table->string('withdraw_account_number')->nullable();
             $table->boolean('withdraw')->default(false);
-            $table->decimal('sum', 10, 2)->default(0);
+            $table->integer('sum')->default(0);
             $table->timestamps();
 
             $table->foreign('client_id')
