@@ -53,13 +53,14 @@ class VisaCardController extends Controller
         $client = Client::findByToken($request->bearerToken())->first();
         //TODO:Im here
 
+        /** @var CreditCardRequest[] $cards */
         $cards = CreditCardRequest::where('client_id', $client->id)->paginate(10);
         $result = [];
         foreach ($cards as $card) {
             $result[] = [
                 'id' => $card->id,
                 'balance' => $card->balance,
-                'card_number' => $card->card_number,
+                'card_number' => $card->card,
                 'expire_date' => $card->expire_date,
                 'status' => $card->status,
                 'card_holder' => $card->name.' '.$card->surname

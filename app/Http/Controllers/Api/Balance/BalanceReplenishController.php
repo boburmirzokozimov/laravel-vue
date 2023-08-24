@@ -40,18 +40,19 @@ class BalanceReplenishController extends Controller
 
     public function history(Request $request): JsonResponse
     {
+        /** @var Client $client */
         $client = Client::findByToken($request->bearerToken())->first();
 
         return response()->json([
             'data' => $client->balanceRequest()
-                ->when(\Illuminate\Support\Facades\Request::input('status'), function (Builder $query, string $search) {
+                ->when(\Illuminate\Support\Facades\Request::input('status'), function ($query, string $search) {
                     $statuses = explode(',', $search);
                     $query->whereIn('status', $statuses);
                 })
                 ->when(\Illuminate\Support\Facades\Request::input('withdraw'), function ($query, string $search) {
                     $query->where('withdraw', $search);
                 })
-                ->simplePaginate($request->query->get('per-page', 10))
+                ->simplePaginate($request->query->get('per-page', 10), page: $request->query->get('page', 1))
                 ->through(function ($cardTransactions) {
                     return [
                         'id' => $cardTransactions->id,
