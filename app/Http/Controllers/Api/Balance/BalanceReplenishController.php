@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Balance\CreateBalanceReplenishForm;
 use App\Models\Client\Client;
 use App\Services\UploadService;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -43,8 +44,9 @@ class BalanceReplenishController extends Controller
 
         return response()->json([
             'data' => $client->balanceRequest()
-                ->when(\Illuminate\Support\Facades\Request::input('status'), function ($query, string $search) {
-                    $query->where('status', strtoupper($search));
+                ->when(\Illuminate\Support\Facades\Request::input('status'), function (Builder $query, string $search) {
+                    $statuses = explode(',', $search);
+                    $query->whereIn('status', $statuses);
                 })
                 ->when(\Illuminate\Support\Facades\Request::input('withdraw'), function ($query, string $search) {
                     $query->where('withdraw', $search);
