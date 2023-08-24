@@ -22,9 +22,9 @@ const closeModal = () => {
   active.value = false
   show.value = null
 }
-const handleStatus = (event, id) => {
+const handleStatus = (status, id) => {
   router.post(`/balanceRequests/${id}`, {
-    status: event.target.value
+    status: status
   }, {
     onSuccess: () => {
       toaster.success('Статус изменён')
@@ -115,7 +115,7 @@ const handleStatus = (event, id) => {
                     @click="()=>handleButton(balance_request.id)"
                 >Просмотр деталей
                 </button>
-                  <button class="btn-danger">Отменить</button>
+                  <button class="btn-danger" @click="handleStatus('CANCELED', balance_request.id)">Отменить</button>
                 <Modal v-if="active && balance_request.id === show" @close="closeModal"/>
                 <InfoPopUp
                     v-if="active && balance_request.id === show"
