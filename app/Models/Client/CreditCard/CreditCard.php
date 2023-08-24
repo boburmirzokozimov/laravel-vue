@@ -69,6 +69,7 @@ class CreditCard extends CustomModel
 
     public function createTransaction(array $credentials): void
     {
+        unset($credentials['withdraw']);
         $this->cardTransactions()->create($credentials);
     }
 
