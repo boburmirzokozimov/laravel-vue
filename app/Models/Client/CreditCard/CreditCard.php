@@ -67,10 +67,10 @@ class CreditCard extends CustomModel
         return $this->belongsTo(CreditCardRequest::class);
     }
 
-    public function createTransaction(array $credentials): void
+    public function createTransaction(array $credentials)
     {
         unset($credentials['withdraw']);
-        $this->cardTransactions()->create($credentials);
+    return    $this->cardTransactions()->create($credentials);
     }
 
     public function cardTransactions(): HasMany

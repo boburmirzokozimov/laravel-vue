@@ -78,7 +78,8 @@ class CreditCardService
         $balanceRequest->save();
 
 
-        $card->createTransaction($validated);
+        $transaction = $card->createTransaction($validated);
+        $this->acceptTransaction($card, $transaction);
     }
 
     /**
@@ -86,20 +87,13 @@ class CreditCardService
      */
     public function acceptTransaction(CreditCard $card, CardTransaction $cardTransaction): void
     {
-        $balanceRequest = new BalanceRequest();
-        $balanceRequest->sum = $cardTransaction->sum;
-        $balanceRequest->type = 'CARD_TRANSACTION';
-        $balanceRequest->client_id = $card->client_id;
-        $balanceRequest->status = 'SUCCESS';
+
         if ($cardTransaction->withdraw) {
-            $balanceRequest->withdraw = true;
             $card->withdrawBalance($cardTransaction->sum);
         } else {
-            $balanceRequest->withdraw = false;
 
             $card->depositBalance($cardTransaction->sum);
         }
-        $balanceRequest->save();
         $cardTransaction->status = StatusEnumType::SUCCESS->name;
         $cardTransaction->save();
         $card->save();
