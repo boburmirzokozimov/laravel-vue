@@ -88,10 +88,10 @@ class CreditCardService
 
             $card->depositBalance($cardTransaction->sum);
         }
+        $balanceRequest->save();
         $cardTransaction->status = StatusEnumType::SUCCESS->name;
         $cardTransaction->save();
         $card->save();
-        $balanceRequest->save();
 
     }
 }
