@@ -75,7 +75,7 @@ class CreditCardService
         $balanceRequest->status = 'SUCCESS';
         $balanceRequest->withdraw = true;
 
-        $card->save();
+        $balanceRequest->save();
 
 
         $card->createTransaction($validated);
