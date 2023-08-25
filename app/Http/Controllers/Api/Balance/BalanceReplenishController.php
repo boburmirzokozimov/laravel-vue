@@ -82,7 +82,6 @@ class BalanceReplenishController extends Controller
         $client = Client::findByToken($request->bearerToken())->first();
 
         $credentials['invoice_file'] = $this->uploadService->uploadInvoice($credentials['invoice_file']);
-
         $client->manageBalance($credentials, true);
 
         return response()->json([
