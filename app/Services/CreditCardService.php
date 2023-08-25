@@ -77,18 +77,21 @@ class CreditCardService
     {
         $balanceRequest = new BalanceRequest();
         $balanceRequest->sum = $cardTransaction->sum;
-        $balanceRequest->withdraw = $cardTransaction->withdraw;
         $balanceRequest->type = 'CARD_TRANSACTION';
         $balanceRequest->client_id = $card->client_id;
         $balanceRequest->status = 'SUCCESS';
-        $balanceRequest->save();
         if ($cardTransaction->withdraw) {
+            $balanceRequest->withdraw = true;
             $card->withdrawBalance($cardTransaction->sum);
         } else {
+            $balanceRequest->withdraw = false;
+
             $card->depositBalance($cardTransaction->sum);
         }
         $cardTransaction->status = StatusEnumType::SUCCESS->name;
         $cardTransaction->save();
         $card->save();
+        $balanceRequest->save();
+
     }
 }
