@@ -62,12 +62,16 @@ Route::middleware('auth')->group(function () {
 
     Route::patch('credit-cards/{creditCard}', [CreditCardController::class, 'update'])
         ->name('credit-cards.update');
+
     Route::get('credit-cards/{creditCard}/manage', [CreditCardController::class, 'create'])
         ->name('credit-cards.create');
+
     Route::post('credit-cards/{creditCard}/manage', [CreditCardController::class, 'manage'])
         ->name('credit-cards.update');
+
     Route::patch('credit-cards/{creditCard}/manage/{cardTransaction}', [CreditCardController::class, 'accept'])
         ->name('credit-cards.accept');
+
     Route::patch('transactions/{cardTransaction}/status', [CreditCardController::class, 'changeStatus'])
         ->name('credit-cards.changeStatus');
 

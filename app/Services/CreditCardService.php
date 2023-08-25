@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Client\BalanceRequest;
 use App\Models\Client\Client;
 use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
@@ -54,10 +55,10 @@ class CreditCardService
     public function activate(array $credentials): void
     {
         CreditCard::query()->create([
-            'client_id' => $credentials['client_id'],
+            'client_id'              => $credentials['client_id'],
             'credit_card_request_id' => $credentials['credit_card_request_id'],
-            'card_number' => $credentials['card_number'],
-            'expire_date' => $credentials['expire_date'],
+            'card_number'            => $credentials['card_number'],
+            'expire_date'            => $credentials['expire_date'],
         ]);
     }
 
@@ -74,6 +75,13 @@ class CreditCardService
      */
     public function acceptTransaction(CreditCard $card, CardTransaction $cardTransaction): void
     {
+        $balanceRequest = new BalanceRequest();
+        $balanceRequest->sum = $cardTransaction->sum;
+        $balanceRequest->withdraw = $cardTransaction->withdraw;
+        $balanceRequest->type = 'CARD_TRANSACTION';
+        $balanceRequest->client_id = $card->client_id;
+        $balanceRequest->status = 'SUCCESS';
+        $balanceRequest->save();
         if ($cardTransaction->withdraw) {
             $card->withdrawBalance($cardTransaction->sum);
         } else {
