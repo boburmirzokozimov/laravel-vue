@@ -91,15 +91,21 @@ class Client extends Authenticatable
         return '/clients/' . $this->id;
     }
 
-    public function manageBalance(array $credentials): void
+    public function manageBalance(array $credentials, bool $isRequisite = false): void
     {
 
-        if ($credentials['withdraw']) {
+        if (isset($credentials['withdraw']) and $credentials['withdraw']) {
             $credentials['status'] = 'HOLD';
             $this->subtractionFromBalance($credentials['sum']);
             $this->save();
 
         }
+
+        if ($isRequisite){
+            $this->subtractionFromBalance($credentials['sum']);
+            $this->save();
+        }
+
         $this->balanceRequest()->create($credentials);
     }
 

@@ -83,7 +83,7 @@ class BalanceReplenishController extends Controller
 
         $credentials['invoice_file'] = $this->uploadService->uploadInvoice($credentials['invoice_file']);
 
-        $client->manageBalance($credentials);
+        $client->manageBalance($credentials, true);
 
         return response()->json([
             'data' => 'Success',
