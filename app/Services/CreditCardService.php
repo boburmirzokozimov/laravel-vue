@@ -67,6 +67,17 @@ class CreditCardService
         if (isset($validated['withdraw']) and boolval($validated['withdraw']) === true) {
             $validated['invoice_file'] = $this->uploadService->uploadInvoice($validated['invoice_file']);
         }
+
+        $balanceRequest = new BalanceRequest();
+        $balanceRequest->sum = $validated['sum'];
+        $balanceRequest->type = 'CARD_TRANSACTION';
+        $balanceRequest->client_id = $card->client_id;
+        $balanceRequest->status = 'SUCCESS';
+        $balanceRequest->withdraw = true;
+
+        $card->save();
+
+
         $card->createTransaction($validated);
     }
 
@@ -94,4 +105,5 @@ class CreditCardService
         $card->save();
 
     }
+
 }
