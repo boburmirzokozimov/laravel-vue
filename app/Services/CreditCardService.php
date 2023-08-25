@@ -81,6 +81,7 @@ class CreditCardService
         $transaction = $card->createTransaction($validated);
         $this->acceptTransaction($card, $transaction);
         $card->client->subtractionFromBalance($balanceRequest->sum);
+        $card->client->save();
     }
 
     /**
