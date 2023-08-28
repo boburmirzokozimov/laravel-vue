@@ -7,7 +7,6 @@ use App\Http\Requests\Branch\CreateBranchRequestForm;
 use App\Http\Requests\Branch\UpdateBranchRequestForm;
 use App\Models\Branch\Branch;
 use App\Models\Country\Country;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class BranchController extends Controller
@@ -30,7 +29,7 @@ class BranchController extends Controller
     public function create()
     {
         return Inertia::render('Branches/Create', [
-            'countries' => Country::all('id', 'name')
+            'countries' => Country::all('id', 'name')->where('id', '>', 250)
         ]);
     }
 
