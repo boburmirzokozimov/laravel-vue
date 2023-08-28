@@ -42,7 +42,7 @@ return [
                 'scheme' => 'http',
                 'useTLS' => true,
                 'debug' => true,
-//                'encrypted' => true,
+                'encrypted' => true,
             ],
             'client_options' => [
                 // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html

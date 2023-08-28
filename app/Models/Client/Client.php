@@ -9,12 +9,15 @@ use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Models\Enum\StatusEnumType;
 use App\Models\RefreshToken\RefreshToken;
 use Database\Factories\ClientFactory;
+use Eloquent;
 use Exception;
 use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Client\Client
@@ -29,24 +32,24 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string|null $comments
  * @property string $balance
  * @property string|null $last_visited
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property int|null $show_id
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Client\BalanceRequest> $balanceRequest
+ * @property-read Collection<int, BalanceRequest> $balanceRequest
  * @property-read int|null $balance_request_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, CardTransaction> $cardTransactions
+ * @property-read Collection<int, CardTransaction> $cardTransactions
  * @property-read int|null $card_transactions_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, CreditCard> $creditCard
+ * @property-read Collection<int, CreditCard> $creditCard
  * @property-read int|null $credit_card_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, CreditCardRequest> $creditCardRequest
+ * @property-read Collection<int, CreditCardRequest> $creditCardRequest
  * @property-read int|null $credit_card_request_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Client\CryptoCurrency> $cryptoCurrencies
+ * @property-read Collection<int, CryptoCurrency> $cryptoCurrencies
  * @property-read int|null $crypto_currencies_count
  * @property-read Message|null $messages
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Client\Metal> $metals
+ * @property-read Collection<int, Metal> $metals
  * @property-read int|null $metals_count
  * @property-read RefreshToken|null $refreshToken
- * @method static \Database\Factories\ClientFactory factory($count = null, $state = [])
+ * @method static ClientFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Client findByToken(?string $access_token)
  * @method static \Illuminate\Database\Eloquent\Builder|Client newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Client newQuery()
@@ -64,7 +67,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|Client whereShowId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Client whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Client whereUuid($value)
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Client extends Authenticatable
 {
@@ -98,16 +101,23 @@ class Client extends Authenticatable
             $credentials['status'] = 'HOLD';
             $this->subtractionFromBalance($credentials['sum']);
             $this->save();
-
         }
 
-        if ($isRequisite){
+        if ($isRequisite) {
             $credentials['withdraw'] = true;
             $this->subtractionFromBalance($credentials['sum']);
             $this->save();
         }
 
         $this->balanceRequest()->create($credentials);
+    }
+
+    public function subtractionFromBalance(float $sum): void
+    {
+        $this->balance -= $sum;
+        if ($this->balance < 0) {
+            throw new Exception('Не достаточно средств');
+        }
     }
 
     public function balanceRequest(): HasMany
@@ -135,14 +145,6 @@ class Client extends Authenticatable
     public function addToBalance(float $sum): void
     {
         $this->balance += $sum;
-    }
-
-    public function subtractionFromBalance(float $sum): void
-    {
-        $this->balance -= $sum;
-        if ($this->balance < 0) {
-            throw new Exception('Не достаточно средств');
-        }
     }
 
     public function saveCardRequest(array $credentials): void
