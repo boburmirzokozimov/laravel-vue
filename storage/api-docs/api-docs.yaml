@@ -209,19 +209,11 @@ paths:
                   data:
                     type: object
                     properties:
-                      id:
+                      message:
                         type: string
-                      sum:
-                        type: string
-                      status:
-                        type: string
-                      usdt_type:
+                      messageble_type:
                         type: string
                       type:
-                        type: string
-                      withdraw:
-                        type: string
-                      withdraw_account_number:
                         type: string
                       created_at:
                         type: date
