@@ -1,10 +1,10 @@
 <script setup>
 import {router, useForm} from "@inertiajs/vue3";
 import {ref} from "vue";
-import {value} from "lodash/seq.js";
 
 const props = defineProps({
     chat_room_id: null,
+    client_id: null
 })
 
 let file = ref(null)
@@ -30,9 +30,10 @@ const handleMessage = () => {
         file.value = ''
         isFile = false
     } else {
-        router.post('/send', {
+        router.post('/send/' + props.client_id, {
             message: form.message,
             chat_room_id: form.chat_room_id,
+            client_id: props.client_id
         }, {
             preserveScroll: true
         })
