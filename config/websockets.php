@@ -29,11 +29,11 @@ return [
             'name' => env('APP_NAME'),
             'key' => env('PUSHER_APP_KEY'),
             'secret' => env('PUSHER_APP_SECRET'),
-            'path' => env('PUSHER_APP_PATH'),
-            'enable_client_messages' => true,
+            'enable_client_messages' => false,
             'enable_statistics' => true,
         ],
     ],
+
 
     /*
      * This class is responsible for finding the apps. The default provider
