@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Repositories\MetalAndCryptoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Log;
 
 class MetalAndCryptoController extends Controller
 {
-    public function __construct(private MetalAndCryptoService $service)
+    public function __construct(private MetalAndCryptoService $service,
+                                private Log                   $logger)
     {
     }
 
@@ -32,12 +34,18 @@ class MetalAndCryptoController extends Controller
         $response = [];
         foreach ($this->cryptoList() as $crypto) {
             $response[$crypto] = Http::withHeaders([
-                'X-CoinAPI-Key' => 'DF7EF7EE-73AE-4E73-AF5B-075E8E408F6F'
+                'X-CoinAPI-Key' => 'DF7EF7EE-73AE-4E73-AF5B-075E8E408F6F',
+                'X-RateLimit-Limit' => 1000000
             ])
                 ->get('https://rest.coinapi.io/v1/exchangerate/' . $crypto . '/USD')
                 ->body();
             $response[$crypto] = json_decode($response[$crypto], true);
+            if (array_key_exists('error', $response[$crypto])) {
+                $this->logger::error('Crypto Error', $response[$crypto]);
+                return;
+            }
         }
+
         if (count($response) !== 0) {
             $this->service->handleCrypto($response);
         }

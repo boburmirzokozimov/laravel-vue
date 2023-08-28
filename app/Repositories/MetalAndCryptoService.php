@@ -38,7 +38,7 @@ class MetalAndCryptoService
                 'type' => $key,
                 'rate' => $value['rate'],
                 'diff' => $this->findDiffCrypto($key, $value['rate']),
-                'updated_at' => Carbon::createFromTimestamp($rates['timestamp'])->toDateTimeImmutable(),
+                'updated_at' => time(),
             ]);
         }
     }
@@ -46,8 +46,7 @@ class MetalAndCryptoService
     private function findDiffCrypto(string $key, float $value): ?float
     {
         $prevRates = CryptoRates::lastType($key)->first()?->rate;
-
-        if ($prevRates !== '') {
+        if ($prevRates !== null) {
             return ($value - $prevRates) / $prevRates;
         } else {
             return null;

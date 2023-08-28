@@ -34,7 +34,7 @@ class ChatRoomController extends Controller
     {
         $client = Client::findByToken($request->bearerToken())->first();
 
-        $chatRoom = ChatRoom::create(['client_id' => $client->id])->with('client')->first();
+        $chatRoom = ChatRoom::firstOrCreate(['client_id' => $client->id])->with('client')->first();
 
         event(new ChatRoomCreated($chatRoom));
 
