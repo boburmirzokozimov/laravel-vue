@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\Api\Chat\ChatRoomController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Branch\BranchController;
 use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Client\Balance\DownloadFileController;
 use App\Http\Controllers\Client\Balance\ManageBalanceController;
+use App\Http\Controllers\Client\Balance\MetalAndCryptoController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\CreditCard\CreditCardController;
 use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
@@ -91,7 +91,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(ChatController::class)->group(function () {
         Route::get('/chat', 'index');
-        Route::post('/send', 'send');
+        Route::post('/send/{client}', 'send');
         Route::post('/chat/{client}', 'sendByClient');
         Route::get('/chat/{chatRoom}', 'show');
         Route::post('/chat-room/{chatRoom}', 'update');
@@ -124,6 +124,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/countries/{country}', 'destroy')->name('countries.destroy');
     });
 
+    Route::get('/rates/metal', [MetalAndCryptoController::class, 'metal']);
+    Route::get('/rates/crypto', [MetalAndCryptoController::class, 'crypto']);
 
     Route::post('/uploadFile', UploadFileController::class);
 });

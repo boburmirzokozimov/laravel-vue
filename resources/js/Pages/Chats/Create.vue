@@ -17,7 +17,7 @@ const form = useForm({
 })
 
 const handleMessage = () => {
-    if (isFile) {
+    if (isFile.value) {
         console.log(file.value['type'])
         form.type = file.value['type'] === 'image/png' ? 'image' : ''
         router.post('/uploadFile', {
@@ -39,7 +39,7 @@ const handleMessage = () => {
         })
         form.message = ''
     }
-    console.log(isFile.value)
+    console.log(props.client_id)
 }
 
 </script>

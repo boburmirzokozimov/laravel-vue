@@ -32,13 +32,13 @@ class ChatController extends Controller
         ]);
     }
 
-    public function send(MessageFormRequest $request): RedirectResponse
+    public function send(MessageFormRequest $request, Client $client): RedirectResponse
     {
         $message = $request->user()
             ->messages()
             ->create($request->validated());
 
-        event(new MessageSent($request->user(), $message));
+        event(new MessageSent($client, $request->validated('chat_room_id'), $message));
 
         return back();
     }

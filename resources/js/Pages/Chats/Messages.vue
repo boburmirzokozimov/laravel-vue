@@ -56,7 +56,7 @@ const getType = (type) => {
             </div>
         </div>
 
-        <Create :chat_room_id="props.chat_room.id"/>
+        <Create :chat_room_id="props.chat_room.id" :client_id="props.chat_room.client_id"/>
 
     </div>
 
