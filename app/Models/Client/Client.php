@@ -6,6 +6,8 @@ use App\Models\Chat\Message;
 use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
+use App\Models\Client\Crypto\CryptoCurrency;
+use App\Models\Client\Metal\Metal;
 use App\Models\Enum\StatusEnumType;
 use App\Models\RefreshToken\RefreshToken;
 use Database\Factories\ClientFactory;

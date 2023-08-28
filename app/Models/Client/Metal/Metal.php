@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models\Client;
+namespace App\Models\Client\Metal;
 
+use App\Models\Client\Client;
 use App\Models\CustomModel;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;

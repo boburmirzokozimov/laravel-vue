@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Chat\ChatRoom;
 use App\Models\Client\Client;
 use Illuminate\Http\Request;
-use OpenApi\Annotations as OA;
 
 class ChatRoomController extends Controller
 {
@@ -44,6 +43,13 @@ class ChatRoomController extends Controller
                 'message' => 'Successfully sent',
                 'chat_room_id' => $chatRoom->id
             ]
+        ]);
+    }
+
+    public function history(ChatRoom $chatRoom)
+    {
+        return response()->json([
+            'messages' => $chatRoom->messages()->simplePaginate(10)
         ]);
     }
 }

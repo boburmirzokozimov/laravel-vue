@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,6 +12,9 @@ return new class extends Migration
     {
         Schema::create('crypto_rates', function (Blueprint $table) {
             $table->id();
+            $table->enum('type', ['BTC', 'ETH', 'BNB', 'ADA', 'DOT'])->nullable();
+            $table->string('rate')->nullable();
+            $table->string('diff')->nullable();
             $table->timestamps();
         });
     }

@@ -39,7 +39,6 @@ const handleMessage = () => {
         })
         form.message = ''
     }
-    console.log(props.client_id)
 }
 
 </script>

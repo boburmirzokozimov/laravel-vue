@@ -19,6 +19,7 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::get('/me', [AuthController::class, 'me']);
 
     Route::post('/chat-room', [ChatRoomController::class, 'store']);
+    Route::get('/chat-room/{chatRoom}', [ChatRoomController::class, 'history']);
     Route::post('/chat', [ChatController::class, 'sendByClient']);
 
     Route::post('/help-request', [HelpRequestController::class, 'store']);
