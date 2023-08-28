@@ -12,9 +12,9 @@ class MetalAndCryptoService
     {
         foreach ($rates['rates'] as $key => $value) {
             MetalRates::create([
-                'type'       => $key,
-                'rate'       => $value,
-                'diff'       => $this->findDiffMetal($key, $value),
+                'type' => $key,
+                'rate' => $value,
+                'diff' => $this->findDiffMetal($key, $value),
                 'updated_at' => Carbon::createFromTimestamp($rates['timestamp'])->toDateTimeImmutable(),
             ]);
         }
@@ -22,25 +22,22 @@ class MetalAndCryptoService
 
     private function findDiffMetal(string $key, float $value): ?float
     {
+        $prevRates = MetalRates::lastType($key)->first()?->rate;
 
-        if ($prevRates = MetalRates::lastType($key)) {
-            if ($prevRates->rate !== '') {
-                return ($value - $prevRates->rate) / $prevRates->rate;
-            } else {
-                return null;
-            }
+        if ($prevRates !== '') {
+            return ($value - $prevRates) / $prevRates;
+        } else {
+            return null;
         }
-        return null;
-
     }
 
     public function handleCrypto(array $rates): void
     {
         foreach ($rates as $key => $value) {
             CryptoRates::create([
-                'type'       => $key,
-                'rate'       => $value['rate'],
-                'diff'       => $this->findDiffCrypto($key, $value['rate']),
+                'type' => $key,
+                'rate' => $value['rate'],
+                'diff' => $this->findDiffCrypto($key, $value['rate']),
                 'updated_at' => time(),
             ]);
         }
