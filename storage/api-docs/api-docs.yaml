@@ -115,6 +115,8 @@ paths:
             application/json:
               schema:
                 properties:
+                  id:
+                    type: integer
                   name:
                     type: string
                   show_id:
