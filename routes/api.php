@@ -4,11 +4,12 @@
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\Balance\BalanceReplenishController;
 use App\Http\Controllers\Api\Branch\BranchController;
+use App\Http\Controllers\Api\Chat\ChatController;
 use App\Http\Controllers\Api\Chat\ChatRoomController;
 use App\Http\Controllers\Api\Country\CountryController;
 use App\Http\Controllers\Api\HelpRequest\HelpRequestController;
-use App\Http\Controllers\Api\Chat\ChatController;
 use App\Http\Controllers\Api\Key\KeyController;
+use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\UploadFile\UploadFileController;
 use App\Http\Controllers\Api\VisaCard\VisaCardController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::post('/cards/{card}/manage', [VisaCardController::class, 'manage']);
 
     Route::get('/branches', BranchController::class);
+
+    Route::post('/transaction', TransactionController::class);
 
     Route::post('/uploadFile', UploadFileController::class);
 });

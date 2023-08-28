@@ -7,9 +7,7 @@ use App\Models\Client\Client;
 use App\Repositories\ClientRepository;
 use App\Services\AuthService;
 use App\Services\TokenService;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use OpenApi\Annotations as OA;
 
 class AuthController extends Controller
 {
@@ -67,6 +65,7 @@ class AuthController extends Controller
         } else {
             $credentials = [
                 'name' => $client->full_name,
+                'show_id' => $client->show_id,
                 'status' => $client?->isActive()
             ];
         }
