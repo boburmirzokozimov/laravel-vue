@@ -1,0 +1,1 @@
+import{_ as e,o,c as t,b as c}from"./app-617a9b72.js";/* empty css            */const s={},n=c("h1",{class:"text-3xl"}," Home ",-1),r=[n];function _(a,l){return o(),t("div",null,r)}const m=e(s,[["render",_]]);export{m as default};
