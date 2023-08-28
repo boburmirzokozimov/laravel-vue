@@ -34,7 +34,7 @@ const handleSubmit = () => {
     </Head>
 
     <div class="modal z-10">
-        <h1 class="mb-6">Create The Branch 1</h1>
+        <h1 class="mb-6">Create The Branch</h1>
 
         <form class="max-w-2xl mx-auto" method="post" @submit.prevent="handleSubmit">
             <div class="mb-6">
