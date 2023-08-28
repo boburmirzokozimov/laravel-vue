@@ -56,6 +56,7 @@ class AuthController extends Controller
 
         if ($client?->isActive()) {
             $credentials = [
+                'id' => $client->id,
                 'name' => $client->full_name,
                 'show_id' => $client->show_id,
                 'status' => $client->isActive(),
@@ -64,6 +65,7 @@ class AuthController extends Controller
             ];
         } else {
             $credentials = [
+                'id' => $client->id,
                 'name' => $client->full_name,
                 'show_id' => $client->show_id,
                 'status' => $client?->isActive()

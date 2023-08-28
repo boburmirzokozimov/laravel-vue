@@ -26,4 +26,26 @@ class MetalAndCryptoController extends Controller
             $this->service->handleMetal($response);
         }
     }
+
+    public function crypto(Request $request)
+    {
+        $response = [];
+        foreach ($this->cryptoList() as $crypto) {
+            $response[$crypto] = Http::withHeaders([
+                'X-CoinAPI-Key' => 'DF7EF7EE-73AE-4E73-AF5B-075E8E408F6F'
+            ])
+                ->get('https://rest.coinapi.io/v1/exchangerate/' . $crypto . '/USD')
+                ->body();
+            $response[$crypto] = json_decode($response[$crypto], true);
+        }
+        if (count($response) !== 0) {
+            $this->service->handleCrypto($response);
+        }
+    }
+
+    private function cryptoList(): array
+    {
+        return ['BTC', 'ETH', 'BNB', 'ADA', 'DOT'];
+    }
+
 }
