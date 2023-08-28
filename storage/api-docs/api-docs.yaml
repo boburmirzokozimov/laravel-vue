@@ -183,6 +183,39 @@ paths:
                 type: object
       security:
         - api_key_security_example: [ ]
+  /chat-room/{chatRoomId}:
+    get:
+      tags:
+        - Chat
+      summary: List of messages in  Chat Room
+      description: history of the chat room
+      operationId: ChatRoomId
+      parameters:
+        - name: chatRoomId
+          in: path
+          description: ID of chat room
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      properties:
+                        message:
+                          type: string
+                        chat_room_id:
+                          type: string
+                      type: object
+                type: object
+      security:
+        - api_key_security_example: [ ]
   /help-request:
     post:
       tags:
@@ -442,13 +475,36 @@ paths:
         content:
           application/json:
             schema:
-              type: object
               properties:
-                sum:
+                current_page:
+                  type: integer
+                data:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                    messageble_type:
+                      type: string
+                    type:
+                      type: string
+                    created_at:
+                      type: date
+                first_page_url:
                   type: string
-                type:
+                from:
+                  type: integer
+                next_page_url:
                   type: string
-                  enum: [ 'SEPA','SWIFT' ]
+                path:
+                  type: string
+                per_page:
+                  type: integer
+                prev_page_url:
+                  type: string
+                prev_page:
+                  type: integer
+                to:
+                  type: string
       responses:
         '200':
           description: Success

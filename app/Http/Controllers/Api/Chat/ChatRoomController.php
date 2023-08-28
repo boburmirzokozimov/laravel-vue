@@ -49,7 +49,17 @@ class ChatRoomController extends Controller
     public function history(ChatRoom $chatRoom)
     {
         return response()->json([
-            'messages' => $chatRoom->messages()->simplePaginate(10)
+            'messages' => $chatRoom
+                ->messages()
+                ->simplePaginate(10)
+                ->through(function ($chat) {
+                    return [
+                        'message' => $chat->message,
+                        'messageble_type' => $chat->messageble_type,
+                        'type' => $chat->type,
+                        'created_at' => $chat->created_at,
+                    ];
+                })
         ]);
     }
 }
