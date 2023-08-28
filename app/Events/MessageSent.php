@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Client\Client;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -13,17 +14,18 @@ class MessageSent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $user;
-
     public string $message;
+    private int $chat_room_id;
+    private Client $client;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($user, string $message)
+    public function __construct(Client $client, int $chat_room_id, string $message)
     {
-        $this->user = $user;
         $this->message = $message;
+        $this->chat_room_id = $chat_room_id;
+        $this->client = $client;
     }
 
     /**
@@ -34,7 +36,7 @@ class MessageSent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('chat'),
+            new PrivateChannel('chat.' . $this->chat_room_id . '.' . $this->client->id),
         ];
     }
 }
