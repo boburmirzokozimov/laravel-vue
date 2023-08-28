@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Services;
 
 use App\Models\Client\Crypto\CryptoRates;
 use App\Models\Client\Metal\MetalRates;

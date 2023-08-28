@@ -10,26 +10,6 @@ use Illuminate\Http\Request;
 
 class ChatRoomController extends Controller
 {
-    /**
-     * @OA\Post(
-     * path="/chat-room",
-     * operationId="ChatRoom",
-     * tags={"Chat"},
-     * security={{"api_key_security_example":{}}},
-     * summary="Createing Chat Room",
-     * description="To create a chat room",
-     * @OA\Response(
-     * response=200, description="Success",
-     * @OA\JsonContent(
-     * @OA\Property(property="data", type="array",
-     *     @OA\Items(
-     *         @OA\Property(property="message", type="string"),
-     *         @OA\Property(property="chat_room_id", type="string"),
-     *     ))
-     * )
-     * )
-     * )
-     */
     public function store(Request $request)
     {
         $client = Client::findByToken($request->bearerToken())->first();

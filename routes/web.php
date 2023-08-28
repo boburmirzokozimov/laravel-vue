@@ -5,7 +5,6 @@ use App\Http\Controllers\Branch\BranchController;
 use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Client\Balance\DownloadFileController;
 use App\Http\Controllers\Client\Balance\ManageBalanceController;
-use App\Http\Controllers\Client\Balance\MetalAndCryptoController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\CreditCard\CreditCardController;
 use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
@@ -123,9 +122,6 @@ Route::middleware('auth')->group(function () {
         Route::patch('/countries/{country}', 'update')->name('countries.update');
         Route::delete('/countries/{country}', 'destroy')->name('countries.destroy');
     });
-
-    Route::get('/rates/metal', [MetalAndCryptoController::class, 'metal']);
-    Route::get('/rates/crypto', [MetalAndCryptoController::class, 'crypto']);
 
     Route::post('/uploadFile', UploadFileController::class);
 });
