@@ -40,6 +40,8 @@ return [
                 'host' => '127.0.0.1',
                 'port' => 6001,
                 'scheme' => 'http',
+                'useTLS' => true,
+                'debug' => true,
 //                'encrypted' => true,
             ],
             'client_options' => [
