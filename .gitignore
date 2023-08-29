@@ -19,3 +19,4 @@ yarn-error.log
 /.idea
 /.vscode
 ./resources/01 - Codebase Source (HTML)
+/public/storage
