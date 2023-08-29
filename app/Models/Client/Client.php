@@ -114,6 +114,9 @@ class Client extends Authenticatable
         $this->balanceRequest()->create($credentials);
     }
 
+    /**
+     * @throws Exception
+     */
     public function subtractionFromBalance(float $sum): void
     {
         $this->balance -= $sum;

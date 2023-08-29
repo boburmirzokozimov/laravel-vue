@@ -88,33 +88,34 @@ const handleStatus = (status, id) => {
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="balance_request.status"
                             >
-                                <!--                <form>-->
-                                <!--                  <select-->
-                                <!--                      id="category"-->
-                                <!--                      class="border border-gray-200 p-2 w-full rounded-2xl"-->
-                                <!--                      name="category"-->
-                                <!--                      @change.prevent="handleStatus($event,balance_request.id)"-->
-                                <!--                  >-->
-                                <!--                    <option-->
-                                <!--                        v-for="status in props.transaction_statuses"-->
-                                <!--                        v-show="status !== 'SUCCESS'"-->
-                                <!--                        :selected="status === balance_request.status"-->
-                                <!--                        :value="status"-->
-                                <!--                        v-text="status"-->
-                                <!--                    ></option>-->
-                                <!--                  </select>-->
-                                <!--                </form>-->
+                                <form>
+                                    <select
+                                        id="category"
+                                        class="border border-gray-200 p-2 w-full rounded-2xl"
+                                        name="category"
+                                        @change.prevent="handleStatus($event,balance_request.id)"
+                                    >
+                                        <option
+                                            v-for="status in props.transaction_statuses"
+                                            v-show="status !== 'SUCCESS'"
+                                            :selected="status === balance_request.status"
+                                            :value="status"
+                                            v-text="status"
+                                        ></option>
+                                    </select>
+                                </form>
                             </td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                             >
-                                <button v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'" class="btn-edit"
+                                <button v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'"
+                                        class="btn-edit"
                                         @click="()=>handleButton(balance_request.id)">Просмотр деталей
                                 </button>
 
-                                <button v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'" class="btn-danger"
+                                <button v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'"
+                                        class="btn-danger"
                                         @click="handleStatus('CANCELED', balance_request.id)">Отменить
                                 </button>
                                 <Modal v-if="active && balance_request.id === show" @close="closeModal"/>

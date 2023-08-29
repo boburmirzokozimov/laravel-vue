@@ -22,9 +22,7 @@ class VisaCardRequestForm extends FormRequest
      */
     public function rules(): array
     {
-
-
-        if (request()->anonymous === 'true') {
+        if (request()->has('anonymous')) {
             $rules = [
                 'anonymous' => 'required',
                 'anonymous_name' => 'string|required',

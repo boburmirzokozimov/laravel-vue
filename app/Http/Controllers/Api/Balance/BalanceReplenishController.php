@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Balance\CreateBalanceReplenishForm;
 use App\Models\Client\Client;
 use App\Services\UploadService;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -30,8 +29,6 @@ class BalanceReplenishController extends Controller
         $credentials = $request->validated();
 
         $client = Client::findByToken($request->bearerToken())->first();
-
-
 
         $client->manageBalance($credentials);
 
@@ -58,14 +55,14 @@ class BalanceReplenishController extends Controller
                 ->simplePaginate($request->query->get('per-page', 10), page: $request->query->get('page', 1))
                 ->through(function ($cardTransactions) {
                     return [
-                        'id'                      => $cardTransactions->id,
-                        'sum'                     => $cardTransactions->sum,
-                        'status'                  => $cardTransactions->status,
-                        'usdt_type'               => $cardTransactions->usdt_type,
-                        'type'                    => $cardTransactions->type,
-                        'withdraw'                => $cardTransactions->withdraw,
+                        'id' => $cardTransactions->id,
+                        'sum' => $cardTransactions->sum,
+                        'status' => $cardTransactions->status,
+                        'usdt_type' => $cardTransactions->usdt_type,
+                        'type' => $cardTransactions->type,
+                        'withdraw' => $cardTransactions->withdraw,
                         'withdraw_account_number' => $cardTransactions->withdraw_account_number,
-                        'created_at'              => $cardTransactions->created_at,
+                        'created_at' => $cardTransactions->created_at,
                     ];
                 }),
         ]);
@@ -74,8 +71,8 @@ class BalanceReplenishController extends Controller
     public function requisite(Request $request): JsonResponse
     {
         $credentials = $request->validate([
-            'type'         => 'string',
-            'sum'          => 'string|required',
+            'type' => 'string',
+            'sum' => 'string|required',
             'invoice_file' => 'file'
         ]);
 

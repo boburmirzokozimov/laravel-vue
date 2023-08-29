@@ -2,8 +2,6 @@
 
 namespace App\Broadcasting;
 
-use App\Models\User\User;
-
 class ChatRoomChannel
 {
     /**
@@ -17,8 +15,8 @@ class ChatRoomChannel
     /**
      * Authenticate the user's access to the channel.
      */
-    public function join(User $user): array|bool
+    public function join(): array|bool
     {
-        return auth()->check();
+        return true;
     }
 }

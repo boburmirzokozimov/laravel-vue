@@ -3,6 +3,7 @@
 import {ref} from "vue";
 import Modal from "@/Components/Modal.vue";
 import ActivateCreditCard from "@/Pages/Clients/CreditCard/ActivateCreditCard.vue";
+import EditAnonymousCreditCardRequest from "@/Pages/Clients/CreditCard/Request/EditAnonymousCreditCardRequest.vue";
 
 const active = ref(false)
 const show = ref(null)
@@ -12,7 +13,7 @@ const props = defineProps({
 })
 
 const handleButton = (id) => {
-    show.value = id
+    show.value = 'edit_' + id
     active.value = true
 }
 const handleActivateButton = (id) => {
@@ -88,6 +89,13 @@ const closeModal = () => {
                                 </div>
                                 <Modal v-if="active && 'activate_'+credit_card_request.id === show"
                                        @close="closeModal"/>
+                                <Modal v-if="active && 'edit_'+credit_card_request.id === show"
+                                       @close="closeModal"/>
+                                <EditAnonymousCreditCardRequest
+                                    v-if="active && 'edit_'+credit_card_request.id === show"
+                                    :client="props.client"
+                                    :credit_card_request="credit_card_request"
+                                    @close="closeModal"/>
                                 <ActivateCreditCard
                                     v-if="active && 'activate_'+credit_card_request.id === show"
                                     :client="props.client"

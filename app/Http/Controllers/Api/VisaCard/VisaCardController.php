@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\VisaCard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\VisaCard\VisaCardRequestForm;
 use App\Http\Requests\Api\VisaCard\VisaCardTransactionRequestForm;
-use App\Http\Requests\CreateTransactionRequest;
 use App\Models\Client\Client;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
