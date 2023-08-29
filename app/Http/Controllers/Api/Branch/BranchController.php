@@ -11,10 +11,15 @@ class BranchController extends Controller
     public function __invoke(Request $request)
     {
         return response()->json([
-            'data' => Branch::all()
+            'data' => Branch::query()
+                ->when(\Illuminate\Support\Facades\Request::input('country'), function ($query, string $search) {
+                    $query->where('country_id', '=', $search);
+                })
+                ->get()
                 ->map(function ($branch) {
                     return [
                         'id' => $branch->id,
+                        'country_id' => $branch->country_id,
                         'lat' => $branch->lat,
                         'lon' => $branch->lon,
                         'address' => $branch->address,

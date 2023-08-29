@@ -25,6 +25,7 @@ const handleSubmit = () => {
             emit('close')
             toaster.success('Successfully edited')
         },
+        preserveScroll: true
     })
 
 }

@@ -25,7 +25,7 @@ class VisaCardTransactionRequestForm extends FormRequest
         return [
             'sum' => 'numeric',
             'withdraw' => 'nullable',
-            'type' => 'string|nullable|in:swift,sepa'
+            'type' => 'string|nullable|in:SWIFT,SEPA'
         ];
     }
 }

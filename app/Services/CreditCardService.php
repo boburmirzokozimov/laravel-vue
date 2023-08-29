@@ -55,10 +55,10 @@ class CreditCardService
     public function activate(array $credentials): void
     {
         CreditCard::query()->create([
-            'client_id'              => $credentials['client_id'],
+            'client_id' => $credentials['client_id'],
             'credit_card_request_id' => $credentials['credit_card_request_id'],
-            'card_number'            => $credentials['card_number'],
-            'expire_date'            => $credentials['expire_date'],
+            'card_number' => $credentials['card_number'],
+            'expire_date' => $credentials['expire_date'],
         ]);
     }
 
@@ -76,8 +76,6 @@ class CreditCardService
         $balanceRequest->withdraw = true;
 
         $balanceRequest->save();
-
-
         $transaction = $card->createTransaction($validated);
         $this->acceptTransaction($card, $transaction);
         $card->client->subtractionFromBalance($balanceRequest->sum);
@@ -89,17 +87,14 @@ class CreditCardService
      */
     public function acceptTransaction(CreditCard $card, CardTransaction $cardTransaction): void
     {
-
         if ($cardTransaction->withdraw) {
             $card->withdrawBalance($cardTransaction->sum);
         } else {
-
             $card->depositBalance($cardTransaction->sum);
         }
         $cardTransaction->status = StatusEnumType::SUCCESS->name;
         $cardTransaction->save();
         $card->save();
-
     }
 
 }

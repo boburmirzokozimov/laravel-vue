@@ -200,7 +200,8 @@ class ClientController extends Controller
                         'expire_date' => $credit_card->expire_date,
                     ];
                 }),
-            'credit_card_transactions' => $client->cardTransactions()
+            //TODO:Im here
+            'credit_card_transactions' => $client->balanceRequest()
                 ->get()
                 ->map(function ($credit_card_transactions) {
                     return [
@@ -210,7 +211,7 @@ class ClientController extends Controller
                         'credit_card_id' => $credit_card_transactions->credit_card_id,
                         'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
                         'invoice_file' => $credit_card_transactions->invoice_file,
-                        'card_number' => $credit_card_transactions->creditCard->card_number,
+                        'card_number' => $credit_card_transactions->creditCard?->card_number,
                         'withdraw' => $credit_card_transactions->withdraw,
                         'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
                     ];
