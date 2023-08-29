@@ -668,8 +668,6 @@ components:
         type:
           type: string
           enum: [ 'CASH' ]
-        country:
-          type: integer
         currency:
           type: string
         contact:
@@ -691,7 +689,7 @@ components:
         type:
           type: string
           enum: [ 'CASH' ]
-        country:
+        country_id:
           type: integer
         branch_id:
           type: integer
