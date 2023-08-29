@@ -36,7 +36,6 @@ class CreditCardController extends Controller
 
     public function accept(CreditCard $card, BalanceRequest $balanceRequest)
     {
-        //TODO:HERE
         try {
             DB::beginTransaction();
             $card->withdrawBalance($balanceRequest->sum);

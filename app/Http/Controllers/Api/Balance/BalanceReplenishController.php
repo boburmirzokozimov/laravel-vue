@@ -14,16 +14,7 @@ class BalanceReplenishController extends Controller
     public function __construct(private UploadService $uploadService)
     {
     }
-    //        {
-//                  "type":"CASH",
-//                  "country":"UZBEKISTAN",
-//                  "currency":"USD",
-//                  "contact":"Boburmirzo",
-//                  "sum":12345,
-//                  "phone":998900223123,
-//                  "withdraw":false,
-//                  "form":"DELIVERY"
-//             }
+
     public function manage(CreateBalanceReplenishForm $request): JsonResponse
     {
         $credentials = $request->validated();

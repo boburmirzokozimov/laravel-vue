@@ -107,6 +107,7 @@ class Client extends Authenticatable
 
         if ($isRequisite) {
             $credentials['withdraw'] = true;
+            $credentials['status'] = 'HOLD';
             $this->subtractionFromBalance($credentials['sum']);
             $this->save();
         }

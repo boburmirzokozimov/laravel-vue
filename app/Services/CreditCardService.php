@@ -72,7 +72,7 @@ class CreditCardService
         $balanceRequest->sum = $validated['sum'];
         $balanceRequest->type = 'CARD_TRANSACTION';
         $balanceRequest->client_id = $card->client_id;
-        $balanceRequest->status = 'SUCCESS';
+        $balanceRequest->status = 'HOLD';
         $balanceRequest->withdraw = true;
         $balanceRequest->credit_card_id = $card->id;
 

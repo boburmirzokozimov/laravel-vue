@@ -201,7 +201,6 @@ class ClientController extends Controller
                         'expire_date' => $credit_card->expire_date,
                     ];
                 }),
-            //TODO:Im here
             'credit_card_transactions' => $client->balanceRequest()
                 ->where('type', TypeEnum::CARD_TRANSACTION->name)
                 ->orderBy('id')
@@ -212,6 +211,36 @@ class ClientController extends Controller
                         'client_id' => $credit_card_transactions->client_id,
                         'card_number' => $credit_card_transactions->creditCard->card_number,
                         'credit_card_id' => $credit_card_transactions->creditCard->id,
+                        'status' => $credit_card_transactions->status,
+                        'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
+                        'withdraw' => $credit_card_transactions->withdraw,
+                        'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
+                    ];
+                }),
+            'balance_transaction_history' => $client->balanceRequest()
+                ->orderBy('id')
+                ->get()
+                ->map(function ($credit_card_transactions) {
+                    return [
+                        'id' => $credit_card_transactions->id,
+                        'client_id' => $credit_card_transactions->client_id,
+                        'card_number' => $credit_card_transactions?->creditCard?->card_number,
+                        'credit_card_id' => $credit_card_transactions?->creditCard?->id,
+                        'status' => $credit_card_transactions->status,
+                        'invoice_file' => $credit_card_transactions->invoice_file,
+                        'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
+                        'withdraw' => $credit_card_transactions->withdraw,
+                        'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
+                    ];
+                }),
+            'credit_card_transactions_requisite' => $client->balanceRequest()
+                ->whereNotNull('invoice_file')
+                ->orderBy('id')
+                ->get()
+                ->map(function ($credit_card_transactions) {
+                    return [
+                        'id' => $credit_card_transactions->id,
+                        'client_id' => $credit_card_transactions->client_id,
                         'status' => $credit_card_transactions->status,
                         'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
                         'invoice_file' => $credit_card_transactions->invoice_file,

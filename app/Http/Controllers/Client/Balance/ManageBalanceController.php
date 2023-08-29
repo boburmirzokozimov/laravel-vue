@@ -32,7 +32,7 @@ class ManageBalanceController extends Controller
     public function changeStatus(Request $request, BalanceRequest $balanceRequest)
     {
         $status = $request->validate([
-            'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION'
+            'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION,SUCCESS'
         ]);
 
         $balanceRequest->update($status);

@@ -71,6 +71,7 @@ const handleStatus = (event, id) => {
             </thead>
             <tbody v-for="credit_card_transaction in credit_card_transactions">
             <tr
+                v-if="credit_card_transaction.status !== 'SUCCESS' && credit_card_transaction.status !== 'CANCELED' "
                 class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 "
             >
               <td
