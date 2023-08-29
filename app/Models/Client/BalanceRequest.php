@@ -2,15 +2,19 @@
 
 namespace App\Models\Client;
 
+use App\Models\Client\CreditCard\CreditCard;
 use App\Models\CustomModel;
 use App\Models\Enum\Api\Balance\BalancePaymentFormEnumType;
 use App\Models\Enum\StatusEnumType;
 use App\Models\Enum\TypeEnum;
 use App\Models\Keys\Key;
 use Database\Factories\BalanceRequestFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Client\BalanceRequest
@@ -28,38 +32,38 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string|null $withdraw_account_number
  * @property bool $withdraw
  * @property string $sum
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property BalancePaymentFormEnumType|null $delivery
  * @property int|null $branch_id
  * @property string|null $invoice_file
  * @property StatusEnumType $status
- * @property-read \App\Models\Client\Client $client
+ * @property-read Client $client
  * @property-read Key|null $key
- * @method static \Database\Factories\BalanceRequestFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest query()
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereBranchId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereClientId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereContact($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereCountryId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereCurrency($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereDelivery($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereInfo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereInvoiceFile($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereKeyId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereSum($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereUsdtType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereWithdraw($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BalanceRequest whereWithdrawAccountNumber($value)
- * @mixin \Eloquent
+ * @method static BalanceRequestFactory factory($count = null, $state = [])
+ * @method static Builder|BalanceRequest newModelQuery()
+ * @method static Builder|BalanceRequest newQuery()
+ * @method static Builder|BalanceRequest query()
+ * @method static Builder|BalanceRequest whereBranchId($value)
+ * @method static Builder|BalanceRequest whereClientId($value)
+ * @method static Builder|BalanceRequest whereContact($value)
+ * @method static Builder|BalanceRequest whereCountryId($value)
+ * @method static Builder|BalanceRequest whereCreatedAt($value)
+ * @method static Builder|BalanceRequest whereCurrency($value)
+ * @method static Builder|BalanceRequest whereDelivery($value)
+ * @method static Builder|BalanceRequest whereId($value)
+ * @method static Builder|BalanceRequest whereInfo($value)
+ * @method static Builder|BalanceRequest whereInvoiceFile($value)
+ * @method static Builder|BalanceRequest whereKeyId($value)
+ * @method static Builder|BalanceRequest wherePhone($value)
+ * @method static Builder|BalanceRequest whereStatus($value)
+ * @method static Builder|BalanceRequest whereSum($value)
+ * @method static Builder|BalanceRequest whereType($value)
+ * @method static Builder|BalanceRequest whereUpdatedAt($value)
+ * @method static Builder|BalanceRequest whereUsdtType($value)
+ * @method static Builder|BalanceRequest whereWithdraw($value)
+ * @method static Builder|BalanceRequest whereWithdrawAccountNumber($value)
+ * @mixin Eloquent
  */
 class BalanceRequest extends CustomModel
 {
@@ -84,5 +88,10 @@ class BalanceRequest extends CustomModel
     public function key(): HasOne
     {
         return $this->hasOne(Key::class);
+    }
+
+    public function creditCard(): BelongsTo
+    {
+        return $this->belongsTo(CreditCard::class);
     }
 }

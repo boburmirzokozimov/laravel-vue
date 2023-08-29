@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Client\CreditCard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTransactionRequest;
 use App\Http\Requests\CreditCardRequest;
-use App\Models\Client\CreditCard\CardTransaction;
+use App\Models\Client\BalanceRequest;
 use App\Models\Client\CreditCard\CreditCard;
+use App\Models\Enum\StatusEnumType;
 use App\Services\CreditCardService;
-use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use Throwable;
 
 class CreditCardController extends Controller
 {
@@ -34,13 +34,16 @@ class CreditCardController extends Controller
         return to_route('clients.show', ['client' => $card->client->id]);
     }
 
-    public function accept(CreditCard $card, CardTransaction $cardTransaction)
+    public function accept(CreditCard $card, BalanceRequest $balanceRequest)
     {
+        //TODO:HERE
         try {
             DB::beginTransaction();
-            $this->service->acceptTransaction($card, $cardTransaction);
+            $card->withdrawBalance($balanceRequest->sum);
+            $balanceRequest->status = StatusEnumType::SUCCESS->name;
+            $balanceRequest->save();
             DB::commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             DB::rollBack();
             return back()->withErrors([
                 'message' => $e->getMessage(),
@@ -49,14 +52,6 @@ class CreditCardController extends Controller
         return back();
     }
 
-    public function changeStatus(Request $request, CardTransaction $cardTransaction)
-    {
-        $status = $request->validate([
-            'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION,SUCCESS'
-        ]);
-        $cardTransaction->update($status);
-        return back();
-    }
 
     public function update(CreditCardRequest $cardRequest, CreditCard $card)
     {

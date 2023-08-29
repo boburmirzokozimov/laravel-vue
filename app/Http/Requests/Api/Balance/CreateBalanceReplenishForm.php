@@ -26,7 +26,6 @@ class CreateBalanceReplenishForm extends FormRequest
     {
         $rules = [
             'type' => 'in:CASH,CASHLESS,USDT',
-            'country_id' => 'exists:countries,id|required',
             'currency' => 'string|required|in:usd,eur',
             'contact' => 'string|required',
             'sum' => 'required',

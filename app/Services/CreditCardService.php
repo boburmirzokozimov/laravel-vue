@@ -74,6 +74,7 @@ class CreditCardService
         $balanceRequest->client_id = $card->client_id;
         $balanceRequest->status = 'SUCCESS';
         $balanceRequest->withdraw = true;
+        $balanceRequest->credit_card_id = $card->id;
 
         $balanceRequest->save();
         $transaction = $card->createTransaction($validated);

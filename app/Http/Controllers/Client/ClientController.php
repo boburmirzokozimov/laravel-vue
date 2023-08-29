@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Client\Client;
 use App\Models\Enum\CreditCardStatusEnumType;
 use App\Models\Enum\StatusEnumType;
+use App\Models\Enum\TypeEnum;
 use App\Models\User\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -202,16 +203,18 @@ class ClientController extends Controller
                 }),
             //TODO:Im here
             'credit_card_transactions' => $client->balanceRequest()
+                ->where('type', TypeEnum::CARD_TRANSACTION->name)
+                ->orderBy('id')
                 ->get()
                 ->map(function ($credit_card_transactions) {
                     return [
                         'id' => $credit_card_transactions->id,
                         'client_id' => $credit_card_transactions->client_id,
+                        'card_number' => $credit_card_transactions->creditCard->card_number,
+                        'credit_card_id' => $credit_card_transactions->creditCard->id,
                         'status' => $credit_card_transactions->status,
-                        'credit_card_id' => $credit_card_transactions->credit_card_id,
                         'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
                         'invoice_file' => $credit_card_transactions->invoice_file,
-                        'card_number' => $credit_card_transactions->creditCard?->card_number,
                         'withdraw' => $credit_card_transactions->withdraw,
                         'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
                     ];

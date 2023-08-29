@@ -24,7 +24,7 @@ class ManageBalanceController extends Controller
     public function create(Client $client)
     {
         return Inertia::render('Clients/BalanceRequest/CreateBalanceRequest')->with([
-            'client'    => $client,
+            'client' => $client,
             'countries' => Country::all()
         ]);
     }
@@ -41,8 +41,6 @@ class ManageBalanceController extends Controller
             $balanceRequest->client->save();
         }
         return to_route('clients.show', ['client' => $balanceRequest->client]);
-
-        return back();
     }
 
     public function activate(Client $client, BalanceRequest $balanceRequest)
