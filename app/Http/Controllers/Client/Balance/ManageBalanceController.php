@@ -25,7 +25,7 @@ class ManageBalanceController extends Controller
     {
         return Inertia::render('Clients/BalanceRequest/CreateBalanceRequest')->with([
             'client' => $client,
-            'countries' => Country::all()
+            'countries' => Country::all('id', 'name')->where('id', '>', 250)
         ]);
     }
 
