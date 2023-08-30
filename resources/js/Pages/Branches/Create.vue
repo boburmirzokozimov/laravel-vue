@@ -220,24 +220,24 @@ const handleSubmit = () => {
             form.errors.end_hour
           }}
         </div>
+      </div>
 
-        <div class="mb-6">
-          <label
-              class="block mb-2 uppercase font-bold text-sm text-gray-700"
-              for="scan_passport"
-          >
-            Photo
-          </label>
+      <div class="mb-6">
+        <label
+            class="block mb-2 uppercase font-bold text-sm text-gray-700"
+            for="scan_passport"
+        >
+          Photo
+        </label>
 
-          <input
-              id="scan_passport"
-              class="border border-gray-200 p-2 w-full rounded-2xl"
-              name="scan_passport"
-              type="file"
-              @input="form.photo = $event.target.files[0]"
-          />
-          <div v-if="form.errors.photo" class="text-red-500 text-sm">{{ form.errors.photo }}</div>
-        </div>
+        <input
+            id="scan_passport"
+            class="border border-gray-200 p-2 w-full rounded-2xl"
+            name="scan_passport"
+            type="file"
+            @input="form.photo = $event.target.files[0]"
+        />
+        <div v-if="form.errors.photo" class="text-red-500 text-sm">{{ form.errors.photo }}</div>
       </div>
 
       <div class="flex justify-end w-full">

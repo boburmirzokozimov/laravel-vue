@@ -23,13 +23,16 @@ class UpdateBranchRequestForm extends FormRequest
     public function rules(): array
     {
         return [
-            'lat' => 'string|required',
-            'lon' => 'string|required',
-            'address' => 'string|required',
+            'lat' => 'string|nullable',
+            'lon' => 'string|nullable',
+            'name' => 'string|nullable',
+            'address' => 'string|nullable',
             'full_address' => 'string|nullable',
             'contact_number' => 'string|nullable',
             'contact_email' => 'string|nullable',
-            'working_hours' => 'string|nullable',
+            'start_hour' => 'string|nullable',
+            'end_hour' => 'string|nullable',
+            'photo' => 'nullable',
         ];
     }
 }

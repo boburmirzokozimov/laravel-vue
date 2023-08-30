@@ -18,15 +18,6 @@ const handleDelete = (id) => {
   toaster.success('Successfully deleted')
 }
 
-const handleEdit = (id) => {
-  show.value = id
-  active.value = true
-}
-
-const closeModal = () => {
-  active.value = false
-  show.value = null
-}
 </script>
 
 <template>
@@ -105,11 +96,11 @@ const closeModal = () => {
                 >
                   <i class="fa fa-eye text-white"></i>
                 </NavLink>
-                <button class="btn-edit mr-2"
-                        @click.prevent="()=>handleEdit(branch.id)"
+                <NavLink :href="`/branches/${branch.id}/edit`"
+                         class="btn-edit mr-2"
                 >
                   <i class="fa fa-edit text-white"></i>
-                </button>
+                </NavLink>
                 <button
                     class="btn-danger"
                     @click.prevent="()=>handleDelete(branch.id)">

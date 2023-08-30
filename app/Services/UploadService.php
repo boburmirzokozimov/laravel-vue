@@ -48,4 +48,9 @@ class UploadService implements UploadServiceInterface
         }
         $cardRequest->save();
     }
+
+    public function remove(?string $photo): void
+    {
+        Storage::delete($photo);
+    }
 }

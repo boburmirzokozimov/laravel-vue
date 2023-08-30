@@ -12,17 +12,21 @@ const props = defineProps({
 })
 
 let form = useForm({
+  _method: "PATCH",
+  name: props.branch.name,
   lat: props.branch.lat,
   lon: props.branch.lon,
   address: props.branch.address,
   full_address: props.branch.full_address,
   contact_number: props.branch.contact_number,
   contact_email: props.branch.contact_email,
-  working_hours: props.branch.working_hours,
+  start_hour: props.branch.start_hour,
+  end_hour: props.branch.end_hour,
+  photo: props.branch.photo,
 })
 
 const handleSubmit = () => {
-  form.patch('/branches/' + props.branch.id, {
+  form.post('/branches/' + props.branch.id, {
     onSuccess: () => {
       emit('close')
       toaster.success('Successfully edited')
@@ -37,10 +41,28 @@ const handleSubmit = () => {
     <title>Update Branch</title>
   </Head>
 
-  <div class="modal z-10">
+  <div class="z-10">
     <h1 class="mb-6">Update The Branch</h1>
 
     <form class="max-w-2xl mx-auto" method="post" @submit.prevent="handleSubmit">
+      <div class="mb-6">
+        <label
+            class="block mb-2 uppercase font-bold text-sm text-gray-700"
+            for="lat"
+        >
+          Name
+        </label>
+
+        <input
+            id="lat"
+            v-model="form.name"
+            class="border border-gray-200 p-2 w-full rounded-2xl"
+            name="lat"
+            type="text"
+        />
+        <div v-if="form.errors.name" class="text-red-500 text-sm">{{ form.errors.name }}</div>
+      </div>
+
       <div class="mb-6">
         <label
             class="block mb-2 uppercase font-bold text-sm text-gray-700"
@@ -156,24 +178,63 @@ const handleSubmit = () => {
             class="block mb-2 uppercase font-bold text-sm text-gray-700"
             for="working_hours"
         >
-          Working Hours
+          Start Hour
         </label>
 
         <input
             id="working_hours"
-            v-model="form.working_hours"
+            v-model="form.start_hour"
             v-maska
             class="border border-gray-200 p-2 w-full rounded-2xl px-2"
             data-maska="##.##-##.##"
             name="working_hours"
             type="text"
         />
-        <div v-if="form.errors.working_hours" class="text-red-500 text-sm">{{
-            form.errors.working_hours
+        <div v-if="form.errors.start_hour" class="text-red-500 text-sm">{{
+            form.errors.start_hour
+          }}
+        </div>
+      </div>
+      <div class="mb-6">
+        <label
+            class="block mb-2 uppercase font-bold text-sm text-gray-700"
+            for="working_hours"
+        >
+          End Hour
+        </label>
+
+        <input
+            id="working_hours"
+            v-model="form.end_hour"
+            v-maska
+            class="border border-gray-200 p-2 w-full rounded-2xl px-2"
+            data-maska="##.##-##.##"
+            name="working_hours"
+            type="text"
+        />
+        <div v-if="form.errors.end_hour" class="text-red-500 text-sm">{{
+            form.errors.end_hour
           }}
         </div>
       </div>
 
+      <div class="mb-6">
+        <label
+            class="block mb-2 uppercase font-bold text-sm text-gray-700"
+            for="scan_passport"
+        >
+          Photo
+        </label>
+
+        <input
+            id="scan_passport"
+            class="border border-gray-200 p-2 w-full rounded-2xl"
+            name="scan_passport"
+            type="file"
+            @input="form.photo = $event.target.files[0]"
+        />
+        <div v-if="form.errors.photo" class="text-red-500 text-sm">{{ form.errors.photo }}</div>
+      </div>
 
       <div class="flex justify-end w-full">
         <button :disabled="form.processing" class="bg-blue-500 p-2 rounded-2xl text-white" type="submit">Submit

@@ -8,6 +8,7 @@ use App\Http\Requests\Branch\UpdateBranchRequestForm;
 use App\Models\Branch\Branch;
 use App\Models\Country\Country;
 use App\Services\UploadService;
+use Illuminate\Http\UploadedFile;
 use Inertia\Inertia;
 
 class BranchController extends Controller
@@ -28,6 +29,13 @@ class BranchController extends Controller
     {
         return Inertia::render('Branches/Show', [
             'branch' => Branch::with('country')->where('id', $branch->id)->first()
+        ]);
+    }
+
+    public function edit(Branch $branch)
+    {
+        return Inertia::render('Branches/Edit', [
+            'branch' => $branch
         ]);
     }
 
@@ -59,7 +67,16 @@ class BranchController extends Controller
 
     public function update(UpdateBranchRequestForm $request, Branch $branch)
     {
-        $branch->update($request->validated());
+        $credentials = $request->validated();
+
+        if ($credentials['photo'] instanceof UploadedFile) {
+            if ($branch->photo) {
+                $this->uploadService->remove($branch->photo);
+            }
+            $credentials['photo'] = $this->uploadService->uploadByPath(file: $credentials['photo'], path: 'branches');
+        }
+
+        $branch->update($credentials);
 
         return to_route('branches');
     }

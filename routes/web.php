@@ -97,6 +97,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/branches/create', 'create')->name('branches.create');
         Route::post('/branches', 'store')->name('branches.store');
         Route::get('/branches/{branch}', 'show')->name('branches.show');
+        Route::get('/branches/{branch}/edit', 'edit')->name('branches.edit');
         Route::patch('/branches/{branch}', 'update')->name('branches.update');
         Route::delete('/branches/{branch}', 'destroy')->name('branches.destroy');
     });
