@@ -56,7 +56,7 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     });
 
     Route::controller(KeyController::class)->group(function () {
-        Route::post('/keys', 'index');
+        Route::get('/keys', 'index');
     });
 
     Route::get('/branches', BranchController::class);
