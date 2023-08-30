@@ -10,6 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
+        Schema::rename('metal_and_crypto_currency_transactions_table', 'metal_and_crypto_currency_transactions');
         Schema::table('metal_and_crypto_currency_transactions', function (Blueprint $table) {
             $table->dropColumn('quantity');
         });
