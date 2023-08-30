@@ -1,9 +1,27 @@
 <script setup>
-import {Head} from "@inertiajs/vue3";
+import {Head, router} from "@inertiajs/vue3";
+import {createToaster} from "@meforma/vue-toaster";
+import Paginator from "@/Components/Paginator.vue";
+
+const toaster = createToaster({ /* options */});
 
 const props = defineProps({
-  balance_transactions: Object
+  balance_transactions: Object,
+  transaction_statuses: Object
 })
+const handleStatus = (status, id) => {
+  router.post(`/transactions/${id}/status`, {
+    status: status
+  }, {
+    onSuccess: () => {
+      toaster.success('Статус изменён')
+    },
+    onError: (error) => {
+      toaster.error(error.message)
+    },
+    preserveScroll: true
+  })
+}
 </script>
 
 <template>
@@ -39,7 +57,7 @@ const props = defineProps({
             </thead>
             <tbody>
             <tr
-                v-for="balance_transaction in balance_transactions"
+                v-for="balance_transaction in balance_transactions.data"
                 class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 "
             >
               <td
@@ -64,15 +82,16 @@ const props = defineProps({
                 <form>
                   <select
                       id="category"
-                      class="border border-gray-200 p-2 w-full rounded-2xl"
+                      class="text-center border border-gray-200 p-2 w-full rounded-2xl"
                       name="category"
-                      @change.prevent="handleStatus($event,balance_transaction.id)"
+                      @change.prevent="handleStatus($event.target.value,balance_transaction.id)"
                   >
                     <option
                         v-for="status in props.transaction_statuses"
                         v-show="status !== 'SUCCESS'"
                         :selected="status === balance_transaction.status"
                         :value="status"
+                        class="text-center"
                         v-text="status"
                     ></option>
                   </select>
@@ -99,7 +118,7 @@ const props = defineProps({
     </div>
   </div>
 
-
+  <Paginator :links="balance_transactions.links"/>
 </template>
 
 <style scoped>

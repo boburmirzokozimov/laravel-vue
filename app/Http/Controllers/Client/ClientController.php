@@ -110,7 +110,6 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-
         return Inertia::render('Clients/Show')->with([
             'client' => $client
                 ->only([
