@@ -47,7 +47,7 @@ class MetalAndCryptoService
     {
         $prevRates = CryptoRates::lastType($key)?->rate;
         if ($prevRates !== null) {
-            return ($value - $prevRates) / $prevRates;
+            return number_format((($value - $prevRates) / $prevRates), 5, '.', '');
         } else {
             return null;
         }
