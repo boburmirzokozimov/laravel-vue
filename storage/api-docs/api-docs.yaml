@@ -751,6 +751,40 @@ paths:
                         type: string
       security:
         - api_key_security_example: [ ]
+  /metal/sell:
+    post:
+      tags:
+        - Metal
+      summary: Этот api для того чтобы получить Crypto Balance
+      operationId: metalSellId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/MetalAndCryptoType'
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+  /metal/buy:
+    post:
+      tags:
+        - Metal
+      summary: Этот api для того чтобы получить Crypto Balance
+      operationId: metalBuyId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/MetalAndCryptoType'
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
 
   /crypto:
     get:
@@ -865,6 +899,40 @@ paths:
                             type: string
                           balance:
                             type: string
+      security:
+        - api_key_security_example: [ ]
+  /crypto/buy:
+    post:
+      tags:
+        - Crypto
+      summary: Этот api для того чтобы получить Crypto Balance
+      operationId: cryptoBuyId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/MetalAndCryptoType'
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+  /crypto/sell:
+    post:
+      tags:
+        - Crypto
+      summary: Этот api для того чтобы получить Crypto Balance
+      operationId: cryptoSellId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/MetalAndCryptoType'
+      responses:
+        '200':
+          description: Success
       security:
         - api_key_security_example: [ ]
 components:
@@ -1025,7 +1093,16 @@ components:
             - true
         info:
           type: string
-
+    MetalAndCryptoType:
+      type: object
+      properties:
+        sort:
+          type: string
+          enum: ['XAU','XAG','XPT','BTC','ETH','BNB','ADA','DOT']
+        quantity:
+          type: integer
+        sum:
+          type: integer
 
   securitySchemes:
     api_key_security_example:
