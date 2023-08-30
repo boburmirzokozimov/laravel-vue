@@ -38,6 +38,16 @@ const props = defineProps({
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
+                    v-text="branch.name"
+                ></td>
+              </tr>
+              <tr class="border-b">
+                <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    scope="col">
+                  Full Name
+                </th>
+                <td
+                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
                     v-text="branch.address"
                 ></td>
               </tr>
@@ -58,7 +68,7 @@ const props = defineProps({
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                    v-text="branch.balance"
+                    v-text="branch.lat"
                 ></td>
               </tr>
               <tr class="border-b">
@@ -68,7 +78,7 @@ const props = defineProps({
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                    v-text="branch.auth_key"
+                    v-text="branch.long"
                 ></td>
               </tr>
               <tr class="border-b">
@@ -78,7 +88,7 @@ const props = defineProps({
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                    v-text="branch.comments"
+                    v-text="branch.contact_number"
                 ></td>
               </tr>
               <tr class="border-b">
@@ -88,7 +98,7 @@ const props = defineProps({
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right "
-                    v-text="branch.is_active"
+                    v-text="branch.contact_email"
                 ></td>
               </tr>
               <tr class="border-b">
@@ -98,7 +108,17 @@ const props = defineProps({
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
-                    v-text="branch.last_visited"
+                    v-text="branch.start_hour"
+                ></td>
+              </tr>
+              <tr class="border-b">
+                <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left "
+                    scope="col">
+                  Last Visited
+                </th>
+                <td
+                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
+                    v-text="branch.end_hour"
                 ></td>
               </tr>
               </tbody>

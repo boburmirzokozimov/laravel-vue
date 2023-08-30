@@ -44,7 +44,7 @@ class UserController extends Controller
                     'last_visited' => Carbon::create($user->last_visited)->diffForHumans(),
                     'role' => $user->role
                 ]),
-            'countries' => Country::all('id', 'name'),
+            'countries' => Country::all('id', 'name')->where('id', '>', 250),
             'roles' => Role::all(),
             'can' => [
                 'create_user' => Auth::user()->role->hasPermissionTo('create'),
@@ -59,7 +59,7 @@ class UserController extends Controller
         $this->authorize('create', User::class);
 
         return Inertia::render('Users/Create')->with([
-            'countries' => Country::all('id', 'name'),
+            'countries' => Country::all('id', 'name')->where('id', '>', 250),
             'roles' => Role::all(),
             'can' => [
                 'create_user' => Auth::user()->role->hasPermissionTo('create'),
