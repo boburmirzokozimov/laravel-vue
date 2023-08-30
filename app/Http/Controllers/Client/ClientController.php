@@ -208,12 +208,12 @@ class ClientController extends Controller
                 ->map(function ($credit_card_transactions) {
                     return [
                         'id' => $credit_card_transactions->id,
-                        'client_id' => $credit_card_transactions->client_id,
-                        'card_number' => $credit_card_transactions->creditCard->card_number,
-                        'credit_card_id' => $credit_card_transactions->creditCard->id,
-                        'status' => $credit_card_transactions->status,
+                        'client_id' => $credit_card_transactions?->client_id,
+                        'card_number' => $credit_card_transactions?->creditCard->card_number,
+                        'credit_card_id' => $credit_card_transactions?->creditCard->id,
+                        'status' => $credit_card_transactions?->status,
                         'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
-                        'withdraw' => $credit_card_transactions->withdraw,
+                        'withdraw' => $credit_card_transactions?->withdraw,
                         'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
                     ];
                 }),

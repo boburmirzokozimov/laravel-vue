@@ -1,6 +1,5 @@
 <?php
 
-use App\Broadcasting\ChatChannel;
 use App\Broadcasting\ChatRoomChannel;
 use Illuminate\Support\Facades\Broadcast;
 
@@ -14,6 +13,8 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
-
-Broadcast::channel('chat.{chatRoom}.{client}', ChatChannel::class);
+Broadcast::channel('chat.{chatRoom}.{client}', function ($chatRoom, $client) {
+    return true;
+});
+//Broadcast::channel('chat.{chatRoom}.{client}', ChatChannel::class);
 Broadcast::channel('room', ChatRoomChannel::class);

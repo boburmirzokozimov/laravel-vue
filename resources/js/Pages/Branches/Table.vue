@@ -4,6 +4,7 @@ import Edit from "@/Pages/Branches/Edit.vue";
 import {ref} from "vue";
 import Modal from "@/Components/Modal.vue";
 import {router} from "@inertiajs/vue3";
+import NavLink from "@/Components/NavLink.vue";
 
 const toaster = createToaster({ /* options */});
 const props = defineProps({
@@ -60,7 +61,7 @@ const closeModal = () => {
               <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
                 Working hours
               </th>
-              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-center" scope="col">
                 Action
               </th>
             </tr>
@@ -80,8 +81,9 @@ const closeModal = () => {
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                  v-text="branch.full_address"
-              ></td>
+              >
+                {{ branch.full_address.slice(0, 20) }}...
+              </td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                   v-text="branch.lat"
@@ -105,6 +107,11 @@ const closeModal = () => {
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
               >
+                <NavLink :href="`/branches/${branch.id}`"
+                         class="btn-edit mr-2"
+                >
+                  Show
+                </NavLink>
                 <button class="btn-edit mr-2"
                         @click.prevent="()=>handleEdit(branch.id)"
                 >

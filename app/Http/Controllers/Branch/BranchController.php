@@ -19,6 +19,13 @@ class BranchController extends Controller
         ]);
     }
 
+    public function show(Branch $branch)
+    {
+        return Inertia::render('Branches/Show', [
+            'branch' => $branch
+        ]);
+    }
+
     public function store(CreateBranchRequestForm $request)
     {
         Branch::query()->create($request->validated());
