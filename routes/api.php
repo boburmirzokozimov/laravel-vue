@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\Balance\BalanceReplenishController;
 use App\Http\Controllers\Api\Branch\BranchController;
 use App\Http\Controllers\Api\Chat\ChatController;
 use App\Http\Controllers\Api\Chat\ChatRoomController;
+use App\Http\Controllers\Api\Client\Crypto\CryptoController;
+use App\Http\Controllers\Api\Client\Metal\MetalController;
 use App\Http\Controllers\Api\Country\CountryController;
 use App\Http\Controllers\Api\HelpRequest\HelpRequestController;
 use App\Http\Controllers\Api\Key\KeyController;
@@ -39,6 +41,9 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::post('/transaction', TransactionController::class);
 
     Route::post('/uploadFile', UploadFileController::class);
+
+    Route::get('/metal', [MetalController::class, 'index']);
+    Route::get('/crypto', [CryptoController::class, 'index']);
 });
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/refresh', [AuthController::class, 'refresh']);

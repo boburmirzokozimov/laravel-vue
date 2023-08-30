@@ -660,6 +660,162 @@ paths:
 #                            type: string
       security:
         - api_key_security_example: [ ]
+  /metal:
+    get:
+      tags:
+        - Metal
+      summary: Этот api для того чтобы получить Metal
+      operationId: metalId
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      xag:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          type:
+                            type: string
+                          rate:
+                            type: string
+                          diff:
+                            type: string
+                          created_at:
+                            type: date
+                          updated_at:
+                            type: date
+                      xau:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          type:
+                            type: string
+                          rate:
+                            type: string
+                          diff:
+                            type: string
+                          created_at:
+                            type: date
+                          updated_at:
+                            type: date
+                      xpt:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          type:
+                            type: string
+                          rate:
+                            type: string
+                          diff:
+                            type: string
+                          created_at:
+                            type: date
+                          updated_at:
+                            type: date
+      security:
+        - api_key_security_example: [ ]
+  /crypto:
+    get:
+      tags:
+        - Crypto
+      summary: Этот api для того чтобы получить Crypto
+      operationId: cryptoId
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      btc:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          type:
+                            type: string
+                          rate:
+                            type: string
+                          diff:
+                            type: string
+                          created_at:
+                            type: date
+                          updated_at:
+                            type: date
+                      eth:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          type:
+                            type: string
+                          rate:
+                            type: string
+                          diff:
+                            type: string
+                          created_at:
+                            type: date
+                          updated_at:
+                            type: date
+                      bnb:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          type:
+                            type: string
+                          rate:
+                            type: string
+                          diff:
+                            type: string
+                          created_at:
+                            type: date
+                          updated_at:
+                            type: date
+                      ada:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          type:
+                            type: string
+                          rate:
+                            type: string
+                          diff:
+                            type: string
+                          created_at:
+                            type: date
+                          updated_at:
+                            type: date
+                      dot:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          type:
+                            type: string
+                          rate:
+                            type: string
+                          diff:
+                            type: string
+                          created_at:
+                            type: date
+                          updated_at:
+                            type: date
+      security:
+        - api_key_security_example: [ ]
 components:
   schemas:
     ReplenishByCASHcourier:
