@@ -34,6 +34,16 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     scope="col">
+                  Country
+                </th>
+                <td
+                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
+                    v-text="branch.country.name"
+                ></td>
+              </tr>
+              <tr class="border-b">
+                <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    scope="col">
                   Name
                 </th>
                 <td
@@ -78,7 +88,7 @@ const props = defineProps({
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                    v-text="branch.long"
+                    v-text="branch.lon"
                 ></td>
               </tr>
               <tr class="border-b">
@@ -127,9 +137,10 @@ const props = defineProps({
                   Photo
                 </th>
                 <td
-                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
-                    v-text="branch.photo"
-                ></td>
+                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline flex justify-end"
+                >
+                  <img :src="`/storage/${branch.photo}`" alt="photo" class="w-20 h-20"/>
+                </td>
               </tr>
               </tbody>
             </table>

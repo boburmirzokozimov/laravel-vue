@@ -7,10 +7,15 @@ use App\Http\Requests\Branch\CreateBranchRequestForm;
 use App\Http\Requests\Branch\UpdateBranchRequestForm;
 use App\Models\Branch\Branch;
 use App\Models\Country\Country;
+use App\Services\UploadService;
 use Inertia\Inertia;
 
 class BranchController extends Controller
 {
+    public function __construct(private UploadService $uploadService)
+    {
+    }
+
     public function index()
     {
         return Inertia::render('Branches/Index', [
@@ -22,13 +27,18 @@ class BranchController extends Controller
     public function show(Branch $branch)
     {
         return Inertia::render('Branches/Show', [
-            'branch' => $branch
+            'branch' => Branch::with('country')->where('id', $branch->id)->first()
         ]);
     }
 
     public function store(CreateBranchRequestForm $request)
     {
-        Branch::query()->create($request->validated());
+        $credentials = $request->validated();
+
+        if (!is_null($credentials['photo'])) {
+            $credentials['photo'] = $this->uploadService->uploadByPath(file: $credentials['photo'], path: 'branches');
+        }
+        Branch::query()->create($credentials);
 
         return to_route('branches');
     }

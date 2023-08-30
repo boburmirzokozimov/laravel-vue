@@ -58,9 +58,6 @@ const closeModal = () => {
               <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
                 Contact Email
               </th>
-              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                Working hours
-              </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 text-center" scope="col">
                 Action
               </th>
@@ -102,25 +99,21 @@ const closeModal = () => {
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                  v-text="branch.working_hours"
-              ></td>
-              <td
-                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
               >
                 <NavLink :href="`/branches/${branch.id}`"
-                         class="btn-edit mr-2"
+                         class="btn-success mr-2"
                 >
-                  Show
+                  <i class="fa fa-eye text-white"></i>
                 </NavLink>
                 <button class="btn-edit mr-2"
                         @click.prevent="()=>handleEdit(branch.id)"
                 >
-                  Edit
+                  <i class="fa fa-edit text-white"></i>
                 </button>
                 <button
                     class="btn-danger"
                     @click.prevent="()=>handleDelete(branch.id)">
-                  Delete
+                  <i class="fa fa-trash text-white"></i>
                 </button>
                 <Modal v-if="active && branch.id === show" @close="closeModal"/>
                 <Edit v-if="active && branch.id === show" :branch="branch"

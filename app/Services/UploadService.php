@@ -13,6 +13,11 @@ class UploadService implements UploadServiceInterface
         return Storage::disk('public')->put('cards', $file);
     }
 
+    public function uploadByPath(?UploadedFile $file, string $path): string
+    {
+        return Storage::disk('public')->put($path, $file);
+    }
+
     public function uploadInvoice(?UploadedFile $file): string
     {
         return Storage::disk('public')->put('invoices', $file);
