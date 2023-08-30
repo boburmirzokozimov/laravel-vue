@@ -20,13 +20,16 @@ class BranchController extends Controller
                     return [
                         'id' => $branch->id,
                         'country_id' => $branch->country_id,
+                        'name' => $branch->name,
                         'lat' => $branch->lat,
                         'lon' => $branch->lon,
                         'address' => $branch->address,
-                        'working_hours' => $branch->working_hours,
+                        'start_hour' => $branch->start_hour,
+                        'end_hour' => $branch->end_hour,
                         'contact_number' => $branch->contact_number,
                         'contact_email' => $branch->contact_email,
                         'full_address' => $branch->full_address,
+                        'photo' => '/storage/' . $branch->photo,
                         'country_name' => [
                             'name_ru' => $branch->country->name,
                             'name_en' => $branch->country->name_official,

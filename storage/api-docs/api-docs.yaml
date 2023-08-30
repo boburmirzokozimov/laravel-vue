@@ -635,19 +635,25 @@ paths:
                     properties:
                       id:
                         type: string
+                      name:
+                        type: string
                       lat:
                         type: string
                       lon:
                         type: string
                       address:
                         type: string
-                      working_hours:
+                      start_hour:
+                        type: string
+                      end_hour:
                         type: string
                       contact_number:
                         type: string
                       contact_email:
                         type: string
                       full_address:
+                        type: string
+                      photo:
                         type: string
                       country_name:
                         type: object
