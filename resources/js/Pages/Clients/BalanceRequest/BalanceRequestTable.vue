@@ -3,8 +3,8 @@
 import Modal from "@/Components/Modal.vue";
 import {ref} from "vue";
 import InfoPopUp from "@/Pages/Clients/BalanceRequest/InfoPopUp.vue";
-import {router} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
+import {router} from "@inertiajs/vue3";
 
 const active = ref(false)
 const show = ref(null)
@@ -96,7 +96,7 @@ const handleStatus = (status, id) => {
                       id="category"
                       class="border border-gray-200 p-2 w-full rounded-2xl"
                       name="category"
-                      @change.prevent="handleStatus($event,balance_request.id)"
+                      @change.prevent="handleStatus($event.target.value,balance_request.id)"
                   >
                     <option
                         v-for="status in props.transaction_statuses"
