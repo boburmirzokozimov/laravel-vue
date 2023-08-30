@@ -34,7 +34,7 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     scope="col">
-                  Full Name
+                  Name
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
@@ -44,7 +44,7 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     scope="col">
-                  Full Name
+                  Address
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
@@ -54,7 +54,7 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     scope="col">
-                  Phone
+                  Full Address
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
@@ -64,7 +64,7 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     scope="col">
-                  Balance
+                  Latitude
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
@@ -74,7 +74,7 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     scope="col">
-                  Auth Key
+                  Longitude
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
@@ -84,7 +84,7 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     scope="col">
-                  Comments
+                  Contact Number
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
@@ -94,7 +94,7 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     scope="col">
-                  Status
+                  Contact Email
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right "
@@ -104,7 +104,7 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left "
                     scope="col">
-                  Last Visited
+                  Start Hour
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
@@ -114,11 +114,21 @@ const props = defineProps({
               <tr class="border-b">
                 <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left "
                     scope="col">
-                  Last Visited
+                  End Hour
                 </th>
                 <td
                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
                     v-text="branch.end_hour"
+                ></td>
+              </tr>
+              <tr class="border-b">
+                <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left "
+                    scope="col">
+                  Photo
+                </th>
+                <td
+                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
+                    v-text="branch.photo"
                 ></td>
               </tr>
               </tbody>

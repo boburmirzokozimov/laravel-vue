@@ -25,12 +25,15 @@ class CreateBranchRequestForm extends FormRequest
         return [
             'lat' => 'string|required',
             'lon' => 'string|required',
+            'name' => 'string|nullable',
             'address' => 'string|required',
             'full_address' => 'string|nullable',
             'contact_number' => 'string|nullable',
             'contact_email' => 'string|nullable',
             'country_id' => 'required|exists:countries,id',
-            'working_hours' => 'string|nullable',
+            'start_hour' => 'string|nullable',
+            'end_hour' => 'string|nullable',
+            'photo' => 'file|nullable',
         ];
     }
 }
