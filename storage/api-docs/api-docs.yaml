@@ -729,6 +729,29 @@ paths:
                             type: date
       security:
         - api_key_security_example: [ ]
+  /metal/balance:
+    get:
+      tags:
+        - Metal
+      summary: Этот api для того чтобы получить Metal Balance
+      operationId: metalBalanceId
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      card_type:
+                        type: string
+                      balance:
+                        type: string
+      security:
+        - api_key_security_example: [ ]
+
   /crypto:
     get:
       tags:
@@ -820,6 +843,28 @@ paths:
                             type: date
                           updated_at:
                             type: date
+      security:
+        - api_key_security_example: [ ]
+  /crypto/balance:
+    get:
+      tags:
+        - Crypto
+      summary: Этот api для того чтобы получить Crypto Balance
+      operationId: cryptoBalanceId
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: object
+                    properties:
+                          card_type:
+                            type: string
+                          balance:
+                            type: string
       security:
         - api_key_security_example: [ ]
 components:

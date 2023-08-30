@@ -43,7 +43,9 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::post('/uploadFile', UploadFileController::class);
 
     Route::get('/metal', [MetalController::class, 'index']);
+    Route::get('/metal/balance', [MetalController::class, 'balance']);
     Route::get('/crypto', [CryptoController::class, 'index']);
+    Route::get('/crypto/balance', [CryptoController::class, 'balance']);
 });
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/refresh', [AuthController::class, 'refresh']);
