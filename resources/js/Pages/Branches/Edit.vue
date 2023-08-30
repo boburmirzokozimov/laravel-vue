@@ -224,6 +224,8 @@ const handleSubmit = () => {
             for="scan_passport"
         >
           Photo
+          <img v-if="branch.photo" :src="`/storage/${branch.photo}`"
+               alt="" class="ml-2 rounded-full w-10 h-10 bg-cover object-center">
         </label>
 
         <input
