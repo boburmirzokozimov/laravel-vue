@@ -34,7 +34,6 @@ class ManageBalanceController extends Controller
         $status = $request->validate([
             'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION,SUCCESS'
         ]);
-
         $balanceRequest->update($status);
         if ($balanceRequest->status->isCancelled()) {
             $balanceRequest->client->addToBalance($balanceRequest->sum);

@@ -1,45 +1,15 @@
 <script setup>
-
-import Modal from "@/Components/Modal.vue";
-import {ref} from "vue";
-import InfoPopUp from "@/Pages/Clients/BalanceRequest/InfoPopUp.vue";
-import {router} from "@inertiajs/vue3";
-import {createToaster} from "@meforma/vue-toaster";
-
-const active = ref(false)
-const show = ref(null)
-const toaster = createToaster({ /* options */});
+import {Head} from "@inertiajs/vue3";
 
 const props = defineProps({
-  balance_requests: Object,
-  transaction_statuses: Object
+  balance_transactions: Object
 })
-
-const handleButton = (id) => {
-  show.value = id
-  active.value = true
-}
-
-const closeModal = () => {
-  active.value = false
-  show.value = null
-}
-const handleStatus = (status, id) => {
-  router.post(`/transactions/${id}/status`, {
-    status: status
-  }, {
-    onSuccess: () => {
-      toaster.success('Статус изменён')
-    },
-    onError: (error) => {
-      toaster.error(error.message)
-    },
-    preserveScroll: true
-  })
-}
 </script>
 
 <template>
+  <Head>
+    <title>Balance Transactions</title>
+  </Head>
   <div class="flex flex-col">
     <div class="sm:mx-0.5 lg:mx-0.5">
       <div class="py-2 inline-block mx-auto sm:px-6 lg:px-8 w-full">
@@ -51,7 +21,7 @@ const handleStatus = (status, id) => {
                 #
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
-                Date
+                Client
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
                 Sum
@@ -69,24 +39,24 @@ const handleStatus = (status, id) => {
             </thead>
             <tbody>
             <tr
-                v-for="balance_request in balance_requests"
+                v-for="balance_transaction in balance_transactions"
                 class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 "
             >
               <td
                   class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                  v-text="balance_request.id"
+                  v-text="balance_transaction.id"
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                  v-text="balance_request.created_at"
+                  v-text="balance_transaction.client.full_name"
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                  v-text="balance_request.sum"
+                  v-text="balance_transaction.sum"
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                  v-text="balance_request.type"
+                  v-text="balance_transaction.type"
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
@@ -96,12 +66,12 @@ const handleStatus = (status, id) => {
                       id="category"
                       class="border border-gray-200 p-2 w-full rounded-2xl"
                       name="category"
-                      @change.prevent="handleStatus($event,balance_request.id)"
+                      @change.prevent="handleStatus($event,balance_transaction.id)"
                   >
                     <option
                         v-for="status in props.transaction_statuses"
                         v-show="status !== 'SUCCESS'"
-                        :selected="status === balance_request.status"
+                        :selected="status === balance_transaction.status"
                         :value="status"
                         v-text="status"
                     ></option>
@@ -111,20 +81,15 @@ const handleStatus = (status, id) => {
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
               >
-                <button v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'"
-                        class="btn-edit"
-                        @click="()=>handleButton(balance_request.id)">Просмотр деталей
-                </button>
+                <!--                <button v-if="balance_transaction.status === 'HOLD' || balance_transaction.status === 'WAITING'"-->
+                <!--                        class="btn-edit"-->
+                <!--                        @click="()=>handleButton(balance_transaction.id)">Просмотр деталей-->
+                <!--                </button>-->
 
-                <button v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'"
-                        class="btn-danger"
-                        @click="handleStatus('CANCELED', balance_request.id)">Отменить
-                </button>
-                <Modal v-if="active && balance_request.id === show" @close="closeModal"/>
-                <InfoPopUp
-                    v-if="active && balance_request.id === show"
-                    :balance_request="balance_request"
-                    @close="closeModal"/>
+                <!--                <button v-if="balance_transaction.status === 'HOLD' || balance_transaction.status === 'WAITING'"-->
+                <!--                        class="btn-danger"-->
+                <!--                        @click="handleStatus('CANCELED', balance_request.id)">Отменить-->
+                <!--                </button>-->
               </td>
             </tr>
             </tbody>
@@ -133,8 +98,9 @@ const handleStatus = (status, id) => {
       </div>
     </div>
   </div>
-</template>
 
+
+</template>
 
 <style scoped>
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Courier\CourierController;
 use App\Http\Controllers\Key\KeyController;
+use App\Http\Controllers\Transaction\TransactionController;
 use App\Http\Controllers\UploadFile\UploadFileController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
@@ -118,6 +119,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/countries/{country}', 'edit')->name('countries.edit');
         Route::patch('/countries/{country}', 'update')->name('countries.update');
         Route::delete('/countries/{country}', 'destroy')->name('countries.destroy');
+    });
+
+    Route::controller(TransactionController::class)->group(function () {
+        Route::get('/transactions/balance', 'balance')->name('transactions.balance');
     });
 
     Route::post('/transactions/{balanceRequest}/status', [ManageBalanceController::class, 'changeStatus']);

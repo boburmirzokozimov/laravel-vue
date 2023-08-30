@@ -22,7 +22,7 @@ class MetalAndCryptoService
 
     private function findDiffMetal(string $key, float $value): ?float
     {
-        $prevRates = MetalRates::lastType($key)->first()?->rate;
+        $prevRates = MetalRates::lastType($key)?->rate;
 
         if ($prevRates !== null) {
             return ($value - $prevRates) / $prevRates;
@@ -45,7 +45,7 @@ class MetalAndCryptoService
 
     private function findDiffCrypto(string $key, float $value): ?float
     {
-        $prevRates = CryptoRates::lastType($key)->first()?->rate;
+        $prevRates = CryptoRates::lastType($key)?->rate;
         if ($prevRates !== null) {
             return ($value - $prevRates) / $prevRates;
         } else {

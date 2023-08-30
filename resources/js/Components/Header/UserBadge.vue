@@ -8,33 +8,21 @@ const show = ref(false)
 </script>
 
 <template>
-    <div class="header-left">
-        <button class="bg-gray-200 px-3 py-2 font-bold rounded" @click="show = !show">{{
-                $page.props.auth.user.full_name ?? $page.props.auth.user.phone
-            }}
-            <i class="fa fa-angle-down ml-4"></i>
-        </button>
-        <div v-show="show" class="popup">
-            <div class="flex flex-col">
-                <NavLink class="px-2 py-4 flex justify-between">
-                    <div>
-                        Profile
-                    </div>
-                    <i class="fa fa-user "></i>
-                </NavLink>
-                <NavLink class="px-2 py-4 flex justify-between">
-                    <div>
-                        Settings
-                    </div>
-                    <i aria-hidden="true" class="fa fa-wrench"></i>
-                </NavLink>
-                <NavLink as="button" class="px-2 py-4 flex justify-between" href="/logout" method="post">
-                    <div>Log Out</div>
-                    <i aria-hidden="true" class="fa fa-sign-out text-gray-400 "></i>
-                </NavLink>
-            </div>
-        </div>
+  <div class="header-left">
+    <button class="bg-gray-200 px-3 py-2 font-bold rounded" @click="show = !show">{{
+        $page.props.auth.user.full_name ?? $page.props.auth.user.phone
+      }}
+      <i class="fa fa-angle-down ml-4"></i>
+    </button>
+    <div v-show="show" class="popup">
+      <div class="flex flex-col">
+        <NavLink as="button" class="flex justify-between" href="/logout" method="post">
+          <div>Log Out</div>
+          <i aria-hidden="true" class="fa fa-sign-out text-gray-400 "></i>
+        </NavLink>
+      </div>
     </div>
+  </div>
 </template>
 
 <style scoped>

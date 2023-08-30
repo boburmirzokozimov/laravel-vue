@@ -3,12 +3,13 @@ import NavLink from "@/Components/NavLink.vue";
 import {ref} from "vue";
 
 const active = ref(false)
+const show = ref(false)
 </script>
 
 <template>
   <nav
       class="sidebar transition z-10 flex flex-col "
-      @mouseleave="active = false"
+      @mouseleave="active = false ; show = false"
       @mouseover="active = true">
     <h2
         :class="active ? 'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
@@ -24,7 +25,10 @@ const active = ref(false)
             class="nav_link_class"
             href="/"
         >
-          <i class="fa fa-coffee fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Home') ? 'text-white' : ''"
+              class="fa fa-coffee fa-2x"
+          ></i>
           <span
               :class="active ? 'translate-x-1 opacity-100' : '-translate-x-1 opacity-0' "
               class="transition  text-gray-400 hover:text-white"
@@ -33,13 +37,44 @@ const active = ref(false)
                     </span>
         </NavLink>
       </li>
+      <li class="nav_link_item transition">
+        <div
+            class="cursor-pointer transition flex flex-col"
+            @click="show = !show"
+        >
+          <div class="flex items-center">
+            <i
+                :class="$page.component.startsWith('Transactions') ? 'text-white' : ''"
+                class="fa fa-sticky-note fa-2x"></i>
+            <div
+                :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
+                class="transition  text-gray-400 hover:text-white"
+            >
+              Transactions
+            </div>
+          </div>
+          <div v-show="show" class="transition">
+            <div class="flex flex-col">
+              <NavLink as="button" class="px-2 py-4 flex justify-between" href="/transactions/balance">
+                <div class="text-white">Balance</div>
+                <i :class="$page.component.startsWith('Transactions/Balance') ? 'text-white' : ''"
+                   aria-hidden="true"
+                   class="fa fa-credit-card text-gray-400 "></i>
+              </NavLink>
+            </div>
+          </div>
+
+        </div>
+      </li>
       <li class="nav_link_item">
         <NavLink
             :active="$page.component.startsWith('Users')"
             class="nav_link_class"
             href="/users"
         >
-          <i class="fa fa-users fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Users') ? 'text-white' : ''"
+              class="fa fa-users fa-2x"></i>
           <span
               :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
               class="transition  text-gray-400 hover:text-white"
@@ -55,7 +90,9 @@ const active = ref(false)
 
             href="/clients"
         >
-          <i class="fa fa-address-book fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Clients') ? 'text-white' : ''"
+              class="fa fa-address-book fa-2x"></i>
           <span
               :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
               class="transition  text-gray-400 hover:text-white"
@@ -64,13 +101,14 @@ const active = ref(false)
                 </span></NavLink>
       </li>
       <li class="nav_link_item">
-
         <NavLink
             :active="$page.component.startsWith('Couriers')"
             class="nav_link_class"
             href="/couriers"
         >
-          <i class="fa fa-bicycle fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Couriers') ? 'text-white' : ''"
+              class="fa fa-bicycle fa-2x"></i>
           <span
               :class="active ? 'translate-x-1 opacity-100' : '-translate-x-1 opacity-0' "
               class="transition  text-gray-400 hover:text-white"
@@ -84,7 +122,9 @@ const active = ref(false)
             :active="$page.component.startsWith('Chat')"
             class="nav_link_class"
             href="/chat">
-          <i class="fa fa-commenting fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Chat') ? 'text-white' : ''"
+              class="fa fa-commenting fa-2x"></i>
 
           <span
               :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
@@ -99,7 +139,9 @@ const active = ref(false)
             :active="$page.component.startsWith('Countries')"
             class="nav_link_class"
             href="/countries">
-          <i class="fa fa-flag fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Countries') ? 'text-white' : ''"
+              class="fa fa-flag fa-2x"></i>
 
           <span
               :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
@@ -114,7 +156,9 @@ const active = ref(false)
             :active="$page.component.startsWith('Branch')"
             class="nav_link_class"
             href="/branches">
-          <i class="fa fa-institution fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Branch') ? 'text-white' : ''"
+              class="fa fa-institution fa-2x"></i>
 
           <span
               :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
@@ -129,7 +173,9 @@ const active = ref(false)
             :active="$page.component.startsWith('Keys')"
             class="nav_link_class"
             href="/keys">
-          <i class="fa fa-key fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Keys') ? 'text-white' : ''"
+              class="fa fa-key fa-2x"></i>
 
           <span
               :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
@@ -150,7 +196,9 @@ const active = ref(false)
             :active="$page.component.startsWith('Chat')"
             class="nav_link_class"
             href="/#">
-          <i class="fa fa-lock fa-2x"></i>
+          <i
+              :class="$page.component.startsWith('Chat') ? 'text-white' : ''"
+              class="fa fa-lock fa-2x"></i>
           <span
               :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
               class="transition  text-gray-400 hover:text-white"
@@ -180,7 +228,6 @@ const active = ref(false)
 
 .transition {
   transition: all .3s cubic-bezier(.47, 0, .745, .715);
-
 }
 
 .nav_link_class {
