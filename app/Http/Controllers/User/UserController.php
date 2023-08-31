@@ -34,6 +34,7 @@ class UserController extends Controller
                 })
                 ->orderBy('id')
                 ->paginate(10)
+                ->withQueryString()
                 ->through(fn($user) => [
                     'full_name' => $user->full_name,
                     'id' => $user->id,

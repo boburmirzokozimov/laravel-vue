@@ -2,12 +2,14 @@
 import {Head, router} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
 import Paginator from "@/Components/Paginator.vue";
+import Filter from "@/Pages/Transactions/Filter.vue";
 
 const toaster = createToaster({ /* options */});
 
 const props = defineProps({
   balance_transactions: Object,
-  transaction_statuses: Object
+  transaction_statuses: Object,
+  filters: Object
 })
 const handleStatus = (status, id) => {
   router.post(`/transactions/${id}/status`, {
@@ -28,6 +30,7 @@ const handleStatus = (status, id) => {
   <Head>
     <title>Balance Transactions</title>
   </Head>
+  <Filter :filters="filters"/>
   <div class="flex flex-col">
     <div class="sm:mx-0.5 lg:mx-0.5">
       <div class="py-2 inline-block mx-auto sm:px-6 lg:px-8 w-full">
