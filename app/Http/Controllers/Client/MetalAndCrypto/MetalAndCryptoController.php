@@ -47,7 +47,6 @@ class MetalAndCryptoController extends Controller
             }
         } else {
             try {
-                //TODO:IM HERE
                 DB::beginTransaction();
                 $client->addToBalance($sum);
                 $metal = Metal::findByClientId($client, $transaction->sort)->first();
