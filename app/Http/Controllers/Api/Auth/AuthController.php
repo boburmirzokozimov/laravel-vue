@@ -42,8 +42,6 @@ class AuthController extends Controller
         ], 400);
     }
 
-    //TODO handle Auth Controller
-
 
     public function refresh(Request $request)
     {

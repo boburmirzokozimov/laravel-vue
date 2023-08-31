@@ -124,6 +124,8 @@ class Client extends Authenticatable
         if ($this->balance < 0) {
             throw new Exception('Не достаточно средств');
         }
+        $this->save();
+
     }
 
     public function balanceRequest(): HasMany
@@ -151,6 +153,7 @@ class Client extends Authenticatable
     public function addToBalance(float $sum): void
     {
         $this->balance += $sum;
+        $this->save();
     }
 
     public function saveCardRequest(array $credentials): void
@@ -224,7 +227,7 @@ class Client extends Authenticatable
 
     public function metalTransactions()
     {
-        return $this->metalAndCryptoCurrencyTransactions()->with('client')->where('type', 1)->get();
+        return $this->metalAndCryptoCurrencyTransactions()->where('type', 1)->paginate();
     }
 
     public function metalAndCryptoCurrencyTransactions(): HasMany

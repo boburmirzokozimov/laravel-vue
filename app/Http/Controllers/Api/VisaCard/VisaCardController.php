@@ -11,6 +11,7 @@ use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Services\CreditCardService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Throwable;
 
 class VisaCardController extends Controller
 {
@@ -38,8 +39,13 @@ class VisaCardController extends Controller
         $client = Client::findByToken($request->bearerToken())->first();
         $credentials = $request->validated();
         $credentials['client_id'] = $client->id;
-
-        $this->cardService->createTransaction($credentials, $card);
+        try {
+            $this->cardService->createTransaction($credentials, $card);
+        } catch (Throwable $e) {
+            return response()->json([
+                'message' => $e
+            ], 400);
+        }
 
         return response()->json([
             'message' => 'Success'

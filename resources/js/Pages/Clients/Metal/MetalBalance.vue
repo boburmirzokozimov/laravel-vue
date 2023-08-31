@@ -38,7 +38,7 @@ const props = defineProps({
               </th>
               <td
                   class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                  v-text="balance.balance"
+                  v-text="balance.balance ?? 0"
               ></td>
             </tr>
             <tr class="border-b">
@@ -48,7 +48,7 @@ const props = defineProps({
               </th>
               <td
                   class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                  v-text="balance.client.full_name"
+                  v-text="balance?.client?.full_name"
               ></td>
             </tr>
             </tbody>

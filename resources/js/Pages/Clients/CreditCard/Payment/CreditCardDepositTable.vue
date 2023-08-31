@@ -18,6 +18,7 @@ const handleButton = (card_id, transaction_id) => {
     _method: "patch"
   }, {
     onSuccess: () => {
+
       toaster.success('Процесс выполнен')
     },
     onError: (error) => {

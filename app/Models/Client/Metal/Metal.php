@@ -5,6 +5,7 @@ namespace App\Models\Client\Metal;
 use App\Models\Client\Client;
 use App\Models\CustomModel;
 use Eloquent;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -32,8 +33,33 @@ use Illuminate\Support\Carbon;
  */
 class Metal extends CustomModel
 {
+    public static function scopeFindByClientId(Builder $builder, Client $client, ?string $type = null)
+    {
+        return $builder
+            ->when($type, function (Builder $query) use ($type) {
+                return $query->where('card_type', $type);
+            })
+            ->where('client_id', $client->id)
+            ->with('client')->get();
+    }
+
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function addToBalance(float $amount): void
+    {
+        $this->balance += $amount;
+        $this->save();
+    }
+
+    public function subtractionFromBalance(float $sum): void
+    {
+        $this->balance -= $sum;
+        if ($this->balance < 0) {
+            throw new Exception('Не достаточно средств');
+        }
+        $this->save();
     }
 }
