@@ -1,24 +1,24 @@
 <template>
-    <div>
-        <div class="flex justify-between items-center">
-            <div>
-                <h1 class="text-3xl text-center">
-                    Couriers
-                </h1>
-            </div>
+  <div>
+    <div class="flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl text-center">
+          Couriers
+        </h1>
+      </div>
 
-            <div>
-                <button v-if="$page.props.is_manager" class="btn-success" @click="handleCreate">
-                    Создать Курьера
-                </button>
-            </div>
-        </div>
-
-        <Table :countries="props.countries" :couriers="props.couriers.data"/>
-        <Modal v-if="active" @close="closeModal"/>
-        <Create v-if="active" :countries="props.countries"
-                @close="closeModal"/>
+      <div>
+        <button v-if="$page.props.is_manager" class="btn-success" @click="handleCreate">
+          <i class="fa fa-user-plus text-white"></i>
+        </button>
+      </div>
     </div>
+
+    <Table :countries="props.countries" :couriers="props.couriers.data"/>
+    <Modal v-if="active" @close="closeModal"/>
+    <Create v-if="active" :countries="props.countries"
+            @close="closeModal"/>
+  </div>
 
 </template>
 
@@ -30,15 +30,15 @@ import {ref} from "vue";
 import Create from "@/Pages/Couriers/Create.vue";
 
 const props = defineProps({
-    couriers: Object,
-    countries: Object,
+  couriers: Object,
+  countries: Object,
 })
 const active = ref(false)
 const closeModal = () => {
-    active.value = false
+  active.value = false
 }
 
 const handleCreate = () => {
-    active.value = true
+  active.value = true
 }
 </script>

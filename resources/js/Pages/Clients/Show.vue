@@ -23,8 +23,27 @@ const props = defineProps({
   transaction_statuses: Object,
   balance_transaction_history: Object
 })
-
+const data = ref([
+  {
+    name: "CARDS",
+  },
+  {
+    name: "BALANCE",
+  },
+  {
+    name: "HISTORY",
+  },
+])
+const dataCards = ref([
+  {
+    name: "Cards",
+  },
+  {
+    name: "Requests",
+  },
+])
 const show = ref('CARDS')
+const innerShow = ref('')
 
 </script>
 
@@ -36,41 +55,68 @@ const show = ref('CARDS')
   <div class="">
     <div class="mb-6">
       <div class="flex justify-between">
-        <h1 class="mb-6">{{ props.client.full_name }}</h1>
+        <h1 class="mb-6 items-center">{{ props.client.full_name }}</h1>
         <div class="flex items-center">
-          <NavLink class="btn-success " href="/clients">Назад
+          <NavLink class="btn-success " href="/clients">
+            <i class="fa fa-backward text-white"></i>
           </NavLink>
         </div>
       </div>
       <InfoTable :client="props.client"/>
     </div>
 
-    <div class="flex justify-between items-center ">
-      <button
-          :class="show==='CARDS' ? 'btn-success' : '' "
-          class="w-1/3 h-16"
-          @click="()=>show = 'CARDS'"
-      >Карты
-      </button>
-      <button
-          :class="show==='BALANCE' ? 'btn-success' : '' "
-          class="w-1/3 h-16"
-          @click="()=>show = 'BALANCE'"
-      >Баланс
-      </button>
-      <button
-          :class="show==='HISTORY' ? 'btn-success' : '' "
-          class="w-1/3 h-16"
-          @click="()=>show = 'HISTORY'">История
-      </button>
+    <div>
+      <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+        <li
+            v-for="route in data"
+            :class="show === route.name && 'bg-white'"
+            aria-current="page"
+            class="cursor-pointer inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500"
+            @click="show = route.name"
+            v-text="route.name">
+        </li>
+      </ul>
+    </div>
+    <div v-show="show ==='CARDS'">
+      <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+        <li
+            v-for="route in dataCards"
+            :class="innerShow === route.name && 'bg-white'"
+            aria-current="page"
+            class="cursor-pointer inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500"
+            @click="innerShow = route.name"
+            v-text="route.name">
+        </li>
+      </ul>
     </div>
 
+
     <div>
-      <div v-if="props.credit_cards.length && show === 'CARDS'" class="mb-6">
+      <div v-if="props.credit_cards.length && innerShow === 'Cards'" class="mb-6">
         <div class="flex justify-start">
           <h1 class="mb-6">Выпущенные карты</h1>
         </div>
         <CreditCardTable :credit_cards="props.credit_cards"/>
+      </div>
+      <div v-if="props.credit_card_requests.length && innerShow === 'Requests'" class="mb-6">
+        <div class="flex justify-between">
+          <h1 class="mb-6">Таблица заявок на выпуск карты VISA</h1>
+          <div class="flex items-center">
+            <NavLink :href="`/clients/${props.client.id}/manage-credit-card`" class="btn-success ">Создать
+              VISA
+              карту
+            </NavLink>
+          </div>
+        </div>
+        <CreditCardRequestTable :credit_card_requests="props.credit_card_requests"/>
+      </div>
+
+      <div v-if="props.credit_card_requests_anonymous.length && innerShow === 'Requests'" class="mb-6">
+        <div class="flex justify-start">
+          <h1 class="mb-6">Таблица заявок на выпуск карты VISA на псевдоним</h1>
+        </div>
+        <CreditCardRequestTableAnonymous
+            :credit_card_requests_anonymous="props.credit_card_requests_anonymous"/>
       </div>
 
       <div v-if="props.credit_card_transactions.length && show === 'HISTORY'" class="mb-6">
@@ -96,26 +142,6 @@ const show = ref('CARDS')
         <CreditCardTransactionsHistoryTable :credit_card_transactions="props.balance_transaction_history"/>
       </div>
 
-      <div v-if="props.credit_card_requests.length && show === 'CARDS'" class="mb-6">
-        <div class="flex justify-between">
-          <h1 class="mb-6">Таблица заявок на выпуск карты VISA</h1>
-          <div class="flex items-center">
-            <NavLink :href="`/clients/${props.client.id}/manage-credit-card`" class="btn-success ">Создать
-              VISA
-              карту
-            </NavLink>
-          </div>
-        </div>
-        <CreditCardRequestTable :credit_card_requests="props.credit_card_requests"/>
-      </div>
-
-      <div v-if="props.credit_card_requests_anonymous.length && show === 'CARDS'" class="mb-6">
-        <div class="flex justify-start">
-          <h1 class="mb-6">Таблица заявок на выпуск карты VISA на псевдоним</h1>
-        </div>
-        <CreditCardRequestTableAnonymous
-            :credit_card_requests_anonymous="props.credit_card_requests_anonymous"/>
-      </div>
 
       <div v-if="props.balance_request && show === 'BALANCE'" class="mb-6">
         <div class="flex justify-between">

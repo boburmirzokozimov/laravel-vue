@@ -88,12 +88,12 @@ const closeModal = () => {
                 <button class="btn-edit mr-2"
                         @click.prevent="()=>handleEdit(country.id)"
                 >
-                  Edit
+                  <i class="fa fa-edit text-white"></i>
                 </button>
                 <button
                     class="btn-danger"
                     @click.prevent="()=>handleDelete(country.id)">
-                  Delete
+                  <i class="fa fa-trash text-white"></i>
                 </button>
                 <Modal v-if="active && country.id === show" @close="closeModal"/>
                 <Edit v-if="active && country.id === show" :country="country"

@@ -87,12 +87,12 @@ const closeModal = () => {
                 <button class="btn-edit mr-2"
                         @click.prevent="()=>handleEdit(key.id)"
                 >
-                  Edit
+                  <i class="fa fa-edit text-white"></i>
                 </button>
                 <button
                     class="btn-danger"
                     @click.prevent="()=>handleDelete(key.id)">
-                  Delete
+                  <i class="fa fa-trash text-white"></i>
                 </button>
                 <Modal v-if="active && key.id === show" @close="closeModal"/>
                 <Edit v-if="active && key.id === show" :keyObject="key"

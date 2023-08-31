@@ -28,7 +28,7 @@ class MetalAndCryptoController extends Controller
         $client = Client::where('id', $client)->first();
         $sum = $request->sum;
 
-        if ($transaction->withdraw) {
+        if (!$transaction->withdraw) {
             try {
                 DB::beginTransaction();
                 $client->subtractionFromBalance($sum);
@@ -81,7 +81,7 @@ class MetalAndCryptoController extends Controller
     {
         $client = Client::where('id', $client)->first();
         $sum = $request->sum;
-        if ($transaction->withdraw) {
+        if (!$transaction->withdraw) {
             try {
                 DB::beginTransaction();
                 $client->subtractionFromBalance($sum);

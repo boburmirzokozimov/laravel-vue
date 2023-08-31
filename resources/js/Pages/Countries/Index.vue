@@ -9,7 +9,7 @@
 
       <div>
         <NavLink class="btn-success" href="/countries/create">
-          Create
+          <i class="fa fa-plus text-white"></i>
         </NavLink>
       </div>
     </div>

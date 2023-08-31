@@ -76,7 +76,7 @@ const closeModal = () => {
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
-                  v-text="metalTransaction.withdraw ? 'Купил' : 'Продал'"
+                  v-text="!metalTransaction.withdraw ? 'Купил' : 'Продал'"
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
