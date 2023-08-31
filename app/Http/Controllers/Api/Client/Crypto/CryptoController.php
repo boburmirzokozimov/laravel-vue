@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Client\Crypto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Client\CreateMetalAndCryptoRequestForm;
 use App\Models\Client\Client;
+use App\Models\Client\Crypto\CryptoCurrency;
 use App\Models\Client\Crypto\CryptoRates;
 use Illuminate\Http\Request;
 
@@ -53,6 +54,12 @@ class CryptoController extends Controller
     {
         $client = Client::findByToken($requestForm->bearerToken())->first();
         $credentials['type'] = 2;
+
+        if ($credentials['withdraw'] === true) {
+            $metalBalance = CryptoCurrency::findByClientId($client, $credentials['sort'])->first();
+            $metalBalance->subtractionFromBalance($credentials['quantity']);
+        }
+
         $client->metalAndCryptoCurrencyTransactions()->create($credentials);
 
         return response()->json([

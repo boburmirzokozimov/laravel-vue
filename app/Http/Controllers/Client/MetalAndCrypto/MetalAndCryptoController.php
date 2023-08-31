@@ -77,6 +77,15 @@ class MetalAndCryptoController extends Controller
         ]);
     }
 
+    public function cancelCrypto(Request $request, Client $client, MetalAndCryptoCurrencyTransaction $transaction)
+    {
+        $crypto = CryptoCurrency::findByClientId($client, $transaction->sort)->first();
+        $crypto->addToBalance($transaction->quantity);
+        $transaction->update([
+            'status' => TransactionStatusEnumType::FAILED->name,
+        ]);
+    }
+
     public function activateCrypto(Request $request, int $client, MetalAndCryptoCurrencyTransaction $transaction)
     {
         $client = Client::where('id', $client)->first();

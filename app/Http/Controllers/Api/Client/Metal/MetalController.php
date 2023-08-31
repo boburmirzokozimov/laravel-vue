@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Client\Metal;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Client\CreateMetalAndCryptoRequestForm;
 use App\Models\Client\Client;
+use App\Models\Client\Metal\Metal;
 use App\Models\Client\Metal\MetalRates;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,12 @@ class MetalController extends Controller
     {
         $client = Client::findByToken($requestForm->bearerToken())->first();
         $credentials['type'] = 1;
+
+        if ($credentials['withdraw'] === true) {
+            $metalBalance = Metal::findByClientId($client, $credentials['sort'])->first();
+            $metalBalance->subtractionFromBalance($credentials['quantity']);
+        }
+
         $client->metalAndCryptoCurrencyTransactions()->create($credentials);
 
         return response()->json([

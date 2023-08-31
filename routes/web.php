@@ -129,8 +129,10 @@ Route::middleware('auth')->group(function () {
     Route::controller(MetalAndCryptoController::class)->group(function () {
         Route::get('/metal/{client}', 'metal')->name('metals.balance');
         Route::post('/metal/{client}/{metalAndCryptoTransaction}', 'activate')->name('metals.activate');
+        Route::post('/metal/{client}/{metalAndCryptoTransaction}/cancel', 'cancelMetal')->name('metals.cancel');
         Route::get('/crypto/{client}', 'crypto')->name('crypto.balance');
         Route::post('/crypto/{client}/{metalAndCryptoTransaction}', 'activateCrypto')->name('crypto.activate');
+        Route::post('/crypto/{client}/{metalAndCryptoTransaction}/cancel', 'cancelCrypto')->name('crypto.cancel');
     });
 
     Route::post('/transactions/{balanceRequest}/status', [ManageBalanceController::class, 'changeStatus']);

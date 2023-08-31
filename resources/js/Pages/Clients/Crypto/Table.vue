@@ -2,6 +2,7 @@
 import Modal from "@/Components/Modal.vue";
 import {ref} from "vue";
 import Edit from "@/Pages/Clients/Crypto/Edit.vue";
+import {router} from "@inertiajs/vue3";
 
 const props = defineProps({
   metalTransactions: Object
@@ -15,6 +16,18 @@ const show = ref(null)
 const closeModal = () => {
   active.value = false
   show.value = null
+}
+
+const handleCancel = (metalTransaction) => {
+  router.post(`/crypto/${metalTransaction.client_id}/` + metalTransaction.id + '/cancel', {
+    onSuccess: () => {
+      toaster.success('Successfully canceled')
+    },
+    preserveScroll: true,
+    onError: (error) => {
+      toaster.error(error.message)
+    },
+  })
 }
 </script>
 
@@ -79,14 +92,20 @@ const closeModal = () => {
                   v-text="!metalTransaction.withdraw ? 'Купил' : 'Продал'"
               ></td>
               <td
-                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
+                  class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left inline-block"
               >
-                <div class="flex flex-col justify-around">
+                <div class="inline-block">
                   <button
                       v-if="metalTransaction.status !== 'SUCCESS'"
-                      class=" btn-edit "
+                      class=" btn-edit mr-2"
                       @click="()=>handleButton(metalTransaction.id)">
                     Редактировать
+                  </button>
+                  <button
+                      v-if="metalTransaction.status === 'WAITING'"
+                      class=" btn-danger "
+                      @click="()=>handleCancel(metalTransaction)">
+                    Отменить
                   </button>
                 </div>
                 <Modal v-if="active && metalTransaction.id === show"
