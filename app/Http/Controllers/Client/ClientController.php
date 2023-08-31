@@ -258,7 +258,7 @@ class ClientController extends Controller
         $request->validate([
             'full_name' => 'required|string',
             'phone' => 'required|numeric|min:10',
-            'auth_key' => 'required|string',
+            'auth_key' => 'nullable|string',
             'comments' => 'nullable|string',
             'is_active' => 'required|boolean'
         ]);

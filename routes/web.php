@@ -8,6 +8,7 @@ use App\Http\Controllers\Client\Balance\ManageBalanceController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\CreditCard\CreditCardController;
 use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
+use App\Http\Controllers\Client\MetalAndCrypto\MetalAndCryptoController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Courier\CourierController;
 use App\Http\Controllers\Key\KeyController;
@@ -123,6 +124,10 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(TransactionController::class)->group(function () {
         Route::get('/transactions/balance', 'balance')->name('transactions.balance');
+    });
+
+    Route::controller(MetalAndCryptoController::class)->group(function () {
+        Route::get('/metal/{client}', 'metal')->name('metals.balance');
     });
 
     Route::post('/transactions/{balanceRequest}/status', [ManageBalanceController::class, 'changeStatus']);

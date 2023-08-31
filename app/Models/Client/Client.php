@@ -86,7 +86,7 @@ class Client extends Authenticatable
         return $query->where(['access_token' => $access_token]);
     }
 
-    protected static function newFactory()
+    protected static function newFactory(): ClientFactory
     {
         return new ClientFactory();
     }
@@ -220,6 +220,11 @@ class Client extends Authenticatable
     public function cryptoCurrencies(): HasMany
     {
         return $this->hasMany(CryptoCurrency::class);
+    }
+
+    public function metalTransactions()
+    {
+        return $this->metalAndCryptoCurrencyTransactions()->with('client')->where('type', 1)->get();
     }
 
     public function metalAndCryptoCurrencyTransactions(): HasMany

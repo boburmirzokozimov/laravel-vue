@@ -54,7 +54,8 @@ class ManageBalanceController extends Controller
                 'message' => $e->getMessage(),
             ]);
         }
-
         return back();
     }
+
+
 }
