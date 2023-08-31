@@ -48,13 +48,13 @@ class Metal extends CustomModel
         return $this->belongsTo(Client::class);
     }
 
-    public function addToBalance(float $amount): void
+    public function addToBalance(?float $amount): void
     {
         $this->balance += $amount;
         $this->save();
     }
 
-    public function subtractionFromBalance(float $sum): void
+    public function subtractionFromBalance(?float $sum): void
     {
         $this->balance -= $sum;
         if ($this->balance < 0) {

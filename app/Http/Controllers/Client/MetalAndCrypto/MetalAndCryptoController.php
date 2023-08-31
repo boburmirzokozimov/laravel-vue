@@ -28,12 +28,12 @@ class MetalAndCryptoController extends Controller
         $client = Client::where('id', $client)->first();
         $sum = $request->sum;
 
-        if (!$transaction->withdraw) {
+        if ($transaction->withdraw) {
             try {
                 DB::beginTransaction();
-                $client->subtractionFromBalance($sum);
+                $client->addToBalance($sum);
                 $metal = Metal::findByClientId($client, $transaction->sort)->first();
-                $metal->addToBalance($sum);
+                $metal->subtractionFromBalance($transaction->quantity);
                 $transaction->update([
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
@@ -49,9 +49,9 @@ class MetalAndCryptoController extends Controller
         } else {
             try {
                 DB::beginTransaction();
-                $client->addToBalance($sum);
+                $client->subtractionFromBalance($sum);
                 $metal = Metal::findByClientId($client, $transaction->sort)->first();
-                $metal->subtractionFromBalance($sum);
+                $metal->addToBalance($transaction->quantity);
                 $transaction->update([
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
@@ -81,12 +81,12 @@ class MetalAndCryptoController extends Controller
     {
         $client = Client::where('id', $client)->first();
         $sum = $request->sum;
-        if (!$transaction->withdraw) {
+        if ($transaction->withdraw) {
             try {
                 DB::beginTransaction();
-                $client->subtractionFromBalance($sum);
+                $client->addToBalance($sum);
                 $metal = CryptoCurrency::findByClientId($client, $transaction->sort)->first();
-                $metal->addToBalance($sum);
+                $metal->subtractionFromBalance($transaction->quantity);
                 $transaction->update([
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
@@ -102,9 +102,9 @@ class MetalAndCryptoController extends Controller
         } else {
             try {
                 DB::beginTransaction();
-                $client->addToBalance($sum);
+                $client->subtractionFromBalance($sum);
                 $metal = CryptoCurrency::findByClientId($client, $transaction->sort)->first();
-                $metal->subtractionFromBalance($sum);
+                $metal->addToBalance($transaction->quantity);
                 $transaction->update([
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
