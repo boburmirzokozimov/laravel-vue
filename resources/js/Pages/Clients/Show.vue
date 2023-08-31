@@ -45,6 +45,17 @@ const dataCards = ref([
     name: "Anonymous Requests",
   },
 ])
+const dataBalance = ref([
+  {
+    name: "Cards",
+  },
+  {
+    name: "Requests",
+  },
+  {
+    name: "Anonymous Requests",
+  },
+])
 const show = ref('CARDS')
 const innerShow = ref('')
 
