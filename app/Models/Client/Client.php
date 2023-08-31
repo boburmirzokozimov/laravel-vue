@@ -234,4 +234,9 @@ class Client extends Authenticatable
     {
         return $this->hasMany(MetalAndCryptoCurrencyTransaction::class);
     }
+
+    public function cryptoTransactions()
+    {
+        return $this->metalAndCryptoCurrencyTransactions()->where('type', 2)->paginate();
+    }
 }

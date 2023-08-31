@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client\MetalAndCrypto;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client\Client;
+use App\Models\Client\Crypto\CryptoCurrency;
 use App\Models\Client\Metal\Metal;
 use App\Models\Client\MetalAndCryptoCurrencyTransaction;
 use App\Models\Enum\TransactionStatusEnumType;
@@ -66,5 +67,58 @@ class MetalAndCryptoController extends Controller
         }
 
         return to_route('metals.balance', ['client' => $client->id]);
+    }
+
+    public function crypto(Client $client)
+    {
+        return Inertia::render('Clients/Crypto/Index', [
+            'metals' => CryptoCurrency::findByClientId($client),
+            'metalTransactions' => $client->cryptoTransactions()
+        ]);
+    }
+
+    public function activateCrypto(Request $request, int $client, MetalAndCryptoCurrencyTransaction $transaction)
+    {
+        $client = Client::where('id', $client)->first();
+        $sum = $request->sum;
+        if ($transaction->withdraw) {
+            try {
+                DB::beginTransaction();
+                $client->subtractionFromBalance($sum);
+                $metal = CryptoCurrency::findByClientId($client, $transaction->sort)->first();
+                $metal->addToBalance($sum);
+                $transaction->update([
+                    'status' => TransactionStatusEnumType::SUCCESS->name,
+                    'sum' => $sum,
+                ]);
+                DB::commit();
+            } catch (Throwable $e) {
+                DB::rollBack();
+                $transaction->update(['status' => TransactionStatusEnumType::FAILED->name]);
+                return back()->withErrors([
+                    'message' => $e->getMessage(),
+                ]);
+            }
+        } else {
+            try {
+                DB::beginTransaction();
+                $client->addToBalance($sum);
+                $metal = CryptoCurrency::findByClientId($client, $transaction->sort)->first();
+                $metal->subtractionFromBalance($sum);
+                $transaction->update([
+                    'status' => TransactionStatusEnumType::SUCCESS->name,
+                    'sum' => $sum,
+                ]);
+                DB::commit();
+            } catch (Throwable $e) {
+                DB::rollBack();
+                $transaction->update(['status' => TransactionStatusEnumType::FAILED->name]);
+                return back()->withErrors([
+                    'message' => $e->getMessage(),
+                ]);
+            }
+        }
+
+        return to_route('crypto.balance', ['client' => $client->id]);
     }
 }
