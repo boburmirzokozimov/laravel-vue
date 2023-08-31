@@ -9,9 +9,9 @@ use App\Models\Client\Client;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Services\CreditCardService;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Throwable;
 
 class VisaCardController extends Controller
 {
@@ -41,7 +41,7 @@ class VisaCardController extends Controller
         $credentials['client_id'] = $client->id;
         try {
             $this->cardService->createTransaction($credentials, $card);
-        } catch (Throwable $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'message' => $e
             ], 400);
