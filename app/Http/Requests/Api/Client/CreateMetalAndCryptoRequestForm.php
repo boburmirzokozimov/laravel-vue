@@ -25,7 +25,7 @@ class CreateMetalAndCryptoRequestForm extends FormRequest
         return [
             'sort' => 'required|string|in:XAU,XAG,XPT,BTC,ETH,BNB,ADA,DOT',
             'quantity' => 'required',
-            'sum' => 'required',
+            'sum' => 'nullable',
         ];
     }
 }
