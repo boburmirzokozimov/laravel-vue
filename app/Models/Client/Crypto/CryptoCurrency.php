@@ -33,6 +33,10 @@ use Illuminate\Support\Carbon;
  */
 class CryptoCurrency extends CustomModel
 {
+
+    protected $casts = [
+        'balance' => 'float'
+    ];
     public static function scopeFindByClientId(Builder $builder, Client $client, ?string $type = null)
     {
         return $builder
