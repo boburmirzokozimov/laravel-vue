@@ -63,16 +63,14 @@ const handleStatus = (status, id) => {
                                 Status
                             </th>
                             <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
-                                Invoice File
-                            </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
                                 Action
                             </th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody v-for="balance_request in balance_requests">
                         <tr
-                            v-for="balance_request in balance_requests"
+
+                            v-if="!balance_request.invoice_file"
                             class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 "
                         >
                             <td
@@ -110,15 +108,6 @@ const handleStatus = (status, id) => {
                                         ></option>
                                     </select>
                                 </form>
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                <a
-                                    v-if="balance_request?.invoice_file"
-                                    :href="'/storage/'+balance_request.invoice_file"
-                                    class="rounded-lg bg-gray-200 px-4 py-1"
-                                    target="_blank">
-                                    Открыть Файл
-                                </a>
                             </td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"

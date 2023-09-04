@@ -3,9 +3,13 @@ import {Head, router} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
 import Paginator from "@/Components/Paginator.vue";
 import Filter from "@/Pages/Transactions/Filter.vue";
+import InfoPopUp from "@/Pages/Transactions/InfoPopUp.vue";
+import Modal from "@/Components/Modal.vue";
+import {ref} from "vue";
 
 const toaster = createToaster({ /* options */});
-
+const active = ref(false)
+const show = ref(null)
 const props = defineProps({
   balance_transactions: Object,
   transaction_statuses: Object,
@@ -23,6 +27,16 @@ const handleStatus = (status, id) => {
     },
     preserveScroll: true
   })
+}
+
+const handleButton = (id) => {
+  show.value = id
+  active.value = true
+}
+
+const closeModal = () => {
+  active.value = false
+  show.value = null
 }
 </script>
 
@@ -54,7 +68,6 @@ const handleStatus = (status, id) => {
                 Status
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4" scope="col">
-                Action
               </th>
             </tr>
             </thead>
@@ -69,7 +82,7 @@ const handleStatus = (status, id) => {
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                  v-text="balance_transaction.client.full_name"
+                  v-text="balance_transaction.client_name"
               ></td>
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
@@ -103,15 +116,24 @@ const handleStatus = (status, id) => {
               <td
                   class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
               >
-                <!--                <button v-if="balance_transaction.status === 'HOLD' || balance_transaction.status === 'WAITING'"-->
-                <!--                        class="btn-edit"-->
-                <!--                        @click="()=>handleButton(balance_transaction.id)">Просмотр деталей-->
-                <!--                </button>-->
+                <button
+                    v-if="balance_transaction.status === 'HOLD' || balance_transaction.status === 'WAITING'|| balance_transaction.status === 'VERIFICATION'"
+                    class="btn-edit mr-2"
+                    @click="()=>handleButton(balance_transaction.id)">
+                  <i class="fa fa-eye text-white"></i>
+                </button>
 
-                <!--                <button v-if="balance_transaction.status === 'HOLD' || balance_transaction.status === 'WAITING'"-->
-                <!--                        class="btn-danger"-->
-                <!--                        @click="handleStatus('CANCELED', balance_request.id)">Отменить-->
-                <!--                </button>-->
+                <button
+                    v-if="balance_transaction.status === 'HOLD' || balance_transaction.status === 'WAITING'|| balance_transaction.status === 'VERIFICATION'"
+                    class="btn-danger"
+                    @click="handleStatus('CANCELED', balance_transaction.id)">
+                  <i class="fa fa-remove text-white"></i>
+                </button>
+                <Modal v-if="active && balance_transaction.id === show" @close="closeModal"/>
+                <InfoPopUp
+                    v-if="active && balance_transaction.id === show"
+                    :balance_request="balance_transaction"
+                    @close="closeModal"/>
               </td>
             </tr>
             </tbody>

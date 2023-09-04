@@ -24,67 +24,53 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Home')->with(['time' => now()->toTimeString()]);
     });
 
-    Route::get('/users', [UserController::class, 'index'])->name('users');
-    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-    Route::post('/users', [UserController::class, 'store'])->name('users.store');
-    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-    Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/users', 'index')->name('users');
+        Route::get('/users/create', 'create')->name('users.create');
+        Route::post('/users', 'store')->name('users.store');
+        Route::delete('/users/{user}', 'destroy')->name('users.destroy');
+        Route::patch('/users/{user}', 'update')->name('users.update');
+    });
 
-    Route::get('/clients', [ClientController::class, 'index'])->name('clients');
-    Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
-    Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
-    Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
-    Route::patch('/clients/{client}', [ClientController::class, 'update'])->name('clients.update');
-    Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
+    Route::controller(ClientController::class)->group(function () {
+        Route::get('/clients', 'index')->name('clients');
+        Route::get('/clients/create', 'create')->name('clients.create');
+        Route::post('/clients', 'store')->name('clients.store');
+        Route::delete('/clients/{client}', 'destroy')->name('clients.destroy');
+        Route::patch('/clients/{client}', 'update')->name('clients.update');
+        Route::get('/clients/{client}', 'show')->name('clients.show');
+    });
 
-    Route::post('/clients/{client}/manage-balance', [ManageBalanceController::class, 'manage'])
-        ->name('clients.balance.manage');
-    Route::get('/clients/{client}/manage-balance', [ManageBalanceController::class, 'create'])
-        ->name('clients.balance.create');
-    Route::post('/clients/{client}/manage-balance/{balanceRequest}', [ManageBalanceController::class, 'activate'])
-        ->name('clients.balance.activate');
+    Route::controller(ManageBalanceController::class)->group(function () {
+        Route::post('/clients/{client}/manage-balance', 'manage')->name('clients.balance.manage');
+        Route::get('/clients/{client}/manage-balance', 'create')->name('clients.balance.create');
+        Route::post('/clients/{client}/manage-balance/{balanceRequest}', 'activate')->name('clients.balance.activate');
+    });
 
+    Route::controller(ManageCreditCardRequestController::class)->group(function () {
+        Route::post('/clients/{client}/manage-credit-card', 'store')->name('clients.credit-card.store');
+        Route::get('/clients/{client}/manage-credit-card', 'create')->name('clients.credit-card.create');
+        Route::patch('/clients/{client}/manage-credit-card/{creditCardRequest}', 'update')->name('clients.credit-card.update');
+        Route::post('/clients/{client}/manage-credit-card-anonymous', 'storeAnonymous')->name('clients.credit-card.store-anonymous');
+        Route::patch('/clients/{client}/manage-credit-card-anonymous/{creditCardRequest}', 'updateAnonymous')->name('clients.credit-card.update-anonymous');
+        Route::post('/clients/{client}/manage-credit-card/{creditCardRequest}', 'activate')->name('clients.credit-card.activate');
+    });
 
-    Route::post('/clients/{client}/manage-credit-card', [ManageCreditCardRequestController::class, 'store'])
-        ->name('clients.credit-card.store');
-    Route::get('/clients/{client}/manage-credit-card', [ManageCreditCardRequestController::class, 'create'])
-        ->name('clients.credit-card.create');
-    Route::patch('/clients/{client}/manage-credit-card/{creditCardRequest}', [ManageCreditCardRequestController::class, 'update'])
-        ->name('clients.credit-card.update');
+    Route::controller(CreditCardController::class)->group(function () {
+        Route::post('/credit-cards/{creditCard}/destroy', 'destroy')->name('credit-cards.destroy');
+        Route::patch('/credit-cards/{creditCard}', 'update')->name('credit-cards.update');
+        Route::get('/credit-cards/{creditCard}/manage', 'create')->name('credit-cards.create');
+        Route::post('/credit-cards/{creditCard}/manage', 'manage')->name('credit-card.update');
+        Route::patch('/credit-cards/{creditCard}/manage/{balanceRequest}', 'accept')->name('credit-cards.accept');
+    });
 
-    Route::post('/clients/{client}/manage-credit-card-anonymous', [ManageCreditCardRequestController::class, 'storeAnonymous'])
-        ->name('clients.credit-card.store-anonymous');
-    Route::patch('/clients/{client}/manage-credit-card-anonymous/{creditCardRequest}', [ManageCreditCardRequestController::class, 'updateAnonymous'])
-        ->name('clients.credit-card.update-anonymous');
-
-    Route::post('/clients/{client}/manage-credit-card/{creditCardRequest}', [ManageCreditCardRequestController::class, 'activate'])
-        ->name('clients.credit-card.activate');
-
-    Route::patch('credit-cards/{creditCard}', [CreditCardController::class, 'update'])
-        ->name('credit-cards.update');
-
-    Route::get('credit-cards/{creditCard}/manage', [CreditCardController::class, 'create'])
-        ->name('credit-cards.create');
-
-    Route::post('credit-cards/{creditCard}/manage', [CreditCardController::class, 'manage'])
-        ->name('credit-card.update');
-
-    Route::patch('credit-cards/{creditCard}/manage/{balanceRequest}', [CreditCardController::class, 'accept'])
-        ->name('credit-cards.accept');
-
-    Route::post('download', [DownloadFileController::class, 'download'])
-        ->name('download-file');
-
-    Route::get('/couriers', [CourierController::class, 'index'])
-        ->name('couriers');
-    Route::post('/couriers', [CourierController::class, 'store'])
-        ->name('couriers.store');
-    Route::patch('/couriers/{courier}', [CourierController::class, 'update'])
-        ->name('couriers.update');
-    Route::delete('/couriers/{courier}', [CourierController::class, 'destroy'])
-        ->name('couriers.destroy');
-    Route::post('/couriers/{courier}/status', [CourierController::class, 'status'])
-        ->name('couriers.status');
+    Route::controller(CourierController::class)->group(function () {
+        Route::get('/couriers', 'index')->name('couriers');
+        Route::post('/couriers', 'store')->name('couriers.store');
+        Route::patch('/couriers/{courier}', 'update')->name('couriers.update');
+        Route::delete('/couriers/{courier}', 'destroy')->name('couriers.destroy');
+        Route::post('/couriers/{courier}/status', 'status')->name('couriers.status');
+    });
 
     Route::controller(ChatController::class)->group(function () {
         Route::get('/chat', 'index');
@@ -122,9 +108,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/countries/{country}', 'destroy')->name('countries.destroy');
     });
 
-    Route::controller(TransactionController::class)->group(function () {
-        Route::get('/transactions/balance', 'balance')->name('transactions.balance');
-    });
 
     Route::controller(MetalAndCryptoController::class)->group(function () {
         Route::get('/metal/{client}', 'metal')->name('metals.balance');
@@ -137,8 +120,15 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/transactions/{balanceRequest}/status', [ManageBalanceController::class, 'changeStatus']);
 
+    Route::controller(DownloadFileController::class)->group(function () {
+        Route::post('download', 'download')->name('download-file');
+    });
+
+    Route::controller(TransactionController::class)->group(function () {
+        Route::get('/transactions/balance', 'balance')->name('transactions.balance');
+    });
+
     Route::post('/uploadFile', UploadFileController::class);
-    Route::post('/hello', [CreditCardController::class, 'changeStatus']);
 });
 
 

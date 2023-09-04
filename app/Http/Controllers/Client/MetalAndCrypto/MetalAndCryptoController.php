@@ -19,7 +19,8 @@ class MetalAndCryptoController extends Controller
     {
         return Inertia::render('Clients/Metal/Index', [
             'metals' => Metal::findByClientId($client),
-            'metalTransactions' => $client->metalTransactions()
+            'metalTransactions' => $client->metalTransactions(),
+            'client' => $client
         ]);
     }
 
@@ -73,7 +74,8 @@ class MetalAndCryptoController extends Controller
     {
         return Inertia::render('Clients/Crypto/Index', [
             'metals' => CryptoCurrency::findByClientId($client),
-            'metalTransactions' => $client->cryptoTransactions()
+            'metalTransactions' => $client->cryptoTransactions(),
+            'client' => $client
         ]);
     }
 

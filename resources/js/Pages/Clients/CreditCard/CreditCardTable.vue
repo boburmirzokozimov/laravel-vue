@@ -3,6 +3,10 @@
 import {ref} from "vue";
 import Modal from "@/Components/Modal.vue";
 import EditCreditCard from "@/Pages/Clients/CreditCard/EditCreditCard.vue";
+import {router} from "@inertiajs/vue3";
+import {createToaster} from "@meforma/vue-toaster";
+
+const toaster = createToaster({ /* options */});
 
 const active = ref(false)
 const show = ref(null)
@@ -15,7 +19,15 @@ const handleButton = (id) => {
     show.value = 'edit_card_' + id
     active.value = true
 }
+const handleDeleteButton = (id) => {
+    router.post(`/credit-cards/${id}/destroy`, {}, {
+        _method: 'DELETE',
+        onSuccess: () => {
+            toaster.success('Successfully deleted card')
 
+        }
+    })
+}
 const closeModal = () => {
     active.value = false
     show.value = null
@@ -79,16 +91,15 @@ const closeModal = () => {
                             >
                                 <div class="">
                                     <button
-                                        class=" btn-edit "
+                                        class=" btn-edit mr-2"
                                         @click="()=>handleButton(credit_card.id)">
-                                        <i class="fa fa-edit text-white"></i>
+                                        <i class="fa fa-edit text-white "></i>
                                     </button>
-                                    <!--                                    <NavLink-->
-                                    <!--                                        :href="`/credit-cards/${credit_card.id}/manage`"-->
-                                    <!--                                        as="button"-->
-                                    <!--                                        class="mt-1 btn-success"-->
-                                    <!--                                    >Пополнения карт VISA-->
-                                    <!--                                    </NavLink>-->
+                                    <button
+                                        class="mt-1 btn-danger"
+                                        @click="()=>handleDeleteButton(credit_card.id)">
+                                        <i class="fa fa-trash text-white"></i>
+                                    </button>
                                 </div>
                                 <Modal v-if="active && 'edit_card_'+credit_card.id === show"
                                        @close="closeModal"/>

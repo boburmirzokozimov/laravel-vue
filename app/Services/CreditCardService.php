@@ -9,6 +9,7 @@ use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Models\Enum\StatusEnumType;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 class CreditCardService
@@ -17,11 +18,9 @@ class CreditCardService
     {
     }
 
-    public function update(array $credentials, CreditCardRequest $cardRequest): void
+    public function handle(array $credentials, Client $client): void
     {
-        $this->uploadService->removeOld($cardRequest, $credentials);
-
-        $cardRequest->updateCardRequest($this->manageCredentials($credentials));
+        $client->saveCardRequest($this->manageCredentials($credentials));
     }
 
     private function manageCredentials(array $credentials): array
@@ -35,11 +34,6 @@ class CreditCardService
         }
 
         return $credentials;
-    }
-
-    public function handle(array $credentials, Client $client): void
-    {
-        $client->saveCardRequest($this->manageCredentials($credentials));
     }
 
     public function handleAnonymous(array $validated, Client $client): void
@@ -96,6 +90,33 @@ class CreditCardService
         $cardTransaction->status = StatusEnumType::SUCCESS->name;
         $cardTransaction->save();
         $card->save();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function accept(Request $request, CreditCard $card, BalanceRequest $balanceRequest): void
+    {
+        if ($balanceRequest->withdraw) {
+            $card->client->subtractionFromBalance($balanceRequest->sum);
+            $card->depositBalance($balanceRequest->sum);
+            $balanceRequest->update([
+                'status' => StatusEnumType::SUCCESS->name
+            ]);
+            $balanceRequest->save();
+        } else {
+            $card->withdrawBalance($balanceRequest->sum);
+            CardTransaction::find($request->input('card_transaction'))->first()->update([
+                'status' => StatusEnumType::SUCCESS->name
+            ]);
+        }
+    }
+
+    public function update(array $credentials, CreditCardRequest $cardRequest): void
+    {
+        $this->uploadService->removeOld($cardRequest, $credentials);
+
+        $cardRequest->updateCardRequest($this->manageCredentials($credentials));
     }
 
 }

@@ -25,12 +25,12 @@ class ManageBalanceRequest extends FormRequest
     {
         $rules = [
             'type' => 'in:CASH,CASHLESS,USDT',
-            'country_id' => 'exists:countries,id',
-            'currency' => 'string|required',
-            'contact' => 'string|required',
-            'sum' => 'required|regex:/^\d*(\.\d{3})?$/',
-            'phone' => 'numeric|min:10',
-            'client_id' => 'exists:clients,id',
+            'country_id' => 'nullable|exists:countries,id',
+            'currency' => 'string|nullable',
+            'contact' => 'string|nullable',
+            'sum' => 'nullable|regex:/^\d*(\.\d{3})?$/',
+            'phone' => 'numeric|min:10|nullable',
+            'client_id' => 'exists:clients,id|nullable',
             'withdraw' => 'nullable|boolean'
         ];
 
@@ -39,9 +39,9 @@ class ManageBalanceRequest extends FormRequest
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
                 'currency' => 'string|nullable',
-                'sum' => 'required|regex:/^\d*(\.\d{3})?$/',
+                'sum' => 'nullable|regex:/^\d*(\.\d{3})?$/',
                 'info' => 'nullable|string',
-                'client_id' => 'exists:clients,id',
+                'client_id' => 'exists:clients,id|nullable',
                 'withdraw' => 'nullable|boolean'
             ];
         }
@@ -50,24 +50,24 @@ class ManageBalanceRequest extends FormRequest
             $rules = [
                 'type' => 'in:CASH,CASHLESS,USDT',
                 'currency' => 'string|nullable',
-                'sum' => 'required|regex:/^\d*(\.\d{3})?$/',
+                'sum' => 'nullable|regex:/^\d*(\.\d{3})?$/',
                 'info' => 'nullable|string',
-                'client_id' => 'exists:clients,id',
+                'client_id' => 'exists:clients,id|nullable',
                 'withdraw' => 'nullable|boolean',
-                'account_number' => 'required|numeric'
+                'account_number' => 'nullable|numeric'
             ];
         }
 
         if (request()->request->get('type') === TypeEnum::USDT->name && request()->request->get('withdraw')) {
             $rules = [
-                'usdt_type' => 'string',
+                'usdt_type' => 'string|nullable',
                 'type' => 'in:CASH,CASHLESS,USDT',
                 'currency' => 'string|nullable',
-                'sum' => 'required|regex:/^\d*(\.\d{3})?$/',
+                'sum' => 'nullable|regex:/^\d*(\.\d{3})?$/',
                 'info' => 'nullable|string',
-                'client_id' => 'exists:clients,id',
+                'client_id' => 'exists:clients,id|nullable',
                 'withdraw' => 'nullable|boolean',
-                'account_number' => 'required|numeric'
+                'account_number' => 'nullable|numeric'
             ];
         }
 

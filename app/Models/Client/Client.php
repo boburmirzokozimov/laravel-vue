@@ -121,11 +121,10 @@ class Client extends Authenticatable
     public function subtractionFromBalance(float $sum): void
     {
         $this->balance -= $sum;
+        $this->save();
         if ($this->balance < 0) {
             throw new Exception('Не достаточно средств');
         }
-        $this->save();
-
     }
 
     public function balanceRequest(): HasMany

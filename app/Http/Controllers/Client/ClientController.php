@@ -9,6 +9,7 @@ use App\Models\Enum\StatusEnumType;
 use App\Models\Enum\TypeEnum;
 use App\Models\User\User;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -123,7 +124,8 @@ class ClientController extends Controller
                     'last_visited',
                 ]),
             'balance_request' => $client->balanceRequest()
-                ->where('status', '!=', StatusEnumType::SUCCESS->name)
+                ->where('status', StatusEnumType::HOLD->name)
+                ->orWhere('status', StatusEnumType::WAITING->name)
                 ->orderBy('id')
                 ->get()
                 ->map(function ($balance) {
@@ -225,19 +227,30 @@ class ClientController extends Controller
                     ];
                 }),
             'balance_transaction_history' => $client->balanceRequest()
-                ->orderBy('id')
-                ->get()
-                ->map(function ($credit_card_transactions) {
+                ->orderBy('created_at', 'desc')
+                ->when(\Illuminate\Support\Facades\Request::input('date'), function (Builder $builder, string $startDate) {
+                    $builder->where('created_at', '>=', $startDate);
+                })
+                ->when(\Illuminate\Support\Facades\Request::input('type'), function (Builder $builder, string $type) {
+                    $builder->where('type', $type);
+                })
+                ->when(\Illuminate\Support\Facades\Request::input('status'), function (Builder $builder, string $status) {
+                    $builder->where('status', $status);
+                })
+                ->paginate(15)
+                ->withQueryString()
+                ->through(function ($transaction) {
                     return [
-                        'id' => $credit_card_transactions->id,
-                        'client_id' => $credit_card_transactions->client_id,
-                        'card_number' => $credit_card_transactions?->creditCard?->card_number,
-                        'credit_card_id' => $credit_card_transactions?->creditCard?->id,
-                        'status' => $credit_card_transactions->status,
-                        'invoice_file' => $credit_card_transactions->invoice_file,
-                        'sum' => $credit_card_transactions->withdraw ? -$credit_card_transactions->sum : $credit_card_transactions->sum,
-                        'withdraw' => $credit_card_transactions->withdraw,
-                        'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
+                        'id' => $transaction->id,
+                        'client_id' => $transaction->client_id,
+                        'type' => $transaction->type,
+                        'card_number' => $transaction?->creditCard?->card_number,
+                        'credit_card_id' => $transaction?->creditCard?->id,
+                        'status' => $transaction->status,
+                        'invoice_file' => $transaction->invoice_file,
+                        'sum' => $transaction->withdraw ? -$transaction->sum : $transaction->sum,
+                        'withdraw' => $transaction->withdraw,
+                        'created_at' => Carbon::create($transaction->created_at)->format('Y-m-d'),
                     ];
                 }),
             'credit_card_transactions_requisite' => $client->balanceRequest()
@@ -255,6 +268,7 @@ class ClientController extends Controller
                         'created_at' => Carbon::create($credit_card_transactions->created_at)->format('Y-m-d'),
                     ];
                 }),
+            'filters' => \Illuminate\Support\Facades\Request::all()
         ]);
     }
 

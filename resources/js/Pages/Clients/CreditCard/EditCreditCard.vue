@@ -3,6 +3,7 @@ import {Head, useForm} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
 import {vMaska} from "maska"
 
+
 const toaster = createToaster({ /* options */});
 
 const emit = defineEmits(['close'])

@@ -33,7 +33,7 @@ watch(filter, debounce(function (filter) {
 
 <template>
   <div class="flex justify-center mb-6">
-    <div class="w-1/5 mr-2">
+    <div class="w-1/4 mr-2">
       <input
           id="search"
           v-model="filter.full_name"
@@ -42,14 +42,14 @@ watch(filter, debounce(function (filter) {
           placeholder="Name..."
           type="search">
     </div>
-    <div class="w-1/5 mr-2">
+    <div class="w-1/4 mr-2">
       <input
           id="date"
           v-model="filter.date"
           class="border border-gray-200 p-2 w-full rounded-2xl"
           type="date">
     </div>
-    <div class="w-1/5 mr-2">
+    <div class="w-1/4 mr-2">
       <select
           id="type"
           v-model="filter.type"
@@ -60,7 +60,7 @@ watch(filter, debounce(function (filter) {
         <option value="USDT">USDT</option>
       </select>
     </div>
-    <div class="w-1/5 mr-2">
+    <div class="w-1/4 mr-2">
       <select
           id="status"
           v-model="filter.status"
@@ -71,13 +71,13 @@ watch(filter, debounce(function (filter) {
         <option value="VERIFICATION">VERIFICATION</option>
       </select>
     </div>
-    <div class="w-1/5 mr-2">
+    <div class="mr-2">
       <NavLink
           as="button"
-          class="btn-success w-full h-full"
+          class="btn-secondary w-full h-full"
           href="/transactions/balance"
       >
-        Reset
+        <i class="fa fa-remove text-white"></i>
       </NavLink>
     </div>
   </div>

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
 /**
@@ -45,7 +46,7 @@ use Illuminate\Support\Carbon;
  */
 class CreditCard extends CustomModel
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected static function newFactory(): CreditCardFactory
     {
@@ -85,6 +86,7 @@ class CreditCard extends CustomModel
     public function depositBalance(int $sum): void
     {
         $this->balance += $sum;
+        $this->save();
     }
 
     /**
@@ -93,6 +95,7 @@ class CreditCard extends CustomModel
     public function withdrawBalance(int $sum): void
     {
         $this->balance -= $sum;
+        $this->save();
         if ($this->balance < 0) {
             throw new Exception('Недостаточно средств');
         }

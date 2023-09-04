@@ -19,24 +19,6 @@ const show = ref(false)
         class="text-xl text-white transition py-6 px-4">Manage
     </h3>
     <ul class="flex flex-col">
-      <li class="nav_link_item">
-        <NavLink
-            :active="$page.component.startsWith('Home')"
-            class="nav_link_class"
-            href="/"
-        >
-          <i
-              :class="$page.component.startsWith('Home') ? 'text-white' : ''"
-              class="fa fa-coffee fa-2x"
-          ></i>
-          <span
-              :class="active ? 'translate-x-1 opacity-100' : '-translate-x-1 opacity-0' "
-              class="transition  text-gray-400 hover:text-white"
-          >
-                        Dashboard
-                    </span>
-        </NavLink>
-      </li>
       <li class="nav_link_item transition">
         <div
             class="cursor-pointer transition flex flex-col"
@@ -186,28 +168,28 @@ const show = ref(false)
         </NavLink>
       </li>
     </ul>
-    <h3
-        :class="active ? 'translate-x-1':'-translate-x-1 opacity-0'"
-        class="text-xl text-white transition py-6 px-4">Settings
-    </h3>
-    <ul class="flex flex-col">
-      <li class="nav_link_item">
-        <NavLink
-            :active="$page.component.startsWith('Chat')"
-            class="nav_link_class"
-            href="/#">
-          <i
-              :class="$page.component.startsWith('Chat') ? 'text-white' : ''"
-              class="fa fa-lock fa-2x"></i>
-          <span
-              :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
-              class="transition  text-gray-400 hover:text-white"
-          >
-                        Profile
-                    </span>
-        </NavLink>
-      </li>
-    </ul>
+    <!--    <h3-->
+    <!--        :class="active ? 'translate-x-1':'-translate-x-1 opacity-0'"-->
+    <!--        class="text-xl text-white transition py-6 px-4">Settings-->
+    <!--    </h3>-->
+    <!--    <ul class="flex flex-col">-->
+    <!--      <li class="nav_link_item">-->
+    <!--        <NavLink-->
+    <!--            :active="$page.component.startsWith('Chat')"-->
+    <!--            class="nav_link_class"-->
+    <!--            href="/#">-->
+    <!--          <i-->
+    <!--              :class="$page.component.startsWith('Chat') ? 'text-white' : ''"-->
+    <!--              class="fa fa-lock fa-2x"></i>-->
+    <!--          <span-->
+    <!--              :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"-->
+    <!--              class="transition  text-gray-400 hover:text-white"-->
+    <!--          >-->
+    <!--                        Profile-->
+    <!--                    </span>-->
+    <!--        </NavLink>-->
+    <!--      </li>-->
+    <!--    </ul>-->
   </nav>
 </template>
 

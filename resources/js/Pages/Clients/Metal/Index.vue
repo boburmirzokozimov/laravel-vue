@@ -8,6 +8,7 @@ const active = ref('XAU')
 
 const props = defineProps({
   metals: Object,
+  client: Object,
   metalTransactions: Object,
 })
 const data = ref([
@@ -24,6 +25,15 @@ const data = ref([
 </script>
 
 <template>
+
+  <template
+      v-for="metal in metals"
+  >
+    <MetalBalance
+        v-if="metal.card_type === active"
+        :balance=" metal"
+        :client="props.client"/>
+  </template>
   <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
     <li
         v-for="route in data"
@@ -34,14 +44,6 @@ const data = ref([
         v-text="route.name">
     </li>
   </ul>
-  <template
-      v-for="metal in metals"
-  >
-    <MetalBalance
-        v-if="metal.card_type === active"
-        :balance=" metal"/>
-  </template>
-
   <Table :metal-transactions="metalTransactions.data"/>
   <Paginator :links="metalTransactions.links"/>
 </template>

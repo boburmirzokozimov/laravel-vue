@@ -9,6 +9,7 @@ use App\Models\Branch\Branch;
 use App\Models\Country\Country;
 use App\Services\UploadService;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 
 class BranchController extends Controller
@@ -21,7 +22,13 @@ class BranchController extends Controller
     {
         return Inertia::render('Branches/Index', [
             'branches' => Branch::query()
+                ->when(Request::input('country'), function ($query, string $search) {
+                    $query->where('country_id', $search);
+                })
                 ->paginate(10)
+                ->withQueryString(),
+            'countries' => Country::all('id', 'name')->where('id', '>', 250),
+            'filters' => Request::all()
         ]);
     }
 

@@ -7,8 +7,8 @@ use App\Http\Requests\CreateTransactionRequest;
 use App\Http\Requests\CreditCardRequest;
 use App\Models\Client\BalanceRequest;
 use App\Models\Client\CreditCard\CreditCard;
-use App\Models\Enum\StatusEnumType;
 use App\Services\CreditCardService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Throwable;
@@ -34,13 +34,11 @@ class CreditCardController extends Controller
         return to_route('clients.show', ['client' => $card->client->id]);
     }
 
-    public function accept(CreditCard $card, BalanceRequest $balanceRequest)
+    public function accept(Request $request, CreditCard $card, BalanceRequest $balanceRequest)
     {
         try {
             DB::beginTransaction();
-            $card->withdrawBalance($balanceRequest->sum);
-            $balanceRequest->status = StatusEnumType::SUCCESS->name;
-            $balanceRequest->save();
+            $this->service->accept($request, $card, $balanceRequest);
             DB::commit();
         } catch (Throwable $e) {
             DB::rollBack();
@@ -67,6 +65,13 @@ class CreditCardController extends Controller
                 'anonymous_surname' => $cardRequest->validated('anonymous_surname'),
             ]);
         });
+
+        return back();
+    }
+
+    public function destroy(Request $request, CreditCard $card)
+    {
+        $card->delete();
 
         return back();
     }
