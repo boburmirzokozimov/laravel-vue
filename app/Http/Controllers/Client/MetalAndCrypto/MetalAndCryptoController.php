@@ -67,7 +67,7 @@ class MetalAndCryptoController extends Controller
             }
         }
 
-        return to_route('metals.balance', ['client' => $client->id]);
+        return back();
     }
 
     public function crypto(Client $client)
@@ -140,6 +140,7 @@ class MetalAndCryptoController extends Controller
             }
         }
 
-        return to_route('crypto.balance', ['client' => $client->id]);
+        return back();
+
     }
 }

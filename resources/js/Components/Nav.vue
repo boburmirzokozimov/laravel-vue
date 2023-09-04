@@ -38,10 +38,35 @@ const show = ref(false)
           <div v-show="show" class="transition">
             <div class="flex flex-col">
               <NavLink as="button" class="px-2 py-4 flex justify-between" href="/transactions/balance">
-                <div class="text-white">Balance</div>
+                <div :class="$page.component.startsWith('Transactions/Balance') ? 'text-white' : 'text-gray-400'">
+                  Balance
+                </div>
                 <i :class="$page.component.startsWith('Transactions/Balance') ? 'text-white' : ''"
                    aria-hidden="true"
                    class="fa fa-credit-card text-gray-400 "></i>
+              </NavLink>
+            </div>
+          </div>
+          <div v-show="show" class="transition">
+            <div class="flex flex-col">
+              <NavLink as="button" class="px-2 py-4 flex justify-between" href="/transactions/metal">
+                <div :class="$page.component.startsWith('Transactions/Metal') ? 'text-white' : 'text-gray-400'">Metal
+                </div>
+                <i :class="$page.component.startsWith('Transactions/Metal') ? 'text-white' : ''"
+                   aria-hidden="true"
+                   class="fa fa-diamond text-gray-400 "></i>
+              </NavLink>
+            </div>
+          </div>
+          <div v-show="show" class="transition">
+            <div class="flex flex-col">
+              <NavLink as="button" class="px-2 py-4 flex justify-between" href="/transactions/crypto">
+                <div :class="$page.component.startsWith('Transactions/Crypto') ? 'text-white' : 'text-gray-400'">
+                  Crypto
+                </div>
+                <i :class="$page.component.startsWith('Transactions/Crypto') ? 'text-white' : ''"
+                   aria-hidden="true"
+                   class="fa fa-bitcoin text-gray-400 "></i>
               </NavLink>
             </div>
           </div>

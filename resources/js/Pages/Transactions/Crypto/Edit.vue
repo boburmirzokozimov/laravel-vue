@@ -15,7 +15,7 @@ let form = useForm({
 })
 
 const handleSubmit = () => {
-  form.post(`/metal/${props.metalTransaction.client_id}/` + props.metalTransaction.id, {
+  form.post(`/crypto/${props.metalTransaction.client_id}/` + props.metalTransaction.id, {
     onSuccess: () => {
       emit('close')
       toaster.success('Successfully edited')

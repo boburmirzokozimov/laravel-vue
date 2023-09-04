@@ -126,6 +126,8 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(TransactionController::class)->group(function () {
         Route::get('/transactions/balance', 'balance')->name('transactions.balance');
+        Route::get('/transactions/metal', 'metal')->name('transactions.metal');
+        Route::get('/transactions/crypto', 'crypto')->name('transactions.crypto');
     });
 
     Route::post('/uploadFile', UploadFileController::class);
