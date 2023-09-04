@@ -8,7 +8,6 @@ const toaster = createToaster({ /* options */});
 const emit = defineEmits(['close'])
 
 const props = defineProps({
-    client: Object,
     credit_card: Object
 })
 
@@ -19,6 +18,11 @@ let form = useForm({
     credit_card_request_id: props.credit_card.credit_card_request_id,
     card_number: props.credit_card.card_number,
     expire_date: props.credit_card.expire_date,
+    name: props.credit_card.name,
+    anonymous_name: props.credit_card.anonymous_name,
+    anonymous_surname: props.credit_card.anonymous_surname,
+    surname: props.credit_card.surname,
+    middle_name: props.credit_card.middle_name,
 })
 
 const handleSubmit = () => {
@@ -47,6 +51,103 @@ const handleSubmit = () => {
         <h1 class="mb-6">Edit VISA Card</h1>
 
         <form class="max-w-2xl mx-auto" method="post" @submit.prevent="handleSubmit">
+            <div v-if="!credit_card.anonymous" class="mb-6">
+                <label
+                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                    for="name"
+                >
+                    Имя
+                </label>
+
+                <input
+                    id="name"
+                    v-model="form.name"
+                    class="border border-gray-200 p-2 w-full rounded-2xl"
+                    name="name"
+                    type="text"
+                />
+                <div v-if="form.errors.name" class="text-red-500 text-sm">{{
+                        form.errors.name
+                    }}
+                </div>
+            </div>
+            <div v-if="!credit_card.anonymous" class="mb-6">
+                <label
+                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                    for="surname"
+                >
+                    Фамилия
+                </label>
+
+                <input
+                    id="surname"
+                    v-model="form.surname"
+                    class="border border-gray-200 p-2 w-full rounded-2xl"
+                    name="surname"
+                    type="text"
+                />
+                <div v-if="form.errors.surname" class="text-red-500 text-sm">{{
+                        form.errors.surname
+                    }}
+                </div>
+            </div>
+            <div v-if="!credit_card.anonymous" class="mb-6">
+                <label
+                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                    for="middle_name"
+                >
+                    Очество
+                </label>
+
+                <input
+                    id="middle_name"
+                    v-model="form.middle_name"
+                    class="border border-gray-200 p-2 w-full rounded-2xl"
+                    type="text"
+                />
+                <div v-if="form.errors.middle_name" class="text-red-500 text-sm">{{
+                        form.errors.middle_name
+                    }}
+                </div>
+            </div>
+            <div v-if="credit_card.anonymous" class="mb-6">
+                <label
+                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                    for="anonymous_name"
+                >
+                    Анонимная имя
+                </label>
+
+                <input
+                    id="anonymous_name"
+                    v-model="form.anonymous_name"
+                    class="border border-gray-200 p-2 w-full rounded-2xl"
+                    type="text"
+                />
+                <div v-if="form.errors.anonymous_name" class="text-red-500 text-sm">{{
+                        form.errors.anonymous_name
+                    }}
+                </div>
+            </div>
+            <div v-if="credit_card.anonymous" class="mb-6">
+                <label
+                    class="block mb-2 uppercase font-bold text-sm text-gray-700"
+                    for="anonymous_surname"
+                >
+                    Анонимная фамилия
+                </label>
+
+                <input
+                    id="anonymous_surname"
+                    v-model="form.anonymous_surname"
+                    class="border border-gray-200 p-2 w-full rounded-2xl"
+                    type="text"
+                />
+                <div v-if="form.errors.anonymous_surname" class="text-red-500 text-sm">{{
+                        form.errors.anonymous_surname
+                    }}
+                </div>
+            </div>
             <div class="mb-6">
                 <label
                     class="block mb-2 uppercase font-bold text-sm text-gray-700"
@@ -96,8 +197,8 @@ const handleSubmit = () => {
             </div>
 
             <div class="flex justify-end w-full">
-                <button :disabled="form.processing" class="bg-blue-500 p-2 rounded-2xl text-white" type="submit">
-                    Активировать
+                <button :disabled="form.processing" class="btn-success" type="submit">
+                    <i class="fa fa-check text-white"></i>
                 </button>
             </div>
         </form>
@@ -109,6 +210,8 @@ const handleSubmit = () => {
 <style lang="scss" scoped>
 .modal {
     @apply fixed top-0 w-2/6 bg-white px-4 py-6 rounded-xl z-20;
-    transform: translate(-100%, 80%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 </style>

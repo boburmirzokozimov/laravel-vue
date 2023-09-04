@@ -4,6 +4,7 @@
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\Balance\BalanceReplenishController;
 use App\Http\Controllers\Api\Branch\BranchController;
+use App\Http\Controllers\Api\Chat\ChatController;
 use App\Http\Controllers\Api\Chat\ChatRoomController;
 use App\Http\Controllers\Api\Client\Crypto\CryptoController;
 use App\Http\Controllers\Api\Client\Metal\MetalController;
@@ -22,6 +23,10 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::controller(ChatRoomController::class)->group(function () {
         Route::post('/chat-room', 'store');
         Route::get('/chat-room/{chatRoom}', 'history');
+        Route::post('/chat', 'sendByClient');
+    });
+
+    Route::controller(ChatController::class)->group(function () {
         Route::post('/chat', 'sendByClient');
     });
 

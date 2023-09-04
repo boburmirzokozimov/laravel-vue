@@ -50,7 +50,7 @@ const handleButton = () => {
                                         v-text="balance_request.sum"
                                     ></td>
                                 </tr>
-                                <tr v-if="balance_request.type !== 'USDT'" class="border-b">
+                                <tr v-if="balance_request.type === 'USDT'" class="border-b">
                                     <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                                         scope="col">
                                         Валюта
@@ -134,7 +134,9 @@ const handleButton = () => {
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
                                     >
-                                        <button class="btn-success" @click="handleButton">Подтвердить</button>
+                                        <button class="btn-success" @click="handleButton">
+                                            <i class="fa fa-check text-white"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -152,6 +154,8 @@ const handleButton = () => {
 <style lang="scss" scoped>
 .modal {
     @apply fixed top-0 w-1/3 bg-white px-4 py-6 rounded-xl z-20;
-    transform: translate(-85%, 50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 </style>

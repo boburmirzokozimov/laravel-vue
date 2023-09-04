@@ -130,6 +130,7 @@ class ClientController extends Controller
                     return [
                         'id' => $balance->id,
                         'client_id' => $balance->client_id,
+                        'invoice_file' => $balance?->invoice_file,
                         'contact' => $balance->contact,
                         'country' => $balance->country,
                         'currency' => $balance->currency,
@@ -188,6 +189,7 @@ class ClientController extends Controller
                     ];
                 }),
             'credit_cards' => $client->creditCard()
+                ->with('credit_card_request')
                 ->get()
                 ->map(function ($credit_card) {
                     return [
@@ -196,6 +198,12 @@ class ClientController extends Controller
                         'credit_card_request_id' => $credit_card->credit_card_request_id,
                         'balance' => $credit_card->balance,
                         'owner_name' => $credit_card->owner_name(),
+                        'name' => $credit_card->credit_card_request?->name,
+                        'surname' => $credit_card->credit_card_request?->surname,
+                        'middle_name' => $credit_card->credit_card_request?->middle_name,
+                        'anonymous' => $credit_card->credit_card_request?->anonymous,
+                        'anonymous_name' => $credit_card->credit_card_request?->anonymous_name,
+                        'anonymous_surname' => $credit_card->credit_card_request?->anonymous_surname,
                         'card_number' => $credit_card->card_number,
                         'expire_date' => $credit_card->expire_date,
                     ];

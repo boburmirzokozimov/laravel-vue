@@ -54,12 +54,19 @@ class CreditCardController extends Controller
 
     public function update(CreditCardRequest $cardRequest, CreditCard $card)
     {
-        $card->update([
-            'card_number' => $cardRequest->validated('card_number'),
-            'expire_date' => $cardRequest->validated('expire_date'),
-        ]);
-
-        $card->save();
+        DB::transaction(function () use ($card, $cardRequest) {
+            $card->update([
+                'card_number' => $cardRequest->validated('card_number'),
+                'expire_date' => $cardRequest->validated('expire_date'),
+            ]);
+            $card->credit_card_request()->update([
+                'name' => $cardRequest->validated('name'),
+                'surname' => $cardRequest->validated('surname'),
+                'middle_name' => $cardRequest->validated('middle_name'),
+                'anonymous_name' => $cardRequest->validated('anonymous_name'),
+                'anonymous_surname' => $cardRequest->validated('anonymous_surname'),
+            ]);
+        });
 
         return back();
     }

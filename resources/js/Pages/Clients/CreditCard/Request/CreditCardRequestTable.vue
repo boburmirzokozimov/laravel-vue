@@ -116,16 +116,17 @@ const closeModal = () => {
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                             >
-                                <div class="flex flex-col justify-around">
+                                <div class="">
                                     <button
-                                        class=" btn-edit "
+                                        class=" btn-edit mr-2"
                                         @click="()=>handleButton(credit_card_request.id)">
-                                        Редактировать
+                                        <i class="fa fa-edit text-white"></i>
                                     </button>
                                     <button
                                         v-if="$page.props.is_manager"
                                         class="mt-1 btn-success"
-                                        @click="()=>handleActivateButton(credit_card_request.id)">Активоровать
+                                        @click="()=>handleActivateButton(credit_card_request.id)">
+                                        <i class="fa fa-check text-white"></i>
                                     </button>
                                 </div>
                                 <Modal v-if="active && credit_card_request.id === show" @close="closeModal"/>

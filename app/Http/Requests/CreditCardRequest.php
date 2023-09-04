@@ -26,7 +26,12 @@ class CreditCardRequest extends FormRequest
             'card_number' => 'required|numeric|min:16',
             'expire_date' => 'required|string',
             'client_id' => 'required|exists:clients,id',
-            'credit_card_request_id' => 'required|exists:credit_card_requests,id'
+            'credit_card_request_id' => 'required|exists:credit_card_requests,id',
+            'name' => 'string|nullable',
+            'anonymous_name' => 'string|nullable',
+            'surname' => 'string|nullable',
+            'anonymous_surname' => 'string|nullable',
+            'middle_name' => 'string|nullable',
         ];
     }
 }

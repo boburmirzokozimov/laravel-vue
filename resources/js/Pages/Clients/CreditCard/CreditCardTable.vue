@@ -3,7 +3,6 @@
 import {ref} from "vue";
 import Modal from "@/Components/Modal.vue";
 import EditCreditCard from "@/Pages/Clients/CreditCard/EditCreditCard.vue";
-import NavLink from "@/Components/NavLink.vue";
 
 const active = ref(false)
 const show = ref(null)
@@ -31,23 +30,22 @@ const closeModal = () => {
                     <table class="min-w-full">
                         <thead class="bg-gray-200 border-b">
                         <tr>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 " scope="col">
                                 #
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 " scope="col">
                                 Владелец
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 " scope="col">
                                 Баланс
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 " scope="col">
                                 Номер Карты
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 " scope="col">
                                 Cрок Действия
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                Действие
+                            <th class="text-sm font-medium text-gray-900 px-6 py-4 " scope="col">
                             </th>
                         </tr>
                         </thead>
@@ -79,18 +77,18 @@ const closeModal = () => {
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                             >
-                                <div class="flex flex-col justify-around">
+                                <div class="">
                                     <button
                                         class=" btn-edit "
                                         @click="()=>handleButton(credit_card.id)">
-                                        Редактировать
+                                        <i class="fa fa-edit text-white"></i>
                                     </button>
-                                    <NavLink
-                                        :href="`/credit-cards/${credit_card.id}/manage`"
-                                        as="button"
-                                        class="mt-1 btn-success"
-                                    >Пополнения карт VISA
-                                    </NavLink>
+                                    <!--                                    <NavLink-->
+                                    <!--                                        :href="`/credit-cards/${credit_card.id}/manage`"-->
+                                    <!--                                        as="button"-->
+                                    <!--                                        class="mt-1 btn-success"-->
+                                    <!--                                    >Пополнения карт VISA-->
+                                    <!--                                    </NavLink>-->
                                 </div>
                                 <Modal v-if="active && 'edit_card_'+credit_card.id === show"
                                        @close="closeModal"/>

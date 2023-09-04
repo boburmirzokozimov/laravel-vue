@@ -67,7 +67,7 @@ Route::middleware('auth')->group(function () {
         ->name('credit-cards.create');
 
     Route::post('credit-cards/{creditCard}/manage', [CreditCardController::class, 'manage'])
-        ->name('credit-cards.update');
+        ->name('credit-card.update');
 
     Route::patch('credit-cards/{creditCard}/manage/{balanceRequest}', [CreditCardController::class, 'accept'])
         ->name('credit-cards.accept');

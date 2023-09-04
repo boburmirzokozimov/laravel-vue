@@ -16,17 +16,17 @@ i {
 }
 
 .btn-edit {
-    @apply px-4 py-2 bg-blue-700 rounded text-white
+    @apply px-4 py-2 bg-blue-500 rounded text-white
 }
 
 .btn-danger {
-    @apply px-4 py-2  bg-red-700 rounded text-white
+    @apply px-4 py-2  bg-red-500 rounded text-white
 }
 
 .btn-success {
-    @apply px-4 py-2 bg-green-600 rounded text-white
+    @apply px-4 py-2 bg-green-500 rounded text-white
 }
 
 .btn-secondary {
-    @apply px-4 py-2 bg-gray-600 rounded text-white
+    @apply px-4 py-2 bg-gray-500 rounded text-white
 }
