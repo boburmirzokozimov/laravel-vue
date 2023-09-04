@@ -61,7 +61,7 @@ const handleSubmit = () => {
 
   <main class="flex justify-center items-center min-h-screen">
     <section class="max-w-full mx-auto px-4 base_color">
-      <form class="border px-6 py-4 rounded-2xl " method="post"
+      <form class="border px-6 py-4 rounded-2xl w-[500px]" method="post"
             style="background-color: #3e444a;"
             @submit.prevent="handleSubmit">
         <h1 v-if="!is_submitted" class="mb-6">Enter your phone number</h1>
