@@ -123,7 +123,7 @@ const closeModal = () => {
                 </button>
                 <button v-if="user.id !== $page.props.auth.user.id" class="btn-danger"
                         @click.prevent="()=>handleDelete(user.id)">
-                  <i class="fa fa-delete text-white"></i>
+                  <i class="fa fa-remove text-white"></i>
                 </button>
                 <Modal v-if="active && user.id === show" @close="closeModal"/>
                 <Edit v-if="active && user.id === show" :countries="props.countries" :user="user"
