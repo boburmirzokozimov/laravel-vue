@@ -28,10 +28,11 @@ class ChatRoomController extends Controller
 
     public function history(ChatRoom $chatRoom)
     {
+        $perPage = \Illuminate\Support\Facades\Request::input('per_page');
         return response()->json([
             'messages' => $chatRoom
                 ->messages()
-                ->simplePaginate(10)
+                ->simplePaginate($perPage ?? 10)
                 ->through(function ($chat) {
                     return [
                         'message' => $chat->message,

@@ -39,6 +39,9 @@ const dataCards = ref([
         name: "Cards",
     },
     {
+        name: "Replenishment",
+    },
+    {
         name: "Requests",
     },
     {
@@ -122,7 +125,9 @@ const innerShow = ref('')
         </div>
 
         <!--        Cards Table-->
-        <div class="cards">
+        <div
+            v-if="show ==='CARDS'"
+            class="cards">
             <div v-show="props.credit_cards.length && innerShow === 'Cards'" class="mb-6">
                 <div class="flex justify-start">
                     <h1 class="mb-6">Выпущенные карты</h1>
@@ -149,10 +154,20 @@ const innerShow = ref('')
                 <CreditCardRequestTableAnonymous
                     :credit_card_requests_anonymous="props.credit_card_requests_anonymous"/>
             </div>
+
+            <div v-if="props.credit_card_transactions.length && innerShow === 'Replenishment'" class="mb-6">
+                <div class="flex justify-start">
+                    <h1 class="mb-6">Таблица заявок на Пополнения карт VISA</h1>
+                </div>
+                <CreditCardDepositTable :credit_card_transactions="props.credit_card_transactions"
+                                        :transaction_statuses="props.transaction_statuses"/>
+            </div>
         </div>
 
         <!--        Balance Table-->
-        <div class="balance">
+        <div
+            v-if="show ==='BALANCE'"
+            class="balance">
             <div v-if="props.balance_request && show === 'BALANCE'" class="mb-6">
                 <div class="flex justify-between">
                     <h1 class="mb-6"> Таблица заявок на пополнение и списание баланса</h1>
