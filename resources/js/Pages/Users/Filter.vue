@@ -1,5 +1,5 @@
 <script setup>
-import {ref, watch} from "vue";
+import {watch} from "vue";
 import {debounce} from "lodash";
 import {router, useForm} from "@inertiajs/vue3";
 
@@ -33,8 +33,8 @@ watch(filter, debounce(function (filter) {
 </script>
 
 <template>
-    <div class="flex">
-        <div class="w-1/4 mr-2">
+    <div class="justify-center flex">
+        <div class="w-1/5 mr-2">
             <input
                 id="search"
                 v-model="filter.full_name"
@@ -43,7 +43,7 @@ watch(filter, debounce(function (filter) {
                 placeholder="Name..."
                 type="search">
         </div>
-        <div class="w-1/4 mr-2">
+        <div class="w-1/5 mr-2">
             <input
                 id="search"
                 v-model="filter.phone"
@@ -52,7 +52,7 @@ watch(filter, debounce(function (filter) {
                 placeholder="Phone..."
                 type="search">
         </div>
-        <div class="w-1/4 mr-2">
+        <div class="w-1/5 mr-2">
             <select id="category" v-model="filter.role" class="h-full border border-gray-200 p-2 w-full rounded-2xl"
                     name="category"
                     required>
@@ -60,7 +60,7 @@ watch(filter, debounce(function (filter) {
                 <option v-for="role in props.roles" :value="role.id" v-text="role.name.toUpperCase()"></option>
             </select>
         </div>
-        <div class="w-1/4 ">
+        <div class="w-1/5 ">
             <select id="country" v-model="filter.country" class="h-full border border-gray-200 p-2 w-full rounded-2xl"
                     name="country"
                     required>
