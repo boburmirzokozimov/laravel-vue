@@ -9,6 +9,8 @@ import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
 import {InertiaProgress} from "@inertiajs/progress";
 import Layout from "@/Shared/Layout.vue";
 import Toaster from '@meforma/vue-toaster';
+import 'vue-tel-input/vue-tel-input.css';
+import {VueTelInput} from "vue-tel-input";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -30,6 +32,7 @@ createInertiaApp({
             .use(plugin)
             .component('Head', Head)
             .component('Link', Link)
+            .component('vue-tel-input', VueTelInput)
             .use(ZiggyVue)
             .use(Toaster)
             .mount(el);

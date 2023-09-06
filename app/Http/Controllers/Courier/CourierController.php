@@ -29,7 +29,7 @@ class CourierController extends Controller
                         'lastSeen' => Carbon::create($courier->last_visited)->diffForHumans(),
                     ]
                     ),
-                'countries' => Country::all()
+                'countries' => Country::where('id', '>', 250)->get()
             ]);
     }
 

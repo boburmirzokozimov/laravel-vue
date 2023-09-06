@@ -15,7 +15,6 @@ class CountrySeeder extends Seeder
         $data = json_decode(file_get_contents('countries.json', true), true);
         $new[] = [];
         $new = array_map(function ($country) {
-            $new['name_native'] = $country['name']['nativeName'] ?? null;
             $new['name_common'] = $country['name']['common'];
             $new['name_official'] = $country['name']['official'];
             $new['name'] = $country['translations']['rus']['common'];
@@ -25,7 +24,6 @@ class CountrySeeder extends Seeder
 
         foreach ($new as $key => $value) {
             Country::create([
-                'name_native' => $value['name_native'],
                 'name_common' => $value['name_common'],
                 'name_official' => $value['name_official'],
                 'name' => $value['name'],

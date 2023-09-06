@@ -1,9 +1,10 @@
 <script setup>
 import {Head, useForm} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
-import 'vue-tel-input/vue-tel-input.css';
 import NavLink from "@/Components/NavLink.vue";
-import {vMaska} from "maska"
+import {computed} from "vue";
+import {vMaska} from "maska";
+import {telMasks} from "@/telMask.js";
 
 const toaster = createToaster({ /* options */});
 
@@ -17,6 +18,11 @@ let form = useForm({
   phone: '',
   country: '',
   role: '',
+  tel_type: 'RU'
+})
+
+const generateMask = computed(() => {
+  return telMasks[form.tel_type]
 })
 
 const handleSubmit = () => {
@@ -71,32 +77,44 @@ const handleSubmit = () => {
         />
         <div v-if="form.errors.full_name" class="text-red-500 text-sm">{{ form.errors.full_name }}</div>
       </div>
-      <!--            <div class="mb-6">-->
-      <!--                <vue-tel-input-->
-      <!--                    v-model="form.phone"-->
-      <!--                    :onlyCountries="['UZ','RU','US']"-->
-      <!--                    autoFormat-->
-      <!--                    autocomplete-->
-      <!--                    inputClasses="border border-gray-200 p-2 w-full rounded-2xl"-->
-      <!--                    wrapperClasses="border border-gray-200 p-2 w-full rounded-2xl"></vue-tel-input>-->
-      <!--            </div>-->
+      <!--      <div class="mb-6">-->
+      <!--        <vue-tel-input-->
+      <!--            v-model="form.phone"-->
+      <!--            :onlyCountries="['UZ','RU','US']"-->
+      <!--            autocomplete-->
+      <!--            dropdownOptions.showDialCodeInSelection-->
+      <!--            dropdownOptions.showFlags-->
+      <!--            inputClasses="border border-gray-200 p-2 w-full rounded-2xl"-->
+      <!--            mode="international"-->
+      <!--            wrapperClasses="border border-gray-200 p-2 w-full rounded-2xl"/>-->
+      <!--      </div>-->
       <div class="mb-6">
         <label
             class="block mb-2 uppercase font-bold text-sm text-gray-700"
-            for="email"
+            for="phone"
         >
           Phone
         </label>
+        <div class="flex">
+          <select
+              id=""
+              v-model="form.tel_type"
+              class="border border-gray-200 p-2 w-2/12 rounded-bl-2xl rounded-tl-2xl " name="">
+            <option value="RU">RU</option>
+            <option value="US">US</option>
+          </select>
+          <input
+              id="phone"
+              v-model="form.phone"
+              v-maska
+              :data-maska="generateMask"
+              :placeholder="generateMask"
+              class="border border-gray-200 p-2 w-full rounded-br-2xl rounded-tr-2xl"
+              name="phone"
+              type="text"
+          />
+        </div>
 
-        <input
-            id="email"
-            v-model="form.phone"
-            v-maska
-            class="border border-gray-200 p-2 w-full rounded-2xl"
-            data-maska="+998 (##) ###-##-##"
-            name="email"
-            type="text"
-        />
         <div v-if="form.errors.phone" class="text-red-500 text-sm">{{ form.errors.phone }}</div>
       </div>
 

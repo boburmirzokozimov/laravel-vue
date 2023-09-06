@@ -124,8 +124,10 @@ class ClientController extends Controller
                     'last_visited',
                 ]),
             'balance_request' => $client->balanceRequest()
-                ->where('status', StatusEnumType::HOLD->name)
-                ->orWhere('status', StatusEnumType::WAITING->name)
+                ->where(function ($query) {
+                    $query->where('status', StatusEnumType::HOLD->name)
+                        ->orWhere('status', StatusEnumType::WAITING->name);
+                })
                 ->orderBy('id')
                 ->get()
                 ->map(function ($balance) {
@@ -156,8 +158,10 @@ class ClientController extends Controller
                 StatusEnumType::VERIFICATION->name => StatusEnumType::VERIFICATION->name,
             ],
             'credit_card_requests' => $client->creditCardRequest()
-                ->where('status', CreditCardStatusEnumType::PENDING->name)
-                ->where('anonymous', false)
+                ->where(function ($query) {
+                    $query->where('status', CreditCardStatusEnumType::PENDING->name)
+                        ->where('anonymous', false);
+                })
                 ->get()
                 ->map(function ($cardRequest) {
                     return [
@@ -177,8 +181,10 @@ class ClientController extends Controller
                     ];
                 }),
             'credit_card_requests_anonymous' => $client->creditCardRequest()
-                ->where('status', CreditCardStatusEnumType::PENDING->name)
-                ->where('anonymous', true)
+                ->where(function ($query) {
+                    $query->where('status', CreditCardStatusEnumType::PENDING->name)
+                        ->where('anonymous', true);
+                })
                 ->get()
                 ->map(function ($cardRequest) {
                     return [
