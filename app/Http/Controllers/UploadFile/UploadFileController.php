@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\UploadFile;
 
-use App\Events\MessageSent;
+use Alexusmai\Centrifugo\Centrifugo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UploadFile\UploadFileRequestForm;
 use App\Services\UploadService;
 use Auth;
+use GuzzleHttp\Exception\GuzzleException;
 
 class UploadFileController extends Controller
 {
@@ -14,7 +15,10 @@ class UploadFileController extends Controller
     {
     }
 
-    public function __invoke(UploadFileRequestForm $request)
+    /**
+     * @throws GuzzleException
+     */
+    public function __invoke(UploadFileRequestForm $request, Centrifugo $centrifugo)
     {
         $credentials = $request->validated();
         $credentials['message'] = $this->uploadService->uploadMessage($request->validated('message'));
@@ -24,7 +28,13 @@ class UploadFileController extends Controller
             ->messages()
             ->create($credentials);
 
-        event(new MessageSent($client, $message));
+        $chat_room_id = $request->validated('chat_room_id');
+
+        $centrifugo->publish('finHelpRooms.' . $chat_room_id, [
+            'client' => $client,
+            'chat_room_id' => $chat_room_id,
+            'message' => $message
+        ]);
 
         return back();
     }

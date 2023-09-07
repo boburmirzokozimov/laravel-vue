@@ -25,7 +25,7 @@ class UploadFileRequestForm extends FormRequest
         return [
             'message' => 'file',
             'chat_room_id' => 'integer|required|exists:chat_rooms,id',
-            'type' => 'string|required|in:image,audio,video,doc'
+            'type' => 'required|in:image,audio,video,doc,pdf'
         ];
     }
 }

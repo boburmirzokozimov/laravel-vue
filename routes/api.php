@@ -23,7 +23,6 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::controller(ChatRoomController::class)->group(function () {
         Route::post('/chat-room', 'store');
         Route::get('/chat-room/{chatRoom}', 'history');
-        Route::get('/example', 'example');
     });
 
     Route::controller(ChatController::class)->group(function () {

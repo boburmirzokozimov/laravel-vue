@@ -11,7 +11,7 @@ let file = ref(null)
 let isFile = ref(false)
 
 const form = useForm({
-    message: '',
+    message: null,
     chat_room_id: props.chat_room_id,
     type: ''
 })
@@ -19,7 +19,7 @@ const form = useForm({
 const handleMessage = () => {
     if (isFile.value) {
         console.log(file.value['type'])
-        form.type = file.value['type'] === 'image/png' ? 'image' : ''
+        form.type = file.value['type'] === 'image/png' ? 'image' : 'pdf'
         router.post('/uploadFile', {
             message: file.value,
             chat_room_id: props.chat_room_id,

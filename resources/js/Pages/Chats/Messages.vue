@@ -53,6 +53,14 @@ const getType = (type) => {
                         Открыть Файл
                     </a>
                 </div>
+                <div v-if="message.type ==='pdf'">
+                    <a
+                        :href="`/storage/${message.message}`"
+                        class="rounded-lg bg-gray-200 px-4 py-1"
+                        target="_blank">
+                        Открыть Файл
+                    </a>
+                </div>
                 <div
                     v-if="!message.type"
                     v-text="message.message"
