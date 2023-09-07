@@ -5,7 +5,7 @@ getToken()
 
 const baseUrl = import.meta.env.VITE_CENTRIFUGO_ENDPOINT
 
-window.Centrifugo = new Centrifuge('ws://socket.sab-lab.com/connection/websocket', {
+window.Centrifugo = new Centrifuge('wss://socket.sab-lab.com/connection/websocket', {
     token: localStorage.getItem('token'),
     debug: true
 })
