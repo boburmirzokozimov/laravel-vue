@@ -3,7 +3,9 @@ import axios from "axios";
 
 getToken()
 
-window.Centrifugo = new Centrifuge('ws://localhost:8003/connection/websocket', {
+const baseUrl = import.meta.env.VITE_CENTRIFUGO_ENDPOINT
+
+window.Centrifugo = new Centrifuge(baseUrl + '/connection/websocket', {
     token: localStorage.getItem('token'),
     debug: true
 })
