@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MessageFormRequest;
 use App\Models\Client\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
@@ -32,6 +33,15 @@ class ChatController extends Controller
 
         return response()->json([
             'data' => 'Successfully sent'
+        ]);
+    }
+
+    public function getToken(Centrifugo $centrifugo, Request $request)
+    {
+        $client = Client::findByToken($request->bearerToken())->first();
+
+        return response()->json([
+            'token' => $centrifugo->generateConnectionToken($client->id, channels: ['finHelpRooms'])
         ]);
     }
 }

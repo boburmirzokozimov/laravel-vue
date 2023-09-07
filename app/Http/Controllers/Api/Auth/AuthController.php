@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
+use Alexusmai\Centrifugo\Centrifugo;
 use App\Http\Controllers\Controller;
 use App\Models\Client\Client;
 use App\Repositories\ClientRepository;
@@ -48,7 +49,7 @@ class AuthController extends Controller
         return $this->tokenService->refreshTokens($request);
     }
 
-    public function me(Request $request)
+    public function me(Request $request, Centrifugo $centrifugo)
     {
         $client = $this->clientRepository->findByToken($request->bearerToken());
 
@@ -59,14 +60,16 @@ class AuthController extends Controller
                 'show_id' => $client->show_id,
                 'status' => $client->isActive(),
                 'balance' => $client->balance,
-                'phone' => $client->phone
+                'phone' => $client->phone,
+                'chat_token' => $centrifugo->generateConnectionToken($client->id, channels: ['finHelpRooms'])
             ];
         } else {
             $credentials = [
                 'id' => $client->id,
                 'name' => $client->full_name,
                 'show_id' => $client->show_id,
-                'status' => $client?->isActive()
+                'status' => $client?->isActive(),
+                'chat_token' => $centrifugo->generateConnectionToken($client->id, channels: ['finHelpRooms'])
             ];
         }
 

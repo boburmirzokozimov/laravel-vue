@@ -27,6 +27,7 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     });
 
     Route::controller(ChatController::class)->group(function () {
+        Route::get('/getToken', 'getToken');
         Route::post('/chat', 'sendByClient');
     });
 
