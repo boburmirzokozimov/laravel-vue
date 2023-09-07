@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Chat;
 
-use App\Events\MessageSent;
+use Alexusmai\Centrifugo\Centrifugo;
 use App\Events\MessageSentByClient;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MessageFormRequest;
 use App\Models\Chat\ChatRoom;
 use App\Models\Client\Client;
+use Auth;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
@@ -32,13 +34,22 @@ class ChatController extends Controller
         ]);
     }
 
-    public function send(MessageFormRequest $request, Client $client): RedirectResponse
+    /**
+     * @throws GuzzleException
+     */
+    public function send(MessageFormRequest $request, Client $client, Centrifugo $centrifugo): RedirectResponse
     {
         $message = $request->user()
             ->messages()
             ->create($request->validated());
 
-        event(new MessageSent($client, $request->validated('chat_room_id'), $message));
+        $chat_room_id = $request->validated('chat_room_id');
+        
+        $centrifugo->publish('finHelpRooms.' . $chat_room_id, [
+            'client' => $client,
+            'chat_room_id' => $chat_room_id,
+            'message' => $message
+        ]);
 
         return back();
     }
@@ -59,5 +70,12 @@ class ChatController extends Controller
         $chatRoom->toggleCompletion();
 
         return back();
+    }
+
+    public function getToken(Centrifugo $centrifugo)
+    {
+        return response()->json([
+            'token' => $centrifugo->generateConnectionToken(Auth::id(), channels: ['finHelpRooms'])
+        ]);
     }
 }

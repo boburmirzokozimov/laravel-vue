@@ -2,6 +2,7 @@
 
 namespace App\Models\Client;
 
+use App\Models\Chat\ChatRoom;
 use App\Models\Chat\Message;
 use App\Models\Client\CreditCard\CardTransaction;
 use App\Models\Client\CreditCard\CreditCard;
@@ -17,6 +18,7 @@ use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Carbon;
@@ -237,5 +239,10 @@ class Client extends Authenticatable
     public function cryptoTransactions()
     {
         return $this->metalAndCryptoCurrencyTransactions()->where('type', 2)->paginate();
+    }
+
+    public function chatRoom(): HasOne
+    {
+        return $this->hasOne(ChatRoom::class);
     }
 }

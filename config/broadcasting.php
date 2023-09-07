@@ -61,6 +61,18 @@ return [
         'null' => [
             'driver' => 'null',
         ],
+        'centrifugo' => [
+            'driver' => 'centrifugo',
+            'token_hmac_secret_key' => env('CENTRIFUGO_TOKEN_HMAC_SECRET_KEY', ''),
+            'api_key' => env('CENTRIFUGO_API_KEY', ''),
+            'url' => env('CENTRIFUGO_URL', 'http://localhost:8000'), // centrifugo api url
+            'verify' => env('CENTRIFUGO_VERIFY', false), // Verify host ssl if centrifugo uses this
+            'ssl_key' => env('CENTRIFUGO_SSL_KEY', null), // Self-Signed SSl Key for Host (require verify=true)
+            'use_namespace' => env('CENTRIFUGO_USE_NAMESPACE', false),
+            'default_namespace' => env('CENTRIFUGO_DEFAULT_NAMESPACE', 'default:'),
+            'private_namespace' => env('CENTRIFUGO_PRIVATE_NAMESPACE', 'private:'),
+            'presence_namespace' => env('CENTRIFUGO_PRESENCE_NAMESPACE', 'presence:'),
+        ],
 
     ],
 

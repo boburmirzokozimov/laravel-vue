@@ -4,11 +4,9 @@ namespace App\Services;
 
 use App\Models\Client\Client;
 use App\Repositories\TokenRepository;
-use Config;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use ReallySimpleJWT\Token;
-use function Laravel\Prompts\search;
 
 class TokenService
 {

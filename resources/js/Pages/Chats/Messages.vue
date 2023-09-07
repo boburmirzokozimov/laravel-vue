@@ -1,15 +1,20 @@
 <script setup>
 import Create from "@/Pages/Chats/Create.vue";
+import {onBeforeUnmount} from "vue";
 
 const props = defineProps({
     chat_room: Object,
 })
+const sub = Centrifugo.newSubscription(`finHelpRooms.${props.chat_room.id}`);
 
-Echo.private(`chat.${props.chat_room.id}.${props.chat_room.client_id}`)
-    .listen('MessageSentByClient', (e) => {
-        props.chat_room.messages.push(JSON.parse(e.message))
-    });
 
+sub.subscribe();
+sub.on('publication', function (ctx) {
+    props.chat_room.messages.push(ctx.data.message)
+});
+onBeforeUnmount(() => {
+    Centrifugo.removeSubscription(sub);
+})
 const getType = (type) => {
     return type === 'App\\Models\\User\\User'
 }

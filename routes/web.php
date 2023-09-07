@@ -74,6 +74,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(ChatController::class)->group(function () {
         Route::get('/chat', 'index');
+        Route::get('/getToken', 'getToken');
         Route::post('/send/{client}', 'send');
         Route::post('/chat/{client}', 'sendByClient');
         Route::get('/chat/{chatRoom}', 'show');

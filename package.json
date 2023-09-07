@@ -23,6 +23,7 @@
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/vue3": "^1.0.9",
         "@meforma/vue-toaster": "^1.3.0",
+        "centrifuge": "^4.1.0",
         "font-awesome": "^4.7.0",
         "lodash": "^4.17.21",
         "maska": "^2.1.9",

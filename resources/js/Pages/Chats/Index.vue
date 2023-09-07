@@ -1,16 +1,19 @@
 <script setup>
 import ChatRooms from "@/Pages/Chats/ChatRooms.vue";
-
+import {onBeforeUnmount} from "vue";
 
 const props = defineProps({
     chat_rooms: Object
 })
 
-Echo.private(`room`)
-    .listen('ChatRoomCreated', (e) => {
-        props.chat_rooms.push(e.chatRoom)
-    });
-
+const sub = Centrifugo.newSubscription('finHelpRooms');
+sub.subscribe();
+sub.on('publication', function (ctx) {
+    props.chat_rooms.push(ctx.data.chatRoom)
+});
+onBeforeUnmount(() => {
+    Centrifugo.removeSubscription(sub);
+})
 </script>
 
 <template>

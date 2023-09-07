@@ -1,14 +1,17 @@
-import Pusher from 'pusher-js';
-import Echo from "laravel-echo"
+import {Centrifuge} from "centrifuge";
+import axios from "axios";
 
-window.Pusher = Pusher;
+getToken()
 
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: '1',
-    cluster: 'mt1',
-    wsHost: window.location.hostname,
-    wsPort: 6001,
-    wssPort: 443
-});
+window.Centrifugo = new Centrifuge('ws://localhost:8003/connection/websocket', {
+    token: localStorage.getItem('token'),
+    debug: true
+})
+Centrifugo.connect();
+
+function getToken() {
+    return axios.get('/getToken').then((data) => {
+        localStorage.setItem('token', data.data.token)
+    })
+}
 

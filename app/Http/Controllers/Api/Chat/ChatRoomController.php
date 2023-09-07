@@ -2,21 +2,26 @@
 
 namespace App\Http\Controllers\Api\Chat;
 
-use App\Events\ChatRoomCreated;
+use Alexusmai\Centrifugo\Centrifugo;
 use App\Http\Controllers\Controller;
 use App\Models\Chat\ChatRoom;
 use App\Models\Client\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
+use Illuminate\Http\Request as BaseRequest;
 
 class ChatRoomController extends Controller
 {
-    public function store(Request $request)
+    /**
+     * @throws GuzzleException
+     */
+    public function store(Request $request, Centrifugo $centrifugo)
     {
         $client = Client::findByToken($request->bearerToken())->first();
 
-        $chatRoom = ChatRoom::firstOrCreate(['client_id' => $client->id])->with('client')->first();
+        $chatRoom = $client->chatRoom()->firstOrCreate()->load('client');
 
-        event(new ChatRoomCreated($chatRoom));
+        $centrifugo->publish('finHelpRooms', ['chatRoom' => $chatRoom]);
 
         return response()->json([
             'data' => [
@@ -42,5 +47,22 @@ class ChatRoomController extends Controller
                     ];
                 })
         ]);
+    }
+
+
+    public function example(BaseRequest $request, Centrifugo $centrifugo)
+    {
+        dd($centrifugo->publish('news', ['message' => 'Channel Created']));
+        $client = Client::findByToken($request->bearerToken())->first();
+
+        $token = $centrifugo->generatePrivateChannelToken((string)$client->id, 'channel', time() + 5 * 60, [
+            'name' => $client->full_name,
+        ]);
+
+        return response()->json([
+            'token' => $token,
+        ]);
+        //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaW5mbyI6eyJuYW1lIjoiSGFycnkgUG90dGVyIn19.Dep1ey3sI5hQUOjvxwnQPQ0iY8fLas-297d5s-knRNw
+        //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaGFubmVsIjoiY2hhbm5lbCIsInN1YiI6IjEiLCJpbmZvIjp7Im5hbWUiOiJIYXJyeSBQb3R0ZXIifSwiZXhwIjoxNjk0MDY0NDcxfQ.tKHpgTf1MsKhURc2_JVkN8I4CLKcldQKZW8Xh8fV7w0
     }
 }

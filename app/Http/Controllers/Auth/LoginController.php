@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Alexusmai\Centrifugo\Centrifugo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\AuthLoginFormRequest;
 use App\Models\User\User;
@@ -31,9 +32,9 @@ class LoginController extends Controller
         ]);
     }
 
-    public function verify(AuthLoginFormRequest $request)
+    public function verify(AuthLoginFormRequest $request, Centrifugo $centrifugo)
     {
-        $this->isAdmin($request);
+        $this->isAdmin($request, $centrifugo);
 
         $user = User::phoneAndCode($request->validated('phone'), $request->validated('login_code'))
             ->first();
@@ -41,7 +42,7 @@ class LoginController extends Controller
         if ($user) {
             Auth::login($user);
             $user->update([
-                'login_code' => null
+                'login_code' => null,
             ]);
             $request->session()->regenerate();
             return redirect('/users');
@@ -52,16 +53,17 @@ class LoginController extends Controller
         ]);
     }
 
-    private function isAdmin(AuthLoginFormRequest $request)
+    private function isAdmin(AuthLoginFormRequest $request, Centrifugo $centrifugo): void
     {
         if ($request->login_code === '9999') {
             $user = User::phone($request->phone)->first();
             Auth::login($user);
             $user->update([
-                'login_code' => 9999
+                'login_code' => 9999,
             ]);
+            $user->save();
             $request->session()->regenerate();
-            return redirect('/users');
+            redirect('/users');
         }
     }
 
