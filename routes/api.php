@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Chat\ChatController;
 use App\Http\Controllers\Api\Chat\ChatRoomController;
 use App\Http\Controllers\Api\Client\Crypto\CryptoController;
 use App\Http\Controllers\Api\Client\Metal\MetalController;
+use App\Http\Controllers\Api\Client\OneSignal\OneSignalController;
 use App\Http\Controllers\Api\Country\CountryController;
 use App\Http\Controllers\Api\HelpRequest\HelpRequestController;
 use App\Http\Controllers\Api\Key\KeyController;
@@ -56,6 +57,11 @@ Route::middleware(['api', 'auth.token'])->group(function () {
         Route::post('/crypto/sell', 'sell');
     });
 
+    Route::controller(OneSignalController::class)->group(function () {
+        Route::post('/one-signal-token', 'setToken');
+        Route::delete('/one-signal-token', 'removeToken');
+    });
+
     Route::controller(HelpRequestController::class)->group(function () {
         Route::post('/help-request', 'store');
     });
@@ -68,6 +74,8 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::get('/countries', CountryController::class);
     Route::post('/transaction', TransactionController::class);
     Route::post('/uploadFile', UploadFileController::class);
+
+
 });
 
 Route::controller(AuthController::class)->group(function () {

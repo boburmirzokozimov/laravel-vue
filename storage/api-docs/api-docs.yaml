@@ -935,6 +935,34 @@ paths:
           description: Success
       security:
         - api_key_security_example: [ ]
+  /one-signal-token:
+    post:
+      tags:
+        - OneSignal
+      summary: Этот api для того чтобы установить OneSignal Token
+      operationId: oneSignalId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/OneSignalToken'
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+    delete:
+      tags:
+        - OneSignal
+      summary: Этот api для того чтобы удалить OneSignal Token
+      operationId: oneSignalId
+      responses:
+        '200':
+          description: Success
+      security:
+        - api_key_security_example: [ ]
+
 components:
   schemas:
     ReplenishByCASHcourier:
@@ -1103,6 +1131,11 @@ components:
           type: integer
         sum:
           type: integer
+    OneSignalToken:
+      type: object
+      properties:
+        one_signal_token:
+          type: string
 
   securitySchemes:
     api_key_security_example:
