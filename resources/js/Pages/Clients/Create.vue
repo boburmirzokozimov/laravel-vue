@@ -2,7 +2,7 @@
 import {Head, useForm} from "@inertiajs/vue3";
 import {vMaska} from "maska"
 import {createToaster} from "@meforma/vue-toaster";
-import {computed, onMounted} from "vue";
+import {onMounted} from "vue";
 import {telMasks} from "@/telMask.js";
 
 const toaster = createToaster({ /* options */});
@@ -12,12 +12,14 @@ let form = useForm({
     phone: '',
     comments: '',
     auth_key: '',
-    tel_type: 'RU'
+    tel_type: '',
+    generateMask: '',
 })
 
-const generateMask = computed(() => {
-    return telMasks[form.tel_type]
-})
+const handleChange = (e) => {
+    form.generateMask = e
+}
+
 onMounted(() => {
     function randomString(length, chars) {
         let result = '';
@@ -83,19 +85,17 @@ const handleSubmit = () => {
                     <select
                         id=""
                         v-model="form.tel_type"
-                        class="border border-gray-200 p-2 w-2/12 rounded-bl-2xl rounded-tl-2xl " name="">
-                        <option value="RU">RU</option>
-                        <option value="US">US</option>
-                        <option value="UAE">US</option>
-                        <option value="KG">KG</option>
-                        <option value="UZB">UZB</option>
+                        class="border border-gray-200 p-2 w-2/12 rounded-bl-2xl rounded-tl-2xl "
+                        name=""
+                        @change="(e)=>handleChange(e.target.value)">
+                        <option v-for="(key,value) in telMasks" :value="key" v-text="value"></option>
                     </select>
                     <input
                         id="phone"
                         v-model="form.phone"
                         v-maska
-                        :data-maska="generateMask"
-                        :placeholder="generateMask"
+                        :data-maska="form.generateMask"
+                        :placeholder="form.generateMask"
                         class="border border-gray-200 p-2 w-full rounded-br-2xl rounded-tr-2xl"
                         name="phone"
                         type="text"
