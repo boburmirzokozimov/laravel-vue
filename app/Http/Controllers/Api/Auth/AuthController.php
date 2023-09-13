@@ -61,7 +61,7 @@ class AuthController extends Controller
                 'status' => $client->isActive(),
                 'balance' => $client->balance,
                 'phone' => $client->phone,
-                'chat_token' => $centrifugo->generateConnectionToken($client->id, channels: ['finHelpRooms'])
+                'chat_token' => $centrifugo->generateConnectionToken($client->id)
             ];
         } else {
             $credentials = [
@@ -69,7 +69,7 @@ class AuthController extends Controller
                 'name' => $client->full_name,
                 'show_id' => $client->show_id,
                 'status' => $client?->isActive(),
-                'chat_token' => $centrifugo->generateConnectionToken($client->id, channels: ['finHelpRooms'])
+                'chat_token' => $centrifugo->generateConnectionToken($client->id)
             ];
         }
 

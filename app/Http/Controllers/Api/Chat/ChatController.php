@@ -41,7 +41,7 @@ class ChatController extends Controller
         $client = Client::findByToken($request->bearerToken())->first();
 
         return response()->json([
-            'token' => $centrifugo->generateConnectionToken($client->id, channels: ['finHelpRooms'])
+            'token' => $centrifugo->generateConnectionToken($client->id)
         ]);
     }
 }
