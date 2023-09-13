@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Chat;
 
 use Alexusmai\Centrifugo\Centrifugo;
-use App\Events\MessageSentByClient;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MessageFormRequest;
 use App\Models\Chat\ChatRoom;
@@ -45,22 +44,11 @@ class ChatController extends Controller
 
         $chat_room_id = $request->validated('chat_room_id');
 
-        $centrifugo->publish('finHelpRooms.' . $chat_room_id, [
+        $centrifugo->publish('finHelp:chat#' . $client->id, [
             'client' => $client,
             'chat_room_id' => $chat_room_id,
             'message' => $message
         ]);
-
-        return back();
-    }
-
-    public function sendByClient(MessageFormRequest $request, Client $client): RedirectResponse
-    {
-        $message = $client
-            ->messages()
-            ->create($request->validated());
-
-        event(new MessageSentByClient($client, $request->validated('chat_room_id'), $message));
 
         return back();
     }

@@ -25,7 +25,7 @@ class ChatRoomController extends Controller
 
         return response()->json([
             'data' => [
-                'message' => 'Successfully sent',
+                'message' => 'Successfully created chat room',
                 'chat_room_id' => $chatRoom->id
             ]
         ]);

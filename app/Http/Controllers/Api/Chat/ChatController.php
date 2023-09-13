@@ -25,7 +25,7 @@ class ChatController extends Controller
 
         $chat_room_id = $request->validated('chat_room_id');
 
-        $centrifugo->publish('finHelpRooms.' . $chat_room_id, [
+        $centrifugo->publish('finHelp:chat#' . $client->id, [
             'client' => $client,
             'chat_room_id' => $chat_room_id,
             'message' => $message
