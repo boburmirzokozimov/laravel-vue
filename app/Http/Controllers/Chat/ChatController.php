@@ -44,7 +44,7 @@ class ChatController extends Controller
             ->create($request->validated());
 
         $chat_room_id = $request->validated('chat_room_id');
-        
+
         $centrifugo->publish('finHelpRooms.' . $chat_room_id, [
             'client' => $client,
             'chat_room_id' => $chat_room_id,
@@ -75,7 +75,7 @@ class ChatController extends Controller
     public function getToken(Centrifugo $centrifugo)
     {
         return response()->json([
-            'token' => $centrifugo->generateConnectionToken(Auth::id(), channels: ['finHelpRooms'])
+            'token' => $centrifugo->generateConnectionToken(Auth::id())
         ]);
     }
 }
