@@ -1,23 +1,28 @@
 <script>
 import {createToaster} from "@meforma/vue-toaster";
+import {telMasks} from "@/telMask.js";
 
 export default {
   layout: null
 }
 const toaster = createToaster({ /* options */});
-
 </script>
 
 <script setup>
 import {Head, useForm} from "@inertiajs/vue3";
 import {ref} from "vue";
 import {vMaska} from "maska"
+import {telMasks} from "@/telMask.js";
 
 let form = useForm({
   phone: "",
   login_code: "",
+  tel_type: '',
+  generateMask: '',
 })
-
+const handleChange = (e) => {
+  form.generateMask = e
+}
 const is_submitted = ref(false)
 
 const handleSubmit = () => {
@@ -66,24 +71,35 @@ const handleSubmit = () => {
             @submit.prevent="handleSubmit">
         <h1 v-if="!is_submitted" class="mb-6">Enter your phone number</h1>
         <h1 v-else class="mb-6">Enter your sms code</h1>
-
         <div v-if="!is_submitted" class="mb-6">
           <label
-              class="block mb-2 uppercase font-bold text-sm base_color"
+              class="block mb-2 uppercase font-bold text-sm text-gray-700"
               for="phone"
           >
             Phone
           </label>
-          <input
-              id="phone"
-              v-model="form.phone"
-              v-maska
-              class="border border-gray-200 p-2 w-full rounded-2xl text-black"
-              data-maska="+998 (##) ###-##-##"
-              name="phone"
-              required
-              type="text"
-          />
+          <div class="flex">
+            <select
+                id=""
+                v-model="form.tel_type"
+                class="border border-gray-200 p-2 w-2/12 rounded-bl-2xl rounded-tl-2xl text-gray-600"
+                name=""
+                @change="(e)=>handleChange(e.target.value)">
+              <option v-for="(key,value) in telMasks" :value="key" v-text="value"></option>
+
+            </select>
+            <input
+                id="phone"
+                v-model="form.phone"
+                v-maska
+                :data-maska="form.generateMask"
+                :placeholder="form.generateMask"
+                class="border border-gray-200 p-2 w-full rounded-br-2xl rounded-tr-2xl text-gray-600"
+                name="phone"
+                type="text"
+            />
+          </div>
+
           <div v-if="form.errors.phone" class="text-red-500 text-sm">{{ form.errors.phone }}</div>
         </div>
 
