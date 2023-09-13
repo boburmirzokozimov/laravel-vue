@@ -5,7 +5,7 @@ import {onBeforeUnmount} from "vue";
 const props = defineProps({
   chat_room: Object,
 })
-const sub = Centrifugo.newSubscription(`finHelp:chat#${props.chat_room.client_id}`);
+const sub = Centrifugo.newSubscription(`fin_help:chat#${props.chat_room.client_id}`);
 
 sub.subscribe();
 
