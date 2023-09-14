@@ -21,7 +21,7 @@ class ChatRoomController extends Controller
 
         $chatRoom = $client->chatRoom()->firstOrCreate()->load('client');
 
-        $centrifugo->publish('finHelpRooms', ['chatRoom' => $chatRoom]);
+        $centrifugo->publish('fin_help:chat', ['chatRoom' => $chatRoom]);
 
         return response()->json([
             'data' => [

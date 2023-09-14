@@ -6,7 +6,7 @@ const props = defineProps({
     chat_rooms: Object
 })
 
-const sub = Centrifugo.newSubscription('finHelpRooms');
+const sub = Centrifugo.newSubscription('fin_help:chat');
 sub.subscribe();
 sub.on('publication', function (ctx) {
     props.chat_rooms.push(ctx.data.chatRoom)
