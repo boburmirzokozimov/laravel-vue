@@ -40,6 +40,7 @@ createInertiaApp({
     title: (title) => `My app - ${title}`,
     progress: {
         color: '#12dc2a',
+        showSpinner: true
     },
 });
 
