@@ -21,7 +21,6 @@ class UploadFileController extends Controller
     public function __invoke(UploadFileRequestForm $request, Centrifugo $centrifugo)
     {
         $credentials = $request->validated();
-        dd($credentials['message']);
         $credentials['message'] = $this->uploadService->uploadMessage($request->validated('message'));
         $client = Client::findByToken($request->bearerToken())->first();
 
@@ -31,7 +30,7 @@ class UploadFileController extends Controller
 
         $chat_room_id = $request->validated('chat_room_id');
 
-        $centrifugo->publish('fin_help:chat#.' . $client->id, [
+        $centrifugo->publish('fin_help:chat#' . $client->id, [
             'client' => $client,
             'chat_room_id' => $chat_room_id,
             'message' => $message
