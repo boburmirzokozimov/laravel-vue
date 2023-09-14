@@ -22,7 +22,7 @@ class BranchController extends Controller
     {
         return Inertia::render('Branches/Index', [
             'branches' => Branch::query()
-                ->when(Request::input('country'), function ($query, string $search) {
+                ->when(Request::input('country_id'), function ($query, string $search) {
                     $query->where('country_id', $search);
                 })
                 ->paginate(10)
