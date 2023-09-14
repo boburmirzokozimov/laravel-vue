@@ -15,32 +15,28 @@ const form = useForm({
     chat_room_id: props.chat_room_id,
     type: ''
 })
-
-const handleMessage = () => {
-    if (isFile.value) {
-        console.log(file.value['type'])
-        form.type = file.value['type'] === 'image/png' ? 'image' : 'pdf'
-        router.post('/uploadFile', {
-            message: file.value,
-            chat_room_id: props.chat_room_id,
-            type: form.type
-        }, {
-            preserveScroll: true
-        })
-        file.value = ''
-        isFile = false
-    } else {
-        router.post('/send/' + props.client_id, {
-            message: form.message,
-            chat_room_id: form.chat_room_id,
-            client_id: props.client_id
-        }, {
-            preserveScroll: true
-        })
-        form.message = ''
-    }
+const handleFileButton = (event) => {
+    file = event.target.files[0]
+    form.type = file['type'] === 'image/png' ? 'image' : 'pdf'
+    router.post('/uploadFile', {
+        message: file,
+        chat_room_id: props.chat_room_id,
+        type: form.type
+    }, {
+        preserveScroll: true
+    })
+    file.value = ''
 }
-
+const handleMessage = () => {
+    router.post('/send/' + props.client_id, {
+        message: form.message,
+        chat_room_id: form.chat_room_id,
+        client_id: props.client_id
+    }, {
+        preserveScroll: true
+    })
+    form.message = ''
+}
 </script>
 
 <template>
@@ -53,7 +49,7 @@ const handleMessage = () => {
                         class=" absolute opacity-0 w-full h-full cursor-pointer"
                         name="file"
                         type="file"
-                        @input="file = $event.target.files[0];isFile = true"
+                        @input="(event) => handleFileButton(event)"
                     >
                     <button
                         class="btn-edit !bg-blue-400 "
