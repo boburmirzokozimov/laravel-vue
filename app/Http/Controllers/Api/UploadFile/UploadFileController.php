@@ -21,6 +21,7 @@ class UploadFileController extends Controller
     public function __invoke(UploadFileRequestForm $request, Centrifugo $centrifugo)
     {
         $credentials = $request->validated();
+        dd($credentials['message']);
         $credentials['message'] = $this->uploadService->uploadMessage($request->validated('message'));
         $client = Client::findByToken($request->bearerToken())->first();
 
