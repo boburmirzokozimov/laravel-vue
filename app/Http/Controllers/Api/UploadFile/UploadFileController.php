@@ -33,7 +33,7 @@ class UploadFileController extends Controller
         $centrifugo->publish('fin_help:chat#' . $client->id, [
             'client' => $client,
             'chat_room_id' => $chat_room_id,
-            'message' => '/storage/' . $message
+            'message' => $message
         ]);
 
         return response()->json([
