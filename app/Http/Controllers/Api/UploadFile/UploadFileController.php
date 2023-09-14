@@ -39,7 +39,7 @@ class UploadFileController extends Controller
         return response()->json([
             'message' => 'Success',
             'data' => [
-                'path' => $credentials['message'],
+                'path' => '/storage/' . $credentials['message'],
 //                'type' => $credentials['type'],
             ]
         ]);
