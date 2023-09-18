@@ -16,7 +16,7 @@ class TransactionController extends Controller
 {
     public function check()
     {
-        dd(BalanceRequest::all());
+        dd(BalanceRequest::find(108));
     }
 
     public function balance()
