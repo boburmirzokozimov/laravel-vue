@@ -30,7 +30,7 @@ class UploadFileController extends Controller
 
         $chat_room_id = $request->validated('chat_room_id');
 
-        $centrifugo->publish('fin_help:chat#.' . $client->id, [
+        $centrifugo->publish('fin_help:chat#' . $client->id, [
             'client' => $client,
             'chat_room_id' => $chat_room_id,
             'message' => $message

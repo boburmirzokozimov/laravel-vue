@@ -10,11 +10,13 @@ use App\Models\Client\Client;
 use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Models\Enum\CreditCardStatusEnumType;
 use App\Services\CreditCardService;
+use App\Services\OneSignalService;
 use Inertia\Inertia;
 
 class ManageCreditCardRequestController extends Controller
 {
-    public function __construct(private CreditCardService $cardService)
+    public function __construct(private readonly CreditCardService $cardService,
+                                private readonly OneSignalService  $oneSignalService)
     {
     }
 
@@ -44,7 +46,11 @@ class ManageCreditCardRequestController extends Controller
         $this->cardService->activate($request->validated());
 
         $cardRequest->update(['status' => CreditCardStatusEnumType::RELEASED]);
-
+        $content = [
+            'ru' => 'Ваша карта выпущена. ',
+            'en' => 'Your card has been released'
+        ];
+        $this->oneSignalService->send($client, 'card');
         return to_route('clients.show', ['client' => $client]);
     }
 
