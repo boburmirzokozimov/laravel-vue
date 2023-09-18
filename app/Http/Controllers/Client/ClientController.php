@@ -287,7 +287,8 @@ class ClientController extends Controller
     {
         $client->update($request->validated());
         if ($request->validated('is_active')) {
-            OneSignal::sendPush($client->one_signal_token, [
+            $fields['include_player_ids'] = [$client->one_signal_token];
+            OneSignal::sendPush($fields, [
                 'You have been activated'
             ]);
         }
