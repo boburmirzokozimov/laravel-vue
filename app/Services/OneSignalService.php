@@ -14,6 +14,6 @@ class OneSignalService
             'data' => ['meta' => $meta],
             'contents' => $content
         ];
-        dd(OneSignal::sendPush($fields));
+        OneSignal::sendPush($fields);
     }
 }
