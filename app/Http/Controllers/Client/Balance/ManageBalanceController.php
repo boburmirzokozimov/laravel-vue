@@ -7,6 +7,7 @@ use App\Http\Requests\ManageBalanceRequest;
 use App\Models\Client\BalanceRequest;
 use App\Models\Client\Client;
 use App\Models\Country\Country;
+use App\Services\OneSignalService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -42,11 +43,16 @@ class ManageBalanceController extends Controller
         return back();
     }
 
-    public function activate(Client $client, BalanceRequest $balanceRequest)
+    public function activate(Client $client, BalanceRequest $balanceRequest, OneSignalService $oneSignalService)
     {
         try {
             DB::beginTransaction();
             $client->activate($balanceRequest);
+            $content = [
+                'ru' => 'Ваша заявка на пополнения баланса одобрена.',
+                'en' => 'Your request to replenish your balance has been accepted'
+            ];
+            $oneSignalService->send($client, 'balance', $content);
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();

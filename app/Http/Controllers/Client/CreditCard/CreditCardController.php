@@ -15,7 +15,7 @@ use Throwable;
 
 class CreditCardController extends Controller
 {
-    public function __construct(private CreditCardService $service)
+    public function __construct(private readonly CreditCardService $service)
     {
     }
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MessageFormRequest;
 use App\Models\Chat\ChatRoom;
 use App\Models\Client\Client;
+use App\Services\OneSignalService;
 use Auth;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\RedirectResponse;
@@ -15,6 +16,10 @@ use Inertia\Inertia;
 
 class ChatController extends Controller
 {
+    public function __construct(private readonly OneSignalService $oneSignalService)
+    {
+    }
+
     public function index()
     {
         return Inertia::render('Chats/Index')->with([
@@ -49,6 +54,12 @@ class ChatController extends Controller
             'chat_room_id' => $chat_room_id,
             'message' => $message
         ]);
+
+        $contents = [
+            "ru" => 'У вас новое сообщение в чате.',
+            'en' => 'You have got a new message.'
+        ];
+        $this->oneSignalService->send($client, 'chat', $contents);
 
         return back();
     }

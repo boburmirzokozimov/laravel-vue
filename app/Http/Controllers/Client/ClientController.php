@@ -9,6 +9,7 @@ use App\Models\Enum\CreditCardStatusEnumType;
 use App\Models\Enum\StatusEnumType;
 use App\Models\Enum\TypeEnum;
 use App\Models\User\User;
+use App\Services\OneSignalService;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -282,40 +283,15 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateClientRequest $request, Client $client)
+    public function update(UpdateClientRequest $request, Client $client, OneSignalService $oneSignalService)
     {
         $client->update($request->validated());
         if ($request->validated('is_active')) {
-            $fields = [
-                'app_id' => "b78423b7-389c-4e4c-8c5c-7f409699272d",
-                'include_player_ids' => [$client?->one_signal_token],
-                'data' => ['meta' => 'profile'],
-                'contents' => [
-                    "ru" => 'Ваша учётная запись активирована',
-                    'en' => 'Your account has been activated'
-                ],
+            $contents = [
+                "ru" => 'Ваша учётная запись активирована',
+                'en' => 'Your account has been activated'
             ];
-
-            $fields = json_encode($fields);
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8',
-                'Authorization: Basic YTk4Y2NiZmMtZTU0MS00NmQwLTk1Y2YtZWE5M2RkNWJiMWE2'));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            curl_setopt($ch, CURLOPT_HEADER, FALSE);
-            curl_setopt($ch, CURLOPT_POST, TRUE);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-
-            dd(curl_exec($ch));
-            curl_close($ch);
-//            $fields['include_player_ids'] = [$client->one_signal_token];
-//            $fields['contents'] = array(
-//                "en" => 'English Message',
-//                "es" => 'Spanish Message',
-//            );
-//            OneSignal::sendPush($fields);
+            $oneSignalService->send($client, 'profile', $contents);
         }
         $client->save();
 

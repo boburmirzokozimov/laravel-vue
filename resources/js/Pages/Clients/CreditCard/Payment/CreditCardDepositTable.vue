@@ -119,7 +119,8 @@ const handleStatus = (event, id) => {
                                         class="mt-1 btn-success mx-auto w-1/2"
                                         type="button"
                                         @click="()=>handleButton(credit_card_transaction.credit_card_id,credit_card_transaction.id)"
-                                    >Подтвердить
+                                    >
+                                        <i class="fa fa-check text-white"></i>
                                     </button>
                                 </div>
                             </td>

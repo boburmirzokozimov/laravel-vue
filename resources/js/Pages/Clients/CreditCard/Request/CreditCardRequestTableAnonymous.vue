@@ -78,13 +78,14 @@ const closeModal = () => {
                                 <div class="flex">
                                     <button class="btn-edit w-1/2 mr-2"
                                             @click="()=>handleButton(credit_card_request.id)">
-                                        Редактировать
+                                        <i class="fa fa-edit text-white"></i>
                                     </button>
                                     <button
                                         v-if="$page.props.is_manager"
                                         class=" btn-success w-1/2"
                                         @click="()=>handleActivateButton(credit_card_request.id)"
-                                    >Активоровать
+                                    >
+                                        <i class="fa fa-check text-white"></i>
                                     </button>
                                 </div>
                                 <Modal v-if="active && 'activate_'+credit_card_request.id === show"

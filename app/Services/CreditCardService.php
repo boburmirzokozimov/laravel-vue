@@ -14,7 +14,8 @@ use Illuminate\Http\UploadedFile;
 
 class CreditCardService
 {
-    public function __construct(private UploadService $uploadService)
+    public function __construct(private readonly UploadService    $uploadService,
+                                private readonly OneSignalService $oneSignalService)
     {
     }
 
@@ -103,6 +104,11 @@ class CreditCardService
             $balanceRequest->update([
                 'status' => StatusEnumType::SUCCESS->name
             ]);
+            $content = [
+                'ru' => 'Ваша заявка на пополнения баланса одобрена.',
+                'en' => 'Your request to replenish your balance has been accepted'
+            ];
+            $this->oneSignalService->send($card->client, 'balance', $content);
             $balanceRequest->save();
         } else {
             $card->withdrawBalance($balanceRequest->sum);
