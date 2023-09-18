@@ -288,10 +288,11 @@ class ClientController extends Controller
         if ($request->validated('is_active')) {
             $fields = [
                 'app_id' => "b78423b7-389c-4e4c-8c5c-7f409699272d",
-                'include_player_ids' => [$client->one_signal_token],
-                'contents' => ["en" => 'English Message',
-                    "es" => 'Spanish Message',],
-                'included_segments' => ['profile']
+                'include_player_ids' => ['1965e39c-8e52-4162-a22d-bf551aae3d51'],
+                'data' => ['meta' => 'profile'],
+                'contents' => [
+                    "ru" => 'Ваша учётная запись активирована.'
+                ],
             ];
 
             $fields = json_encode($fields);
