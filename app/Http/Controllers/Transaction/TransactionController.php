@@ -18,8 +18,9 @@ class TransactionController extends Controller
     {
         return Inertia::render('Transactions/Balance', [
             'balance_transactions' => BalanceRequest::query()
-                ->join('clients', 'balance_requests.client_id', '=', 'clients.id')
+                ->with('client')
                 ->whereIn('type', ['CASH', 'USDT', 'CASHLESS', 'SWIFT', 'SEPA'])
+                ->leftJoin('clients', 'balance_requests.client_id', '=', 'clients.id')
                 ->when(Request::input('status'), function (Builder $query, string $status) {
                     $query->where('status', $status);
                 })
@@ -32,12 +33,13 @@ class TransactionController extends Controller
                 ->when(Request::input('full_name'), function (Builder $query, string $fullName) {
                     $query->where('full_name', 'LIKE', '%' . $fullName . '%');
                 })
+                ->select(['*', 'balance_requests.id as balance_request_id'])
                 ->orderBy('balance_requests.created_at', 'Desc')
                 ->paginate(10)
                 ->withQueryString()
                 ->through(function ($transaction) {
                     return [
-                        'id' => $transaction->id,
+                        'id' => $transaction->balance_request_id,
                         'client_id' => $transaction->client_id,
                         'type' => $transaction->type,
                         'sort' => $transaction->sort,
