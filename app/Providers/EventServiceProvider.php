@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Events\AddLastLoggedInDate;
+use App\Listeners\SentCardTransactionNotification;
+use App\Notifications\Client\NewCardTransactionNotification;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         Login::class => [
             AddLastLoggedInDate::class,
         ],
+        NewCardTransactionNotification::class => [
+            SentCardTransactionNotification::class
+        ]
     ];
 
     /**

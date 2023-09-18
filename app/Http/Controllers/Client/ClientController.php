@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Client\UpdateClientRequest;
 use App\Models\Client\Client;
 use App\Models\Enum\CreditCardStatusEnumType;
 use App\Models\Enum\StatusEnumType;
@@ -12,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Ladumor\OneSignal\OneSignal;
 
 class ClientController extends Controller
 {
@@ -281,18 +283,14 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Client $client)
+    public function update(UpdateClientRequest $request, Client $client)
     {
-        $request->validate([
-            'full_name' => 'required|string',
-            'phone' => 'required|numeric|min:10',
-            'auth_key' => 'nullable|string',
-            'comments' => 'nullable|string',
-            'is_active' => 'required|boolean'
-        ]);
-
-        $client->update($request->toArray());
-
+        $client->update($request->validated());
+        if ($request->validated('is_active')) {
+            OneSignal::sendPush($client->one_signal_token, [
+                'You have been activated'
+            ]);
+        }
         $client->save();
 
         return to_route('clients');
