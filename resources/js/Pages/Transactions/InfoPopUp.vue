@@ -49,14 +49,14 @@ const handleButton = () => {
                                         v-text="balance_request.sum"
                                     ></td>
                                 </tr>
-                                <tr v-if="balance_request.type === 'USDT'" class="border-b">
+                                <tr v-if="balance_request.type === 'CASH'" class="border-b">
                                     <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left"
                                         scope="col">
                                         Валюта
                                     </th>
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                                        v-text="balance_request.usdt_type"
+                                        v-text="balance_request.currency"
                                     ></td>
                                 </tr>
                                 <tr v-if="balance_request.type === 'CASH'" class="border-b">
