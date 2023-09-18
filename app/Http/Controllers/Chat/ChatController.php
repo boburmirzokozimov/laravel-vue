@@ -59,7 +59,7 @@ class ChatController extends Controller
             "ru" => 'У вас новое сообщение в чате.',
             'en' => 'You have got a new message.'
         ];
-        $this->oneSignalService->send($client, 'chat', $contents);
+        dd($this->oneSignalService->send($client, 'chat', $contents));
 
         return back();
     }
