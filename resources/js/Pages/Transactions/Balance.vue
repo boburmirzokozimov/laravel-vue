@@ -30,7 +30,6 @@ const handleStatus = (status, id) => {
 }
 
 const handleButton = (id) => {
-    console.log(props.balance_transactions)
     show.value = id
     active.value = true
 }

@@ -36,10 +36,26 @@ class TransactionController extends Controller
                 ->when(Request::input('full_name'), function (Builder $query, string $fullName) {
                     $query->where('full_name', 'LIKE', '%' . $fullName . '%');
                 })
-                ->with('client')
                 ->orderBy('balance_requests.created_at', 'Desc')
                 ->paginate(10)
-                ->withQueryString(),
+                ->withQueryString()
+                ->through(function ($transaction) {
+                    return [
+                        'id' => $transaction->id,
+                        'client_id' => $transaction->client_id,
+                        'type' => $transaction->type,
+                        'credit_card_id' => $transaction?->creditCard?->id,
+                        'status' => $transaction->status,
+                        'sum' => $transaction->withdraw ? -$transaction->sum : $transaction->sum,
+                        'withdraw' => $transaction->withdraw,
+                        'created_at' => Carbon::create($transaction->created_at)->format('Y-m-d'),
+                        'client_name' => $transaction->client->full_name,
+                        'invoice_file' => $transaction?->invoice_file,
+                        'info' => $transaction?->info,
+                        'usdt_type' => $transaction?->usdt_type,
+                        'withdraw_account_number' => $transaction->withdraw ? $transaction->withdraw_account_number : $transaction->key->account_number_swift,
+                    ];
+                }),
             'transaction_statuses' => [
                 StatusEnumType::SUCCESS->name => StatusEnumType::SUCCESS->name,
                 StatusEnumType::HOLD->name => StatusEnumType::HOLD->name,
