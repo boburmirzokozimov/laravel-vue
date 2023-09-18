@@ -40,7 +40,7 @@ class UploadFileController extends Controller
             'ru' => 'У вас новое сообщение в чате. ',
             'en' => 'You have got a new message'
         ];
-        $oneSignalService->send($client, 'chat', $content);
+        $oneSignalService->send($message->chatRoom->client, 'chat', $content);
         return back();
     }
 }
