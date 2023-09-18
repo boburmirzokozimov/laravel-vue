@@ -14,6 +14,11 @@ use Inertia\Inertia;
 
 class TransactionController extends Controller
 {
+    public function check()
+    {
+        dd(BalanceRequest::all());
+    }
+
     public function balance()
     {
         return Inertia::render('Transactions/Balance', [
