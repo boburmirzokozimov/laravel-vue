@@ -139,8 +139,3 @@ Route::post('/submit', [LoginController::class, 'submit'])->name('login.submit')
 Route::post('/verify', [LoginController::class, 'verify'])->name('login.verify');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-
-Route::get('/centrifugo', function (Request $request) {
-    return view('index');
-});
-
