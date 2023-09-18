@@ -130,7 +130,7 @@ const closeModal = () => {
                                 </button>
                                 <Modal
                                     v-if="active && balance_transaction.id === show"
-                                    style="background-color: rgba(0, 0, 0, 0.1)" @close="closeModal"/>
+                                    style="background-color: rgba(0, 0, 0, 0.15)" @close="closeModal"/>
                                 <InfoPopUp
                                     v-if="active && balance_transaction.id === show"
                                     :balance_request="balance_transaction"

@@ -14,11 +14,6 @@ use Inertia\Inertia;
 
 class TransactionController extends Controller
 {
-    public function check()
-    {
-        dd(BalanceRequest::find(\request()->query->get('id')));
-    }
-
     public function balance()
     {
         return Inertia::render('Transactions/Balance', [
@@ -39,7 +34,30 @@ class TransactionController extends Controller
                 })
                 ->orderBy('balance_requests.created_at', 'Desc')
                 ->paginate(10)
-                ->withQueryString(),
+                ->withQueryString()
+                ->through(function ($transaction) {
+                    return [
+                        'id' => $transaction->id,
+                        'client_id' => $transaction->client_id,
+                        'type' => $transaction->type,
+                        'sort' => $transaction->sort,
+                        'credit_card_id' => $transaction?->creditCard?->id,
+                        'status' => $transaction->status,
+                        'quantity' => $transaction->quantity,
+                        'sum' => $transaction->withdraw ? -$transaction->sum : $transaction->sum,
+                        'withdraw' => $transaction->withdraw,
+                        'created_at' => Carbon::create($transaction->created_at)->format('Y-m-d'),
+                        'client_name' => $transaction->client->full_name,
+                        'invoice_file' => $transaction?->invoice_file,
+                        'withdraw_account_number' => $transaction?->withdraw_account_number,
+                        'info' => $transaction?->info,
+                        'usdt_type' => $transaction?->usdt_type,
+                        'currency' => $transaction?->currency,
+                        'delivery' => $transaction?->delivery,
+                        'phone' => $transaction?->phone,
+                        'contact' => $transaction?->contact,
+                    ];
+                }),
             'transaction_statuses' => [
                 StatusEnumType::SUCCESS->name => StatusEnumType::SUCCESS->name,
                 StatusEnumType::HOLD->name => StatusEnumType::HOLD->name,

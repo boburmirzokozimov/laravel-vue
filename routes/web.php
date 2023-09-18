@@ -128,8 +128,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/transactions/balance', 'balance')->name('transactions.balance');
         Route::get('/transactions/metal', 'metal')->name('transactions.metal');
         Route::get('/transactions/crypto', 'crypto')->name('transactions.crypto');
-        //TODO:DELETE
-        Route::get('/check', 'check')->name('transactions.check');
     });
 
     Route::post('/uploadFile', UploadFileController::class);
