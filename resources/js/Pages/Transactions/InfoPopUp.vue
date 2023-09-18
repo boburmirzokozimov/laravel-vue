@@ -11,7 +11,6 @@ const props = defineProps({
 
 const form = useForm({})
 //TODO: DELETE
-console.log(balance_request)
 const handleButton = () => {
     form.post('/clients/' + props.balance_request.client_id + '/manage-balance/' + props.balance_request.id, {
         onError: (error) => {
