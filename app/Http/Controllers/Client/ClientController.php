@@ -13,7 +13,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Ladumor\OneSignal\OneSignal;
 
 class ClientController extends Controller
 {
@@ -287,10 +286,31 @@ class ClientController extends Controller
     {
         $client->update($request->validated());
         if ($request->validated('is_active')) {
-            $fields['include_player_ids'] = [$client->one_signal_token];
-            OneSignal::sendPush($fields, [
-                'You have been activated'
-            ]);
+            $fields = [
+                'app_id' => "b78423b7-389c-4e4c-8c5c-7f409699272d",
+                'include_player_ids' => $client->one_signal_token,
+                'contents' => ["en" => 'English Message',
+                    "es" => 'Spanish Message',]
+            ];
+
+            $fields = json_encode($fields);
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8'));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            curl_setopt($ch, CURLOPT_HEADER, FALSE);
+            curl_setopt($ch, CURLOPT_POST, TRUE);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+            curl_exec($ch);
+            curl_close($ch);
+//            dd($client->one_signal_token);
+//            $fields['include_player_ids'] = [$client->one_signal_token];
+//            OneSignal::sendPush($fields, [
+//                'You have been activated'
+//            ]);
         }
         $client->save();
 
