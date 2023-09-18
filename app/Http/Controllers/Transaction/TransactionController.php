@@ -18,7 +18,7 @@ class TransactionController extends Controller
     {
         return Inertia::render('Transactions/Balance', [
             'balance_transactions' => BalanceRequest::query()
-                ->whereIn('type', ['CASH', 'USDT', 'CASHLESS'])
+                ->whereIn('type', ['CASH', 'USDT', 'CASHLESS', 'SWIFT', 'SEPA'])
                 ->when(Request::input('status'), function (Builder $query, string $status) {
                     $query->where('status', $status);
                 })
@@ -44,7 +44,8 @@ class TransactionController extends Controller
                         'sum' => $transaction->withdraw ? -$transaction->sum : $transaction->sum,
                         'withdraw' => $transaction->withdraw,
                         'created_at' => Carbon::create($transaction->created_at)->format('Y-m-d'),
-                        'client_name' => $transaction->client->full_name
+                        'client_name' => $transaction->client->full_name,
+                        'invoice_file' => $transaction?->invoice_file,
                     ];
                 }),
             'transaction_statuses' => [

@@ -10,7 +10,8 @@ const props = defineProps({
 })
 
 const form = useForm({})
-
+//TODO: DELETE
+console.log(balance_request)
 const handleButton = () => {
     form.post('/clients/' + props.balance_request.client_id + '/manage-balance/' + props.balance_request.id, {
         onError: (error) => {
@@ -125,6 +126,24 @@ const handleButton = () => {
                                         v-text="balance_request.withdraw_wallet_number"
                                     ></td>
                                 </tr>
+                                <tr v-if="balance_request.type === 'SWIFT' || balance_request.type === 'SEPA'"
+                                    class="border-b">
+                                    <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left "
+                                        scope="col">
+                                        Реквизит Файл
+                                    </th>
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
+                                    >
+                                        <a
+                                            v-if="balance_request.invoice_file"
+                                            :href="'/storage/'+balance_request.invoice_file"
+                                            class="rounded-lg bg-gray-200 px-4 py-1"
+                                            target="_blank">
+                                            Открыть Файл
+                                        </a>
+                                    </td>
+                                </tr>
                                 <tr
                                     class="border-b">
                                     <th class="w-1/5 bg-gray-200 text-sm font-medium text-gray-900 px-6 py-4 text-left "
@@ -132,6 +151,7 @@ const handleButton = () => {
                                         Действие
                                     </th>
                                     <td
+                                        v-if="balance_request.status === 'HOLD' || balance_request.status === 'WAITING'|| balance_request.status === 'VERIFICATION'"
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
                                     >
                                         <button class="btn-success" @click="handleButton">

@@ -43,9 +43,9 @@ const handleDelete = (id) => {
                             <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
                                 Longitude
                             </th>
-                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">
-                                Contact Number
-                            </th>
+                            <!--                            <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">-->
+                            <!--                                Contact Number-->
+                            <!--                            </th>-->
                             <!--              <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" scope="col">-->
                             <!--                Contact Email-->
                             <!--              </th>-->
@@ -80,10 +80,10 @@ const handleDelete = (id) => {
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                                 v-text="branch.lon"
                             ></td>
-                            <td
-                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="branch.contact_number"
-                            ></td>
+                            <!--                            <td
+                                                            class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                                                            v-text="branch.contact_number"
+                                                        ></td>-->
                             <!--                            <td-->
                             <!--                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"-->
                             <!--                                v-text="branch.contact_email"-->
