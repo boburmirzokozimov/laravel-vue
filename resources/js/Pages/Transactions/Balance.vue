@@ -128,7 +128,9 @@ const closeModal = () => {
                                     @click="handleStatus('CANCELED', balance_transaction.id)">
                                     <i class="fa fa-remove text-white"></i>
                                 </button>
-                                <Modal v-if="active && balance_transaction.id === show" @close="closeModal"/>
+                                <Modal
+                                    v-if="active && balance_transaction.id === show"
+                                    style="background-color: rgba(0, 0, 0, 0.1)" @close="closeModal"/>
                                 <InfoPopUp
                                     v-if="active && balance_transaction.id === show"
                                     :balance_request="balance_transaction"
