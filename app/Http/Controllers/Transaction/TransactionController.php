@@ -53,7 +53,7 @@ class TransactionController extends Controller
                         'invoice_file' => $transaction?->invoice_file,
                         'info' => $transaction?->info,
                         'usdt_type' => $transaction?->usdt_type,
-                        'withdraw_account_number' => $transaction->withdraw ? $transaction->withdraw_account_number : $transaction->key->account_number_swift,
+                        'withdraw_account_number' => $transaction->withdraw ? $transaction?->withdraw_account_number : $transaction?->key?->account_number_swift,
                     ];
                 }),
             'transaction_statuses' => [
