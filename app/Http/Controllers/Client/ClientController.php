@@ -307,7 +307,7 @@ class ClientController extends Controller
             curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 
-            dd(curl_exec($ch));
+            curl_exec($ch);
             curl_close($ch);
 //            $fields['include_player_ids'] = [$client->one_signal_token];
 //            $fields['contents'] = array(
