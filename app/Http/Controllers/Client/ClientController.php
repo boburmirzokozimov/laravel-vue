@@ -291,7 +291,8 @@ class ClientController extends Controller
                 'include_player_ids' => [$client?->one_signal_token],
                 'data' => ['meta' => 'profile'],
                 'contents' => [
-                    "ru" => 'Ваша учётная запись активирована.'
+                    "ru" => 'Ваша учётная запись активирована',
+                    'en' => 'Your account has been activated'
                 ],
             ];
 
@@ -307,7 +308,7 @@ class ClientController extends Controller
             curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 
-            curl_exec($ch);
+            dd(curl_exec($ch));
             curl_close($ch);
 //            $fields['include_player_ids'] = [$client->one_signal_token];
 //            $fields['contents'] = array(
