@@ -121,7 +121,7 @@ const handleButton = () => {
                                     </th>
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
-                                        v-text="balance_request.withdraw_wallet_number"
+                                        v-text="balance_request.withdraw_account_number"
                                     ></td>
                                 </tr>
                                 <tr v-if="balance_request.type === 'SWIFT' || balance_request.type === 'SEPA'"
