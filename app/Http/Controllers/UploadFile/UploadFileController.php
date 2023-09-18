@@ -5,6 +5,7 @@ namespace App\Http\Controllers\UploadFile;
 use Alexusmai\Centrifugo\Centrifugo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UploadFile\UploadFileRequestForm;
+use App\Services\OneSignalService;
 use App\Services\UploadService;
 use Auth;
 use GuzzleHttp\Exception\GuzzleException;
@@ -18,7 +19,7 @@ class UploadFileController extends Controller
     /**
      * @throws GuzzleException
      */
-    public function __invoke(UploadFileRequestForm $request, Centrifugo $centrifugo)
+    public function __invoke(UploadFileRequestForm $request, Centrifugo $centrifugo, OneSignalService $oneSignalService)
     {
         $credentials = $request->validated();
         $credentials['message'] = $this->uploadService->uploadMessage($request->validated('message'));
@@ -35,7 +36,11 @@ class UploadFileController extends Controller
             'chat_room_id' => $chat_room_id,
             'message' => $message
         ]);
-
+        $content = [
+            'ru' => 'У вас новое сообщение в чате. ',
+            'en' => 'You have got a new message'
+        ];
+        $oneSignalService->send($client, 'chat', $content);
         return back();
     }
 }
