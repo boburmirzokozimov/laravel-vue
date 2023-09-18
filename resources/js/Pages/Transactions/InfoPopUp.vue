@@ -10,7 +10,6 @@ const props = defineProps({
 })
 
 const form = useForm({})
-//TODO: DELETE
 const handleButton = () => {
     form.post('/clients/' + props.balance_request.client_id + '/manage-balance/' + props.balance_request.id, {
         onError: (error) => {
@@ -57,7 +56,7 @@ const handleButton = () => {
                                     </th>
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                                        v-text="balance_request.currency"
+                                        v-text="balance_request.usdt_type"
                                     ></td>
                                 </tr>
                                 <tr v-if="balance_request.type === 'CASH'" class="border-b">
