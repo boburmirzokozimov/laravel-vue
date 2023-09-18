@@ -50,7 +50,7 @@ class ManageCreditCardRequestController extends Controller
             'ru' => 'Ваша карта выпущена. ',
             'en' => 'Your card has been released'
         ];
-        $this->oneSignalService->send($client, 'card');
+        $this->oneSignalService->send($client, 'card', $content);
         return to_route('clients.show', ['client' => $client]);
     }
 

@@ -8,6 +8,7 @@ use App\Models\Client\Crypto\CryptoCurrency;
 use App\Models\Client\Metal\Metal;
 use App\Models\Client\MetalAndCryptoCurrencyTransaction;
 use App\Models\Enum\TransactionStatusEnumType;
+use App\Services\OneSignalService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -24,7 +25,7 @@ class MetalAndCryptoController extends Controller
         ]);
     }
 
-    public function activate(Request $request, int $client, MetalAndCryptoCurrencyTransaction $transaction)
+    public function activate(Request $request, int $client, MetalAndCryptoCurrencyTransaction $transaction, OneSignalService $oneSignalService)
     {
         $client = Client::where('id', $client)->first();
         $sum = $request->sum;
@@ -39,6 +40,11 @@ class MetalAndCryptoController extends Controller
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
                 ]);
+                $contents = [
+                    "ru" => 'Ваша заявка на продажу метала одобрена. ',
+                    'en' => 'Your request to buy metal has been approved.'
+                ];
+                $oneSignalService->send($client, 'chat', $contents);
                 DB::commit();
             } catch (Throwable $e) {
                 DB::rollBack();
@@ -57,6 +63,11 @@ class MetalAndCryptoController extends Controller
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
                 ]);
+                $contents = [
+                    "ru" => 'Ваша заявка на покупку метала одобрена. ',
+                    'en' => 'Your request to buy metal has been approved.'
+                ];
+                $oneSignalService->send($client, 'chat', $contents);
                 DB::commit();
             } catch (Throwable $e) {
                 DB::rollBack();
@@ -79,26 +90,37 @@ class MetalAndCryptoController extends Controller
         ]);
     }
 
-    public function cancelCrypto(Request $request, Client $client, MetalAndCryptoCurrencyTransaction $transaction)
+    public function cancelCrypto(Request $request, Client $client, MetalAndCryptoCurrencyTransaction $transaction, OneSignalService $oneSignalService)
     {
         $crypto = CryptoCurrency::findByClientId($client, $transaction->sort)->first();
         $crypto->addToBalance($transaction->quantity);
+        $crypto->addToBalance($transaction->quantity);
+        $contents = [
+            "ru" => 'Ваша заявка на покупку криптовалюты отменена. Обратитесь к оператору. ',
+            'en' => 'Your request to buy crypto has been disapproved. Contact the operator.'
+        ];
+        $oneSignalService->send($client, 'chat', $contents);
         $transaction->update([
             'status' => TransactionStatusEnumType::FAILED->name,
         ]);
     }
 
 
-    public function cancelMetal(Request $request, Client $client, MetalAndCryptoCurrencyTransaction $transaction)
+    public function cancelMetal(Request $request, Client $client, MetalAndCryptoCurrencyTransaction $transaction, OneSignalService $oneSignalService)
     {
         $crypto = Metal::findByClientId($client, $transaction->sort)->first();
         $crypto->addToBalance($transaction->quantity);
+        $contents = [
+            "ru" => 'Ваша заявка на продажу метала отменена. Обратитесь к оператору. ',
+            'en' => 'Your request to buy metal has been disapproved. Contact the operator.'
+        ];
+        $oneSignalService->send($client, 'chat', $contents);
         $transaction->update([
             'status' => TransactionStatusEnumType::FAILED->name,
         ]);
     }
 
-    public function activateCrypto(Request $request, int $client, MetalAndCryptoCurrencyTransaction $transaction)
+    public function activateCrypto(Request $request, int $client, MetalAndCryptoCurrencyTransaction $transaction, OneSignalService $oneSignalService)
     {
         $client = Client::where('id', $client)->first();
         $sum = $request->sum;
@@ -112,6 +134,11 @@ class MetalAndCryptoController extends Controller
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
                 ]);
+                $contents = [
+                    "ru" => 'Ваша заявка на продажу криптовалюты одобрена. ',
+                    'en' => 'Your request to buy crypto has been approved.'
+                ];
+                $oneSignalService->send($client, 'chat', $contents);
                 DB::commit();
             } catch (Throwable $e) {
                 DB::rollBack();
@@ -130,6 +157,11 @@ class MetalAndCryptoController extends Controller
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
                 ]);
+                $contents = [
+                    "ru" => 'Ваша заявка на покупку криптовалюты одобрена. ',
+                    'en' => 'Your request to buy crypto has been approved.'
+                ];
+                $oneSignalService->send($client, 'chat', $contents);
                 DB::commit();
             } catch (Throwable $e) {
                 DB::rollBack();

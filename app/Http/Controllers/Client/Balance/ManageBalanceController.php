@@ -30,14 +30,28 @@ class ManageBalanceController extends Controller
         ]);
     }
 
-    public function changeStatus(Request $request, BalanceRequest $balanceRequest)
+    public function changeStatus(Request $request, BalanceRequest $balanceRequest, OneSignalService $oneSignalService)
     {
         $status = $request->validate([
             'status' => 'in:WAITING,HOLD,CANCELED,VERIFICATION,SUCCESS'
         ]);
         $balanceRequest->update($status);
+        if ($status['status']) {
+            $contents = [
+                "ru" => 'Ваша заявка на оплату по реквизиту одобрена. ',
+                'en' => 'Your payment requisite has been approved.'
+            ];
+            $oneSignalService->send($balanceRequest->client, 'chat', $contents);
+        }
         if ($balanceRequest->status->isCancelled()) {
             $balanceRequest->client->addToBalance($balanceRequest->sum);
+            if ($status['status']) {
+                $contents = [
+                    "ru" => 'Ваша заявка на оплату по реквизиту отменена. Обратитесь к оператору.',
+                    'en' => 'Your payment requisite has been disapproved. Contact the operator'
+                ];
+                $oneSignalService->send($balanceRequest->client, 'chat', $contents);
+            }
             $balanceRequest->client->save();
         }
         return back();
