@@ -23,9 +23,6 @@ class EventServiceProvider extends ServiceProvider
         ],
         Login::class => [
             AddLastLoggedInDate::class,
-        ],
-        NewCardTransactionNotification::class => [
-            SentCardTransactionNotification::class
         ]
     ];
 

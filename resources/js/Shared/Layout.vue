@@ -34,13 +34,23 @@ const toaster = createToaster({ /* options */});
 <style lang="scss">
 .header-left {
     @apply flex items-center relative;
-    transition: 1s ease all;
+    transition: .4s ease all;
+
+    .popup {
+        @apply absolute py-4 px-2 bg-white shadow rounded-xl;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        transform: translateY(-35%);
+    }
+
+    & > .active {
+        width: 170px;
+        opacity: 100%;
+        transition: .4s ease all;
+        transform: translateY(35%);
+    }
 }
 
-.popup {
-    transform: translateY(85%);
-    @apply absolute py-4 px-2 bg-white shadow rounded-xl;
-    transition: 6s ease all;
-    width: 200px;
-}
+
 </style>
