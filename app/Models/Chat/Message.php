@@ -60,12 +60,12 @@ class Message extends CustomModel
     {
         return Attribute::make(
             get: fn(string $value) => [
+                'unformatted' => $value,
                 'diffForHumans' => Carbon::make($value)->diffForHumans(),
                 'isToday' => Carbon::make($value)->isToday(),
                 'isCurrentYear' => Carbon::make($value)->isCurrentYear(),
                 'day' => Carbon::make($value)->format('l jS \\of F'),
                 'formatted' => Carbon::make($value)->format('d/m/y H:i'),
-                'unformatted' => $value,
             ]
         );
     }

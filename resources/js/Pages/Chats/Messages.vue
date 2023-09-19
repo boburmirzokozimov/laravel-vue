@@ -48,7 +48,7 @@ const getType = (type) => {
                 :class="getType(message.messageble_type) ?
                 'text-right rounded-tl-3xl rounded-tr-xl mr-2 rounded-bl-3xl bg-blue-400' :
                 'text-left rounded-tr-3xl rounded-tl-xl ml-2 rounded-br-3xl bg-gray-400' "
-                class="mb-2 py-3 px-4 max-w-2xl text-white flex flex-col"
+                class="mb-2 py-3 px-4 max-w-2xl text-white flex flex-col dot"
             >
                 <div v-if="message.type ==='image'">
                     <img :src="`/storage/${message.message}`" alt="image">
@@ -106,5 +106,8 @@ const getType = (type) => {
 </template>
 
 <style scoped>
-
+.dot::after {
+    content: '';
+    
+}
 </style>
