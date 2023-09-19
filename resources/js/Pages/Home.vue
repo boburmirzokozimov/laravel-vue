@@ -55,7 +55,7 @@ const handleMarkButton = (id) => {
             Dashboard
         </h1>
     </div>
-    <div class="flex flex-col">
+    <div v-if="$page.props.notifications.length > 0" class="flex flex-col">
         <div class="">
             <div class="py-2 inline-block mx-auto w-full">
                 <div class="overflow-hidden">
@@ -118,7 +118,11 @@ const handleMarkButton = (id) => {
             </div>
         </div>
     </div>
-
+    <div v-else>
+        <h2 class="text-2xl">
+            Nothing new so far
+        </h2>
+    </div>
 </template>
 
 <style scoped>
