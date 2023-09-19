@@ -89,10 +89,17 @@ const closeModal = () => {
                                 v-text="balance_transaction.sum"
                             ></td>
                             <td
+                                v-if="!balance_transaction.metal_or_crypto_type"
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                                 v-text="balance_transaction.type"
                             ></td>
                             <td
+                                v-else
+                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                                v-text="balance_transaction.metal_or_crypto_type"
+                            ></td>
+                            <td
+                                v-if="balance_transaction.status !== 'SUCCESS'"
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                             >
                                 <form>
@@ -113,6 +120,11 @@ const closeModal = () => {
                                     </select>
                                 </form>
                             </td>
+                            <td
+                                v-else
+                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap bg-green-500"
+                                v-text="'SUCCESS'"
+                            ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                             >

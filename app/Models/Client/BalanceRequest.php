@@ -94,4 +94,9 @@ class BalanceRequest extends CustomModel
     {
         return $this->belongsTo(CreditCard::class);
     }
+
+    public function metalAndCryptoCurrencyTransaction(): BelongsTo
+    {
+        return $this->BelongsTo(MetalAndCryptoCurrencyTransaction::class);
+    }
 }

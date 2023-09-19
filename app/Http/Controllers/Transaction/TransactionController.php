@@ -20,6 +20,7 @@ class TransactionController extends Controller
             'balance_transactions' => BalanceRequest::query()
                 ->with('client')
                 ->whereIn('type', ['CASH', 'USDT', 'CASHLESS', 'SWIFT', 'SEPA'])
+                ->orWhereNotNull('metal_and_crypto_currency_transaction_id')
                 ->leftJoin('clients', 'balance_requests.client_id', '=', 'clients.id')
                 ->when(Request::input('status'), function (Builder $query, string $status) {
                     $query->where('status', $status);
@@ -58,6 +59,7 @@ class TransactionController extends Controller
                         'delivery' => $transaction?->delivery,
                         'phone' => $transaction?->phone,
                         'contact' => $transaction?->contact,
+                        'metal_or_crypto_type' => $transaction?->metalAndCryptoCurrencyTransaction?->sort
                     ];
                 }),
             'transaction_statuses' => [
