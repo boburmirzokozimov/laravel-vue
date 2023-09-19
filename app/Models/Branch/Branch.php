@@ -38,6 +38,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Branch whereLon($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Branch whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Branch whereWorkingHours($value)
+ * @property string|null $photo
+ * @property string|null $start_hour
+ * @property string|null $end_hour
+ * @property string|null $name
+ * @method static \Illuminate\Database\Eloquent\Builder|Branch whereEndHour($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Branch whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Branch wherePhoto($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Branch whereStartHour($value)
  * @mixin \Eloquent
  */
 class Branch extends CustomModel

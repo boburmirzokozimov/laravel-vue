@@ -35,6 +35,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|CardTransaction whereSum($value)
  * @method static Builder|CardTransaction whereType($value)
  * @method static Builder|CardTransaction whereUpdatedAt($value)
+ * @method static Builder|CardTransaction findById(int $id)
  * @mixin Eloquent
  */
 class CardTransaction extends CustomModel

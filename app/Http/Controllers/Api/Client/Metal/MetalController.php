@@ -57,7 +57,9 @@ class MetalController extends Controller
         }
 
         $client->metalAndCryptoCurrencyTransactions()->create($credentials);
-
+        $client->notifyUser([
+            'type' => 'metal transaction',
+        ]);
         return response()->json([
             'message' => "Success",
         ]);

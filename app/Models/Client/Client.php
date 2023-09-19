@@ -10,6 +10,7 @@ use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Models\Client\Crypto\CryptoCurrency;
 use App\Models\Client\Metal\Metal;
 use App\Models\Enum\StatusEnumType;
+use App\Models\Notification\Notification;
 use App\Models\RefreshToken\RefreshToken;
 use Database\Factories\ClientFactory;
 use Eloquent;
@@ -71,6 +72,11 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Client whereShowId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Client whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Client whereUuid($value)
+ * @property string|null $one_signal_token
+ * @property-read ChatRoom|null $chatRoom
+ * @property-read Collection<int, MetalAndCryptoCurrencyTransaction> $metalAndCryptoCurrencyTransactions
+ * @property-read int|null $metal_and_crypto_currency_transactions_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Client whereOneSignalToken($value)
  * @mixin Eloquent
  */
 class Client extends Authenticatable
@@ -175,6 +181,16 @@ class Client extends Authenticatable
     public function messages(): MorphOne
     {
         return $this->morphOne(Message::class, 'messageble');
+    }
+
+    public function notifyUser(array $type): void
+    {
+        $this->notification()->create($type);
+    }
+
+    public function notification(): MorphOne
+    {
+        return $this->morphOne(Notification::class, 'notifiable');
     }
 
     public function storeRefreshToken(string $refresh_token)

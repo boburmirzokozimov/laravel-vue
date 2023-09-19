@@ -29,6 +29,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|CryptoCurrency whereCreatedAt($value)
  * @method static Builder|CryptoCurrency whereId($value)
  * @method static Builder|CryptoCurrency whereUpdatedAt($value)
+ * @method static Builder|CryptoCurrency findByClientId(\App\Models\Client\Client $client, ?string $type = null)
  * @mixin Eloquent
  */
 class CryptoCurrency extends CustomModel

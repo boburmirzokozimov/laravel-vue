@@ -2,7 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\Centrifuge;
+use App\Models\Chat\Message;
+use App\Models\Client\Client;
+use App\Models\Notification\Notification;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
@@ -36,6 +39,13 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'notifications' => Notification::unreadNotifications()
+                ->with(['notifiable' => function (MorphTo $morphTo) {
+                    $morphTo->morphWith([
+                        Message::class => ['messageble'],
+                        Client::class => [],
+                    ]);
+                }])->get(),
             'is_operator' => Auth::user() ? Auth::user()->role->hasPermissionTo('create') : '',
             'is_manager' => Auth::user() ? Auth::user()->role->hasPermissionTo('accept') : '',
             'ziggy' => function () use ($request) {

@@ -31,6 +31,10 @@ class ChatController extends Controller
             'message' => $message
         ]);
 
+        $message->notifyUsers([
+            'type' => 'message',
+        ]);
+
         return response()->json([
             'data' => 'Successfully sent'
         ]);

@@ -3,6 +3,7 @@
 namespace App\Models\Chat;
 
 use App\Models\CustomModel;
+use App\Models\Notification\Notification;
 use App\Models\User\User;
 use Carbon\Carbon;
 use Eloquent;
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * App\Models\Chat\Message
@@ -36,11 +38,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Builder|Message whereMessagebleType($value)
  * @method static Builder|Message whereType($value)
  * @method static Builder|Message whereUpdatedAt($value)
+ * @property-read Notification|null $notification
  * @mixin Eloquent
  */
 class Message extends CustomModel
 {
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -54,6 +56,16 @@ class Message extends CustomModel
     public function messageble()
     {
         return $this->morphTo();
+    }
+
+    public function notifyUsers(array $type): void
+    {
+        $this->notification()->create($type);
+    }
+
+    public function notification(): MorphOne
+    {
+        return $this->morphOne(Notification::class, 'notifiable');
     }
 
     protected function createdAt(): Attribute

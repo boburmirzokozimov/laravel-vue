@@ -63,6 +63,12 @@ use Illuminate\Support\Carbon;
  * @method static Builder|BalanceRequest whereUsdtType($value)
  * @method static Builder|BalanceRequest whereWithdraw($value)
  * @method static Builder|BalanceRequest whereWithdrawAccountNumber($value)
+ * @property int|null $credit_card_id
+ * @property int|null $metal_and_crypto_currency_transaction_id
+ * @property-read CreditCard|null $creditCard
+ * @property-read \App\Models\Client\MetalAndCryptoCurrencyTransaction|null $metalAndCryptoCurrencyTransaction
+ * @method static Builder|BalanceRequest whereCreditCardId($value)
+ * @method static Builder|BalanceRequest whereMetalAndCryptoCurrencyTransactionId($value)
  * @mixin Eloquent
  */
 class BalanceRequest extends CustomModel

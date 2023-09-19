@@ -11,18 +11,17 @@ use App\Http\Controllers\Client\CreditCard\ManageCreditCardRequestController;
 use App\Http\Controllers\Client\MetalAndCrypto\MetalAndCryptoController;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Courier\CourierController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Key\KeyController;
+use App\Http\Controllers\Notification\NotificationController;
 use App\Http\Controllers\Transaction\TransactionController;
 use App\Http\Controllers\UploadFile\UploadFileController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return Inertia::render('Home')->with(['time' => now()->toTimeString()]);
-    });
+    Route::get('/dashboard', DashboardController::class);
 
     Route::controller(UserController::class)->group(function () {
         Route::get('/users', 'index')->name('users');
@@ -131,6 +130,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::post('/uploadFile', UploadFileController::class);
+
+    Route::post('/notifications/{notification}', NotificationController::class);
 });
 
 

@@ -42,6 +42,11 @@ use Illuminate\Support\Carbon;
  * @method static Builder|CreditCard whereExpireDate($value)
  * @method static Builder|CreditCard whereId($value)
  * @method static Builder|CreditCard whereUpdatedAt($value)
+ * @property Carbon|null $deleted_at
+ * @method static Builder|CreditCard onlyTrashed()
+ * @method static Builder|CreditCard whereDeletedAt($value)
+ * @method static Builder|CreditCard withTrashed()
+ * @method static Builder|CreditCard withoutTrashed()
  * @mixin Eloquent
  */
 class CreditCard extends CustomModel

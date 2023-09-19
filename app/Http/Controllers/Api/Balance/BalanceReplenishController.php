@@ -23,6 +23,10 @@ class BalanceReplenishController extends Controller
 
         $client->manageBalance($credentials);
 
+        $client->notifyUser([
+            'type' => 'transaction replenish',
+        ]);
+
         return response()->json([
             'data' => 'Success',
         ]);

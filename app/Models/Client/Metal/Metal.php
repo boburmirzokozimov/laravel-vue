@@ -29,6 +29,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Metal whereCreatedAt($value)
  * @method static Builder|Metal whereId($value)
  * @method static Builder|Metal whereUpdatedAt($value)
+ * @method static Builder|Metal findByClientId(\App\Models\Client\Client $client, ?string $type = null)
  * @mixin Eloquent
  */
 class Metal extends CustomModel

@@ -62,6 +62,10 @@ class CryptoController extends Controller
 
         $client->metalAndCryptoCurrencyTransactions()->create($credentials);
 
+        $client->notifyUser([
+            'type' => 'crypto transaction',
+        ]);
+
         return response()->json([
             'message' => "Success",
         ]);
