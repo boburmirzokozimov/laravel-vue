@@ -4,7 +4,11 @@ namespace App\Models\Chat;
 
 use App\Models\CustomModel;
 use App\Models\User\User;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -16,27 +20,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $chat_room_id
  * @property string|null $type
  * @property string $message
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Chat\ChatRoom $chatRoom
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $messageble
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read ChatRoom $chatRoom
+ * @property-read Model|Eloquent $messageble
  * @property-read User|null $user
- * @method static \Illuminate\Database\Eloquent\Builder|Message newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Message newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Message query()
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereChatRoomId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereMessage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereMessagebleId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereMessagebleType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Message whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @method static Builder|Message newModelQuery()
+ * @method static Builder|Message newQuery()
+ * @method static Builder|Message query()
+ * @method static Builder|Message whereChatRoomId($value)
+ * @method static Builder|Message whereCreatedAt($value)
+ * @method static Builder|Message whereId($value)
+ * @method static Builder|Message whereMessage($value)
+ * @method static Builder|Message whereMessagebleId($value)
+ * @method static Builder|Message whereMessagebleType($value)
+ * @method static Builder|Message whereType($value)
+ * @method static Builder|Message whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Message extends CustomModel
 {
-    use HasFactory;
 
     public function user(): BelongsTo
     {
@@ -51,5 +54,18 @@ class Message extends CustomModel
     public function messageble()
     {
         return $this->morphTo();
+    }
+
+    protected function createdAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn(string $value) => [
+                'diffForHumans' => Carbon::make($value)->diffForHumans(),
+                'isToday' => Carbon::make($value)->isToday(),
+                'isCurrentYear' => Carbon::make($value)->isCurrentYear(),
+                'day' => Carbon::make($value)->format('l jS \\of F'),
+                'formatted' => Carbon::make($value)->format('d/m/y H:i'),
+            ]
+        );
     }
 }

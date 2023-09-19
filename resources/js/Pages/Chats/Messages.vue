@@ -44,13 +44,13 @@ const getType = (type) => {
             :class="getType(message.messageble_type) ?
                 'justify-end' :
                 'justify-start' "
-            class="flex"
+            class="flex relative"
         >
             <div
                 :class="getType(message.messageble_type) ?
                 'text-right rounded-tl-3xl rounded-tr-xl mr-2 rounded-bl-3xl bg-blue-400' :
                 'text-left rounded-tr-3xl rounded-tl-xl ml-2 rounded-br-3xl bg-gray-400' "
-                class="mb-2 py-3 px-4 max-w-2xl text-white"
+                class="mb-2 py-3 px-4 max-w-2xl text-white flex flex-col"
             >
                 <div v-if="message.type ==='image'">
                     <img :src="`/storage/${message.message}`" alt="image">
@@ -82,6 +82,20 @@ const getType = (type) => {
                     v-if="!message.type"
                     v-text="message.message"
                 >
+                </div>
+                <div
+                    class="text-sm text-gray-500 mt-2"
+                >
+                    <div
+                        v-if="message.created_at.isToday"
+                        v-text="message.created_at.diffForHumans"
+                    >
+                    </div>
+                    <div
+                        v-else
+                        v-text="message.created_at.formatted"
+                    >
+                    </div>
                 </div>
             </div>
         </div>
