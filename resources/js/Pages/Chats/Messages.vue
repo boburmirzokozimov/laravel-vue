@@ -11,12 +11,10 @@ sub.subscribe();
 
 sub.on('publication', function (ctx) {
     props.chat_room.messages.push(ctx.data.message)
-});
-sub.on('join', function (ctx) {
-    console.log(isOnline.value)
+}).on('subscribing', function (ctx) {
+    console.log(isOnline.value, ctx)
     isOnline.value = true
-});
-sub.on('leave', function (ctx) {
+}).on('unsubscribed', function (ctx) {
     isOnline.value = false
 });
 onBeforeUnmount(() => {

@@ -65,6 +65,7 @@ class Message extends CustomModel
                 'isCurrentYear' => Carbon::make($value)->isCurrentYear(),
                 'day' => Carbon::make($value)->format('l jS \\of F'),
                 'formatted' => Carbon::make($value)->format('d/m/y H:i'),
+                'unformatted' => $value,
             ]
         );
     }
