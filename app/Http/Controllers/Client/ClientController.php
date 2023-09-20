@@ -180,6 +180,7 @@ class ClientController extends Controller
                         'anonymous' => $cardRequest->anonymous,
                         'anonymous_name' => $cardRequest->anonymous_name,
                         'anonymous_surname' => $cardRequest->anonymous_surname,
+                        "formattedDate" => $cardRequest->formattedDate,
                     ];
                 }),
             'credit_card_requests_anonymous' => $client->creditCardRequest()
@@ -196,6 +197,7 @@ class ClientController extends Controller
                         'anonymous_name' => $cardRequest->anonymous_name,
                         'anonymous_surname' => $cardRequest->anonymous_surname,
                         'created_at' => Carbon::create($cardRequest->created_at)->format('Y-m-d'),
+                        "formattedDate" => $cardRequest->formattedDate,
                     ];
                 }),
             'credit_cards' => $client->creditCard()

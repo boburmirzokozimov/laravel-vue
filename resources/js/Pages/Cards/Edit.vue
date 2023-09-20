@@ -7,7 +7,6 @@ const toaster = createToaster({ /* options */});
 const emit = defineEmits(['close'])
 
 const props = defineProps({
-    client: Object,
     credit_card_request: Object
 })
 
@@ -194,7 +193,7 @@ const handleSubmit = () => {
 
 <style lang="scss" scoped>
 .modal {
-    @apply fixed  w-2/6 bg-white px-4 py-6 rounded-xl z-20;
+    @apply fixed w-2/6 bg-white px-4 py-6 rounded-xl z-20;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
