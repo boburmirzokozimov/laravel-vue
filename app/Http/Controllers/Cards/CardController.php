@@ -13,7 +13,7 @@ class CardController extends Controller
     {
         return Inertia::render('Cards/Index')->with([
             'cards' => CreditCardRequest::query()
-                ->where('status', CreditCardStatusEnumType::RELEASED->value)
+                ->where('status', CreditCardStatusEnumType::PENDING->value)
                 ->get()
                 ->map(function ($card) {
                     return [
