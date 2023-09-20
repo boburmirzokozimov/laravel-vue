@@ -53,11 +53,14 @@ class BalanceReplenishController extends Controller
                         'id' => $cardTransactions->id,
                         'sum' => $cardTransactions->sum,
                         'status' => $cardTransactions->status,
-                        'usdt_type' => $cardTransactions->usdt_type,
+                        'usdt_type' => $cardTransactions?->usdt_type,
+                        'currency' => $cardTransactions?->currency,
                         'type' => $cardTransactions->type,
                         'withdraw' => $cardTransactions->withdraw,
                         'withdraw_account_number' => $cardTransactions->withdraw_account_number,
                         'created_at' => $cardTransactions->created_at,
+                        'is_metal_or_crypto' => (bool)$cardTransactions?->metal_and_crypto_currency_transaction_id,
+                        'metal_or_crypto_type' => $cardTransactions?->metalAndCryptoCurrencyTransaction->sort
                     ];
                 }),
         ]);
