@@ -6,9 +6,12 @@ import Edit from "@/Pages/Cards/Edit.vue";
 import Activate from "@/Pages/Cards/Activate.vue";
 import Show from "@/Pages/Cards/Show.vue";
 import Anonymous from "@/Pages/Cards/Anonymous.vue";
+import {router} from "@inertiajs/vue3";
+import {createToaster} from "@meforma/vue-toaster";
 
 const active = ref(false)
 const show = ref(null)
+const toaster = createToaster({ /* options */});
 
 const props = defineProps({
     cards: Object,
@@ -22,6 +25,12 @@ const handleActivateButton = (id) => {
     show.value = 'activate_' + id
     active.value = true
 }
+const handleDeleteButton = (id) => {
+    router.post(`/cards/${id}`, {}, {
+        onSuccess: () => toaster.success('Deleted Successfully')
+    })
+}
+
 const handleShowButton = (id, isAnonymous) => {
     if (isAnonymous) {
         show.value = 'show_anonymous_' + id
@@ -109,9 +118,15 @@ const closeModal = () => {
                                     </button>
                                     <button
                                         v-if="$page.props.is_manager"
-                                        class="mt-1 btn-success"
+                                        class="mt-1 btn-success mr-2"
                                         @click="()=>handleActivateButton(credit_card_request.id)">
                                         <i class="fa fa-check text-white"></i>
+                                    </button>
+                                    <button
+                                        v-if="$page.props.is_manager"
+                                        class="mt-1 btn-danger"
+                                        @click="()=>handleDeleteButton(credit_card_request.id)">
+                                        <i class="fa fa-trash text-white"></i>
                                     </button>
                                 </div>
                                 <Modal v-if="active && credit_card_request.id === show" @close="closeModal"/>

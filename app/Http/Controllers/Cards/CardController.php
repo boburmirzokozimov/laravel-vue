@@ -36,4 +36,10 @@ class CardController extends Controller
                 })
         ]);
     }
+
+    public function destroy(CreditCardRequest $cardRequest)
+    {
+        $cardRequest->delete();
+        return back();
+    }
 }
