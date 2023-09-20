@@ -253,7 +253,7 @@ class ClientController extends Controller
                     return [
                         'id' => $transaction->id,
                         'client_id' => $transaction->client_id,
-                        'type' => $transaction->type,
+                        'type' => $transaction->type ?: $transaction?->metalAndCryptoCurrencyTransaction?->sort,
                         'card_number' => $transaction?->creditCard?->card_number,
                         'credit_card_id' => $transaction?->creditCard?->id,
                         'status' => $transaction->status,

@@ -15,8 +15,9 @@ const handleNotificationClick = () => {
 
         class="header-left"
         @click="show = !show">
-        <button :class="$page.props.notifications.length > 0 ? 'bg-yellow-500 text-white' : ''"
-                class="bg-gray-200 px-3 py-2 font-bold rounded">{{
+        <button
+            :class="$page.props.notifications.length > 0 ? 'bg-yellow-500 text-white' : ''"
+            class="bg-gray-200 px-3 py-2 font-bold rounded">{{
                 $page.props.auth.user.full_name ?? $page.props.auth.user.phone
             }}
             <i

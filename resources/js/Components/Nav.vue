@@ -60,11 +60,18 @@ const show = ref(false)
                 >
                     <div class="flex items-center">
                         <i
-                            :class="$page.component.startsWith('Transactions') ? 'text-white' : ''"
+                            :class="{
+                            'text-white':$page.component.startsWith('Transactions'),
+                            'text-yellow-500':$page.props.notifications.length > 0
+                        }"
                             class="fa fa-bar-chart fa-2x"></i>
                         <div
-                            :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
-                            class="transition  text-gray-400 hover:text-white"
+                            :class="
+                            {
+                            'translate-x-1 opacity-100':active,
+                            'text-yellow-500':$page.props.balanceNotificationsCount > 0 || $page.props.metalNotificationsCount > 0 ||$page.props.cryptoNotificationsCount > 0
+                            }"
+                            class="transition  text-gray-400 hover:text-white -translate-x-1 opacity-0"
                         >
                             Transactions
                         </div>
@@ -73,12 +80,22 @@ const show = ref(false)
                         <div class="flex flex-col">
                             <NavLink as="button" class="px-2 py-4 flex justify-between" href="/transactions/balance">
                                 <div
-                                    :class="$page.component.startsWith('Transactions/Balance') ? 'text-white' : 'text-gray-400'">
+                                    :class="
+                                    {
+                                    'text-white':$page.component.startsWith('Transactions/Balance'),
+                                    'text-yellow-500':$page.props.balanceNotificationsCount > 0
+                                    }"
+                                    class="text-white">
                                     Balance
                                 </div>
-                                <i :class="$page.component.startsWith('Transactions/Balance') ? 'text-white' : ''"
-                                   aria-hidden="true"
-                                   class="fa fa-credit-card text-gray-400 "></i>
+                                <i
+                                    :class="
+                                    {
+                                    'text-white':$page.component.startsWith('Transactions/Balance'),
+                                    'text-yellow-500':$page.props.balanceNotificationsCount > 0
+                                    }"
+                                    aria-hidden="true"
+                                    class="fa fa-credit-card text-gray-400 "></i>
                             </NavLink>
                         </div>
                     </div>
@@ -86,10 +103,20 @@ const show = ref(false)
                         <div class="flex flex-col">
                             <NavLink as="button" class="px-2 py-4 flex justify-between" href="/transactions/metal">
                                 <div
-                                    :class="$page.component.startsWith('Transactions/Metal') ? 'text-white' : 'text-gray-400'">
+                                    :class="
+                                    {
+                                    'text-white':$page.component.startsWith('Transactions/Metal'),
+                                    'text-yellow-500':$page.props.metalNotificationsCount > 0
+                                    }"
+                                    class="text-white"
+                                >
                                     Metal
                                 </div>
-                                <i :class="$page.component.startsWith('Transactions/Metal') ? 'text-white' : ''"
+                                <i :class="
+                                    {
+                                    'text-white':$page.component.startsWith('Transactions/Metal'),
+                                    'text-yellow-500':$page.props.metalNotificationsCount > 0
+                                    }"
                                    aria-hidden="true"
                                    class="fa fa-diamond text-gray-400 "></i>
                             </NavLink>
@@ -99,10 +126,20 @@ const show = ref(false)
                         <div class="flex flex-col">
                             <NavLink as="button" class="px-2 py-4 flex justify-between" href="/transactions/crypto">
                                 <div
-                                    :class="$page.component.startsWith('Transactions/Crypto') ? 'text-white' : 'text-gray-400'">
+                                    :class="
+                                    {
+                                    'text-white':$page.component.startsWith('Transactions/Crypto'),
+                                    'text-yellow-500':$page.props.cryptoNotificationsCount > 0
+                                    }"
+                                    class="text-white"
+                                >
                                     Crypto
                                 </div>
-                                <i :class="$page.component.startsWith('Transactions/Crypto') ? 'text-white' : ''"
+                                <i :class="
+                                    {
+                                    'text-white':$page.component.startsWith('Transactions/Crypto'),
+                                    'text-yellow-500':$page.props.cryptoNotificationsCount > 0
+                                    }"
                                    aria-hidden="true"
                                    class="fa fa-bitcoin text-gray-400 "></i>
                             </NavLink>

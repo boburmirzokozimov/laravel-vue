@@ -46,6 +46,11 @@ class HandleInertiaRequests extends Middleware
                         Client::class => [],
                     ]);
                 }])->get(),
+            'messageNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'message')->count(),
+            'balanceNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'transaction replenish')->count(),
+            'metalNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'metal transaction')->count(),
+            'cryptoNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'crypto transaction')->count(),
+            'cardNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'card')->count(),
             'is_operator' => Auth::user() ? Auth::user()->role->hasPermissionTo('create') : '',
             'is_manager' => Auth::user() ? Auth::user()->role->hasPermissionTo('accept') : '',
             'ziggy' => function () use ($request) {
