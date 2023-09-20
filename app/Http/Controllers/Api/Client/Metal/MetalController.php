@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Api\Client\Metal;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Client\CreateMetalAndCryptoRequestForm;
+use App\Http\Resources\Metal\CryptoResource;
+use App\Http\Resources\Metal\MetalResource;
 use App\Models\Client\Client;
 use App\Models\Client\Metal\Metal;
 use App\Models\Client\Metal\MetalRates;
+use App\Models\Client\MetalAndCryptoCurrencyTransaction;
 use Illuminate\Http\Request;
 
 class MetalController extends Controller
@@ -73,6 +76,14 @@ class MetalController extends Controller
 
         return response()->json([
             'message' => "Success",
+        ]);
+    }
+
+    public function history(Request $request)
+    {
+        $client = Client::findByToken($request->bearerToken())->first();
+        return response()->json([
+            MetalResource::collection(MetalAndCryptoCurrencyTransaction::metalTransactions($client)->paginate())->response()->getData(true)
         ]);
     }
 }

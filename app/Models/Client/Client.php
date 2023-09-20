@@ -77,6 +77,7 @@ use Illuminate\Support\Carbon;
  * @property-read Collection<int, MetalAndCryptoCurrencyTransaction> $metalAndCryptoCurrencyTransactions
  * @property-read int|null $metal_and_crypto_currency_transactions_count
  * @method static \Illuminate\Database\Eloquent\Builder|Client whereOneSignalToken($value)
+ * @property-read Notification|null $notification
  * @mixin Eloquent
  */
 class Client extends Authenticatable

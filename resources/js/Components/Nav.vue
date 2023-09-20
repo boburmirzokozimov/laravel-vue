@@ -36,6 +36,23 @@ const show = ref(false)
                     </span>
                 </NavLink>
             </li>
+            <li class="nav_link_item">
+                <NavLink
+                    :active="$page.component.startsWith('Cards')"
+                    class="nav_link_class"
+                    href="/cards"
+                >
+                    <i
+                        :class="$page.component.startsWith('Cards') ? 'text-white' : ''"
+                        class="fa fa-address-card fa-2x"></i>
+                    <span
+                        :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
+                        class="transition  text-gray-400 hover:text-white"
+                    >
+                        Cards
+                    </span>
+                </NavLink>
+            </li>
             <li class="nav_link_item transition">
                 <div
                     class="cursor-pointer transition flex flex-col"

@@ -34,6 +34,9 @@ use Illuminate\Support\Carbon;
  * @property int $notifiable_id
  * @method static Builder|Notification whereNotifiableId($value)
  * @method static Builder|Notification whereNotifiableType($value)
+ * @property-read Client $client
+ * @property-read Message|null $message
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $notifiable
  * @mixin Eloquent
  */
 class Notification extends CustomModel

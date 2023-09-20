@@ -45,6 +45,7 @@ Route::middleware(['api', 'auth.token'])->group(function () {
 
     Route::controller(MetalController::class)->group(function () {
         Route::get('/metal', 'index');
+        Route::get('/metal/history', 'history');
         Route::get('/metal/balance', 'balance');
         Route::post('/metal/buy', 'buy');
         Route::post('/metal/sell', 'sell');
@@ -52,6 +53,7 @@ Route::middleware(['api', 'auth.token'])->group(function () {
 
     Route::controller(CryptoController::class)->group(function () {
         Route::get('/crypto', 'index');
+        Route::get('/crypto/history', 'history');
         Route::get('/crypto/balance', 'balance');
         Route::post('/crypto/buy', 'buy');
         Route::post('/crypto/sell', 'sell');
@@ -74,8 +76,6 @@ Route::middleware(['api', 'auth.token'])->group(function () {
     Route::get('/countries', CountryController::class);
     Route::post('/transaction', TransactionController::class);
     Route::post('/uploadFile', UploadFileController::class);
-
-
 });
 
 Route::controller(AuthController::class)->group(function () {

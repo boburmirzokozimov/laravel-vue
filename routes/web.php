@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Branch\BranchController;
+use App\Http\Controllers\Cards\CardController;
 use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Client\Balance\DownloadFileController;
 use App\Http\Controllers\Client\Balance\ManageBalanceController;
@@ -127,6 +128,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/transactions/balance', 'balance')->name('transactions.balance');
         Route::get('/transactions/metal', 'metal')->name('transactions.metal');
         Route::get('/transactions/crypto', 'crypto')->name('transactions.crypto');
+    });
+
+    Route::controller(CardController::class)->group(function () {
+        Route::get('/cards', 'index')->name('cards');
     });
 
     Route::post('/uploadFile', UploadFileController::class);

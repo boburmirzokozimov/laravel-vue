@@ -18342,7 +18342,369 @@
      
 }
 
-        namespace L5Swagger { 
+        namespace Ladumor\OneSignal { 
+            /**
+     * 
+     *
+     */ 
+        class OneSignal {
+                    /**
+         * Send a Push Notification to user on device
+         *
+         * @param $fields
+         * @param string $message
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function sendPush($fields, $message = '')
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->sendPush($fields, $message);
+        }
+                    /**
+         * 
+         *
+         * @param $notificationId
+         * @param null $appId
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function cancelNotification($notificationId, $appId = null)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->cancelNotification($notificationId, $appId);
+        }
+                    /**
+         * GET all notifications of any applications.
+         *
+         * @param int $limit
+         * @param int $offset
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function getNotifications($limit = 50, $offset = 0)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getNotifications($limit, $offset);
+        }
+                    /**
+         * GET all outcomes of any applications.
+         * 
+         * Outcomes are only accessible for around 30 days
+         *
+         * @param array $params
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function getOutcomes($params = [])
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getOutcomes($params);
+        }
+                    /**
+         * Get Single notification
+         *
+         * @param string $notificationId
+         * @return object 
+         * @static 
+         */ 
+        public static function getNotification($notificationId)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getNotification($notificationId);
+        }
+                    /**
+         * GET all devices of any applications.
+         *
+         * @param int $limit
+         * @param int $offset
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function getDevices($limit = 50, $offset = 0)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getDevices($limit, $offset);
+        }
+                    /**
+         * Get Single Device information
+         *
+         * @param string $playerId
+         * @return object 
+         * @static 
+         */ 
+        public static function getDevice($playerId)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getDevice($playerId);
+        }
+                    /**
+         * Add new device on your application
+         *
+         * @param array $fields
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function addDevice($fields)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->addDevice($fields);
+        }
+                    /**
+         * update existing device on your application
+         *
+         * @param array $fields
+         * @param int $playerId
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function updateDevice($fields, $playerId)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->updateDevice($fields, $playerId);
+        }
+                    /**
+         * delete existing device on your application
+         *
+         * @param int $playerId
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function deleteDevice($playerId)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->deleteDevice($playerId);
+        }
+                    /**
+         * Create Segment
+         *
+         * @param $fields
+         * @param null $appId
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function createSegment($fields, $appId = null)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->createSegment($fields, $appId);
+        }
+                    /**
+         * 
+         *
+         * @param $segmentId
+         * @param null $appId
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function deleteSegment($segmentId, $appId = null)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->deleteSegment($segmentId, $appId);
+        }
+                    /**
+         * GET all apps of your one signal.
+         *
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function getApps()
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getApps();
+        }
+                    /**
+         * GET single app of your one signal.
+         *
+         * @param null|string $appId
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function getApp($appId = null)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getApp($appId);
+        }
+                    /**
+         * Add new application on your one signal.
+         *
+         * @param array $fields
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function createApp($fields)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->createApp($fields);
+        }
+                    /**
+         * Update existing application on your one signal.
+         *
+         * @param array $fields
+         * @param null|string $appId
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function updateApp($fields, $appId = null)
+        {
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->updateApp($fields, $appId);
+        }
+                    /**
+         * 
+         *
+         * @param string $key
+         * @static 
+         */ 
+        public static function setAuthorization($key)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->setAuthorization($key);
+        }
+                    /**
+         * 
+         *
+         * @param string $url
+         * @return string $url
+         * @static 
+         */ 
+        public static function getUrl($url)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getUrl($url);
+        }
+                    /**
+         * 
+         *
+         * @param string $url
+         * @static 
+         */ 
+        public static function setUrl($url)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->setUrl($url);
+        }
+                    /**
+         * 
+         *
+         * @return string $appId
+         * @static 
+         */ 
+        public static function getAppId()
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getAppId();
+        }
+                    /**
+         * 
+         *
+         * @param string $appId
+         * @static 
+         */ 
+        public static function setAppId($appId)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->setAppId($appId);
+        }
+                    /**
+         * 
+         *
+         * @param string $mutableContent
+         * @static 
+         */ 
+        public static function setMutableContent($mutableContent)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->setMutableContent($mutableContent);
+        }
+                    /**
+         * 
+         *
+         * @return string $mutableContent
+         * @static 
+         */ 
+        public static function getMutableContent()
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getMutableContent();
+        }
+                    /**
+         * 
+         *
+         * @param string $authKey
+         * @static 
+         */ 
+        public static function setAuthKey($authKey)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->setAuthKey($authKey);
+        }
+                    /**
+         * 
+         *
+         * @return string $authKey
+         * @static 
+         */ 
+        public static function getAuthKey()
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->getAuthKey();
+        }
+                    /**
+         * GEt Method
+         *
+         * @param string $url
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function get($url)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->get($url);
+        }
+                    /**
+         * Post Method
+         *
+         * @param string $url
+         * @param string $fields
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function post($url, $fields)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->post($url, $fields);
+        }
+                    /**
+         * Put Method
+         *
+         * @param string $url
+         * @param string $fields
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function put($url, $fields)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->put($url, $fields);
+        }
+                    /**
+         * Delete Method
+         *
+         * @param string $url
+         * @return array|mixed 
+         * @static 
+         */ 
+        public static function delete($url)
+        {            //Method inherited from \Ladumor\OneSignal\OneSignalClient         
+                        /** @var \Ladumor\OneSignal\OneSignalManager $instance */
+                        return $instance->delete($url);
+        }
+         
+    }
+     
+}
+
+    namespace L5Swagger { 
             /**
      * 
      *
@@ -22808,6 +23170,7 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
+            class OneSignal extends \Ladumor\OneSignal\OneSignal {}
             class L5Swagger extends \L5Swagger\L5SwaggerFacade {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
      
