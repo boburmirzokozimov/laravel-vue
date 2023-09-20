@@ -132,7 +132,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(CardController::class)->group(function () {
         Route::get('/cards', 'index')->name('cards');
-        Route::get('/cards/{card}', 'destroy')->name('cards.destroy');
+        Route::post('/cards/{card}', 'destroy')->name('cards.destroy');
     });
 
     Route::post('/uploadFile', UploadFileController::class);
