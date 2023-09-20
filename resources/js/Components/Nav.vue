@@ -23,7 +23,7 @@ const show = ref(false)
                 <NavLink
                     :active="$page.component.startsWith('Home')"
                     class="nav_link_class"
-                    href="/dashboard"
+                    href="/"
                 >
                     <i
                         :class="$page.component.startsWith('Home') ? 'text-white' : ''"

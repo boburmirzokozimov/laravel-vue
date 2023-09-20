@@ -6,7 +6,7 @@ import {router} from "@inertiajs/vue3";
 
 const show = ref(false)
 const handleNotificationClick = () => {
-    router.visit('/dashboard')
+    router.visit('/')
 }
 </script>
 
