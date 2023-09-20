@@ -18,6 +18,9 @@ const getDesc = (notification) => {
     if (notification.type === 'crypto transaction') {
         return `New crypto transaction by ${notification.notifiable.full_name}`
     }
+    if (notification.type === 'card') {
+        return `New card request by ${notification.notifiable.full_name}`
+    }
 }
 const getType = (notification) => {
     if (notification.type === 'message') {
@@ -32,6 +35,9 @@ const getType = (notification) => {
     if (notification.type === 'crypto transaction') {
         return `New crypto transaction`
     }
+    if (notification.type === 'card') {
+        return `New card request`
+    }
 }
 
 const handleClick = (notification) => {
@@ -44,6 +50,12 @@ const handleClick = (notification) => {
 const handleMarkButton = (id) => {
     router.post(`/notifications/${id}`, {}, {
         onSuccess: () => toaster.success('Marked as read')
+    })
+}
+
+const handleMarkAllButton = () => {
+    router.post(`/notifications`, {}, {
+        onSuccess: () => toaster.success('Marked all as read')
     })
 }
 
@@ -75,7 +87,9 @@ const handleMarkButton = (id) => {
                                 Опсисание
                             </th>
                             <th class="text-sm font-medium text-gray-900 px-6 py-4 " scope="col">
-
+                                <button class="underline cursor-pointer btn-secondary" @click="handleMarkAllButton">
+                                    Mark All As Read
+                                </button>
                             </th>
                         </tr>
                         </thead>

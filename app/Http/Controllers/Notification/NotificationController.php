@@ -10,9 +10,17 @@ class NotificationController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Notification $notification)
+    public function single(Notification $notification)
     {
         $notification->markAsRead();
+        return back();
+    }
+
+    public function all()
+    {
+        Notification::query()
+            ->where('isRead', false)
+            ->update(['isRead' => true]);
         return back();
     }
 }

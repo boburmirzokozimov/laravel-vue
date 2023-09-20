@@ -135,9 +135,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/cards/{creditCardRequest}', 'destroy')->name('cards.destroy');
     });
 
-    Route::post('/uploadFile', UploadFileController::class);
+    Route::controller(NotificationController::class)->group(function () {
+        Route::post('/notifications', 'all');
+        Route::post('/notifications/{notification}', 'single');
+    });
 
-    Route::post('/notifications/{notification}', NotificationController::class);
+    Route::post('/uploadFile', UploadFileController::class);
 });
 
 
