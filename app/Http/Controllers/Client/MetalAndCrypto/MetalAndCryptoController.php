@@ -41,7 +41,6 @@ class MetalAndCryptoController extends Controller
                     'client_id' => $client->id
                 ]);
                 $metal = Metal::findByClientId($client, $transaction->sort)->first();
-//                $metal->subtractionFromBalance($transaction->quantity);
                 $transaction->update([
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
@@ -147,7 +146,6 @@ class MetalAndCryptoController extends Controller
                     'status' => TransactionStatusEnumType::SUCCESS,
                     'client_id' => $client->id
                 ]);
-//                $metal->subtractionFromBalance($transaction->quantity);
                 $transaction->update([
                     'status' => TransactionStatusEnumType::SUCCESS->name,
                     'sum' => $sum,
