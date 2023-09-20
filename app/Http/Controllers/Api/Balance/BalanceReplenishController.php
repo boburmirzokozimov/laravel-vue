@@ -60,7 +60,7 @@ class BalanceReplenishController extends Controller
                         'withdraw_account_number' => $cardTransactions->withdraw_account_number,
                         'created_at' => $cardTransactions->created_at,
                         'is_metal_or_crypto' => (bool)$cardTransactions?->metal_and_crypto_currency_transaction_id,
-                        'metal_or_crypto_type' => $cardTransactions?->metalAndCryptoCurrencyTransaction->sort
+                        'metal_or_crypto_type' => $cardTransactions?->metalAndCryptoCurrencyTransaction?->sort
                     ];
                 }),
         ]);
