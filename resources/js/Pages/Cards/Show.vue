@@ -116,7 +116,7 @@ const props = defineProps({
                                 </th>
                                 <td
                                     class="bg-white px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right underline"
-                                    v-text="credit_card_request.created_at"
+                                    v-text="credit_card_request.formattedDate.formattedCreatedDate"
                                 ></td>
                             </tr>
                             </tbody>

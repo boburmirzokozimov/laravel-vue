@@ -31,6 +31,7 @@ class CardController extends Controller
                         "anonymous_surname" => $card->anonymous_surname,
                         "anonymous_name" => $card->anonymous_name,
                         "formattedDate" => $card->formattedDate,
+                        "created_at" => $card->created_at,
                     ];
                 })
         ]);
