@@ -1,0 +1,1 @@
+/* empty css                                                              */import{_ as s,o as t,c}from"./app-c9a6da33.js";const n={};function r(o,e){return t(),c("div",{class:"modal",onClick:e[0]||(e[0]=a=>o.$emit("close"))})}const d=s(n,[["render",r],["__scopeId","data-v-2a5f8e06"]]);export{d as M};

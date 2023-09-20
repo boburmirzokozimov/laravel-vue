@@ -29,6 +29,10 @@ class VisaCardController extends Controller
             $this->cardService->handle($request->validated(), $client);
         }
 
+        $client->notifyUser([
+            'card'
+        ]);
+
         return response()->json([
             'message' => 'Success'
         ]);

@@ -26,11 +26,25 @@ const show = ref(false)
                     href="/"
                 >
                     <i
-                        :class="$page.component.startsWith('Home') ? 'text-white' : ''"
-                        class="fa fa-compass fa-2x"></i>
+                        :class="{
+                            'text-white':$page.component.startsWith('Home'),
+                            'text-yellow-500':$page.props.notifications.length > 0
+                        }"
+                        class="fa fa-compass fa-2x relative">
+                         <span
+                             :class="$page.props.notifications.length > 0 ? 'text-yellow-500' : ''"
+                             class="text-xs absolute -top-2"
+                             v-text="$page.props.notifications.length > 0 ? $page.props.notifications.length : ''"
+                         >
+                            </span>
+                    </i>
                     <span
-                        :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
-                        class="transition  text-gray-400 hover:text-white"
+                        :class="
+                            {
+                            'translate-x-1 opacity-100':active,
+                            'text-yellow-500':$page.props.notifications.length > 0
+                            }"
+                        class="transition  text-gray-400 hover:text-white -translate-x-1 opacity-0"
                     >
                         Dashboard
                     </span>
@@ -43,11 +57,18 @@ const show = ref(false)
                     href="/cards"
                 >
                     <i
-                        :class="$page.component.startsWith('Cards') ? 'text-white' : ''"
+                        :class="{
+                            'text-white':$page.component.startsWith('Cards'),
+                            'text-yellow-500':$page.props.cardNotificationsCount > 0
+                        }"
                         class="fa fa-address-card fa-2x"></i>
                     <span
-                        :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
-                        class="transition  text-gray-400 hover:text-white"
+                        :class="
+                            {
+                            'translate-x-1 opacity-100':active,
+                            'text-yellow-500':$page.props.cardNotificationsCount > 0
+                            }"
+                        class="transition  text-gray-400 hover:text-white -translate-x-1 opacity-0"
                     >
                         Cards
                     </span>
@@ -64,7 +85,14 @@ const show = ref(false)
                             'text-white':$page.component.startsWith('Transactions'),
                             'text-yellow-500':$page.props.notifications.length > 0
                         }"
-                            class="fa fa-bar-chart fa-2x"></i>
+                            class="fa fa-bar-chart fa-2x relative">
+                            <span
+                                :class="$page.props.notifications.length > 0 ? 'text-yellow-500' : ''"
+                                class="text-xs absolute -top-2"
+                                v-text="$page.props.notifications.length > 0 ? $page.props.balanceNotificationsCount+$page.props.metalNotificationsCount+$page.props.cryptoNotificationsCount : ''"
+                            >
+                            </span>
+                        </i>
                         <div
                             :class="
                             {
@@ -73,6 +101,7 @@ const show = ref(false)
                             }"
                             class="transition  text-gray-400 hover:text-white -translate-x-1 opacity-0"
                         >
+
                             Transactions
                         </div>
                     </div>
@@ -95,7 +124,14 @@ const show = ref(false)
                                     'text-yellow-500':$page.props.balanceNotificationsCount > 0
                                     }"
                                     aria-hidden="true"
-                                    class="fa fa-credit-card text-gray-400 "></i>
+                                    class="fa fa-credit-card text-gray-400 relative">
+                                    <span
+                                        :class="$page.props.notifications.length > 0 ? 'text-yellow-500' : ''"
+                                        class="text-xs absolute -top-2 -right-2"
+                                        v-text="$page.props.balanceNotificationsCount > 0 ? $page.props.balanceNotificationsCount: ''"
+                                    >
+                                     </span>
+                                </i>
                             </NavLink>
                         </div>
                     </div>
@@ -118,7 +154,14 @@ const show = ref(false)
                                     'text-yellow-500':$page.props.metalNotificationsCount > 0
                                     }"
                                    aria-hidden="true"
-                                   class="fa fa-diamond text-gray-400 "></i>
+                                   class="fa fa-diamond text-gray-400 relative">
+                                       <span
+                                           :class="$page.props.notifications.length > 0 ? 'text-yellow-500' : ''"
+                                           class="text-xs absolute -top-2 -right-2"
+                                           v-text="$page.props.metalNotificationsCount > 0 ? $page.props.metalNotificationsCount: ''"
+                                       >
+                                     </span>
+                                </i>
                             </NavLink>
                         </div>
                     </div>
@@ -141,7 +184,14 @@ const show = ref(false)
                                     'text-yellow-500':$page.props.cryptoNotificationsCount > 0
                                     }"
                                    aria-hidden="true"
-                                   class="fa fa-bitcoin text-gray-400 "></i>
+                                   class="fa fa-bitcoin text-gray-400 relative">
+                                    <span
+                                        :class="$page.props.notifications.length > 0 ? 'text-yellow-500' : ''"
+                                        class="text-xs absolute -top-2 -right-2"
+                                        v-text="$page.props.cryptoNotificationsCount > 0 ? $page.props.cryptoNotificationsCount: ''"
+                                    >
+                                     </span>
+                                </i>
                             </NavLink>
                         </div>
                     </div>
@@ -205,12 +255,27 @@ const show = ref(false)
                     class="nav_link_class"
                     href="/chat">
                     <i
-                        :class="$page.component.startsWith('Chat') ? 'text-white' : ''"
-                        class="fa fa-commenting fa-2x"></i>
+                        :class=" {
+                                      'text-white':$page.component.startsWith('Chat'),
+                                    'text-yellow-500':$page.props.messageNotificationsCount > 0
+                                    }"
+                        class="fa fa-commenting fa-2x relative">
+                          <span
+                              :class="$page.props.messageNotificationsCount > 0 ? 'text-yellow-500' : ''"
+                              class="text-xs absolute -top-2 -right-2"
+                              v-text="$page.props.messageNotificationsCount > 0 ? $page.props.messageNotificationsCount: ''"
+                          >
+                          </span>
+                    </i>
 
                     <span
-                        :class="active ?'translate-x-1 opacity-100':'-translate-x-1 opacity-0'"
-                        class="transition  text-gray-400 hover:text-white"
+                        :class="
+                                    {
+                                       'translate-x-1 opacity-100':active,
+                                      'text-white':$page.component.startsWith('Chat'),
+                                    'text-yellow-500':$page.props.messageNotificationsCount > 0
+                                    }"
+                        class="transition  text-gray-400 hover:text-white -translate-x-1 opacity-0"
                     >
                         Chat
                     </span>
