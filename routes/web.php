@@ -78,6 +78,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/send/{client}', 'send');
         Route::get('/chat/{chatRoom}', 'show');
         Route::post('/chat-room/{chatRoom}', 'update');
+        Route::post('/clients/{client}/message', 'sendMessage');
     });
 
     Route::controller(BranchController::class)->group(function () {

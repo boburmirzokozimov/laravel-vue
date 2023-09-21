@@ -38,6 +38,45 @@ class ChatController extends Controller
         ]);
     }
 
+    public function update(ChatRoom $chatRoom): RedirectResponse
+    {
+        $chatRoom->toggleCompletion();
+
+        return back();
+    }
+
+    /**
+     * @throws GuzzleException
+     */
+    public function sendMessage(\Illuminate\Http\Request $request, Client $client, Centrifugo $centrifugo): RedirectResponse
+    {
+        $chatRoom = $client->chatRoom()->firstOrCreate()->load('client');
+
+        $centrifugo->publish('fin_help:chat', ['chatRoom' => $chatRoom]);
+
+        $message = $request->user()
+            ->messages()
+            ->create([
+                'message' => $request->message,
+                'chat_room_id' => $chatRoom->id
+            ]);
+
+        $centrifugo->publish('fin_help:chat#' . $client->id, [
+            'client' => $client,
+            'chat_room_id' => $chatRoom->id,
+            'message' => $message
+        ]);
+
+        $contents = [
+            "ru" => 'У вас новое сообщение в чате.',
+            'en' => 'You have got a new message.'
+        ];
+
+        $this->oneSignalService->send($client, 'chat', $contents);
+
+        return back();
+    }
+
     /**
      * @throws GuzzleException
      */
@@ -60,13 +99,6 @@ class ChatController extends Controller
             'en' => 'You have got a new message.'
         ];
         $this->oneSignalService->send($client, 'chat', $contents);
-
-        return back();
-    }
-
-    public function update(ChatRoom $chatRoom): RedirectResponse
-    {
-        $chatRoom->toggleCompletion();
 
         return back();
     }

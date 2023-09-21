@@ -5,6 +5,7 @@ import {ref} from "vue";
 import Modal from "@/Components/Modal.vue";
 import {router} from "@inertiajs/vue3";
 import NavLink from "@/Components/NavLink.vue";
+import SendMessage from "@/Pages/Clients/SendMessage.vue";
 
 const toaster = createToaster({ /* options */});
 const props = defineProps({
@@ -20,6 +21,11 @@ const handleDelete = (id) => {
 
 const handleEdit = (id) => {
     show.value = id
+    active.value = true
+}
+
+const handleSendButton = (id) => {
+    show.value = 'message_' + id
     active.value = true
 }
 
@@ -110,14 +116,23 @@ const closeModal = () => {
                                 >
                                     <i class="fa fa-edit text-white"></i>
                                 </button>
+                                <button class="btn-secondary  mr-2"
+                                        @click.prevent="()=>handleSendButton(client.id)"
+                                >
+                                    <i class="fa fa-envelope text-white"></i>
+                                </button>
                                 <button
                                     class="btn-danger"
                                     @click.prevent="()=>handleDelete(client.id)">
                                     <i class="fa fa-trash text-white"></i>
                                 </button>
                                 <Modal v-if="active && client.id === show" @close="closeModal"/>
+                                <Modal v-if="active && 'message_'+client.id === show" @close="closeModal"/>
                                 <Edit v-if="active && client.id === show" :client="client"
                                       @close="closeModal"/>
+                                <SendMessage v-if="active && 'message_'+client.id === show"
+                                             :client="client"
+                                             @close="closeModal"/>
                             </td>
                         </tr>
                         </tbody>
