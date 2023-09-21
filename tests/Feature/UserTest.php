@@ -7,19 +7,27 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    public function test_registered_user_can_login(): void
+    public function test_registered_users_can_login(): void
     {
         $this->withoutExceptionHandling();
         $user = User::factory()->create();
-        $response = $this->post('/submit', [
+
+        $this->post('/submit', [
             'phone' => $user->phone
         ]);
+
         $this->post('/verify', [
             'phone' => $user->phone,
-            'login_code' => $user->login_code
+            'login_code' => $user->refresh()->login_code
         ])->assertRedirect('/users');
     }
+
+    public function test_unregistered_users_cannot_login(): void
+    {
+        $this->post('/submit', [
+            'phone' => '998900223123'
+        ])->assertSessionHasErrors();
+    }
+
+    public function test_admin_can_create_users()
 }

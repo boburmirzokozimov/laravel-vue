@@ -51,7 +51,7 @@ class MetalController extends Controller
 
     public function manage(CreateMetalAndCryptoRequestForm $requestForm, array $credentials)
     {
-        $client = Client::findByToken($request->bearerToken())->first();
+        $client = Client::findByToken($requestForm->bearerToken())->first();
         $credentials['type'] = 1;
 
         if ($credentials['withdraw'] === true) {
