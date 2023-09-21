@@ -16,6 +16,7 @@ use Database\Factories\ClientFactory;
 use Eloquent;
 use Exception;
 use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -261,5 +262,14 @@ class Client extends Authenticatable
     public function chatRoom(): HasOne
     {
         return $this->hasOne(ChatRoom::class);
+    }
+
+    protected function balance(): Attribute
+    {
+        return Attribute::make(
+            get: function (string $value) {
+                return number_format($value);
+            }
+        );
     }
 }
