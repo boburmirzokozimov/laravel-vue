@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/clients/{client}/manage-balance', 'create')->name('clients.balance.create');
         Route::post('/clients/{client}/manage-balance/{balanceRequest}', 'activate')->name('clients.balance.activate');
     });
-
+    
     Route::controller(ManageCreditCardRequestController::class)->group(function () {
         Route::post('/clients/{client}/manage-credit-card', 'store')->name('clients.credit-card.store');
         Route::get('/clients/{client}/manage-credit-card', 'create')->name('clients.credit-card.create');
@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
         Route::patch('/clients/{client}/manage-credit-card-anonymous/{creditCardRequest}', 'updateAnonymous')->name('clients.credit-card.update-anonymous');
         Route::post('/clients/{client}/manage-credit-card/{creditCardRequest}', 'activate')->name('clients.credit-card.activate');
     });
+
 
     Route::controller(CreditCardController::class)->group(function () {
         Route::post('/credit-cards/{creditCard}/destroy', 'destroy')->name('credit-cards.destroy');

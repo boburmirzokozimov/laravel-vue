@@ -28,8 +28,8 @@ class CreditCardRequestFactory extends Factory
             'middle_name' => fake()->name(),
             'phone' => fake()->randomNumber(9, true),
             'birth_date' => fake()->date(),
-            'scan_passport' => fake()->image(),
-            'selfie_passport' => fake()->image(),
+            'scan_passport' => null,
+            'selfie_passport' => null,
             'status' => fake()->randomElement(['PENDING', 'RELEASED'])
         ];
     }

@@ -29,8 +29,8 @@ class CreateCreditCardRequest extends FormRequest
             'middle_name' => 'string|required',
             'phone' => 'numeric|required',
             'birth_date' => 'date|required',
-            'scan_passport' => 'required',
-            'selfie_passport' => 'required'
+            'scan_passport' => 'nullable',
+            'selfie_passport' => 'nullable'
         ];
 
         if (request()->input('anonymous')) {
