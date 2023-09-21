@@ -18,7 +18,6 @@ class ChatRoomController extends Controller
     public function store(Request $request, Centrifugo $centrifugo)
     {
         $client = Client::findByToken($request->bearerToken())->first();
-
         $chatRoom = $client->chatRoom()->firstOrCreate()->load('client');
 
         $centrifugo->publish('fin_help:chat', ['chatRoom' => $chatRoom]);
