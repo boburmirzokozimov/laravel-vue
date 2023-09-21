@@ -9,6 +9,7 @@ use App\Http\Requests\MessageFormRequest;
 use App\Models\Client\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
@@ -17,7 +18,7 @@ class ChatController extends Controller
      */
     public function sendByClient(MessageFormRequest $request, Centrifugo $centrifugo)
     {
-        $client = Client::findByToken($request->bearerToken())->first();
+        $client = Auth::user();
 
         $message = $client
             ->messages()

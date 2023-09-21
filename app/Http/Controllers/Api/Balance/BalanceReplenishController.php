@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Balance;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Balance\CreateBalanceReplenishForm;
-use App\Models\Client\Client;
 use App\Services\UploadService;
+use Auth;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class BalanceReplenishController extends Controller
     {
         $credentials = $request->validated();
 
-        $client = Client::findByToken($request->bearerToken())->first();
+        $client = Auth::user();
 
         $client->manageBalance($credentials);
 
@@ -34,8 +34,7 @@ class BalanceReplenishController extends Controller
 
     public function history(Request $request): JsonResponse
     {
-        /** @var Client $client */
-        $client = Client::findByToken($request->bearerToken())->first();
+        $client = Auth::user();
 
         return response()->json([
             'data' => $client->balanceRequest()
@@ -72,7 +71,7 @@ class BalanceReplenishController extends Controller
             'invoice_file' => 'file'
         ]);
 
-        $client = Client::findByToken($request->bearerToken())->first();
+        $client = Auth::user();
 
         $credentials['invoice_file'] = $this->uploadService->uploadInvoice($credentials['invoice_file']);
         $client->manageBalance($credentials, true);

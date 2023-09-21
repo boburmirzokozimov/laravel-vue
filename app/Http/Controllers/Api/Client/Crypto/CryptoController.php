@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Api\Client\Crypto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Client\CreateMetalAndCryptoRequestForm;
 use App\Http\Resources\Crypto\CryptoResource;
-use App\Models\Client\Client;
 use App\Models\Client\Crypto\CryptoCurrency;
 use App\Models\Client\Crypto\CryptoRates;
 use App\Models\Client\MetalAndCryptoCurrencyTransaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CryptoController extends Controller
 {
@@ -34,7 +34,7 @@ class CryptoController extends Controller
 
     public function balance(Request $request)
     {
-        $client = Client::findByToken($request->bearerToken())->first();
+        $client = Auth::user();
 
         return response()->json([
             'data' => $client->cryptoCurrencies()->get(['card_type', 'balance']),
@@ -54,7 +54,7 @@ class CryptoController extends Controller
 
     public function manage(CreateMetalAndCryptoRequestForm $requestForm, array $credentials)
     {
-        $client = Client::findByToken($requestForm->bearerToken())->first();
+        $client = Auth::user();
         $credentials['type'] = 2;
 
         if ($credentials['withdraw'] === true) {
@@ -86,7 +86,7 @@ class CryptoController extends Controller
 
     public function history(Request $request)
     {
-        $client = Client::findByToken($request->bearerToken())->first();
+        $client = Auth::user();
 
         return response()->json([
             CryptoResource::collection(MetalAndCryptoCurrencyTransaction::cryptoTransactions($client)->paginate())->response()->getData(true)

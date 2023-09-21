@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Api\UploadFile;
 use Alexusmai\Centrifugo\Centrifugo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UploadFile\UploadFileRequestForm;
-use App\Models\Client\Client;
 use App\Services\UploadService;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Support\Facades\Auth;
 
 class UploadFileController extends Controller
 {
@@ -22,7 +22,7 @@ class UploadFileController extends Controller
     {
         $credentials = $request->validated();
         $credentials['message'] = $this->uploadService->uploadMessage($request->validated('message'));
-        $client = Client::findByToken($request->bearerToken())->first();
+        $client = Auth::user();
 
         $message = $client
             ->messages()
