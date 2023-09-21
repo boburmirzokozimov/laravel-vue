@@ -96,7 +96,7 @@ const closeModal = () => {
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="balance_transaction.sum"
+                                v-text="balance_transaction.sum.toLocaleString('en-US')"
                             ></td>
                             <td
                                 v-if="!balance_transaction.metal_or_crypto_type"

@@ -66,7 +66,7 @@ use Illuminate\Support\Carbon;
  * @property int|null $credit_card_id
  * @property int|null $metal_and_crypto_currency_transaction_id
  * @property-read CreditCard|null $creditCard
- * @property-read \App\Models\Client\MetalAndCryptoCurrencyTransaction|null $metalAndCryptoCurrencyTransaction
+ * @property-read MetalAndCryptoCurrencyTransaction|null $metalAndCryptoCurrencyTransaction
  * @method static Builder|BalanceRequest whereCreditCardId($value)
  * @method static Builder|BalanceRequest whereMetalAndCryptoCurrencyTransactionId($value)
  * @mixin Eloquent
