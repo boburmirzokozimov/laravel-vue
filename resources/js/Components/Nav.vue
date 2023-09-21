@@ -61,7 +61,14 @@ const show = ref(false)
                             'text-white':$page.component.startsWith('Cards'),
                             'text-yellow-500':$page.props.cardNotificationsCount > 0
                         }"
-                        class="fa fa-address-card fa-2x"></i>
+                        class="fa fa-address-card fa-2x relative">
+                        <span
+                            :class="$page.props.cardNotificationsCount > 0 ? 'text-yellow-500' : ''"
+                            class="text-xs absolute -top-2"
+                            v-text="$page.props.cardNotificationsCount > 0 ? $page.props.cardNotificationsCount : ''"
+                        >
+                            </span>
+                    </i>
                     <span
                         :class="
                             {

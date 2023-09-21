@@ -30,7 +30,7 @@ class VisaCardController extends Controller
         }
 
         $client->notifyUser([
-            'card'
+            'type' => 'card'
         ]);
 
         return response()->json([
