@@ -92,7 +92,7 @@ const handleCancel = (metalTransaction) => {
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
-                                v-text="metalTransaction.sum"
+                                v-text="metalTransaction.sum.toLocaleString('en-US')"
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-left"
