@@ -5,15 +5,16 @@ namespace App\Http\Controllers\Api\Auth;
 use Alexusmai\Centrifugo\Centrifugo;
 use App\Http\Controllers\Controller;
 use App\Models\Client\Client;
+use App\Repositories\ClientRepository;
 use App\Services\AuthService;
 use App\Services\TokenService;
-use Auth;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function __construct(private readonly AuthService  $authService,
-                                private readonly TokenService $tokenService)
+    public function __construct(private readonly AuthService      $authService,
+                                private readonly TokenService     $tokenService,
+                                private readonly ClientRepository $clientRepository)
     {
     }
 
@@ -50,7 +51,7 @@ class AuthController extends Controller
 
     public function me(Request $request, Centrifugo $centrifugo)
     {
-        $client = Auth::user();
+        $client = $this->clientRepository->findByToken($request->bearerToken());
 
         if ($client?->isActive()) {
             $credentials = [

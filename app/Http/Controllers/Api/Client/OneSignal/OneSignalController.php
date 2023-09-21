@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\Client\OneSignal;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class OneSignalController extends Controller
 {
@@ -14,7 +14,7 @@ class OneSignalController extends Controller
             'one_signal_token' => 'string|required'
         ]);
 
-        $client = Auth::user();
+        $client = Client::findByToken($request->bearerToken())->first();
 
         $client->update($one_signal_token);
 
@@ -25,7 +25,7 @@ class OneSignalController extends Controller
 
     public function removeToken(Request $request)
     {
-        $client = Auth::user();
+        $client = Client::findByToken($request->bearerToken())->first();
 
         $client->update([
             'one_signal_token' => ''

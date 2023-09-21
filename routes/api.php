@@ -12,13 +12,12 @@ use App\Http\Controllers\Api\Client\OneSignal\OneSignalController;
 use App\Http\Controllers\Api\Country\CountryController;
 use App\Http\Controllers\Api\HelpRequest\HelpRequestController;
 use App\Http\Controllers\Api\Key\KeyController;
-use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\UploadFile\UploadFileController;
 use App\Http\Controllers\Api\VisaCard\VisaCardController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(['middleware' => ['api', 'auth.token', 'auth:api']], function () {
+Route::middleware(['api', 'auth.token'])->group(function () {
     Route::get('/me', [AuthController::class, 'me']);
 
     Route::controller(ChatRoomController::class)->group(function () {

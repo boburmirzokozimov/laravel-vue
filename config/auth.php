@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Client\Client;
 use App\Models\User\User;
 
 return [
@@ -43,9 +42,9 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'api' => [
-            'driver' => 'custom-token'
-        ],
+//        'api' => [
+//            'driver' => 'custom-token'
+//        ],
     ],
 
     /*
@@ -71,10 +70,10 @@ return [
             'model' => User::class,
         ],
 
-        'clients' => [
-            'driver' => 'eloquent',
-            'table' => Client::class,
-        ],
+//        'clients' => [
+//            'driver' => 'eloquent',
+//            'table' => Client::class,
+//        ],
     ],
 
     /*

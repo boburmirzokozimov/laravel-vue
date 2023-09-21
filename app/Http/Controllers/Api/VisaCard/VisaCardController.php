@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api\VisaCard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\VisaCard\VisaCardRequestForm;
 use App\Http\Requests\Api\VisaCard\VisaCardTransactionRequestForm;
+use App\Models\Client\Client;
 use App\Models\Client\CreditCard\CreditCard;
 use App\Models\Client\CreditCard\CreditCardRequest;
 use App\Services\CreditCardService;
-use Auth;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -21,7 +21,7 @@ class VisaCardController extends Controller
 
     public function store(VisaCardRequestForm $request)
     {
-        $client = Auth::user();
+        $client = Client::findByToken($request->bearerToken())->first();
 
         if (request()->input('anonymous')) {
             $this->cardService->handleAnonymous($request->validated(), $client);
@@ -40,7 +40,7 @@ class VisaCardController extends Controller
 
     public function manage(VisaCardTransactionRequestForm $request, CreditCard $card)
     {
-        $client = Auth::user();
+        $client = Client::findByToken($request->bearerToken())->first();
         $credentials = $request->validated();
         $credentials['client_id'] = $client->id;
         try {
@@ -59,7 +59,7 @@ class VisaCardController extends Controller
 
     public function cards(Request $request): JsonResponse
     {
-        $client = Auth::user();
+        $client = Client::findByToken($request->bearerToken())->first();
 
         /** @var CreditCardRequest[] $cards */
         $cards = CreditCardRequest::where('client_id', $client->id)->paginate(10);

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Api\Chat;
 use Alexusmai\Centrifugo\Centrifugo;
 use App\Http\Controllers\Controller;
 use App\Models\Chat\ChatRoom;
+use App\Models\Client\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ChatRoomController extends Controller
 {
@@ -16,7 +16,7 @@ class ChatRoomController extends Controller
      */
     public function store(Request $request, Centrifugo $centrifugo)
     {
-        $client = Auth::user();
+        $client = Client::findByToken($request->bearerToken())->first();
         $chatRoom = $client->chatRoom()->firstOrCreate()->load('client');
 
         $centrifugo->publish('fin_help:chat', ['chatRoom' => $chatRoom]);
@@ -46,4 +46,5 @@ class ChatRoomController extends Controller
                 })
         ]);
     }
+
 }
