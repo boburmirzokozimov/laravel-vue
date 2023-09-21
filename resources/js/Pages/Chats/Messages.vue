@@ -11,10 +11,9 @@ sub.subscribe();
 
 sub.on('publication', function (ctx) {
     props.chat_room.messages.push(ctx.data.message)
-}).on('subscribing', function (ctx) {
-    console.log(isOnline.value, ctx)
+}).on('join', function (ctx) {
     isOnline.value = true
-}).on('unsubscribed', function (ctx) {
+}).on('leave', function (ctx) {
     isOnline.value = false
 });
 onBeforeUnmount(() => {
@@ -85,13 +84,13 @@ const getType = (type) => {
                     class="text-sm text-gray-500 mt-2"
                 >
                     <div
-                        v-if="message.created_at.isToday"
-                        v-text="message.created_at.diffForHumans"
+                        v-if="message.updated_at.isToday"
+                        v-text="message.updated_at.diffForHumans"
                     >
                     </div>
                     <div
                         v-else
-                        v-text="message.created_at.formatted"
+                        v-text="message.updated_at.formatted"
                     >
                     </div>
                 </div>
@@ -108,6 +107,6 @@ const getType = (type) => {
 <style scoped>
 .dot::after {
     content: '';
-    
+
 }
 </style>

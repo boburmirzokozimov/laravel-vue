@@ -46,7 +46,12 @@ class HandleInertiaRequests extends Middleware
                         Client::class => [],
                     ]);
                 }])->get(),
-            'messageNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'message')->count(),
+            'messageNotificationsCount' => Notification::unreadNotifications()->with(['notifiable' => function (MorphTo $morphTo) {
+                $morphTo->morphWith([
+                    Message::class => ['messageble'],
+                    Client::class => [],
+                ]);
+            }])->where('type', '=', 'message')->get(),
             'balanceNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'transaction replenish')->count(),
             'metalNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'metal transaction')->count(),
             'cryptoNotificationsCount' => Notification::unreadNotifications()->where('type', '=', 'crypto transaction')->count(),

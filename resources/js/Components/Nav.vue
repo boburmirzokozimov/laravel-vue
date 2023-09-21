@@ -257,13 +257,13 @@ const show = ref(false)
                     <i
                         :class=" {
                                       'text-white':$page.component.startsWith('Chat'),
-                                    'text-yellow-500':$page.props.messageNotificationsCount > 0
+                                    'text-yellow-500':$page.props.messageNotificationsCount.length > 0
                                     }"
                         class="fa fa-commenting fa-2x relative">
                           <span
-                              :class="$page.props.messageNotificationsCount > 0 ? 'text-yellow-500' : ''"
+                              :class="$page.props.messageNotificationsCount.length > 0 ? 'text-yellow-500' : ''"
                               class="text-xs absolute -top-2 -right-2"
-                              v-text="$page.props.messageNotificationsCount > 0 ? $page.props.messageNotificationsCount: ''"
+                              v-text="$page.props.messageNotificationsCount.length > 0 ? $page.props.messageNotificationsCount.length: ''"
                           >
                           </span>
                     </i>
@@ -273,7 +273,7 @@ const show = ref(false)
                                     {
                                        'translate-x-1 opacity-100':active,
                                       'text-white':$page.component.startsWith('Chat'),
-                                    'text-yellow-500':$page.props.messageNotificationsCount > 0
+                                    'text-yellow-500':$page.props.messageNotificationsCount.length > 0
                                     }"
                         class="transition  text-gray-400 hover:text-white -translate-x-1 opacity-0"
                     >

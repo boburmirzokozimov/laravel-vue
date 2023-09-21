@@ -1,12 +1,12 @@
 <script setup>
 import NavLink from "@/Components/NavLink.vue";
-import {router, useForm} from "@inertiajs/vue3";
+import {router, useForm, usePage} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
 import {watch} from "vue";
 import {debounce} from "lodash";
 
 const toaster = createToaster({ /* options */});
-
+const page = usePage();
 const props = defineProps({
     chat_rooms: Object
 })
@@ -33,6 +33,15 @@ watch(filter, debounce(function (filter) {
         }
     )
 }, 500))
+
+const hasNew = (id) => {
+    for (let i = 0; i < page.props.messageNotificationsCount.length; i++) {
+        if (page.props.messageNotificationsCount[i].notifiable.messageble.id === id) {
+            return true
+        }
+    }
+
+}
 </script>
 
 <template>
@@ -47,6 +56,7 @@ watch(filter, debounce(function (filter) {
     </div>
     <div
         v-for="chat_room in props.chat_rooms"
+        :class="{'bg-yellow-500': hasNew(chat_room.client.id)}"
         class="rounded-2xl text-white text-xl mr-2 bg-blue-400 mb-6 text-left flex justify-between items-center"
     >
         <NavLink

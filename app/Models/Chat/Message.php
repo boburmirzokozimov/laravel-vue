@@ -68,10 +68,10 @@ class Message extends CustomModel
         return $this->morphOne(Notification::class, 'notifiable');
     }
 
-    protected function date(): Attribute
+    protected function updatedAt(): Attribute
     {
         return Attribute::make(
-            get: fn(array $attributes) => [
+            get: fn(mixed $value, array $attributes) => [
                 'unformatted' => $attributes['created_at'],
                 'diffForHumans' => Carbon::make($attributes['created_at'])->diffForHumans(),
                 'isToday' => Carbon::make($attributes['created_at'])->isToday(),

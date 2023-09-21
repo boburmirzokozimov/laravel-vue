@@ -13,7 +13,6 @@ class CountryController extends Controller
      */
     public function __invoke(Request $request)
     {
-
         $data = Country::all()->where('id', '>', 250)
             ->map(function ($country) {
                 return [

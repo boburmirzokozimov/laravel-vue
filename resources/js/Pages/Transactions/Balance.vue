@@ -28,7 +28,15 @@ const handleStatus = (status, id) => {
         preserveScroll: true
     })
 }
-
+const getStatus = (status) => {
+    if (status === 'SUCCESS') {
+        return 'bg-green-500';
+    } else if (status === 'WAITING') {
+        return 'bg-yellow-500';
+    } else {
+        return 'bg-red-500';
+    }
+}
 const handleButton = (id) => {
     show.value = id
     active.value = true
@@ -98,33 +106,38 @@ const closeModal = () => {
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                                 v-text="balance_transaction.metal_or_crypto_type"
                             ></td>
+                            <!--                            <td-->
+                            <!--                                v-if="balance_transaction.status !== 'SUCCESS'"-->
+                            <!--                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"-->
+                            <!--                            >-->
+                            <!--                                <form>-->
+                            <!--                                    <select-->
+                            <!--                                        id="category"-->
+                            <!--                                        class="text-center border border-gray-200 p-2 w-full rounded-2xl"-->
+                            <!--                                        name="category"-->
+                            <!--                                        @change.prevent="handleStatus($event.target.value,balance_transaction.id)"-->
+                            <!--                                    >-->
+                            <!--                                        <option-->
+                            <!--                                            v-for="status in props.transaction_statuses"-->
+                            <!--                                            v-show="status !== 'SUCCESS'"-->
+                            <!--                                            :selected="status === balance_transaction.status"-->
+                            <!--                                            :value="status"-->
+                            <!--                                            class="text-center"-->
+                            <!--                                            v-text="status"-->
+                            <!--                                        ></option>-->
+                            <!--                                    </select>-->
+                            <!--                                </form>-->
+                            <!--                            </td>-->
                             <td
-                                v-if="balance_transaction.status !== 'SUCCESS'"
+                                :class="getStatus(balance_transaction.status)"
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                             >
-                                <form>
-                                    <select
-                                        id="category"
-                                        class="text-center border border-gray-200 p-2 w-full rounded-2xl"
-                                        name="category"
-                                        @change.prevent="handleStatus($event.target.value,balance_transaction.id)"
-                                    >
-                                        <option
-                                            v-for="status in props.transaction_statuses"
-                                            v-show="status !== 'SUCCESS'"
-                                            :selected="status === balance_transaction.status"
-                                            :value="status"
-                                            class="text-center"
-                                            v-text="status"
-                                        ></option>
-                                    </select>
-                                </form>
+                                <span
+                                    class="text-white px-2 py-1 rounded"
+                                    v-text="balance_transaction.status"
+                                >
+                                </span>
                             </td>
-                            <td
-                                v-else
-                                class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap bg-green-500"
-                                v-text="'SUCCESS'"
-                            ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                             >
