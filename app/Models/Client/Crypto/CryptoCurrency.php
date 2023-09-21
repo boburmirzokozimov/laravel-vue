@@ -7,6 +7,7 @@ use App\Models\CustomModel;
 use Eloquent;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
@@ -29,7 +30,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|CryptoCurrency whereCreatedAt($value)
  * @method static Builder|CryptoCurrency whereId($value)
  * @method static Builder|CryptoCurrency whereUpdatedAt($value)
- * @method static Builder|CryptoCurrency findByClientId(\App\Models\Client\Client $client, ?string $type = null)
+ * @method static Builder|CryptoCurrency findByClientId(Client $client, ?string $type = null)
  * @mixin Eloquent
  */
 class CryptoCurrency extends CustomModel
@@ -38,6 +39,7 @@ class CryptoCurrency extends CustomModel
     protected $casts = [
         'balance' => 'float'
     ];
+
     public static function scopeFindByClientId(Builder $builder, Client $client, ?string $type = null)
     {
         return $builder
@@ -66,5 +68,14 @@ class CryptoCurrency extends CustomModel
             throw new Exception('Не достаточно средств');
         }
         $this->save();
+    }
+
+    protected function balance(): Attribute
+    {
+        return Attribute::make(
+            get: function (string $value) {
+                return number_format($value);
+            }
+        );
     }
 }

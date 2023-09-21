@@ -45,7 +45,7 @@ class TransactionController extends Controller
                         'credit_card_id' => $transaction?->creditCard?->id,
                         'status' => $transaction->status,
                         'quantity' => $transaction->quantity,
-                        'sum' => $transaction->withdraw ? -$transaction->sum : $transaction->sum,
+                        'sum' => $transaction->withdraw ? -number_format($transaction->sum) : number_format($transaction->sum),
                         'withdraw' => $transaction->withdraw,
                         'created_at' => Carbon::create($transaction->created_at)->format('Y-m-d'),
                         'client_name' => $transaction->client->full_name,
@@ -99,7 +99,7 @@ class TransactionController extends Controller
                         'credit_card_id' => $transaction?->creditCard?->id,
                         'status' => $transaction->status,
                         'quantity' => $transaction->quantity,
-                        'sum' => $transaction->withdraw ? -$transaction->sum : $transaction->sum,
+                        'sum' => $transaction->withdraw ? -number_format($transaction->sum) : number_format($transaction->sum),
                         'withdraw' => $transaction->withdraw,
                         'created_at' => Carbon::create($transaction->created_at)->format('Y-m-d'),
                         'client_name' => $transaction->client->full_name
@@ -142,7 +142,7 @@ class TransactionController extends Controller
                         'credit_card_id' => $transaction?->creditCard?->id,
                         'status' => $transaction->status,
                         'quantity' => $transaction->quantity,
-                        'sum' => $transaction->withdraw ? -$transaction->sum : $transaction->sum,
+                        'sum' => $transaction->withdraw ? -number_format($transaction->sum) : number_format($transaction->sum),
                         'withdraw' => $transaction->withdraw,
                         'created_at' => Carbon::create($transaction->created_at)->format('Y-m-d'),
                         'client_name' => $transaction->client->full_name

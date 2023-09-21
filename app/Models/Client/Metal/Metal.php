@@ -7,6 +7,7 @@ use App\Models\CustomModel;
 use Eloquent;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
@@ -29,7 +30,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Metal whereCreatedAt($value)
  * @method static Builder|Metal whereId($value)
  * @method static Builder|Metal whereUpdatedAt($value)
- * @method static Builder|Metal findByClientId(\App\Models\Client\Client $client, ?string $type = null)
+ * @method static Builder|Metal findByClientId(Client $client, ?string $type = null)
  * @mixin Eloquent
  */
 class Metal extends CustomModel
@@ -37,6 +38,7 @@ class Metal extends CustomModel
     protected $casts = [
         'balance' => 'float'
     ];
+
     public static function scopeFindByClientId(Builder $builder, Client $client, ?string $type = null)
     {
         return $builder
@@ -65,5 +67,14 @@ class Metal extends CustomModel
             throw new Exception('Не достаточно средств');
         }
         $this->save();
+    }
+
+    protected function balance(): Attribute
+    {
+        return Attribute::make(
+            get: function (string $value) {
+                return number_format($value);
+            }
+        );
     }
 }
