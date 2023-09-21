@@ -42,7 +42,7 @@ const props = defineProps({
                             </th>
                             <td
                                 class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right"
-                                v-text="balance?.balance?.toLocaleString('en-US') ?? 0"
+                                v-text="balance.balance ?? 0"
                             ></td>
                         </tr>
                         <tr class="border-b">
