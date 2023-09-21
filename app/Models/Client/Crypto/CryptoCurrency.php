@@ -7,7 +7,6 @@ use App\Models\CustomModel;
 use Eloquent;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
@@ -70,12 +69,4 @@ class CryptoCurrency extends CustomModel
         $this->save();
     }
 
-    protected function balance(): Attribute
-    {
-        return Attribute::make(
-            get: function (string $value) {
-                return number_format($value);
-            }
-        );
-    }
 }
