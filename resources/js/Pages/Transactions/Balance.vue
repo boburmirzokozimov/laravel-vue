@@ -33,8 +33,10 @@ const getStatus = (status) => {
         return 'bg-green-500';
     } else if (status === 'WAITING') {
         return 'bg-yellow-500';
-    } else {
+    } else if (status === 'CANCELED') {
         return 'bg-red-500';
+    } else {
+        return 'bg-gray-500';
     }
 }
 const handleButton = (id) => {
