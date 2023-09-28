@@ -43,6 +43,8 @@ const getType = (notification) => {
 const handleClick = (notification) => {
     if (notification.type === 'message') {
         return router.visit(`/chat/${notification.notifiable.chat_room_id}`)
+    } else if (notification.type === 'card') {
+        return router.visit(`/cards`)
     } else {
         return router.visit(`/transactions/balance/?full_name=${notification.notifiable.full_name}`)
     }

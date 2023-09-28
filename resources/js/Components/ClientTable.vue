@@ -86,7 +86,7 @@ const closeModal = () => {
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                                v-text="client.balance"
+                                v-text="client.balance.toLocaleString('en-US')"
                             ></td>
                             <td
                                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"

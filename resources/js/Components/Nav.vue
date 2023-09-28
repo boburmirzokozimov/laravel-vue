@@ -90,13 +90,13 @@ const show = ref(false)
                         <i
                             :class="{
                             'text-white':$page.component.startsWith('Transactions'),
-                            'text-yellow-500':$page.props.notifications.length > 0
+                            'text-yellow-500':$page.props.balanceNotificationsCount+$page.props.metalNotificationsCount+$page.props.cryptoNotificationsCount !== 0 
                         }"
                             class="fa fa-bar-chart fa-2x relative">
                             <span
-                                :class="$page.props.notifications.length > 0 ? 'text-yellow-500' : ''"
+                                :class="$page.props.balanceNotificationsCount+$page.props.metalNotificationsCount+$page.props.cryptoNotificationsCount !== 0  ? 'text-yellow-500' : ''"
                                 class="text-xs absolute -top-2"
-                                v-text="$page.props.notifications.length > 0 ? $page.props.balanceNotificationsCount+$page.props.metalNotificationsCount+$page.props.cryptoNotificationsCount : ''"
+                                v-text="$page.props.balanceNotificationsCount+$page.props.metalNotificationsCount+$page.props.cryptoNotificationsCount !== 0 ? $page.props.balanceNotificationsCount+$page.props.metalNotificationsCount+$page.props.cryptoNotificationsCount : ''"
                             >
                             </span>
                         </i>
