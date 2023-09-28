@@ -263,13 +263,4 @@ class Client extends Authenticatable
     {
         return $this->hasOne(ChatRoom::class);
     }
-
-    protected function balance(): Attribute
-    {
-        return Attribute::make(
-            get: function (string $value) {
-                return number_format($value);
-            }
-        );
-    }
 }
